@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class AppDisplay extends JFrame {
 
@@ -48,6 +49,7 @@ public class AppDisplay extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("Company");
+		btnNewButton.setBackground(Color.WHITE);
 		contentPane.add(btnNewButton, BorderLayout.SOUTH);
 		
 		JButton btnNewButton_1 = new JButton("Patient");
@@ -65,6 +67,7 @@ public class AppDisplay extends JFrame {
 		contentPane.add(btnNewButton_1, BorderLayout.NORTH);
 		
 		txtProsthetidist = new JTextField();
+		txtProsthetidist.setBackground(Color.LIGHT_GRAY);
 		txtProsthetidist.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProsthetidist.setFont(new Font("Segoe UI Black", Font.ITALIC, 47));
 		txtProsthetidist.setText("PROSTHETIDIST\r\n");
