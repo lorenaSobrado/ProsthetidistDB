@@ -107,8 +107,8 @@ public class Patient implements Serializable {
 	}
 
 
-	public void setDob(Date dob) {
-		this.dob = dob;
+	public void setDob(String s) {
+		this.dob = Date.parse(s);
 	}
 
 

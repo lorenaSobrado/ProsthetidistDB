@@ -16,11 +16,17 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class PatientMenuDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -50,7 +56,7 @@ public class PatientMenuDisplay extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(339, 231, 89, 23);
+		btnNewButton.setBounds(337, 240, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		table = new JTable();
@@ -78,7 +84,36 @@ public class PatientMenuDisplay extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		});
-		table.setBounds(26, 45, 378, 172);
+		table.setBounds(27, 58, 378, 172);
 		contentPane.add(table);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setBounds(58, 26, 96, 19);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("User");
+		lblNewLabel.setToolTipText("User\r\n");
+		lblNewLabel.setBounds(27, 29, 45, 13);
+		contentPane.add(lblNewLabel);
+	
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Design", "Order"}));
+		comboBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				if(comboBox.getSelectedIndex()==1) {
+					JFrame orderdisplay= new OrderDisplay();
+					orderdisplay.setVisible(true);
+				}
+				
+			}
+		});
+		comboBox.setBounds(287, 25, 96, 21);
+		contentPane.add(comboBox);
+		
+		
 	}
 }
