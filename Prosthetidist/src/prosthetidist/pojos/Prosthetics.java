@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Prosthetic implements Serializable{
+public class Prosthetics implements Serializable{
 
 	private static final long serialVersionUID = -6066466581324943260L;
 	
@@ -19,13 +19,13 @@ public class Prosthetic implements Serializable{
 	private String model;
 	private Company company;
 	private List<Measurements> measuremetsList;
-	private List<Material> materials;
+	private List<Materials> materials;
 	private Patient patient;
 	private List<Invoice> invoices;
 	
 	//CONSTRUCTORS
 	
-	public Prosthetic() {
+	public Prosthetics() {
 		super();
 		this.measuremetsList = new ArrayList();
 		this.materials = new ArrayList();
@@ -47,7 +47,7 @@ public class Prosthetic implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Prosthetic other = (Prosthetic) obj;
+		Prosthetics other = (Prosthetics) obj;
 		return Objects.equals(code, other.code);
 	}
 
