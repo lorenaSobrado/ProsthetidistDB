@@ -73,16 +73,69 @@ public class JDBCManager {
 					+ ");";
 
 			stmt.executeUpdate(sql);
-			/*
-			sql = "CREATE TABLE examines ("
-			+ "	dogId	INTEGER,"
-			+ "	vetId	INTEGER,"
-			+ "	FOREIGN KEY(dogId) REFERENCES dogs(id) ON DELETE CASCADE,"
-			+ "	FOREIGN KEY(vetId) REFERENCES vets(id) ON DELETE CASCADE,"
-			+ "	PRIMARY KEY(dogId,vetId)\r\n"
+			
+			sql = "CREATE TABLE Materials ("
+					+ "Name	TEXT,"
+					+"Cost	REAL,"
+					+"Strength	TEXT,"
+					+"Flexibility TEXT,"
+					+"Temperature_resistance TEXT,"
+					+"PRIMARY KEY(Name)" 
+					+ ");";
+
+			stmt.executeUpdate(sql);
+			
+			sql = "CREATE TABLE Prosthetics ("
+					+"Code	INTEGER,"
+					+"Price	REAL,"
+					+"Abilities	TEXT,"
+					+"Type TEXT,"
+					+"Model TEXT,"
+					+"Patient_id INTEGER,"
+					+"Company_id INTEGER,"
+					+"PRIMARY KEY(Code AUTOINCREMENT)," 
+					+"FOREIGN KEY (Patient_id) REFERENCES Patient(Id),"//@HELP en el doc db distinto escrito ask
+					+"FOREIGN KEY(Company_id) REFERENCES Company(Id)"
+					+ ");";
+
+			stmt.executeUpdate(sql);
+			
+			sql = "CREATE TABLE PatientBuysProsthetics ("
+			+ "	PatientID	INTEGER,"
+			+ "	CompanyID	INTEGER,"
+			+ "	FOREIGN KEY(CompanyID) REFERENCES Company(Id),"
+			+ "	FOREIGN KEY(PatientID) REFERENCES Patient(id),"
+			+ "	PRIMARY KEY(PatientID,CompanyID)\r\n"
 			+ ");";
 			stmt.executeUpdate(sql);
-			*/
+			
+			sql = "CREATE TABLE PatientContactsCompany ("
+			+ "	PatientID	INTEGER,"
+			+ "	ProstheticCODE	INTEGER,"
+			+ "	FOREIGN KEY(ProstheticCODE) REFERENCES Prosthetics(Code),"
+			+ "	FOREIGN KEY(PatientID) REFERENCES Patient(id),"
+			+ "	PRIMARY KEY(PatientID,ProstheticCODE)\r\n"
+			+ ");";
+			stmt.executeUpdate(sql);
+			
+			sql = "CREATE TABLE ProstheticHasMeasurements ("
+			+ "	MeasurementSIZE	TEXT,"
+			+ "	ProstheticCODE	INTEGER,"
+			+ "	FOREIGN KEY(ProstheticCODE) REFERENCES Prosthetics(Code),"
+			+ "	FOREIGN KEY(MeasurementSIZE) REFERENCES Measurements(size),"
+			+ "	PRIMARY KEY(ProstheticCODE, MeasurementSIZE)\r\n"
+			+ ");";
+			stmt.executeUpdate(sql);
+			
+			sql = "CREATE TABLE ProstheticHasMaterials ("
+			+ "	ProstheticCODE	INTEGER,"
+			+ "	MaterialsNAME	TEXT,"
+			+ "	FOREIGN KEY(ProstheticCODE) REFERENCES Prosthetics(Code),"
+			+ "	FOREIGN KEY(ProstheticCODE) REFERENCES Materials(name),"
+			+ "	PRIMARY KEY(ProstheticCODE, MaterialsNAME)\r\n"
+			+ ");";
+			stmt.executeUpdate(sql);
+			
 			
 			} catch (SQLException e) {
 				// Do not complain if tables already exist
