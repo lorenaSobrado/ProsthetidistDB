@@ -1,0 +1,81 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "Patient" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"Email"	TEXT,
+	"DOB"	DATE,
+	"Adress"	TEXT,
+	"Phonenumber"	INTEGER UNIQUE,
+	"Notes"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Measurements" (
+	"Size"	TEXT,
+	"Lengthiness"	REAL,
+	"Width"	REAL,
+	"Weight"	REAL,
+	PRIMARY KEY("Size")
+);
+CREATE TABLE IF NOT EXISTS "Company" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"Email"	TEXT,
+	"Phone"	INTEGER,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Delivery" (
+	"Id"	INTEGER,
+	"Type"	TEXT,
+	"Price"	REAL,
+	"Description"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Materials" (
+	"Name"	TEXT,
+	"Cost"	REAL,
+	"Strength"	TEXT,
+	"Flexibility"	TEXT,
+	"Temperature_resistance"	TEXT,
+	PRIMARY KEY("Name")
+);
+CREATE TABLE IF NOT EXISTS "Prosthetics" (
+	"Code"	INTEGER,
+	"Price"	REAL,
+	"Habilities"	TEXT,
+	"Type"	TEXT,
+	"Model"	TEXT,
+	"Patient_id"	INTEGER,
+	"Company_id"	INTEGER,
+	PRIMARY KEY("Code" AUTOINCREMENT),
+	FOREIGN KEY("Patient_id") REFERENCES "Patient"("id"),
+	FOREIGN KEY("Company_id") REFERENCES "Company"("id")
+);
+CREATE TABLE IF NOT EXISTS "PatientBuysProsthetics" (
+	"PatientID"	INTEGER,
+	"CompanyID"	INTEGER,
+	PRIMARY KEY("PatientID","CompanyID"),
+	FOREIGN KEY("CompanyID") REFERENCES "Company"("id"),
+	FOREIGN KEY("PatientID") REFERENCES "Patient"("id")
+);
+CREATE TABLE IF NOT EXISTS "PatientContactsCompany" (
+	"PatientID"	INTEGER,
+	"ProstheticCODE"	INTEGER,
+	PRIMARY KEY("PatientID","ProstheticCODE"),
+	FOREIGN KEY("ProstheticCODE") REFERENCES "Prosthetics"("Code"),
+	FOREIGN KEY("PatientID") REFERENCES "Patient"("id")
+);
+CREATE TABLE IF NOT EXISTS "ProstheticHasMeasurements" (
+	"ProstheticCODE"	INTEGER,
+	"MeasurementSIZE"	TEXT,
+	PRIMARY KEY("ProstheticCODE","MeasurementSIZE"),
+	FOREIGN KEY("ProstheticCODE") REFERENCES "Prosthetics"("Code"),
+	FOREIGN KEY("MeasurementSIZE") REFERENCES "Measurements"("size")
+);
+CREATE TABLE IF NOT EXISTS "ProstheticsHasMaterials" (
+	"ProstheticCODE"	INTEGER,
+	"MaterialsNAME"	TEXT,
+	PRIMARY KEY("ProstheticCODE","MaterialsNAME"),
+	FOREIGN KEY("ProstheticCODE") REFERENCES "Prosthetics"("Code"),
+	FOREIGN KEY("MaterialsNAME") REFERENCES "Materials"("name")
+);
+COMMIT;
