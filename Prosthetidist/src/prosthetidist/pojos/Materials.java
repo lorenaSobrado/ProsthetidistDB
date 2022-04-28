@@ -3,7 +3,7 @@ package prosthetidist.pojos;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Material implements Serializable{
+public class Materials implements Serializable{
 
 	/**
 	 * 
@@ -15,7 +15,7 @@ public class Material implements Serializable{
 	private String TemperatureResistence;
 	private String Flexibility;
 	
-	public Material () {
+	public Materials () {
 		super();
 	}
 
@@ -78,7 +78,7 @@ public class Material implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Material other = (Material) obj;
+		Materials other = (Materials) obj;
 		return Objects.equals(Name, other.Name);
 	}
 	

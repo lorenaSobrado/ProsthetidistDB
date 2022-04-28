@@ -16,13 +16,13 @@ public class Company implements Serializable{
 	private String name;
 	private String email;
 	private Integer phone;
-	private List<Prosthetic> Prosthetics;
-	
+	private List<Prosthetics> prosthetics;
+	//@TODO list all prosthetics
 	//CONSTRUCTORS
 	
 	public Company() {
 		super();
-		this.Prosthetics = new ArrayList();
+		this.prosthetics = new ArrayList<>();
 	}
 	
 	//EQUALS
@@ -85,9 +85,47 @@ public class Company implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", Prosthetics="
-				+ Prosthetics + "]";
+		return "Company [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + "]";
+	}
+
+	//Additional methods addProsthetic and deleteProsthetic
+	//IT WORKS
+	public void addProsthetic (Prosthetics p) {
+		
+		//@TODO PROSTHETIC CONSTRUCTOR completo
+		if (!prosthetics.contains(p)) {
+			prosthetics.add(p);
+			//now the prosthetic is added to the list
+	}
+		
+	}
+//IT WORKS
+	public void deleteProsthetic (Prosthetics p) {
+		prosthetics.remove(p);
+	//now the prosthetic is removed from the list
+	}
+//IT WORKS, see functionality
+	public void showProsthetics () {
+		for ( Prosthetics p: prosthetics ) {
+			System.out.println(p);
+		}
 	}
 	
+	//just for check if everything works
+/*	public static void main(String args[]) {
+		
+		Prosthetics pt;
+		Prosthetics pt2;
+		pt= new Prosthetics (01, 10.7F, "puedes andar","45E","kk");
+		pt2= new Prosthetics (02, 12.7F, "pues andar","45E","kk");
 
-}
+		Company c= new Company();
+		c.addProsthetic(pt);
+		c.addProsthetic(pt2);
+		c.deleteProsthetic(pt);
+		c.showProsthetics();
+
+	}
+	*/
+	}
+
