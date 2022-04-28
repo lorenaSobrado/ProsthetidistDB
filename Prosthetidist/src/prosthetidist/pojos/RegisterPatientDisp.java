@@ -1,6 +1,7 @@
 package prosthetidist.pojos;
 
 import java.awt.BorderLayout;
+import prosthetidist.pojos.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,6 +13,8 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Date;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegisterPatientDisp extends JFrame {
 
@@ -132,8 +135,20 @@ public class RegisterPatientDisp extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RegisterPatientDisp.this.setVisible(false);
+			}
+		});
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			
+			}
+		});
 		btnNewButton_1.setBounds(341, 232, 85, 21);
 		contentPane.add(btnNewButton_1);
 	}
+	
 
 }
