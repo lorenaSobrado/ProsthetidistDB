@@ -1,4 +1,3 @@
-
 package prosthetidist.pojos;
 
 import java.io.Serializable;
@@ -128,4 +127,6 @@ public class Company implements Serializable{
 	}
 	*/
 	}
+
+
 
