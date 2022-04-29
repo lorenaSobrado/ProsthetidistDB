@@ -31,6 +31,15 @@ public class Prosthetics implements Serializable{
 		this.materials = new ArrayList();
 		this.invoices = new ArrayList();
 	}
+	//test constructor
+	public Prosthetics(Integer code, Float price, String abilities, String type, String model) {
+		this.code=code;
+		this.price=price;
+		this.abilities=abilities;
+		this.type=type;
+		this.model=model;
+	}
+	
 	
 	//EQUALS
 

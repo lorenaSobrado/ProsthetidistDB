@@ -62,6 +62,18 @@ public class PatientDisplay extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Register");
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				JFrame r = new RegisterPatientDisp();
+				r.setVisible(true);
+			}
+		});
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_2.setBounds(161, 144, 89, 23);
 		contentPane.add(btnNewButton_2);
 	}
