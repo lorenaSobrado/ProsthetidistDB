@@ -39,7 +39,7 @@ public class JDBCManager {
 		public Connection getConnection() {
 			return c;
 		}
-		
+		//@TODO finish tables
 		private void createTables() {
 			// Create Tables
 			try {

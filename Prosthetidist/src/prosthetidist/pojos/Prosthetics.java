@@ -14,11 +14,11 @@ public class Prosthetics implements Serializable{
 	
 	private Integer code;
 	private Float price;
-	private String abilities;
+	private String functionalities;
 	private String type;
 	private String model;
 	private Company company;
-	private List<Measurements> measuremetsList;
+	private Measurements measurements;
 	private List<Materials> materials;
 	private Patient patient;
 	private List<Invoice> invoices;
@@ -27,15 +27,19 @@ public class Prosthetics implements Serializable{
 	
 	public Prosthetics() {
 		super();
-		this.measuremetsList = new ArrayList();
+		this.measurementsList = new ArrayList();
 		this.materials = new ArrayList();
 		this.invoices = new ArrayList();
+	}
+	//@TODO problemas
+	public Prosthetics (Integer code, Float price, String functionalities, String type, String model, Company company, Measurement measurement) {
+		
 	}
 	//test constructor
 	public Prosthetics(Integer code, Float price, String abilities, String type, String model) {
 		this.code=code;
 		this.price=price;
-		this.abilities=abilities;
+		this.functionalities=abilities;
 		this.type=type;
 		this.model=model;
 	}
@@ -84,13 +88,13 @@ public class Prosthetics implements Serializable{
 	}
 
 
-	public String getAbilities() {
-		return abilities;
+	public String getFunctionalities() {
+		return functionalities;
 	}
 
 
-	public void setAbilities(String abilities) {
-		this.abilities = abilities;
+	public void setFunctionalities(String functionalities) {
+		this.functionalities = functionalities;
 	}
 
 
@@ -122,11 +126,37 @@ public class Prosthetics implements Serializable{
 		this.company = company;
 	}
 	
+	public Measurements getMeasurements() {
+		return measurements;
+	}
+	public void setMeasurements(Measurements measurements) {
+		this.measurements = measurements;
+	}
+	public List<Materials> getMaterials() {
+		return materials;
+	}
+	public void setMaterials(List<Materials> materials) {
+		this.materials = materials;
+	}
+	public Patient getPatient() {
+		return patient;
+	}
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+	public List<Invoice> getInvoices() {
+		return invoices;
+	}
+	public void setInvoices(List<Invoice> invoices) {
+		this.invoices = invoices;
+	}
+	
 	//TO STRING
+
 
 	@Override
 	public String toString() {
-		return "Prosthetics [code=" + code + ", price=" + price + ", abilities=" + abilities + ", type=" + type
+		return "Prosthetics [code=" + code + ", price=" + price + ", abilities=" + functionalities + ", type=" + type
 				+ ", model=" + model + "]";
 	}
 	

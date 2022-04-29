@@ -103,7 +103,7 @@ public class Company implements Serializable{
 		prosthetics.remove(p);
 	//now the prosthetic is removed from the list
 	}
-//IT WORKS, see functionality
+//IT WORKS, ver si sirve
 	public void showProsthetics () {
 		for ( Prosthetics p: prosthetics ) {
 			System.out.println(p);
