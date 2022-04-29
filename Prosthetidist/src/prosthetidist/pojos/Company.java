@@ -17,12 +17,13 @@ public class Company implements Serializable{
 	private String email;
 	private Integer phone;
 	private List<Prosthetics> prosthetics;
+	
 	//@TODO list all prosthetics
 	//CONSTRUCTORS
 	
 	public Company() {
 		super();
-		this.prosthetics = new ArrayList();
+		this.prosthetics = new ArrayList<>();
 	}
 	
 	//EQUALS
@@ -89,12 +90,15 @@ public class Company implements Serializable{
 	}
 
 	//Additional methods addProsthetic and deleteProsthetic
+	
+	
 	public void addProsthetic (Prosthetics p) {
 		//@TODO PROSTHETIC CONSTRUCTOR
 		if (!prosthetics.contains(p)) {
 			this.prosthetics.add(p);
 			//now the prosthetic is added to the list
 	}
+		System.out.println("La ha llamado");
 		
 	}
 	
@@ -103,6 +107,15 @@ public class Company implements Serializable{
 	public void deleteProsthetic (Prosthetics p) {
 		this.prosthetics.remove(p);
 	//now the prosthetic is removed from the list
+	}
+	
+	public static void main (String args[]) {
+		
+		Prosthetics p= new Prosthetics();
+		Company c =new Company ();
+		
+		c.addProsthetic(p);
+	
 	}
 		
 }
