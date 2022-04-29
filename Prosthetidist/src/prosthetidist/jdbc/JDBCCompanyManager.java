@@ -16,7 +16,7 @@ public JDBCCompanyManager(JDBCManager m) {
 
 //@Override
 //@help tendria sentido hacer un listbycompanyID?
-
+/*
 public void deleteCompany (int companyId) {
 	try {
 		String sql = "DELETE FROM Company WHERE Id= ?";
@@ -28,5 +28,5 @@ public void deleteCompany (int companyId) {
 		ex.printStackTrace();
 	}
 }
-
+*/
 }

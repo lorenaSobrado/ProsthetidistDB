@@ -32,11 +32,11 @@ public class JDBCManager {
 			try {
 			Statement stmt = c.createStatement();
 			String sql = "CREATE TABLE Patient ("
-			+ "	Id	    INTEGER"
-			+ "	Name	TEXT"
-			+ "	Email	TEXT"
-			+ " DOB     DATE"
-			+ " Adress  TEXT"
+			+ "	Id	    INTEGER,"
+			+ "	Name	TEXT,"
+			+ "	Email	TEXT UNIQUE."
+			+ " DOB     DATE,"
+			+ " Adress  TEXT,"
 			+ "	Phonenumber	INTEGER UNIQUE,"
 			+ "	Notes	TEXT,"
 			+ "	PRIMARY KEY (Id AUTOINCREMENT)"
@@ -65,38 +65,38 @@ public class JDBCManager {
 			stmt.executeUpdate(sql);
 		
 			sql = "CREATE TABLE Delivery ("
-					+ " Id	INTEGER,"
-					+"Type	TEXT,"
-					+"Price	REAL,"
-					+"Description TEXT,"
-					+"PRIMARY KEY(Id AUTOINCREMENT)" 
-					+ ");";
+			+ " Id	INTEGER,"
+			+"Type	TEXT,"
+			+"Price	REAL,"
+			+"Description TEXT,"
+			+"PRIMARY KEY(Id AUTOINCREMENT)" 
+			+ ");";
 
 			stmt.executeUpdate(sql);
 			
 			sql = "CREATE TABLE Materials ("
-					+ "Name	TEXT,"
-					+"Cost	REAL,"
-					+"Strength	TEXT,"
-					+"Flexibility TEXT,"
-					+"Temperature_resistance TEXT,"
-					+"PRIMARY KEY(Name)" 
-					+ ");";
+			+ "Name	TEXT,"
+			+ "Cost	REAL,"
+			+"Strength	TEXT,"
+			+"Flexibility TEXT,"
+			+"Temperature_resistance TEXT,"
+			+"PRIMARY KEY(Name)" 
+			+ ");";
 
 			stmt.executeUpdate(sql);
 			
 			sql = "CREATE TABLE Prosthetics ("
-					+"Code	INTEGER,"
-					+"Price	REAL,"
-					+"Abilities	TEXT,"
-					+"Type TEXT,"
-					+"Model TEXT,"
-					+"Patient_id INTEGER,"
-					+"Company_id INTEGER,"
-					+"PRIMARY KEY(Code AUTOINCREMENT)," 
-					+"FOREIGN KEY (Patient_id) REFERENCES Patient(Id),"//@HELP en el doc db distinto escrito ask
-					+"FOREIGN KEY(Company_id) REFERENCES Company(Id)"
-					+ ");";
+			+"Code	INTEGER,"
+			+"Price	REAL,"
+			+"Abilities	TEXT,"
+			+"Type TEXT,"
+			+"Model TEXT,"
+			+"Patient_id INTEGER,"
+			+"Company_id INTEGER,"
+			+"PRIMARY KEY(Code AUTOINCREMENT)," 
+			+"FOREIGN KEY (Patient_id) REFERENCES Patient(Id),"//@HELP en el doc db distinto escrito ask
+			+"FOREIGN KEY(Company_id) REFERENCES Company(Id)"
+			+ ");";
 
 			stmt.executeUpdate(sql);
 			
