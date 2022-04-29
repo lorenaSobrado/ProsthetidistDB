@@ -24,7 +24,20 @@ public class JDBCManager {
 				System.out.println("Libraries not loaded");
 			}
 			
-			
+
+		}
+		
+		public void disconnect () {
+			try {
+				c.close();
+			}
+			catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		
+		public Connection getConnection() {
+			return c;
 		}
 		
 		private void createTables() {
