@@ -24,6 +24,14 @@ public class Company implements Serializable{
 		this.prosthetics = new ArrayList<>();
 	}
 	
+	//@CHECK
+	public Company (Integer id, String name, String email, Integer phone) {
+		//necesita super?
+		this.id=id;
+		this.name=name;
+		this.email=email;
+		this.phone=phone;
+	}
 	//EQUALS
 	
 	@Override
