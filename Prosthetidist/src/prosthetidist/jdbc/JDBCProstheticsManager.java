@@ -42,6 +42,8 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 				String model = rs.getString("Model");
 				Integer company_id = rs.getInt("Company_id");
 				Integer measurement_id= rs.getInt("Measurement_id");
+				
+				//FALTAN LOS MATERIALES
 			
 				
 				c=cm.getCompanyById(company_id);
