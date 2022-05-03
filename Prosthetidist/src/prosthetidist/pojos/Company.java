@@ -1,4 +1,3 @@
-
 package prosthetidist.pojos;
 
 import java.io.Serializable;
@@ -25,6 +24,14 @@ public class Company implements Serializable{
 		this.prosthetics = new ArrayList<>();
 	}
 	
+	//@CHECK
+	public Company (Integer id, String name, String email, Integer phone) {
+		//necesita super?
+		this.id=id;
+		this.name=name;
+		this.email=email;
+		this.phone=phone;
+	}
 	//EQUALS
 	
 	@Override
@@ -104,7 +111,7 @@ public class Company implements Serializable{
 		prosthetics.remove(p);
 	//now the prosthetic is removed from the list
 	}
-//IT WORKS, see functionality
+//IT WORKS, ver si sirve
 	public void showProsthetics () {
 		for ( Prosthetics p: prosthetics ) {
 			System.out.println(p);
@@ -128,4 +135,6 @@ public class Company implements Serializable{
 	}
 	*/
 	}
+
+
 
