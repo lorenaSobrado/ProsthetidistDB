@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CompanyOptions extends JFrame {
 
@@ -40,6 +42,13 @@ public class CompanyOptions extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("UPLOAD PROSTHETIC");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				JFrame uploadprost = new UploadProst();
+				uploadprost.setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(149, 55, 178, 29);
 		contentPane.add(btnNewButton);
 		
