@@ -1,6 +1,7 @@
 package SwingWindows;
 
 import java.awt.BorderLayout;
+
 import prosthetidist.pojos.*;
 import java.awt.EventQueue;
 
@@ -8,17 +9,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.sql.Date;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class RegisterPatientDisp extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -53,6 +57,8 @@ public class RegisterPatientDisp extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
+		
+		
 		JLabel lblNewLabel_1 = new JLabel("Name");
 		lblNewLabel_1.setBounds(10, 73, 61, 13);
 		contentPane.add(lblNewLabel_1);
@@ -77,6 +83,7 @@ public class RegisterPatientDisp extends JFrame {
 		lblNewLabel_6.setBounds(10, 192, 61, 27);
 		contentPane.add(lblNewLabel_6);
 		
+	
 		textField_1 = new JTextField();
 		textField_1.setBounds(81, 70, 96, 19);
 		contentPane.add(textField_1);
@@ -110,33 +117,36 @@ public class RegisterPatientDisp extends JFrame {
 		JButton btnNewButton = new JButton("Ok");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
+			
 			public void mouseReleased(MouseEvent e) {
-				Patient patient = new Patient();
-				if() {
+				if(textField_1.getText().length()>0 && textField_2.getText().length()>0
+						&& textField_3.getText().length()>0 && textField_4.getText().length()>0
+						&& textField_5.getText().length()>0 && textField_6.getText().length()>0) {
+					boolean Validar=true;
+					JFrame patmenudisp = new PatientMenuDisplay();
+					patmenudisp.setVisible(Validar);
+					Patient patient = new Patient();
+					patient.setName(textField_1.getText());
+					patient.setEmail(textField_2.getText());
+					patient.setPhone(Integer.parseInt(textField_3.getText()));
+					patient.setAddress(textField_4.getText());
+					patient.setNotes(textField_5.getText());
+					patient.setDob(textField_6.getText());
 					
-				}else {patient.setName(textField_1.getText());}
-				if() {
-					
-				}else {patient.setEmail(textField_2.getText());}
-				if() {
-					
-				}else {patient.setPhone(Integer.parseInt(textField_3.getText()));}
-				if() {
-					
-				}else {patient.setAdress(textField_4.getText());}
-				if() {
-					
-				}else {patient.setNotes(textField_5.getText());}
-				if() {
-					
-				}else {patient.setDob(Date.parse(textField_6.getText()));}
+				}else {
+					validarDatos();
+				}
 				
 				
-				
-				
-				
-				
-				
+				//patient.setDob(new SimpleDateFormat("dd-MM-yyyy").parse(textField_6.getText()));
+				//patient.setDob(date.parse(textField_6.getText())); 
+				/*LocalDate:
+				 * patient.setDob(LocalDate.parse("yyyy-MM-dd"));
+				 * EN Date:
+				 * SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+				 * Date date = f.parse(textField_6.getText());
+				 * patient.setDob(date);
+				*/
 			}
 		});
 		btnNewButton.setBounds(225, 232, 85, 21);
@@ -157,6 +167,8 @@ public class RegisterPatientDisp extends JFrame {
 		btnNewButton_1.setBounds(341, 232, 85, 21);
 		contentPane.add(btnNewButton_1);
 	}
-	
+	public void validarDatos() {
+		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
+	}
 
 }

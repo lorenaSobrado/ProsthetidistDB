@@ -59,6 +59,12 @@ public class PatientMenuDisplay extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				PatientMenuDisplay.this.setVisible(false);
+			}
+		});
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -106,6 +112,13 @@ public class PatientMenuDisplay extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("Design");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				JFrame jframe = new DesignProsth();
+				jframe.setVisible(true);
+			}
+		});
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -114,6 +127,13 @@ public class PatientMenuDisplay extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Order");
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				JFrame orderFrame= new OrderDisplay();
+				orderFrame.setVisible(true);
+			}
+		});
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

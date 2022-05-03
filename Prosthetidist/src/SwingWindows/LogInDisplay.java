@@ -9,17 +9,20 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class LogInDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -49,26 +52,35 @@ public class LogInDisplay extends JFrame {
 		setContentPane(contentPane);
 		
 		textField = new JTextField();
-		textField.setBounds(48, 73, 96, 20);
+		textField.setBounds(131, 64, 96, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(48, 104, 96, 20);
+		textField_1.setBounds(131, 101, 96, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(48, 135, 96, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
 		JButton btnNewButton = new JButton("Ok");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				JFrame patientMenuDisplay = new PatientMenuDisplay();
-				patientMenuDisplay.setVisible(true);
+				boolean Validado= false;
+				if(textField.getText().length()>0 || textField_1.getText().length()>0) {
+					Validado=true;
+					JFrame patientMenuDisplay = new PatientMenuDisplay();
+					patientMenuDisplay.setVisible(Validado);
+				}else {
+					Validado = false;
+					validarDatos();JFrame patientMenuDisplay = new PatientMenuDisplay();
+					patientMenuDisplay.setVisible(Validado);
+					
+				}
+				
 			}
 		});
 		btnNewButton.setBounds(221, 230, 89, 23);
@@ -87,5 +99,18 @@ public class LogInDisplay extends JFrame {
 		});
 		btnNewButton_1.setBounds(320, 231, 85, 21);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("Email");
+		lblNewLabel.setBounds(28, 67, 45, 13);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Password");
+		lblNewLabel_1.setBounds(28, 104, 45, 13);
+		contentPane.add(lblNewLabel_1);
+	}
+	public void validarDatos() {
+		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
 }
+
+

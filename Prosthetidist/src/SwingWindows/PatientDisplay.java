@@ -46,6 +46,16 @@ public class PatientDisplay extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("Back");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+		});
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PatientDisplay.this.setVisible(false);
+			}
+		});
 		btnNewButton.setBounds(339, 231, 89, 23);
 		contentPane.add(btnNewButton);
 		
