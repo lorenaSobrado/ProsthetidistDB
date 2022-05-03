@@ -1,4 +1,4 @@
-package prosthetidist.pojos;
+package SwingWindows;
 
 import java.awt.BorderLayout;
 import prosthetidist.pojos.*;
@@ -19,7 +19,6 @@ import java.awt.event.ActionEvent;
 public class RegisterPatientDisp extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -54,10 +53,6 @@ public class RegisterPatientDisp extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Id");
-		lblNewLabel.setBounds(10, 49, 61, 14);
-		contentPane.add(lblNewLabel);
-		
 		JLabel lblNewLabel_1 = new JLabel("Name");
 		lblNewLabel_1.setBounds(10, 73, 61, 13);
 		contentPane.add(lblNewLabel_1);
@@ -81,11 +76,6 @@ public class RegisterPatientDisp extends JFrame {
 		JLabel lblNewLabel_6 = new JLabel("Date of Birth");
 		lblNewLabel_6.setBounds(10, 192, 61, 27);
 		contentPane.add(lblNewLabel_6);
-		
-		textField = new JTextField();
-		textField.setBounds(81, 46, 96, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(81, 70, 96, 19);
@@ -122,13 +112,31 @@ public class RegisterPatientDisp extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				Patient patient = new Patient();
-				patient.setName(textField.getText());
-				patient.setName(textField_1.getText());
-				patient.setEmail(textField_2.getText());
-				patient.setPhone(Integer.parseInt(textField_3.getText()));
-				patient.setAdress(textField_4.getText());
-				patient.setNotes(textField_5.getText());
-				patient.setDob(Date.parse(textField_6.getText()));
+				if() {
+					
+				}else {patient.setName(textField_1.getText());}
+				if() {
+					
+				}else {patient.setEmail(textField_2.getText());}
+				if() {
+					
+				}else {patient.setPhone(Integer.parseInt(textField_3.getText()));}
+				if() {
+					
+				}else {patient.setAdress(textField_4.getText());}
+				if() {
+					
+				}else {patient.setNotes(textField_5.getText());}
+				if() {
+					
+				}else {patient.setDob(Date.parse(textField_6.getText()));}
+				
+				
+				
+				
+				
+				
+				
 			}
 		});
 		btnNewButton.setBounds(225, 232, 85, 21);

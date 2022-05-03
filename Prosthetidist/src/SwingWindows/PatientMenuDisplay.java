@@ -1,4 +1,4 @@
-package prosthetidist.pojos;
+package SwingWindows;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -14,6 +14,7 @@ import javax.swing.AbstractListModel;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextField;
@@ -21,6 +22,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PatientMenuDisplay extends JFrame {
 
@@ -55,7 +58,11 @@ public class PatientMenuDisplay extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setBounds(337, 240, 89, 23);
 		contentPane.add(btnNewButton);
 		
@@ -68,7 +75,7 @@ public class PatientMenuDisplay extends JFrame {
 		});
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{new Integer(155), null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
@@ -97,22 +104,22 @@ public class PatientMenuDisplay extends JFrame {
 		lblNewLabel.setToolTipText("User\r\n");
 		lblNewLabel.setBounds(27, 29, 45, 13);
 		contentPane.add(lblNewLabel);
-	
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Design", "Order"}));
-		comboBox.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if(comboBox.getSelectedIndex()==1) {
-					JFrame orderdisplay= new OrderDisplay();
-					orderdisplay.setVisible(true);
-				}
-				
+		JButton btnNewButton_1 = new JButton("Design");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		comboBox.setBounds(287, 25, 96, 21);
-		contentPane.add(comboBox);
+		btnNewButton_1.setBounds(341, 25, 85, 21);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Order");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_2.setBounds(241, 241, 85, 21);
+		contentPane.add(btnNewButton_2);
 		
 		
 	}

@@ -1,4 +1,4 @@
-package prosthetidist.pojos;
+package SwingWindows;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

@@ -1,4 +1,4 @@
-package prosthetidist.pojos;
+package SwingWindows;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LogInDisplay extends JFrame {
 
@@ -69,8 +71,21 @@ public class LogInDisplay extends JFrame {
 				patientMenuDisplay.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(319, 231, 89, 23);
+		btnNewButton.setBounds(221, 230, 89, 23);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				LogInDisplay.this.setVisible(false);
+			}
+		});
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(320, 231, 85, 21);
+		contentPane.add(btnNewButton_1);
 	}
-
 }
