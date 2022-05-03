@@ -12,7 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.sql.Date;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -126,9 +127,20 @@ public class RegisterPatientDisp extends JFrame {
 				patient.setName(textField_1.getText());
 				patient.setEmail(textField_2.getText());
 				patient.setPhone(Integer.parseInt(textField_3.getText()));
-				patient.setAdress(textField_4.getText());
+				patient.setAddress(textField_4.getText());
 				patient.setNotes(textField_5.getText());
-				patient.setDob(Date.parse(textField_6.getText()));
+				SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+				Date date = f.parse(textField_6.getText()); //preguntarle a redrigo si usar sql date o util date
+				patient.setDob(date);
+				//patient.setDob(new SimpleDateFormat("dd-MM-yyyy").parse(textField_6.getText()));
+				//patient.setDob(date.parse(textField_6.getText())); 
+				/*LocalDate:
+				 * patient.setDob(LocalDate.parse("yyyy-MM-dd"));
+				 * EN Date:
+				 * SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+				 * Date date = f.parse(textField_6.getText());
+				 * patient.setDob(date);
+				*/
 			}
 		});
 		btnNewButton.setBounds(225, 232, 85, 21);

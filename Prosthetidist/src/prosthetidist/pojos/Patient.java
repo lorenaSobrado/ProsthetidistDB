@@ -1,6 +1,7 @@
 package prosthetidist.pojos;
 
 import java.io.Serializable;
+
 import java.sql.Date;
 import java.util.Objects;
 
@@ -13,16 +14,18 @@ public class Patient implements Serializable {
 	private String name;
 	private String email;
 	private Integer phone;
-	private String adress;
+	private String address;
 	private String notes;
 	private Date dob;
 	
+	//CONSTRUCTORS
 	
 	public Patient() {
 	  super();
 	}
 
-
+	//EQUALS AND HASH CODE
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -40,7 +43,8 @@ public class Patient implements Serializable {
 		Patient other = (Patient) obj;
 		return Objects.equals(id, other.id);
 	}
-
+	
+	//GETTERS AND SETTERS
 
 	public Integer getId() {
 		return id;
@@ -82,13 +86,13 @@ public class Patient implements Serializable {
 	}
 
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 
@@ -114,7 +118,7 @@ public class Patient implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", adress=" + adress
+		return "Patient [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", address=" + address
 				+ ", notes=" + notes + ", dob=" + dob + "]";
 	}
 	
