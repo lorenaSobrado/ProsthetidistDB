@@ -1,6 +1,7 @@
 package prosthetidist.pojos;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,8 +16,8 @@ public class Company implements Serializable{
 	private String name;
 	private String email;
 	private Integer phone;
-	private List<Prosthetics> prosthetics;
-	//@TODO list all prosthetics
+	private List<Prosthetic> prosthetics;
+	
 	//CONSTRUCTORS
 	
 	public Company() {
@@ -25,13 +26,14 @@ public class Company implements Serializable{
 	}
 	
 	//@CHECK
-	public Company (Integer id, String name, String email, Integer phone) {
+	public Company(Integer id, String name, String email, Integer phone) {
 		//necesita super?
 		this.id=id;
 		this.name=name;
 		this.email=email;
 		this.phone=phone;
 	}
+	
 	//EQUALS
 	
 	@Override
@@ -97,7 +99,7 @@ public class Company implements Serializable{
 
 	//Additional methods addProsthetic and deleteProsthetic
 	//IT WORKS
-	public void addProsthetic (Prosthetics p) {
+	public void addProsthetic (Prosthetic p) {
 		
 		//@TODO PROSTHETIC CONSTRUCTOR completo
 		if (!prosthetics.contains(p)) {
@@ -107,13 +109,13 @@ public class Company implements Serializable{
 		
 	}
 //IT WORKS
-	public void deleteProsthetic (Prosthetics p) {
+	public void deleteProsthetic (Prosthetic p) {
 		prosthetics.remove(p);
 	//now the prosthetic is removed from the list
 	}
 //IT WORKS, ver si sirve
 	public void showProsthetics () {
-		for ( Prosthetics p: prosthetics ) {
+		for ( Prosthetic p: prosthetics ) {
 			System.out.println(p);
 		}
 	}
@@ -121,10 +123,10 @@ public class Company implements Serializable{
 	//just for check if everything works
 /*	public static void main(String args[]) {
 		
-		Prosthetics pt;
-		Prosthetics pt2;
-		pt= new Prosthetics (01, 10.7F, "puedes andar","45E","kk");
-		pt2= new Prosthetics (02, 12.7F, "pues andar","45E","kk");
+		Prosthetic pt;
+		Prosthetic pt2;
+		pt= new Prosthetic (01, 10.7F, "puedes andar","45E","kk");
+		pt2= new Prosthetic (02, 12.7F, "pues andar","45E","kk");
 
 		Company c= new Company();
 		c.addProsthetic(pt);

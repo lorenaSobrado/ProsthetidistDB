@@ -1,7 +1,7 @@
 package prosthetidist.ifaces;
 
 import prosthetidist.pojos.Company;
-import prosthetidist.pojos.Prosthetics;
+import prosthetidist.pojos.Prosthetic;
 
 public interface CompanyManager {
 	
@@ -9,6 +9,6 @@ public interface CompanyManager {
 	//delete a company by its id
 	public Company getCompanyById (int company_id);
 	//get a company by its id
-	public void uploadProsthetics (Prosthetics p);
+	public void uploadProsthetics (Prosthetic p);
 	//upload a prosthetic 
 }

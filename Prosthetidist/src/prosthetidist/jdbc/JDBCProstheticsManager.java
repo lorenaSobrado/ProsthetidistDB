@@ -10,7 +10,7 @@ import java.util.List;
 import prosthetidist.ifaces.ProstheticsManager;
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Measurements;
-import prosthetidist.pojos.Prosthetics;
+import prosthetidist.pojos.Prosthetic;
 
 
 public class JDBCProstheticsManager implements ProstheticsManager {
@@ -25,13 +25,13 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 	
 	
 	// @TODO comprobar si funciona
-	public List<Prosthetics> listAllProsthetics () {
-	List <Prosthetics> allProsthetics = new ArrayList<Prosthetics>();
+	public List<Prosthetic> listAllProsthetics () {
+	List <Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
 	Company c= null;
 	Measurements m= null;
 	try {
 			Statement stat = manager.getConnection().createStatement();
-			String sql= "SELECT * FROM Prosthetics";
+			String sql= "SELECT * FROM Prosthetic";
 			ResultSet rs = stat.executeQuery(sql);
 			//rs.next() moves to the next row of the table
 			while (rs.next()) {
@@ -46,7 +46,7 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 				
 				c=cm.getCompanyById(company_id);
 				m=mm.getMeasurementById(measurement_id);
-				Prosthetics p = new Prosthetics (code, price, functionalities, type, model, c);
+				Prosthetic p = new Prosthetic (code, price, functionalities, type, model, c);
 				allProsthetics.add(p);
 			}
 			rs.close();

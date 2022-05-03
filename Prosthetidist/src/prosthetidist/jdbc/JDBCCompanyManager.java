@@ -8,7 +8,7 @@ import java.util.List;
 
 import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
-import prosthetidist.pojos.Prosthetics;
+import prosthetidist.pojos.Prosthetic;
 
 public class JDBCCompanyManager implements CompanyManager {
 	
@@ -59,7 +59,7 @@ public Company getCompanyById (int company_id){
 }
 
 
-public void uploadProsthetics (Prosthetics p) {
+public void uploadProsthetics (Prosthetic p) {
 	
 	try {
 		String sql= "INSERT INTO Prosthetic (Price, Functionalities, Type, Model, Company_id, Measurement_id) VALUES (?,?,?,?,?,?)";
