@@ -8,11 +8,13 @@ import java.util.List;
 
 import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
+import prosthetidist.pojos.Measurements;
 import prosthetidist.pojos.Prosthetics;
 
 public class JDBCCompanyManager implements CompanyManager {
 	
 private JDBCManager manager;
+private JDBCMeasurementsManager mm;
 
 public JDBCCompanyManager(JDBCManager m) {
 	this.manager = m;
@@ -78,6 +80,62 @@ public void uploadProsthetics (Prosthetics p) {
 	}
 }
 
+public List<Prosthetics> listProstheticsWithoutCompanyID(){
+	
+	List <Prosthetics> prostheticsWithoutCompany = new ArrayList<Prosthetics>();
+	Company c= null;
+	Measurements m= null;
+	
+	try {
+			Statement stat = manager.getConnection().createStatement();
+			String sql= "SELECT * FROM Prosthetics WHERE Company_id= NULL";
+			ResultSet rs = stat.executeQuery(sql);
+			//rs.next() moves to the next row of the table
+			while (rs.next()) {
+				Integer code = rs.getInt("Code");
+				String functionalities = rs.getString("Functionalities");
+				String type = rs.getString("Type");
+				Integer measurement_id= rs.getInt("Measurement_id");
+				
+				//FALTAN LOS MATERIALES
+			
+				m=mm.getMeasurementById(measurement_id);
+				Prosthetics p = new Prosthetics (code,functionalities, type,m);
+				prostheticsWithoutCompany.add(p);
+			}
+			rs.close();
+			stat.close();
+			
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	return prostheticsWithoutCompany;
+	}
+
+//@TODO LA PROTESIS LA RECIBE A TRAVÉS DE SWING MEDIANTE SELECT
+
+public void offerDesign (Prosthetics prosthetic) {
+	
+	try {
+		String sql = "UPDATE Prosthetics" + " SET Price=?" + " Model=?" + " Company_id=?";
+		PreparedStatement p = manager.getConnection().prepareStatement(sql);
+		
+		//@TODO SOLVE PROBLEMS
+		
+		//p.setFloat(1, prosthetic.setPrice(36));
+		//p.setString(2, prosthetic.setModel("x1"));
+		//p.setInt(3, prosthetic.getCompany());
+
+		p.executeUpdate();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+}
+	
+}
+
 
 /*
 public void addCompany(Company c) {
@@ -88,4 +146,4 @@ public void addCompany(Company c) {
 		ex.printStackTrace();
 	}
 }*/
-}
+

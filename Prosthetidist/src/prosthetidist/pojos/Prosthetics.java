@@ -60,6 +60,14 @@ public class Prosthetics implements Serializable{
 		this.type=type;
 		this.model=model;
 	}
+	//test constructor for listProstheticsWithoutCompanyID
+	
+		public Prosthetics(Integer code, String abilities, String type, Measurements m) {
+			this.code=code;
+			this.functionalities=abilities;
+			this.type=type;
+			this.measurements=m;
+		}
 	
 	
 	//EQUALS
