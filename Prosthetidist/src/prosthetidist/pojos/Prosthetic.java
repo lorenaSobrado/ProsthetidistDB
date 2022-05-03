@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Prosthetics implements Serializable{
+public class Prosthetic implements Serializable{
 
 	private static final long serialVersionUID = -6066466581324943260L;
 	
@@ -25,14 +25,14 @@ public class Prosthetics implements Serializable{
 	
 	//CONSTRUCTORS
 	
-	public Prosthetics() {
+	public Prosthetic() {
 		super();
 		//?
 		this.materials = new ArrayList();
 		this.invoices = new ArrayList();
 	}
 	//@TODO problemas
-	public Prosthetics (Integer code, Float price, String functionalities, String type, String model, Company company, Measurements measurement) {
+	public Prosthetic (Integer code, Float price, String functionalities, String type, String model, Company company, Measurements measurement) {
 		this.code=code;
 		this.price=price;
 		this.functionalities=functionalities;
@@ -43,7 +43,7 @@ public class Prosthetics implements Serializable{
 		
 	}
 //test constructor
-	public Prosthetics (Integer code, Float price, String functionalities, String type, String model, Company company) {
+	public Prosthetic (Integer code, Float price, String functionalities, String type, String model, Company company) {
 			this.code=code;
 			this.price=price;
 			this.functionalities=functionalities;
@@ -53,21 +53,13 @@ public class Prosthetics implements Serializable{
 			
 		}
 	//test constructor
-	public Prosthetics(Integer code, Float price, String abilities, String type, String model) {
+	public Prosthetic(Integer code, Float price, String abilities, String type, String model) {
 		this.code=code;
 		this.price=price;
 		this.functionalities=abilities;
 		this.type=type;
 		this.model=model;
 	}
-	//test constructor for listProstheticsWithoutCompanyID
-	
-		public Prosthetics(Integer code, String abilities, String type, Measurements m) {
-			this.code=code;
-			this.functionalities=abilities;
-			this.type=type;
-			this.measurements=m;
-		}
 	
 	
 	//EQUALS
@@ -85,7 +77,7 @@ public class Prosthetics implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Prosthetics other = (Prosthetics) obj;
+		Prosthetic other = (Prosthetic) obj;
 		return Objects.equals(code, other.code);
 	}
 
@@ -181,7 +173,7 @@ public class Prosthetics implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Prosthetics [code=" + code + ", price=" + price + ", abilities=" + functionalities + ", type=" + type
+		return "Prosthetic [code=" + code + ", price=" + price + ", abilities=" + functionalities + ", type=" + type
 				+ ", model=" + model + "]";
 	}
 	
