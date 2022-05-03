@@ -27,14 +27,31 @@ public class Prosthetics implements Serializable{
 	
 	public Prosthetics() {
 		super();
-		this.measurementsList = new ArrayList();
+		//?
 		this.materials = new ArrayList();
 		this.invoices = new ArrayList();
 	}
 	//@TODO problemas
-	public Prosthetics (Integer code, Float price, String functionalities, String type, String model, Company company, Measurement measurement) {
+	public Prosthetics (Integer code, Float price, String functionalities, String type, String model, Company company, Measurements measurement) {
+		this.code=code;
+		this.price=price;
+		this.functionalities=functionalities;
+		this.type=type;
+		this.model=model;
+		this.company=company;
+		this.measurements=measurement;
 		
 	}
+//test constructor
+	public Prosthetics (Integer code, Float price, String functionalities, String type, String model, Company company) {
+			this.code=code;
+			this.price=price;
+			this.functionalities=functionalities;
+			this.type=type;
+			this.model=model;
+			this.company=company;
+			
+		}
 	//test constructor
 	public Prosthetics(Integer code, Float price, String abilities, String type, String model) {
 		this.code=code;

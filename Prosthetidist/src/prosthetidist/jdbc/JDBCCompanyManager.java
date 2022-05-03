@@ -1,6 +1,10 @@
 package prosthetidist.jdbc;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
@@ -29,21 +33,32 @@ public void deleteCompany (int companyId) {
 		ex.printStackTrace();
 	}
 }
-/*
+
+
 public Company getCompanyById (int company_id){
+	Company c = null;
 	try {
 		String sql= "SELECT * FROM Company WHERE Id=?";
 		PreparedStatement prep= manager.getConnection().prepareStatement(sql);
 		prep.setInt(1, company_id);
-		//prep.execute
-		//result set, igual q jdbc prosthetics con select
+		ResultSet rs = prep.executeQuery();
+		//get the values , @CHECK
+		String name= rs.getString(2);
+		String email=rs.getString(3);
+		Integer phone=rs.getInt(4);
+		
+		 c = new Company(company_id,name,email,phone);
+		 rs.close();
+		 prep.close();
 	}
 	catch (SQLException ex) {
 		ex.printStackTrace();
 	}
+	 return c;
+
 }
 
-*/
+
 public void uploadProsthetics (Prosthetics p) {
 	
 	try {

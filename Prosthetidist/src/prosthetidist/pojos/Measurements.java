@@ -13,11 +13,19 @@ public class Measurements implements Serializable{
 	private float Length;
 	private float Width;
 	private float Weight;
-
+//CONSTRUCTOR
 	public Measurements() {
 		super();
 	}
 
+    public Measurements(int id, float lengthiness, float width, float weight) {
+    	this.Id=id;
+    	this.Length=lengthiness;
+    	this.Width=width;
+    	this.Weight=weight;
+    	
+    }
+    
 	public Integer getId() {
 		return Id;
 	}
