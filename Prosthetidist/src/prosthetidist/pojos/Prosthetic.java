@@ -60,6 +60,22 @@ public class Prosthetic implements Serializable{
 		this.type=type;
 		this.model=model;
 	}
+	//test constructor for design
+	
+			public Prosthetic(String functionalities, String type, Measurements m) {
+				this.functionalities=functionalities;
+				this.type=type;
+				this.measurements=m;
+			}
+		
+	//test constructor for listProstheticsWithoutCompanyID
+	
+		public Prosthetic(Integer code, String abilities, String type, Measurements m) {
+			this.code=code;
+			this.functionalities=abilities;
+			this.type=type;
+			this.measurements=m;
+		}
 	
 	
 	//EQUALS
@@ -173,7 +189,7 @@ public class Prosthetic implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Prosthetic [code=" + code + ", price=" + price + ", abilities=" + functionalities + ", type=" + type
+		return "Prosthetics [code=" + code + ", price=" + price + ", abilities=" + functionalities + ", type=" + type
 				+ ", model=" + model + "]";
 	}
 	

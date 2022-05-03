@@ -65,12 +65,12 @@ public class JDBCManager {
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Measurement " + "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " + "Lengthinees INTEGER NOT NULL, " 
-					+ "Width INTEGER NOT NULL, " + "Weight	    REAL, " + ");";
+			sql = "CREATE TABLE Measurement " + "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " + "Lengthinees REAL NOT NULL, " 
+					+ "Width REAL NOT NULL, " + "Weight	    REAL, " + ");";
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Patient " + "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " + "Name	TEXT, "
+			sql = "CREATE TABLE Patient " + "(Id INTEGER PRIMARY KEY, " + "Name	TEXT, "
 			+ "Email	TEXT UNIQUE " + "DOB     DATE, " + "Address  TEXT, " + "Phonenumber	INTEGER UNIQUE, "
 			+ "Notes	TEXT, " + ");";
 

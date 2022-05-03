@@ -8,12 +8,9 @@ import java.util.List;
 
 import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
-<<<<<<< HEAD
 import prosthetidist.pojos.Prosthetic;
-=======
 import prosthetidist.pojos.Measurements;
-import prosthetidist.pojos.Prosthetics;
->>>>>>> branch 'master' of https://github.com/lorenaSobrado/ProsthetidistDB
+import prosthetidist.pojos.Prosthetic;
 
 public class JDBCCompanyManager implements CompanyManager {
 	
@@ -66,7 +63,7 @@ public Company getCompanyById (int company_id){
 
 
 public void uploadProsthetics (Prosthetic p) {
-	
+	//@TODO FALTAN MATERIALES
 	try {
 		String sql= "INSERT INTO Prosthetic (Price, Functionalities, Type, Model, Company_id, Measurement_id) VALUES (?,?,?,?,?,?)";
 		PreparedStatement prep = manager.getConnection().prepareStatement(sql);
@@ -84,15 +81,15 @@ public void uploadProsthetics (Prosthetic p) {
 	}
 }
 
-public List<Prosthetics> listProstheticsWithoutCompanyID(){
+public List<Prosthetic> listProstheticsWithoutCompanyID(){
 	
-	List <Prosthetics> prostheticsWithoutCompany = new ArrayList<Prosthetics>();
+	List <Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
 	Company c= null;
 	Measurements m= null;
 	
 	try {
 			Statement stat = manager.getConnection().createStatement();
-			String sql= "SELECT * FROM Prosthetics WHERE Company_id= NULL";
+			String sql= "SELECT * FROM Prosthetic WHERE Company_id= NULL";
 			ResultSet rs = stat.executeQuery(sql);
 			//rs.next() moves to the next row of the table
 			while (rs.next()) {
@@ -102,9 +99,9 @@ public List<Prosthetics> listProstheticsWithoutCompanyID(){
 				Integer measurement_id= rs.getInt("Measurement_id");
 				
 				//FALTAN LOS MATERIALES
-			
+				//@TOMAS
 				m=mm.getMeasurementById(measurement_id);
-				Prosthetics p = new Prosthetics (code,functionalities, type,m);
+				Prosthetic p = new Prosthetic (code,functionalities, type,m);
 				prostheticsWithoutCompany.add(p);
 			}
 			rs.close();
@@ -117,18 +114,21 @@ public List<Prosthetics> listProstheticsWithoutCompanyID(){
 	return prostheticsWithoutCompany;
 	}
 
-//@TODO LA PROTESIS LA RECIBE A TRAV�S DE SWING MEDIANTE SELECT
+//@TODO LA PROTESIS LA RECIBE A TRAVES DE SWING MEDIANTE SELECT
 
-public void offerDesign (Prosthetics prosthetic) {
-	
+public void offerDesign (Prosthetic prosthetic) {
+	//
 	try {
-		String sql = "UPDATE Prosthetics" + " SET Price=?" + " Model=?" + " Company_id=?";
+		String sql = "UPDATE Prosthetic" + " SET Price=?" + " Model=?" + " Company_id=?";
 		PreparedStatement p = manager.getConnection().prepareStatement(sql);
 		
 		//@TODO SOLVE PROBLEMS
-		
-		//p.setFloat(1, prosthetic.setPrice(36));
-		//p.setString(2, prosthetic.setModel("x1"));
+		//idea. funcion auxiliar donde pases precio modelo y etc que se pide en el main por consola al usuario e insertar aqui
+		prosthetic.setPrice(36.5F); //realmente lo qse le pasa es lo que la compañia dice
+		p.setFloat(1, prosthetic.getPrice());
+		prosthetic.setModel("model"); //realmente lo qse le pasa es lo que la compañia dice
+		p.setString(2, prosthetic.getModel());
+		//prosthetic.setCompany();//preguntar swing
 		//p.setInt(3, prosthetic.getCompany());
 
 		p.executeUpdate();

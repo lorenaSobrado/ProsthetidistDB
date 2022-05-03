@@ -1,4 +1,4 @@
-package prosthetidist.pojos;
+ package prosthetidist.pojos;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -16,7 +16,6 @@ public class Invoice implements Serializable{
 	private String DeliveryType;
 	private Integer PatientId;
 	private Integer ProstheticId;
-	
 	
 	
 	public Invoice() {
