@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CartDisplay extends JFrame {
 
@@ -102,10 +104,21 @@ public class CartDisplay extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("BUY");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JPanel buyDisplay = new BuyDisplay();
+				buyDisplay.setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(377, 282, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("BACK");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CartDisplay.this.setVisible(false);
+			}
+		});
 		btnNewButton_1.setBounds(24, 282, 89, 23);
 		contentPane.add(btnNewButton_1);
 	}

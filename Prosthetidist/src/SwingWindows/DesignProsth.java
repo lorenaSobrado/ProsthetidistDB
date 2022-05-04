@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DesignProsth extends JFrame {
 
@@ -92,6 +94,11 @@ public class DesignProsth extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DesignProsth.this.setVisible(false);
+			}
+		});
 		btnNewButton_1.setBounds(417, 275, 85, 21);
 		contentPane.add(btnNewButton_1);
 		

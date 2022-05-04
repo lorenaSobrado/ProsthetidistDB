@@ -146,6 +146,13 @@ public class PatientMenuDisplay extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("CART");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame cartDisplay = new CartDisplay();
+				cartDisplay.setVisible(true);
+				//PatientMenuDisplay.this.setEnabled(false); hace que no se pueda usar este frame cuando se abre el carrito, como lo vuelvo a activar??
+			}
+		});
 		btnNewButton_4.setBounds(500, 11, 70, 37);
 		contentPane.add(btnNewButton_4);
 		

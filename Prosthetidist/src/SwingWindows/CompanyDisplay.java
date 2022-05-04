@@ -9,12 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JSlider;
-import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class PatientDisplay extends JFrame {
+public class CompanyDisplay extends JFrame {
 
 	private JPanel contentPane;
 
@@ -25,7 +21,7 @@ public class PatientDisplay extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PatientDisplay frame = new PatientDisplay();
+					CompanyDisplay frame = new CompanyDisplay();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,54 +33,40 @@ public class PatientDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PatientDisplay() {
+	public CompanyDisplay() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-			}
-		});
+		JButton btnNewButton = new JButton("Log in");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PatientDisplay.this.setVisible(false);
+				JFrame cLogInDisplay = new CLogInDisplay();
+				cLogInDisplay.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(339, 231, 89, 23);
+		btnNewButton.setBounds(153, 55, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Log in");
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame logindisplay = new PLogInDisplay();
-				logindisplay.setVisible(true);
-				
+		JButton btnNewButton_1 = new JButton("Register");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setBounds(161, 97, 89, 23);
+		btnNewButton_1.setBounds(153, 123, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Register");
-		btnNewButton_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame r = new PRegisterDisplay();
-				r.setVisible(true);
-			}
-		});
+		JButton btnNewButton_2 = new JButton("BACK");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				CompanyDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton_2.setBounds(161, 144, 89, 23);
+		btnNewButton_2.setBounds(291, 227, 89, 23);
 		contentPane.add(btnNewButton_2);
 	}
+
 }

@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class CompanyOptions extends JFrame {
+public class CompanyMenuDisplay extends JFrame {
 
 	private JPanel contentPane;
 
@@ -21,7 +21,7 @@ public class CompanyOptions extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CompanyOptions frame = new CompanyOptions();
+					CompanyMenuDisplay frame = new CompanyMenuDisplay();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +33,7 @@ public class CompanyOptions extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CompanyOptions() {
+	public CompanyMenuDisplay() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -45,7 +45,7 @@ public class CompanyOptions extends JFrame {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				JFrame uploadprost = new UploadProst();
+				JFrame uploadprost = new UploadProsthetic();
 				uploadprost.setVisible(true);
 			}
 		});

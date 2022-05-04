@@ -18,7 +18,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class UploadProst extends JFrame {
+public class UploadProsthetic extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -39,7 +39,7 @@ public class UploadProst extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UploadProst frame = new UploadProst();
+					UploadProsthetic frame = new UploadProsthetic();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +51,7 @@ public class UploadProst extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public UploadProst() {
+	public UploadProsthetic() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 598, 382);
 		contentPane = new JPanel();
@@ -154,7 +154,7 @@ public class UploadProst extends JFrame {
 				
 				
 				
-				UploadProst.this.setVisible(false);
+				UploadProsthetic.this.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(473, 313, 89, 23);
@@ -163,7 +163,7 @@ public class UploadProst extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UploadProst.this.setVisible(false);
+				UploadProsthetic.this.setVisible(false);
 			}
 		});
 		btnNewButton_1.setBounds(343, 313, 89, 23);
