@@ -54,6 +54,8 @@ public class CompanyDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JFrame cRegisterDisplay = new CRegisterDisplay();
+				cRegisterDisplay.setVisible(true);
 			}
 		});
 		btnNewButton_1.setBounds(153, 123, 89, 23);

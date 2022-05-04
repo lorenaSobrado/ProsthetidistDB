@@ -46,12 +46,12 @@ public class AppDisplay extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(210, 180, 140));
+		contentPane.setBackground(new Color(204, 255, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		JButton btnNewButton_1 = new JButton("PATIENT");
-		btnNewButton_1.setBackground(new Color(144, 238, 144));
+		btnNewButton_1.setBackground(new Color(204, 153, 255));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton_1.setBounds(228, 203, 145, 36);
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
@@ -77,12 +77,12 @@ public class AppDisplay extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(36, 203, 145, 36);
-		btnNewButton.setBackground(new Color(144, 238, 144));
+		btnNewButton.setBackground(new Color(204, 153, 255));
 		contentPane.add(btnNewButton);
 		
 		txtProsthetidist = new JTextField();
 		txtProsthetidist.setBounds(10, 11, 414, 160);
-		txtProsthetidist.setBackground(new Color(0, 153, 51));
+		txtProsthetidist.setBackground(new Color(204, 204, 204));
 		txtProsthetidist.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProsthetidist.setFont(new Font("Segoe UI Black", Font.ITALIC, 47));
 		txtProsthetidist.setText("PROSTHETIDIST\r\n");

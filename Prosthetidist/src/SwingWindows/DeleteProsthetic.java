@@ -6,12 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
 
-public class OfferOptions extends JFrame {
+public class DeleteProsthetic extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -23,7 +22,7 @@ public class OfferOptions extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OfferOptions frame = new OfferOptions();
+					DeleteProsthetic frame = new DeleteProsthetic();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +34,7 @@ public class OfferOptions extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OfferOptions() {
+	public DeleteProsthetic() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -43,39 +42,31 @@ public class OfferOptions extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Prosthetic to design: ");
-		lblNewLabel.setBounds(55, 11, 218, 14);
-		contentPane.add(lblNewLabel);
-		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, Boolean.FALSE, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
+				{"", ""},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
 			},
 			new String[] {
-				"Functionalities", "Type", "Lenght", "Width", "Weight", "Plastic", "Aluminium", "Carbon Fiber"
+				"MODEL", "TYPE"
 			}
 		) {
 			Class[] columnTypes = new Class[] {
-				String.class, String.class, Float.class, Float.class, Float.class, Boolean.class, Boolean.class, Boolean.class
+				String.class, String.class
 			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
 		});
-		table.setBounds(91, 98, 246, 85);
+		table.setBounds(54, 42, 310, 151);
 		contentPane.add(table);
-		
-		JButton btnNewButton = new JButton("DESIGN");
-		btnNewButton.setBounds(327, 231, 89, 23);
-		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("BACK");
-		btnNewButton_1.setBounds(217, 231, 89, 23);
-		contentPane.add(btnNewButton_1);
 	}
 }
