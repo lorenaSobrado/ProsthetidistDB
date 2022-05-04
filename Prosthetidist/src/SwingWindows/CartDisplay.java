@@ -20,8 +20,8 @@ import java.awt.event.ActionEvent;
 public class CartDisplay extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
 	private JTextField textField;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -53,34 +53,6 @@ public class CartDisplay extends JFrame {
 		JLabel lblNewLabel = new JLabel("YOUR SELECTION :");
 		lblNewLabel.setBounds(24, 11, 113, 14);
 		contentPane.add(lblNewLabel);
-		
-		table = new JTable();
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-			}
-		});
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"Code", "Company", "Type", "Model", "Functionality", "Measurments", "Materials", "Price"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, String.class, String.class, String.class, Integer.class, Integer.class, Float.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		table.setBounds(22, 45, 362, 64);
-		contentPane.add(table);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("STANDARD");
 		rdbtnNewRadioButton.setBounds(41, 177, 111, 23);
@@ -121,5 +93,9 @@ public class CartDisplay extends JFrame {
 		});
 		btnNewButton_1.setBounds(24, 282, 89, 23);
 		contentPane.add(btnNewButton_1);
+		
+		table = new JTable();
+		table.setBounds(10, 46, 465, 96);
+		contentPane.add(table);
 	}
 }

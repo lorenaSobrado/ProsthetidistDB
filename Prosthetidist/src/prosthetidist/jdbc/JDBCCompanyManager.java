@@ -11,7 +11,7 @@ import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Measurements;
 import prosthetidist.pojos.Prosthetic;
-import prosthetidist.pojos.Prosthetics;
+
 
 public class JDBCCompanyManager implements CompanyManager {
 
@@ -85,7 +85,7 @@ public class JDBCCompanyManager implements CompanyManager {
 
 		try {
 			Statement stat = manager.getConnection().createStatement();
-			String sql = "SELECT * FROM Prosthetics WHERE Company_id= NULL";
+			String sql = "SELECT * FROM Prosthetic WHERE Company_id= NULL";
 			ResultSet rs = stat.executeQuery(sql);
 			// rs.next() moves to the next row of the table
 			while (rs.next()) {
@@ -114,7 +114,7 @@ public class JDBCCompanyManager implements CompanyManager {
 	public void offerDesign(Prosthetic prosthetic) {
 
 		try {
-			String sql = "UPDATE Prosthetics" + " SET Price=?" + " Model=?" + " Company_id=?";
+			String sql = "UPDATE Prosthetic" + " SET Price=?" + " Model=?" + " Company_id=?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 
 			// @TODO SOLVE PROBLEMS
