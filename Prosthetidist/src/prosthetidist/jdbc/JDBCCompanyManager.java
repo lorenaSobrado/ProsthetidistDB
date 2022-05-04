@@ -23,7 +23,6 @@ public JDBCCompanyManager(JDBCManager m) {
 
 //@TODO addCompany mediante base de datos pero la relacion con el register????
 
-//@Override
 
 public void deleteCompany (int companyId) {
 	try {
@@ -44,6 +43,7 @@ public Company getCompanyById (int company_id){
 		String sql= "SELECT * FROM Company WHERE Id=?";
 		PreparedStatement prep= manager.getConnection().prepareStatement(sql);
 		prep.setInt(1, company_id);
+		
 		ResultSet rs = prep.executeQuery();
 		//get the values , @CHECK
 		String name= rs.getString(2);
