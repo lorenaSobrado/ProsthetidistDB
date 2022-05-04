@@ -9,6 +9,7 @@ import java.util.List;
 import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Measurements;
+import prosthetidist.pojos.Prosthetic;
 import prosthetidist.pojos.Prosthetics;
 
 public class JDBCCompanyManager implements CompanyManager {
@@ -61,7 +62,7 @@ public Company getCompanyById (int company_id){
 }
 
 
-public void uploadProsthetics (Prosthetics p) {
+public void uploadProsthetics (Prosthetic p) {
 	
 	try {
 		String sql= "INSERT INTO Prosthetic (Price, Functionalities, Type, Model, Company_id, Measurement_id) VALUES (?,?,?,?,?,?)";
@@ -80,9 +81,9 @@ public void uploadProsthetics (Prosthetics p) {
 	}
 }
 
-public List<Prosthetics> listProstheticsWithoutCompanyID(){
+public List<Prosthetic> listProstheticsWithoutCompanyID(){
 	
-	List <Prosthetics> prostheticsWithoutCompany = new ArrayList<Prosthetics>();
+	List <Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
 	Company c= null;
 	Measurements m= null;
 	
@@ -100,7 +101,7 @@ public List<Prosthetics> listProstheticsWithoutCompanyID(){
 				//FALTAN LOS MATERIALES
 			
 				m=mm.getMeasurementById(measurement_id);
-				Prosthetics p = new Prosthetics (code,functionalities, type,m);
+				Prosthetic p = new Prosthetic (code,functionalities, type,m);
 				prostheticsWithoutCompany.add(p);
 			}
 			rs.close();
@@ -115,7 +116,7 @@ public List<Prosthetics> listProstheticsWithoutCompanyID(){
 
 //@TODO LA PROTESIS LA RECIBE A TRAVÉS DE SWING MEDIANTE SELECT
 
-public void offerDesign (Prosthetics prosthetic) {
+public void offerDesign (Prosthetic prosthetic) {
 	
 	try {
 		String sql = "UPDATE Prosthetics" + " SET Price=?" + " Model=?" + " Company_id=?";
