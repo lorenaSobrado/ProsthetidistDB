@@ -112,8 +112,8 @@ public class Patient implements Serializable {
 	}
 
 
-	public void setDob(String s) {
-		this.dob = dob.valueOf(s);
+	public void setDob(Date d) {
+		this.dob = d;
 	}
 
 

@@ -3,6 +3,7 @@ package SwingWindows;
 import java.awt.BorderLayout;
 
 
+
 import prosthetidist.pojos.*;
 import java.awt.EventQueue;
 
@@ -16,6 +17,8 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.sql.Date;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -30,6 +33,7 @@ public class PRegisterDisplay extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 	/**
 	 * Launch the application.
@@ -133,20 +137,12 @@ public class PRegisterDisplay extends JFrame {
 					patient.setPhone(Integer.parseInt(textField_3.getText()));
 					patient.setAddress(textField_4.getText());
 					patient.setNotes(textField_5.getText());
-					patient.setDob(textField_6.getText()); //debe ser un date 
+					LocalDate date = LocalDate.parse(textField_6.getText(), formatter);
+					patient.setDob(Date.valueOf(date)); //debe ser un date 
 
 				} else {
 					validarDatos();
 				}
-
-				// patient.setDob(new
-				// SimpleDateFormat("dd-MM-yyyy").parse(textField_6.getText()));
-				// patient.setDob(date.parse(textField_6.getText()));
-				/*
-				 * LocalDate: patient.setDob(LocalDate.parse("yyyy-MM-dd")); EN Date:
-				 * SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy"); Date date =
-				 * f.parse(textField_6.getText()); patient.setDob(date);
-				 */
 			}
 		});
 		btnNewButton.setBounds(225, 232, 85, 21);
