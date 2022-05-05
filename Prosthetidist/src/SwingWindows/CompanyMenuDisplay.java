@@ -73,7 +73,7 @@ public class CompanyMenuDisplay extends JFrame {
 		JButton btnNewButton_2 = new JButton("OFFER DESIGN");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame offerProsthetic = new OfferOProsthetic();
+				JFrame offerProsthetic = new OfferProsthetic();
 				offerProsthetic.setVisible(true);
 			}
 		});

@@ -11,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 
-public class OfferOProsthetic extends JFrame {
+public class OfferProsthetic extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -23,7 +23,7 @@ public class OfferOProsthetic extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OfferOProsthetic frame = new OfferOProsthetic();
+					OfferProsthetic frame = new OfferProsthetic();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class OfferOProsthetic extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OfferOProsthetic() {
+	public OfferProsthetic() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

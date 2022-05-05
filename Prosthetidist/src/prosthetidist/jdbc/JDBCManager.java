@@ -60,10 +60,25 @@ public class JDBCManager {
 			
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Material " + "(Name TEXT PRIMARY KEY, " + "Cost	REAL, " + "Strength	TEXT, " + "Flexibility TEXT, "
+			sql = "CREATE TABLE Material " + "(Name TEXT PRIMARY KEY, " + "Price	REAL, " + "Strength	TEXT, " + "Flexibility TEXT, "
 					+ "Temperature_resistance TEXT, " + ");";
 
 			stmt.executeUpdate(sql);
+			
+			sql = "UPDATE Material " + "SET Name = Plastic " + "SET Price = " + 5.4 + " SET Strength = Low " + "SET Flexibility = High " 
+					+ "SET Temperature_resistance = Low ";
+			
+			stmt.executeUpdate(sql);
+			
+			/*sql = "UPDATE Material " + "SET Name = Plastic " + "SET Price = " + 5.4 + " SET Strength = Low " + "SET Flexibility = High " 
+					+ "SET Temperature_resistance = Low ";
+			
+			stmt.executeUpdate(sql);
+			
+			sql = "UPDATE Material " + "SET Name = Plastic " + "SET Price = " + 5.4 + " SET Strength = Low " + "SET Flexibility = High " 
+					+ "SET Temperature_resistance = Low ";
+			
+			stmt.executeUpdate(sql);*/
 
 			sql = "CREATE TABLE Measurement " + "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " + "Lengthinees REAL NOT NULL, " 
 					+ "Width REAL NOT NULL, " + "Weight	    REAL, " + ");";

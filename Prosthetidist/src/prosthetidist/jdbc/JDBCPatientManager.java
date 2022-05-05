@@ -15,6 +15,7 @@ public class JDBCPatientManager implements PatientManager {
 	//@TODO materials
 	
 	public void designProsthetic () {
+		
 		Prosthetic p= null;
 		try {
 			String sql= "INSERT INTO Prosthetic (Functionalities, Type, Measurements) VALUES (?,?,?)";
