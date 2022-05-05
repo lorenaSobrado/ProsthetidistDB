@@ -114,7 +114,7 @@ public class JDBCCompanyManager implements CompanyManager {
 	public void offerDesign(Prosthetic prosthetic) {
 
 		try {
-			String sql = "UPDATE Prosthetics" + " SET Price=?" + " Model=?" + " Company_id=?";
+			String sql = "UPDATE Prosthetic" + " SET Price=?" + " Model=?" + " Company_id=?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 
 			// @TODO SOLVE PROBLEMS
@@ -129,6 +129,7 @@ public class JDBCCompanyManager implements CompanyManager {
 		}
 
 	}
+	
 
 }
 
