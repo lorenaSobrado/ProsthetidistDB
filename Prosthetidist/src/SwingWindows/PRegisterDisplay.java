@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 
 
 
+
 import prosthetidist.pojos.*;
 import java.awt.EventQueue;
 
@@ -38,23 +39,24 @@ public class PRegisterDisplay extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PRegisterDisplay frame = new PRegisterDisplay();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					PRegisterDisplay frame = new PRegisterDisplay();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public PRegisterDisplay() {
+	public PRegisterDisplay(JFrame patientDisplay) {
+		patientDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -119,30 +121,9 @@ public class PRegisterDisplay extends JFrame {
 		JButton btnNewButton = new JButton("Register");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-
-			public void mouseReleased(MouseEvent e) {
-				if (textField_1.getText().length() > 0 && textField_2.getText().length() > 0
-						&& textField_3.getText().length() > 0 && textField_4.getText().length() > 0
-						&& textField_5.getText().length() > 0 && textField_6.getText().length() > 0) {
-					boolean Validar = true; //para que haces esto?
-					JFrame patientMenuDisp = new PatientMenuDisplay();
-					patientMenuDisp.setVisible(Validar);
-					Patient patient = new Patient();
-					patient.setName(textField_1.getText());
-					patient.setEmail(textField_2.getText());
-					patient.setPhone(Integer.parseInt(textField_3.getText()));
-					patient.setAddress(textField_4.getText());
-					patient.setNotes(textField_5.getText());
-					LocalDate date = LocalDate.parse(textField_6.getText(), formatter);
-					patient.setDob(Date.valueOf(date)); //debe ser un date 
-
-				} else {
-					validarDatos();
-				}
+				patientDisplay.setEnabled(true);
+				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.INFORMATION_MESSAGE);
+				PRegisterDisplay.this.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(225, 232, 85, 21);
@@ -151,6 +132,7 @@ public class PRegisterDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				patientDisplay.setEnabled(true);
 				PRegisterDisplay.this.setVisible(false);
 			}
 		});

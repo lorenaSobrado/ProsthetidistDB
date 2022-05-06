@@ -21,24 +21,24 @@ public class PatientDisplay extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PatientDisplay frame = new PatientDisplay(null); //PREGUNTAR COMO ARREGLO ESTO
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					PatientDisplay frame = new PatientDisplay(); 
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
 	public PatientDisplay(JFrame appDisplay) {
-		//appDisplay.setEnabled(false);
+		appDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,8 +49,8 @@ public class PatientDisplay extends JFrame {
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				appDisplay.setEnabled(true);
 				PatientDisplay.this.setVisible(false);
-				//appDisplay.setEnabled(true);
 			}
 		});
 		btnNewButton.setBounds(339, 231, 89, 23);
@@ -59,7 +59,7 @@ public class PatientDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("Log in");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame pLogInDisplay = new PLogInDisplay();
+				JFrame pLogInDisplay = new PLogInDisplay(PatientDisplay.this);
 				pLogInDisplay.setVisible(true);
 			}
 		});
@@ -69,7 +69,7 @@ public class PatientDisplay extends JFrame {
 		JButton btnNewButton_2 = new JButton("Register");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame pRegisterDisplay = new PRegisterDisplay();
+				JFrame pRegisterDisplay = new PRegisterDisplay(PatientDisplay.this);
 				pRegisterDisplay.setVisible(true);
 			}
 		});

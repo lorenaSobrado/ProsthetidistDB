@@ -34,23 +34,24 @@ public class PatientMenuDisplay extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PatientMenuDisplay frame = new PatientMenuDisplay();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					PatientMenuDisplay frame = new PatientMenuDisplay();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public PatientMenuDisplay(/*Patient patient*/) {
+	public PatientMenuDisplay(JFrame pLogInDisplay) {
+		pLogInDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 587, 357);
 		contentPane = new JPanel();
@@ -62,6 +63,7 @@ public class PatientMenuDisplay extends JFrame {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
+				pLogInDisplay.setEnabled(true);
 				PatientMenuDisplay.this.setVisible(false);
 			}
 		});
@@ -112,30 +114,20 @@ public class PatientMenuDisplay extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("Design My Own");
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame jframe = new DesignProsth();
-				jframe.setVisible(true);
-			}
-		});
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JFrame jframe = new DesignProsth();
+				jframe.setVisible(true);
 			}
 		});
 		btnNewButton_1.setBounds(253, 25, 119, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("ADD TO CART");
-		btnNewButton_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame orderFrame= new OrderDisplay();
-				orderFrame.setVisible(true);
-			}
-		});
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JFrame orderFrame= new OrderDisplay();
+				orderFrame.setVisible(true);
 			}
 		});
 		btnNewButton_2.setBounds(452, 289, 113, 21);

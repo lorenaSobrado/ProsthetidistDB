@@ -71,7 +71,7 @@ public class AppDisplay extends JFrame {
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame companyDisplay = new CompanyDisplay(/*AppDisplay.this*/);
+				JFrame companyDisplay = new CompanyDisplay(AppDisplay.this);
 				companyDisplay.setVisible(true);
 			}
 		});
