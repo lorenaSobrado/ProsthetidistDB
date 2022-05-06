@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import prosthetidist.ifaces.MeasurementsManager;
 import prosthetidist.pojos.Company;
-import prosthetidist.pojos.Measurements;
+import prosthetidist.pojos.Measurement;
 
 public class JDBCMeasurementsManager implements MeasurementsManager{
 	private JDBCManager manager;
@@ -17,10 +17,10 @@ public class JDBCMeasurementsManager implements MeasurementsManager{
 	
 	
 
-public Measurements getMeasurementById (int measurement_id){
-	Measurements m = null;
+public Measurement getMeasurementById (int measurement_id){
+	Measurement m = null;
 	try {
-		String sql= "SELECT * FROM Measurements WHERE Id=?";
+		String sql= "SELECT * FROM Measurements WHERE id=?";
 		PreparedStatement prep= manager.getConnection().prepareStatement(sql);
 		prep.setInt(1, measurement_id);
 		ResultSet rs = prep.executeQuery();
@@ -29,7 +29,7 @@ public Measurements getMeasurementById (int measurement_id){
 		float width =rs.getFloat(3);
 		float weight =rs.getFloat(4);
 		
-		 m = new Measurements(measurement_id,lengthiness,width,weight);
+		 m = new Measurement(measurement_id,lengthiness,width,weight);
 		 rs.close();
 		 prep.close();
 	}

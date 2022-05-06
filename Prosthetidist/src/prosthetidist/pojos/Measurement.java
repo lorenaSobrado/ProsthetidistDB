@@ -3,7 +3,7 @@ package prosthetidist.pojos;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Measurements implements Serializable{
+public class Measurement implements Serializable{
 
 	/**
 	 * 
@@ -14,11 +14,11 @@ public class Measurements implements Serializable{
 	private float Width;
 	private float Weight;
 //CONSTRUCTOR
-	public Measurements() {
+	public Measurement() {
 		super();
 	}
 
-    public Measurements(int id, float lengthiness, float width, float weight) {
+    public Measurement(int id, float lengthiness, float width, float weight) {
     	this.Id=id;
     	this.Length=lengthiness;
     	this.Width=width;
@@ -76,7 +76,7 @@ public class Measurements implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Measurements other = (Measurements) obj;
+		Measurement other = (Measurement) obj;
 		return Objects.equals(Id, other.Id);
 	}
 	

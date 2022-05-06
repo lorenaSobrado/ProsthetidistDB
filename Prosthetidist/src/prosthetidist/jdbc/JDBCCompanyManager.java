@@ -9,7 +9,7 @@ import java.util.List;
 
 import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
-import prosthetidist.pojos.Measurements;
+import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Prosthetic;
 
 
@@ -28,7 +28,7 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	public void deleteCompany(int companyId) {
 		try {
-			String sql = "DELETE FROM Company WHERE Id= ?";
+			String sql = "DELETE FROM Company WHERE id= ?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 			p.setInt(1, companyId);
 			p.executeUpdate();
@@ -40,7 +40,7 @@ public class JDBCCompanyManager implements CompanyManager {
 	public Company getCompanyById(int company_id) {
 		Company c = null;
 		try {
-			String sql = "SELECT * FROM Company WHERE Id=?";
+			String sql = "SELECT * FROM Company WHERE id=?";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, company_id);
 			ResultSet rs = prep.executeQuery();
@@ -62,7 +62,7 @@ public class JDBCCompanyManager implements CompanyManager {
 	public void uploadProsthetics(Prosthetic p) {
 
 		try {
-			String sql = "INSERT INTO Prosthetic (Price, Functionalities, Type, Model, Company_id, Measurement_id) VALUES (?,?,?,?,?,?)";
+			String sql = "INSERT INTO Prosthetic (price, functionalities, type, model, company_id, measurement_id) VALUES (?,?,?,?,?,?)";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setFloat(1, p.getPrice());
 			prep.setString(2, p.getFunctionalities());
@@ -81,18 +81,18 @@ public class JDBCCompanyManager implements CompanyManager {
 
 		List<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
 		Company c = null;
-		Measurements m = null;
+		Measurement m = null;
 
 		try {
 			Statement stat = manager.getConnection().createStatement();
-			String sql = "SELECT * FROM Prosthetic WHERE Company_id= NULL";
+			String sql = "SELECT * FROM Prosthetic WHERE company_id= NULL";
 			ResultSet rs = stat.executeQuery(sql);
 			// rs.next() moves to the next row of the table
 			while (rs.next()) {
-				Integer code = rs.getInt("Code");
-				String functionalities = rs.getString("Functionalities");
-				String type = rs.getString("Type");
-				Integer measurement_id = rs.getInt("Measurement_id");
+				Integer code = rs.getInt("code");
+				String functionalities = rs.getString("functionalities");
+				String type = rs.getString("type");
+				Integer measurement_id = rs.getInt("measurement_id");
 
 				// FALTAN LOS MATERIALES
 
@@ -109,12 +109,12 @@ public class JDBCCompanyManager implements CompanyManager {
 		return prostheticsWithoutCompany;
 	}
 
-//@TODO LA PROTESIS LA RECIBE A TRAV�S DE SWING MEDIANTE SELECT
+//@TODO LA PROTESIS LA RECIBE A TRAVES DE SWING MEDIANTE SELECT
 
 	public void offerDesign(Prosthetic prosthetic) {
 
 		try {
-			String sql = "UPDATE Prosthetic" + " SET Price=?" + " Model=?" + " Company_id=?";
+			String sql = "UPDATE Prosthetic" + " SET price=?" + " model=?" + " company_id=?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 
 			// @TODO SOLVE PROBLEMS
