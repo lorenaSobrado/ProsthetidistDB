@@ -7,25 +7,29 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
-@Entity
-@Table(name = "Company")
+
 
 public class Company implements Serializable{
 
 
 	
 	private static final long serialVersionUID = -2777088951087437973L;
+	
 	//ATTRIBUTES OF THE POJO
 	
-	@Id
 	
 	private Integer id;
 	private String name;
 	private String email;
 	private Integer phone;
+	
+	//@Transient: if it doesnt work
+	
 	private List<Prosthetic> prosthetics;
 	
 	//CONSTRUCTORS

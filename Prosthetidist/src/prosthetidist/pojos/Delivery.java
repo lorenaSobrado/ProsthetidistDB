@@ -12,23 +12,23 @@ public class Delivery implements Serializable {
 	
 	//ATTRIBUTES OF THE POJO
 	
-	private String Type;
-	private String Description;
-	private float Price;
-	private List<Invoice> Invoices;
+	private String type;
+	private String description;
+	private float price;
+	private List<Invoice> invoices;
 	
 	//CONSTRUCTORS
 	
 	public Delivery() {
 		super();
-		this.Invoices = new ArrayList();
+		this.invoices = new ArrayList();
 	}
 	
 	//EQUALS
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Type);
+		return Objects.hash(type);
 	}
 
 	@Override
@@ -40,45 +40,45 @@ public class Delivery implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Delivery other = (Delivery) obj;
-		return Objects.equals(Type, other.Type);
+		return Objects.equals(type, other.type);
 	}
 	
 	//GETTERS AND SETTERS
 
 	public String getType() {
-		return Type;
+		return type;
 	}
 
 
 	public void setType(String type) {
-		Type = type;
+		this.type = type;
 	}
 
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
 
 	public float getPrice() {
-		return Price;
+		return price;
 	}
 
 
 	public void setPrice(float price) {
-		Price = price;
+		this.price = price;
 	}
 	
 	//TO STRING
 
 	@Override
 	public String toString() {
-		return "Delivery [Type=" + Type + ", Description=" + Description + ", Price=" + Price + "]";
+		return "Delivery [Type=" + type + ", Description=" + description + ", Price=" + price + "]";
 	}
 	
 	
