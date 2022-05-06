@@ -76,8 +76,8 @@ public class JDBCManager {
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Prosthetic " + "(Code INTEGER PRIMARY KEY AUTOINCREMENT, " + "Price REAL NOT NULL, " + "Functionalities	TEXT, " 
-					+ "Type TEXT NOT NULL, " + "Model TEXT NOT NULL, " + "Company_id INTEGER REFERENCES Company (Id)," 
+			sql = "CREATE TABLE Prosthetic " + "(Code INTEGER PRIMARY KEY AUTOINCREMENT, " + "Price REAL, " + "Functionalities	TEXT, " 
+					+ "Type TEXT NOT NULL, " + "Model TEXT, " + "Company_id INTEGER REFERENCES Company (Id)," 
 					+ "Measurement_id INTEGER REFERENCES Measurements (Id) " + ");";
 
 			stmt.executeUpdate(sql);

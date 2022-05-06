@@ -25,6 +25,7 @@ public JDBCCompanyManager(JDBCManager m) {
 
 //@Override
 
+//TODO listprosthetics by companyid, search prostheticbycode
 public void deleteCompany (int companyId) {
 	try {
 		String sql = "DELETE FROM Company WHERE Id= ?";
