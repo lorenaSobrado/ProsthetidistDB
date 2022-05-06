@@ -65,7 +65,8 @@ public class PLogInDisplay extends JFrame {
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this);
+				//Patient patient = new Patient(); get patient by SELECT query
+				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this/*, patient*/);
 				patientMenuDisplay.setVisible(true);
 			}
 		});
@@ -76,7 +77,7 @@ public class PLogInDisplay extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientDisplay.setEnabled(true);
-				PLogInDisplay.this.setVisible(false);;
+				PLogInDisplay.this.setVisible(false);
 			}
 		});
 		btnNewButton_1.setBounds(320, 231, 85, 21);

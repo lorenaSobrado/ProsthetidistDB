@@ -50,7 +50,7 @@ public class PatientMenuDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PatientMenuDisplay(JFrame pLogInDisplay) {
+	public PatientMenuDisplay(JFrame pLogInDisplay/*, Patient patient*/) {
 		pLogInDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 587, 357);
@@ -60,32 +60,18 @@ public class PatientMenuDisplay extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("LOG OUT");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				pLogInDisplay.setEnabled(true);
-				PatientMenuDisplay.this.setVisible(false);
-			}
-		});
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pLogInDisplay.setEnabled(true);
+				PatientMenuDisplay.this.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(27, 288, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		patTable = new JTable();
-		patTable.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-			}
-		});
 		patTable.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
@@ -99,13 +85,8 @@ public class PatientMenuDisplay extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		});
-<<<<<<< HEAD
 		patTable.setBounds(10, 88, 416, 141);
 		contentPane.add(patTable);
-=======
-		table.setBounds(27, 58, 465, 203);
-		contentPane.add(table);
->>>>>>> branch 'master' of https://github.com/lorenaSobrado/ProsthetidistDB
 		
 		textField = new JTextField();
 		textField.setEditable(false);
@@ -121,14 +102,14 @@ public class PatientMenuDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("Design My Own");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame jframe = new DesignProsth();
-				jframe.setVisible(true);
+				JFrame designProsthetic = new DesignProsthetic(PatientMenuDisplay.this);
+				designProsthetic.setVisible(true);
 			}
 		});
 		btnNewButton_1.setBounds(253, 25, 119, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("ADD TO CART");
+		/*JButton btnNewButton_2 = new JButton("ADD TO CART");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame orderFrame= new OrderDisplay();
@@ -136,9 +117,8 @@ public class PatientMenuDisplay extends JFrame {
 			}
 		});
 		btnNewButton_2.setBounds(452, 289, 113, 21);
-		contentPane.add(btnNewButton_2);
+		contentPane.add(btnNewButton_2);*/
 		
-<<<<<<< HEAD
 		JLabel lblNewLabel_1 = new JLabel("Code");
 		lblNewLabel_1.setBounds(10, 65, 45, 13);
 		contentPane.add(lblNewLabel_1);
@@ -178,15 +158,11 @@ public class PatientMenuDisplay extends JFrame {
 		JButton btnNewButton_4 = new JButton("CART");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame cartDisplay = new CartDisplay();
+				JFrame cartDisplay = new CartDisplay(PatientMenuDisplay.this);
 				cartDisplay.setVisible(true);
-				//PatientMenuDisplay.this.setEnabled(false); hace que no se pueda usar este frame cuando se abre el carrito, como lo vuelvo a activar??
 			}
 		});
 		btnNewButton_4.setBounds(500, 11, 70, 37);
 		contentPane.add(btnNewButton_4);
->>>>>>> branch 'master' of https://github.com/lorenaSobrado/ProsthetidistDB
-		
-		
 	}
 }

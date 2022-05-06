@@ -122,7 +122,7 @@ public class PRegisterDisplay extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientDisplay.setEnabled(true);
-				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
 				PRegisterDisplay.this.setVisible(false);
 			}
 		});

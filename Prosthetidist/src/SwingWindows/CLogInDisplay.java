@@ -113,7 +113,7 @@ public class CLogInDisplay extends JFrame {
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Company company = new Company();
-				JFrame companyMenuDisplay = new CompanyMenuDisplay(company);
+				JFrame companyMenuDisplay = new CompanyMenuDisplay(/*company*/);
 				companyMenuDisplay.setVisible(true);
 			}
 		});
