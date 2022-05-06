@@ -5,6 +5,12 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Patient")
+
 public class Patient implements Serializable {
 	
 	
