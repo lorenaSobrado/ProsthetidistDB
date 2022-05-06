@@ -85,7 +85,7 @@ public class JDBCManager {
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Patient " + "(id INTEGER PRIMARY KEY, " + "name	TEXT, "
+			sql = "CREATE TABLE Patient " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "name	TEXT, "
 			+ "email	TEXT UNIQUE " + "dob     DATE, " + "address  TEXT, " + "phonenumber	INTEGER UNIQUE, "
 			+ "notes	TEXT, " + ");";
 
