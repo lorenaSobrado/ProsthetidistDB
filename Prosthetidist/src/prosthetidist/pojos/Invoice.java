@@ -9,13 +9,13 @@ public class Invoice implements Serializable{
 	
 	private static final long serialVersionUID = -3481707326557703120L;
 	
-	private Integer Id;
-	private LocalDate DatePurchase;
-	private boolean Purchase;
-	private String PaymentMethod;
-	private String DeliveryType;
-	private Integer PatientId;
-	private Integer ProstheticId;
+	private Integer id;
+	private LocalDate datePurchase;
+	private boolean purchase;
+	private String paymentMethod;
+	private String delivery_type;
+	private Integer patient_id;
+	private Integer prosthetic_code;
 	
 	
 	public Invoice() {
@@ -24,55 +24,55 @@ public class Invoice implements Serializable{
 
 
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 
 
 	public LocalDate getDatePurchase() {
-		return DatePurchase;
+		return datePurchase;
 	}
 
 
 	public void setDatePurchase(LocalDate datePurchase) {
-		DatePurchase = datePurchase;
+		this.datePurchase = datePurchase;
 	}
 
 
 	public boolean isPurchase() {
-		return Purchase;
+		return purchase;
 	}
 
 
 	public void setPurchase(boolean purchase) {
-		Purchase = purchase;
+		this.purchase = purchase;
 	}
 
 
 	public String getPaymentMethod() {
-		return PaymentMethod;
+		return paymentMethod;
 	}
 
 
 	public void setPaymentMethod(String paymentMethod) {
-		PaymentMethod = paymentMethod;
+		this.paymentMethod = paymentMethod;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Invoice [Id=" + Id + ", DatePurchase=" + DatePurchase + ", Purchase=" + Purchase + ", PaymentMethod="
-				+ PaymentMethod + "]";
+		return "Invoice [Id=" + id + ", DatePurchase=" + datePurchase + ", Purchase=" + purchase + ", PaymentMethod="
+				+ paymentMethod + "]";
 	}
 
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Id);
+		return Objects.hash(id);
 	}
 
 
@@ -85,7 +85,7 @@ public class Invoice implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Invoice other = (Invoice) obj;
-		return Objects.equals(Id, other.Id);
+		return Objects.equals(id, other.id);
 	}
 	
 	

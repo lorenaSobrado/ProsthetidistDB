@@ -9,63 +9,63 @@ public class Measurement implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -4715526459276722419L;
-	private Integer Id;
-	private float Length;
-	private float Width;
-	private float Weight;
+	private Integer id;
+	private float length;
+	private float width;
+	private float weight;
 //CONSTRUCTOR
 	public Measurement() {
 		super();
 	}
 
     public Measurement(int id, float lengthiness, float width, float weight) {
-    	this.Id=id;
-    	this.Length=lengthiness;
-    	this.Width=width;
-    	this.Weight=weight;
+    	this.id=id;
+    	this.length=lengthiness;
+    	this.width=width;
+    	this.weight=weight;
     	
     }
     
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public float getLength() {
-		return Length;
+		return length;
 	}
 
 	public void setLength(float length) {
-		Length = length;
+		this.length = length;
 	}
 
 	public float getWidth() {
-		return Width;
+		return width;
 	}
 
 	public void setWidth(float width) {
-		Width = width;
+		this.width = width;
 	}
 
 	public float getWeight() {
-		return Weight;
+		return weight;
 	}
 
 	public void setWeight(float weight) {
-		Weight = weight;
+		this.weight = weight;
 	}
 
 	@Override
 	public String toString() {
-		return "Measurements [Id=" + Id + ", Length=" + Length + ", Width=" + Width + ", Weight=" + Weight + "]";
+		return "Measurements [Id=" + id + ", Length=" + length + ", Width=" + width + ", Weight=" + weight + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Id);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class Measurement implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Measurement other = (Measurement) obj;
-		return Objects.equals(Id, other.Id);
+		return Objects.equals(id, other.id);
 	}
 	
 }
