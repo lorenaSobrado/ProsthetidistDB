@@ -1,6 +1,9 @@
 package prosthetidist.ifaces;
 
+import java.util.List;
+
 import prosthetidist.pojos.Company;
+import prosthetidist.pojos.Prosthetic;
 import prosthetidist.pojos.Prosthetic;
 
 public interface CompanyManager {
@@ -11,4 +14,9 @@ public interface CompanyManager {
 	//get a company by its id
 	public void uploadProsthetics (Prosthetic p);
 	//upload a prosthetic 
+	public List<Prosthetic> listProstheticsWithoutCompanyID();
+	//
+	public void offerDesign (Prosthetic prosthetic);
+	
+
 }
