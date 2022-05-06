@@ -178,7 +178,7 @@ public class PatientMenuDisplay extends JFrame {
 		JLabel lblNewLabel_8 = new JLabel("Price");
 		lblNewLabel_8.setBounds(381, 65, 45, 13);
 		contentPane.add(lblNewLabel_8);
-=======
+
 		JButton btnNewButton_3 = new JButton("Filters");
 		btnNewButton_3.setBounds(382, 24, 89, 23);
 		contentPane.add(btnNewButton_3);
