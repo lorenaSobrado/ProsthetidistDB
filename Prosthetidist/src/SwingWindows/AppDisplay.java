@@ -54,30 +54,27 @@ public class AppDisplay extends JFrame {
 		btnNewButton_1.setBackground(new Color(204, 153, 255));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton_1.setBounds(228, 203, 145, 36);
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame patientDisplay = new PatientDisplay();
-				patientDisplay.setVisible(true);
-			}
-		});
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JFrame patientDisplay = new PatientDisplay(AppDisplay.this);
+				patientDisplay.setVisible(true);
 			}
 		});
 		contentPane.setLayout(null);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton = new JButton("COMPANY");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFrame companyDisplay = new CompanyDisplay();
-				companyDisplay.setVisible(true);
-			}
-		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(36, 203, 145, 36);
 		btnNewButton.setBackground(new Color(204, 153, 255));
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame companyDisplay = new CompanyDisplay(/*AppDisplay.this*/);
+				companyDisplay.setVisible(true);
+			}
+		});
 		contentPane.add(btnNewButton);
 		
 		txtProsthetidist = new JTextField();

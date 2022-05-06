@@ -72,11 +72,11 @@ public class PLogInDisplay extends JFrame {
 				boolean Validado = false;
 				if (textField.getText().length() > 0 || textField_1.getText().length() > 0) {
 					Validado = true;
-					JFrame patientMenuDisplay = new PatientMenuDisplay();
+					JFrame patientMenuDisplay = new PatientMenuDisplay(/*Patient p*/);
 					patientMenuDisplay.setVisible(Validado);
 				} else {
 					validarDatos();
-					JFrame patientMenuDisplay = new PatientMenuDisplay();
+					JFrame patientMenuDisplay = new PatientMenuDisplay(/*Patient p*/);
 					patientMenuDisplay.setVisible(Validado);
 				}
 

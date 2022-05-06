@@ -1,11 +1,15 @@
 package SwingWindows;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import prosthetidist.pojos.*;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -15,12 +19,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class CLogInDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JButton cancel;
+	private JButton logIn;
 
 	/**
 	 * Launch the application.
@@ -50,11 +59,31 @@ public class CLogInDisplay extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (!textField.getText().isEmpty() && !textField_1.getText().isEmpty()) {
+					logIn.setEnabled(true);
+				} else {
+					logIn.setEnabled(false);
+				}
+			}
+		});
 		textField.setBounds(165, 73, 124, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (!textField.getText().isEmpty() && !textField_1.getText().isEmpty()) {
+					logIn.setEnabled(true);
+				} else {
+					logIn.setEnabled(false);
+				}
+			}
+		});
 		textField_1.setBounds(165, 134, 124, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
@@ -69,37 +98,27 @@ public class CLogInDisplay extends JFrame {
 		lblNewLabel_1.setBounds(42, 137, 88, 17);
 		contentPane.add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("CANCEL");
-		btnNewButton.addActionListener(new ActionListener() {
+		cancel = new JButton("CANCEL");
+		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CLogInDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(231, 227, 89, 23);
-		contentPane.add(btnNewButton);
+		cancel.setBounds(231, 227, 89, 23);
+		contentPane.add(cancel);
 		
-		JButton btnNewButton_1 = new JButton("LOG IN");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		logIn = new JButton("LOG IN");
+		logIn.setEnabled(false);
+		logIn.setBackground(new Color(240, 240, 240));
+		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JFrame companyMenuDisplay = new CompanyMenuDisplay();
+				companyMenuDisplay.setVisible(true);
 			}
 		});
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) { //arreglar este codigo, mejore crear un jframe luego en el if ponerlo visible o no
-				boolean Validado = false;
-				if (textField.getText().length() > 0 && textField_1.getText().length() > 0) {
-					Validado = true;
-					JFrame companyMenuDisplay = new CompanyMenuDisplay();
-					companyMenuDisplay.setVisible(Validado);
-				} else {
-					validarDatos();
-					JFrame companyMenuDisplay = new CompanyMenuDisplay();
-					companyMenuDisplay.setVisible(Validado);
-				}
-			}
-		});
-		btnNewButton_1.setBounds(338, 227, 89, 23);
-		contentPane.add(btnNewButton_1);
+		
+		logIn.setBounds(338, 227, 89, 23);
+		contentPane.add(logIn);
 	}
 	
 	public void validarDatos() {

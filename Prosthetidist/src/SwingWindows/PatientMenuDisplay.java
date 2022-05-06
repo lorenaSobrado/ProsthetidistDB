@@ -50,7 +50,7 @@ public class PatientMenuDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PatientMenuDisplay() {
+	public PatientMenuDisplay(/*Patient patient*/) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 587, 357);
 		contentPane = new JPanel();

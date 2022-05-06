@@ -1,11 +1,15 @@
 package SwingWindows;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import prosthetidist.pojos.Company;
+
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -23,7 +27,7 @@ public class CompanyMenuDisplay extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CompanyMenuDisplay frame = new CompanyMenuDisplay();
+					CompanyMenuDisplay frame = new CompanyMenuDisplay(/*Company company*/);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +39,7 @@ public class CompanyMenuDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CompanyMenuDisplay() {
+	public CompanyMenuDisplay(/*Company company*/) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

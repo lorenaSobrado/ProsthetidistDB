@@ -25,7 +25,7 @@ public class PatientDisplay extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PatientDisplay frame = new PatientDisplay();
+					PatientDisplay frame = new PatientDisplay(null); //PREGUNTAR COMO ARREGLO ESTO
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,8 @@ public class PatientDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PatientDisplay() {
+	public PatientDisplay(JFrame appDisplay) {
+		//appDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -46,42 +47,30 @@ public class PatientDisplay extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("Back");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-			}
-		});
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PatientDisplay.this.setVisible(false);
+				//appDisplay.setEnabled(true);
 			}
 		});
 		btnNewButton.setBounds(339, 231, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Log in");
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame logindisplay = new PLogInDisplay();
-				logindisplay.setVisible(true);
-				
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame pLogInDisplay = new PLogInDisplay();
+				pLogInDisplay.setVisible(true);
 			}
 		});
 		btnNewButton_1.setBounds(161, 97, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Register");
-		btnNewButton_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame r = new PRegisterDisplay();
-				r.setVisible(true);
-			}
-		});
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				JFrame pRegisterDisplay = new PRegisterDisplay();
+				pRegisterDisplay.setVisible(true);
 			}
 		});
 		btnNewButton_2.setBounds(161, 144, 89, 23);
