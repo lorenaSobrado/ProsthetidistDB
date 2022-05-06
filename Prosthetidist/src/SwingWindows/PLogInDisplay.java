@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class LogInDisplay extends JFrame {
+public class PLogInDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -31,7 +31,7 @@ public class LogInDisplay extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LogInDisplay frame = new LogInDisplay();
+					PLogInDisplay frame = new PLogInDisplay();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,25 +43,25 @@ public class LogInDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LogInDisplay() {
+	public PLogInDisplay() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
+
 		textField = new JTextField();
-		textField.setBounds(131, 64, 96, 20);
+		textField.setBounds(146, 63, 164, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		textField_1 = new JTextField();
-		textField_1.setBounds(131, 101, 96, 20);
+		textField_1.setBounds(146, 100, 164, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Ok");
+
+		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -69,28 +69,27 @@ public class LogInDisplay extends JFrame {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				boolean Validado= false;
-				if(textField.getText().length()>0 || textField_1.getText().length()>0) {
-					Validado=true;
-					JFrame patientMenuDisplay = new PatientMenuDisplay();
+				boolean Validado = false;
+				if (textField.getText().length() > 0 || textField_1.getText().length() > 0) {
+					Validado = true;
+					JFrame patientMenuDisplay = new PatientMenuDisplay(/*Patient p*/);
 					patientMenuDisplay.setVisible(Validado);
-				}else {
-					Validado = false;
-					validarDatos();JFrame patientMenuDisplay = new PatientMenuDisplay();
+				} else {
+					validarDatos();
+					JFrame patientMenuDisplay = new PatientMenuDisplay(/*Patient p*/);
 					patientMenuDisplay.setVisible(Validado);
-					
 				}
-				
+
 			}
 		});
 		btnNewButton.setBounds(221, 230, 89, 23);
 		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Cancel");
+
+		JButton btnNewButton_1 = new JButton("CANCEL");
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				LogInDisplay.this.setVisible(false);
+				PLogInDisplay.this.setVisible(false);
 			}
 		});
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -99,18 +98,17 @@ public class LogInDisplay extends JFrame {
 		});
 		btnNewButton_1.setBounds(320, 231, 85, 21);
 		contentPane.add(btnNewButton_1);
-		
-		JLabel lblNewLabel = new JLabel("Email");
-		lblNewLabel.setBounds(28, 67, 45, 13);
+
+		JLabel lblNewLabel = new JLabel("EMAIL :");
+		lblNewLabel.setBounds(28, 67, 65, 13);
 		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Password");
-		lblNewLabel_1.setBounds(28, 104, 45, 13);
+
+		JLabel lblNewLabel_1 = new JLabel("PASSWORD :");
+		lblNewLabel_1.setBounds(28, 104, 79, 13);
 		contentPane.add(lblNewLabel_1);
 	}
+
 	public void validarDatos() {
 		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
 }
-
-

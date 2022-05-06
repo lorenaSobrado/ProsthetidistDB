@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.SystemColor;
 
 public class AppDisplay extends JFrame {
 
@@ -44,34 +46,44 @@ public class AppDisplay extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(204, 255, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("Company");
-		btnNewButton.setBackground(Color.WHITE);
-		contentPane.add(btnNewButton, BorderLayout.SOUTH);
+		JButton btnNewButton_1 = new JButton("PATIENT");
+		btnNewButton_1.setBackground(new Color(204, 153, 255));
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton_1.setBounds(228, 203, 145, 36);
 		
-		JButton btnNewButton_1 = new JButton("Patient");
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame patientDisplay = new PatientDisplay();
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame patientDisplay = new PatientDisplay(AppDisplay.this);
 				patientDisplay.setVisible(true);
 			}
 		});
-		btnNewButton_1.addActionListener(new ActionListener() {
+		contentPane.setLayout(null);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("COMPANY");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton.setBounds(36, 203, 145, 36);
+		btnNewButton.setBackground(new Color(204, 153, 255));
+		
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JFrame companyDisplay = new CompanyDisplay(/*AppDisplay.this*/);
+				companyDisplay.setVisible(true);
 			}
 		});
-		contentPane.add(btnNewButton_1, BorderLayout.NORTH);
+		contentPane.add(btnNewButton);
 		
 		txtProsthetidist = new JTextField();
-		txtProsthetidist.setBackground(Color.LIGHT_GRAY);
+		txtProsthetidist.setBounds(10, 11, 414, 160);
+		txtProsthetidist.setBackground(new Color(204, 204, 204));
 		txtProsthetidist.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProsthetidist.setFont(new Font("Segoe UI Black", Font.ITALIC, 47));
 		txtProsthetidist.setText("PROSTHETIDIST\r\n");
-		contentPane.add(txtProsthetidist, BorderLayout.CENTER);
+		contentPane.add(txtProsthetidist);
 		txtProsthetidist.setColumns(30);
 	}
 

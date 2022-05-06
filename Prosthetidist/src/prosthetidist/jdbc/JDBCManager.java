@@ -60,9 +60,24 @@ public class JDBCManager {
 			
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Material " + "(Name TEXT PRIMARY KEY, " + "Cost	REAL, " + "Strength	TEXT, " + "Flexibility TEXT, "
+			sql = "CREATE TABLE Material " + "(Name TEXT PRIMARY KEY, " + "Price	REAL, " + "Strength	TEXT, " + "Flexibility TEXT, "
 					+ "Temperature_resistance TEXT, " + ");";
 
+			stmt.executeUpdate(sql);
+			
+			sql = "UPDATE Material " + "SET Name = Plastic " + "SET Price = " + 4.99 + " SET Strength = Low " + "SET Flexibility = High " 
+					+ "SET Temperature_resistance = Low ";
+			
+			stmt.executeUpdate(sql);
+			
+			sql = "UPDATE Material " + "SET Name = Carbon Fiber " + "SET Price = " + 19.99 + " SET Strength = High " + "SET Flexibility = High " 
+					+ "SET Temperature_resistance = High ";
+			
+			stmt.executeUpdate(sql);
+			
+			sql = "UPDATE Material " + "SET Name = Aluminum " + "SET Price = " + 5.4 + " SET Strength = Low* " + "SET Flexibility = Medium* " 
+					+ "SET Temperature_resistance = Low* ";
+			
 			stmt.executeUpdate(sql);
 
 			sql = "CREATE TABLE Measurement " + "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " + "Lengthinees REAL NOT NULL, " 

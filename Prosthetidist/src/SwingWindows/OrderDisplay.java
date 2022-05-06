@@ -25,7 +25,6 @@ public class OrderDisplay extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
@@ -73,7 +72,7 @@ public class OrderDisplay extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Your Order");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 48));
-		lblNewLabel.setBounds(10, 10, 494, 52);
+		lblNewLabel.setBounds(10, 11, 494, 52);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Products");
@@ -139,10 +138,6 @@ public class OrderDisplay extends JFrame {
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(107, 336, 29, 21);
-		contentPane.add(comboBox);
-		
 		textField_5 = new JTextField();
 		textField_5.setEditable(false);
 		textField_5.setBounds(107, 450, 96, 19);
@@ -152,16 +147,6 @@ public class OrderDisplay extends JFrame {
 		JLabel lblNewLabel_8 = new JLabel("Total Price");
 		lblNewLabel_8.setBounds(29, 453, 73, 13);
 		contentPane.add(lblNewLabel_8);
-		
-		JLabel lblNewLabel_9 = new JLabel("Id");
-		lblNewLabel_9.setBounds(280, 168, 45, 13);
-		contentPane.add(lblNewLabel_9);
-		
-		textField_6 = new JTextField();
-		textField_6.setEditable(false);
-		textField_6.setBounds(386, 165, 96, 19);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
 		
 		textField_7 = new JTextField();
 		textField_7.setEditable(false);

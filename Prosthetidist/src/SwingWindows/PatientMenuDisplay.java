@@ -50,15 +50,15 @@ public class PatientMenuDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PatientMenuDisplay() {
+	public PatientMenuDisplay(/*Patient patient*/) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 587, 357);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("Cancel");
+		JButton btnNewButton = new JButton("LOG OUT");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -69,7 +69,7 @@ public class PatientMenuDisplay extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(337, 240, 89, 23);
+		btnNewButton.setBounds(27, 288, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		table = new JTable();
@@ -97,7 +97,7 @@ public class PatientMenuDisplay extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		});
-		table.setBounds(27, 58, 378, 172);
+		table.setBounds(27, 58, 465, 203);
 		contentPane.add(table);
 		
 		textField = new JTextField();
@@ -111,7 +111,7 @@ public class PatientMenuDisplay extends JFrame {
 		lblNewLabel.setBounds(27, 29, 45, 13);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton_1 = new JButton("Design");
+		JButton btnNewButton_1 = new JButton("Design My Own");
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -123,10 +123,10 @@ public class PatientMenuDisplay extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setBounds(341, 25, 85, 21);
+		btnNewButton_1.setBounds(253, 25, 119, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Order");
+		JButton btnNewButton_2 = new JButton("ADD TO CART");
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -138,8 +138,23 @@ public class PatientMenuDisplay extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_2.setBounds(241, 241, 85, 21);
+		btnNewButton_2.setBounds(452, 289, 113, 21);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Filters");
+		btnNewButton_3.setBounds(382, 24, 89, 23);
+		contentPane.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("CART");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame cartDisplay = new CartDisplay();
+				cartDisplay.setVisible(true);
+				//PatientMenuDisplay.this.setEnabled(false); hace que no se pueda usar este frame cuando se abre el carrito, como lo vuelvo a activar??
+			}
+		});
+		btnNewButton_4.setBounds(500, 11, 70, 37);
+		contentPane.add(btnNewButton_4);
 		
 		
 	}
