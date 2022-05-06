@@ -10,65 +10,65 @@ public class Material implements Serializable{
 	 */
 	private static final long serialVersionUID = -5001802543288251520L;
 	
-	private String Name;
-	private String Strength;
-	private float Price;
-	private String TemperatureResistence;
-	private String Flexibility;
+	private String name;
+	private String strength;
+	private float price;
+	private String temperatureResistence;
+	private String flexibility;
 	
 	public Material () {
 		super();
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public String getStrength() {
-		return Strength;
+		return strength;
 	}
 
 	public void setStrength(String strength) {
-		Strength = strength;
+		this.strength = strength;
 	}
 
 	public float getPrice() {
-		return Price;
+		return price;
 	}
 
 	public void setPrice(float price) {
-		Price = price;
+		this.price = price;
 	}
 
 	public String getTemperatureResistence() {
-		return TemperatureResistence;
+		return temperatureResistence;
 	}
 
 	public void setTemperatureResistence(String temperatureResistence) {
-		TemperatureResistence = temperatureResistence;
+		this.temperatureResistence = temperatureResistence;
 	}
 
 	public String getFlexibility() {
-		return Flexibility;
+		return flexibility;
 	}
 
 	public void setFlexibility(String flexibility) {
-		Flexibility = flexibility;
+		this.flexibility = flexibility;
 	}
 
 	@Override
 	public String toString() {
-		return "Materials [Name=" + Name + ", Strength=" + Strength + ", Price=" + Price + ", TemperatureResistence="
-				+ TemperatureResistence + ", Flexibility=" + Flexibility + "]";
+		return "Materials [Name=" + name + ", Strength=" + strength + ", Price=" + price + ", TemperatureResistence="
+				+ temperatureResistence + ", Flexibility=" + flexibility + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Name);
+		return Objects.hash(name);
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class Material implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Material other = (Material) obj;
-		return Objects.equals(Name, other.Name);
+		return Objects.equals(name, other.name);
 	}
 	
 }

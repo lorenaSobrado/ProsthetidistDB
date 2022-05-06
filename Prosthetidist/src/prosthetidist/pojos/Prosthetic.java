@@ -6,17 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
+
 public class Prosthetic implements Serializable{
 
 	private static final long serialVersionUID = -6066466581324943260L;
 	
 	//ATTRIBUTES OF THE POJO
 	
+	
 	private Integer code;
 	private Float price;
 	private String functionalities;
 	private String type;
 	private String model;
+	
+	//@ManyToOne (fetch=FetchType.LAZY)
 	private Company company;
 	private Measurement measurements;
 	private List<Material> materials;

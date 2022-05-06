@@ -10,6 +10,10 @@ import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import prosthetidist.pojos.*;
+import prosthetidist.ifaces.UserManager;
+
+
 
 
 public class JPAUserManager implements UserManager {
@@ -21,17 +25,24 @@ public class JPAUserManager implements UserManager {
 		this.connect();
 	}
 
-	private void connect() {
-		em = Persistence.createEntityManagerFactory("doghospital-provider").createEntityManager();
+
+	public void connect() {
+		
+		//we can only use persist in classes that are annotated
+		
+		em = Persistence.createEntityManagerFactory("prosthetidist-provider").createEntityManager();
 		em.getTransaction().begin();
 		em.createNativeQuery("PRAGMA foreign_keys=ON").executeUpdate();
 		em.getTransaction().commit();
+		
 		// Insert the roles needed only if they are not there already
+		
 		if (this.getRoles().isEmpty()) {
-			Role owner = new Role("owner");
-			Role vet = new Role("vet");
-			this.newRole(owner);
-			this.newRole(vet);
+			Role company = new Role("Company");
+			Role patient = new Role("Patient");
+			this.newRole(company);
+			
+			this.newRole(patient);
 		}
 	}
 
@@ -46,8 +57,9 @@ public class JPAUserManager implements UserManager {
 		em.persist(u);
 		em.getTransaction().commit();
 	}
+	
 
-	private void newRole(Role r) {
+	public void newRole(Role r) {
 		em.getTransaction().begin();
 		em.persist(r);
 		em.getTransaction().commit();
@@ -69,6 +81,10 @@ public class JPAUserManager implements UserManager {
 
 	@Override
 	public User checkPassword(String email, String passwd) {
+		
+		//PASSWORDS ARE NERVER STORED INTO THE DATA BASE
+		
+		//TODO investigar
 		// null user if match not found
 		User u = null;
 		Query q = em.createNativeQuery("SELECT * FROM users WHERE email = ? AND password = ?", User.class);
@@ -87,4 +103,7 @@ public class JPAUserManager implements UserManager {
 		return u;
 	}
 
+
+
+	
 }

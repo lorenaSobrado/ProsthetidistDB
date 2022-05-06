@@ -10,13 +10,8 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
  
 		<!-- Entity Class -->
-		<class>prosthetidist.pojos.Company</class>
-		<class>prosthetidist.pojos.Delivery</class>
-		<class>prosthetidist.pojos.Invoice</class>
-		<class>prosthetidist.pojos.Materials</class>
-		<class>prosthetidist.pojos.Measurements</class>
-		<class>prosthetidist.pojos.Patient</class>
-		<class>prosthetidist.pojos.Prosthetic</class>
+		<class>prosthetidist.pojos.Role</class>
+		<class>prosthetidist.pojos.User</class>
 
  
 		<properties>	

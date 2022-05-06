@@ -6,15 +6,17 @@ import java.sql.Date;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
-@Entity
-@Table(name = "Patient")
 
 public class Patient implements Serializable {
 	
 	
 	private static final long serialVersionUID = -5369533665399855865L;
+	
 	
 	private Integer id;
 	private String name;
