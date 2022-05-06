@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import prosthetidist.pojos.Measurements;
+import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Prosthetic;
 
 import javax.swing.JLabel;
@@ -138,7 +138,7 @@ public class UploadProsthetic extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Prosthetic p = new Prosthetic();
-				Measurements m = new Measurements();
+				Measurement m = new Measurement();
 				p.setPrice(Float.parseFloat(textField.getText()));
 				p.setFunctionalities(textField_1.getText());
 				p.setType(textField_2.getText());

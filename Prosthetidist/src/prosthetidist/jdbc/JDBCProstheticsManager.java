@@ -9,7 +9,7 @@ import java.util.List;
 //no deberia
 import prosthetidist.ifaces.ProstheticsManager;
 import prosthetidist.pojos.Company;
-import prosthetidist.pojos.Measurements;
+import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Prosthetic;
 
 
@@ -28,20 +28,20 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 	public List<Prosthetic> listAllProsthetics () {
 	List <Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
 	Company c= null;
-	Measurements m= null;
+	Measurement m= null;
 	try {
 			Statement stat = manager.getConnection().createStatement();
 			String sql= "SELECT * FROM Prosthetic";
 			ResultSet rs = stat.executeQuery(sql);
 			//rs.next() moves to the next row of the table
 			while (rs.next()) {
-				Integer code = rs.getInt("Code");
-				Float price = rs.getFloat("Price");
-				String functionalities = rs.getString("Functionalities");
-				String type = rs.getString("Type");
-				String model = rs.getString("Model");
-				Integer company_id = rs.getInt("Company_id");
-				Integer measurement_id= rs.getInt("Measurement_id");
+				Integer code = rs.getInt("code");
+				Float price = rs.getFloat("price");
+				String functionalities = rs.getString("functionalities");
+				String type = rs.getString("type");
+				String model = rs.getString("model");
+				Integer company_id = rs.getInt("company_id");
+				Integer measurement_id= rs.getInt("measurement_id");
 				
 				//FALTAN LOS MATERIALES
 			

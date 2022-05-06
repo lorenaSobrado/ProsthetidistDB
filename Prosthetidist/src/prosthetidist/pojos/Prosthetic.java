@@ -6,20 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
+
 public class Prosthetic implements Serializable{
 
 	private static final long serialVersionUID = -6066466581324943260L;
 	
 	//ATTRIBUTES OF THE POJO
 	
+	
 	private Integer code;
 	private Float price;
 	private String functionalities;
 	private String type;
 	private String model;
+	
+	//@ManyToOne (fetch=FetchType.LAZY)
 	private Company company;
-	private Measurements measurements;
-	private List<Materials> materials;
+	private Measurement measurements;
+	private List<Material> materials;
 	private Patient patient;
 	private List<Invoice> invoices;
 	
@@ -32,7 +41,7 @@ public class Prosthetic implements Serializable{
 		this.invoices = new ArrayList();
 	}
 	//@TODO problemas
-	public Prosthetic (Integer code, Float price, String functionalities, String type, String model, Company company, Measurements measurement) {
+	public Prosthetic (Integer code, Float price, String functionalities, String type, String model, Company company, Measurement measurement) {
 		this.code=code;
 		this.price=price;
 		this.functionalities=functionalities;
@@ -62,7 +71,7 @@ public class Prosthetic implements Serializable{
 	}
 	//test constructor for design
 	
-			public Prosthetic(String functionalities, String type, Measurements m) {
+			public Prosthetic(String functionalities, String type, Measurement m) {
 				this.functionalities=functionalities;
 				this.type=type;
 				this.measurements=m;
@@ -70,7 +79,7 @@ public class Prosthetic implements Serializable{
 		
 	//test constructor for listProstheticsWithoutCompanyID
 	
-		public Prosthetic(Integer code, String abilities, String type, Measurements m) {
+		public Prosthetic(Integer code, String abilities, String type, Measurement m) {
 			this.code=code;
 			this.functionalities=abilities;
 			this.type=type;
@@ -159,16 +168,16 @@ public class Prosthetic implements Serializable{
 		this.company = company;
 	}
 	
-	public Measurements getMeasurements() {
+	public Measurement getMeasurements() {
 		return measurements;
 	}
-	public void setMeasurements(Measurements measurements) {
+	public void setMeasurements(Measurement measurements) {
 		this.measurements = measurements;
 	}
-	public List<Materials> getMaterials() {
+	public List<Material> getMaterials() {
 		return materials;
 	}
-	public void setMaterials(List<Materials> materials) {
+	public void setMaterials(List<Material> materials) {
 		this.materials = materials;
 	}
 	public Patient getPatient() {

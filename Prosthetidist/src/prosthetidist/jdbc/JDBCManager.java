@@ -44,61 +44,61 @@ public class JDBCManager {
 		// Create Tables
 		try {
 			Statement stmt = c.createStatement();
-			String sql = "CREATE TABLE Company " + "(Id	INTEGER, " + "Name	TEXT, " + "Email    TEXT UNIQUE, " + "Phone INTEGER, "
-					+ "PRIMARY KEY (Id AUTOINCREMENT)" + ");";
+			String sql = "CREATE TABLE Company " + "(id	INTEGER, " + "name	TEXT, " + "email    TEXT UNIQUE, " + "phone INTEGER, "
+					+ "PRIMARY KEY (id AUTOINCREMENT)" + ");";
 
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Delivery " + "(Type	TEXT, " + "Price	REAL NOT NULL, " + "Description TEXT, "
-					+ "PRIMARY KEY (Type)" + ");";
+			sql = "CREATE TABLE Delivery " + "(type	TEXT, " + "price	REAL NOT NULL, " + "description TEXT, "
+					+ "PRIMARY KEY (type)" + ");";
 
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Invoice " + "(Id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "DatePurchase	DATE, " + "PaymentMethod    TEXT NOT NULL, "
-					+ "Purchase BOOLEAN DEFAULT \"FALSE\", " + "Patient_id INTEGER REFERENCES Patient(Id), " + "Prosthetic_code INTEGER REFERENCES Prosthetic(Code), " 
-					+ "Delivery_type TEXT REFERENCES Delivery(Type) " + ");";
+			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "paymentMethod    TEXT NOT NULL, "
+					+ "purchase BOOLEAN DEFAULT \"FALSE\", " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
+					+ "delivery_type TEXT REFERENCES Delivery(type) " + ");";
 			
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Material " + "(Name TEXT PRIMARY KEY, " + "Price	REAL, " + "Strength	TEXT, " + "Flexibility TEXT, "
-					+ "Temperature_resistance TEXT, " + ");";
+			sql = "CREATE TABLE Material " + "(name TEXT PRIMARY KEY, " + "price	REAL, " + "strength	TEXT, " + "flexibility TEXT, "
+					+ "temperature_resistance TEXT, " + ");";
 
 			stmt.executeUpdate(sql);
 			
-			sql = "UPDATE Material " + "SET Name = Plastic " + "SET Price = " + 4.99 + " SET Strength = Low " + "SET Flexibility = High " 
-					+ "SET Temperature_resistance = Low ";
+			sql = "UPDATE Material " + "SET name = Plastic " + "SET price = " + 4.99 + " SET strength = Low " + "SET flexibility = High " 
+					+ "SET temperature_resistance = Low ";
 			
 			stmt.executeUpdate(sql);
 			
-			sql = "UPDATE Material " + "SET Name = Carbon Fiber " + "SET Price = " + 19.99 + " SET Strength = High " + "SET Flexibility = High " 
-					+ "SET Temperature_resistance = High ";
+			sql = "UPDATE Material " + "SET name = Carbon Fiber " + "SET price = " + 19.99 + " SET strength = High " + "SET flexibility = High " 
+					+ "SET temperature_resistance = High ";
 			
 			stmt.executeUpdate(sql);
 			
-			sql = "UPDATE Material " + "SET Name = Aluminum " + "SET Price = " + 5.4 + " SET Strength = Low* " + "SET Flexibility = Medium* " 
-					+ "SET Temperature_resistance = Low* ";
+			sql = "UPDATE Material " + "SET name = Aluminum " + "SET price = " + 5.4 + " SET strength = Low* " + "SET flexibility = Medium* " 
+					+ "SET temperature_resistance = Low* ";
 			
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Measurement " + "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " + "Lengthinees REAL NOT NULL, " 
-					+ "Width REAL NOT NULL, " + "Weight	    REAL, " + ");";
+			sql = "CREATE TABLE Measurement " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "lengthinees REAL NOT NULL, " 
+					+ "width REAL NOT NULL, " + "weight	    REAL, " + ");";
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Patient " + "(Id INTEGER PRIMARY KEY, " + "Name	TEXT, "
-			+ "Email	TEXT UNIQUE " + "DOB     DATE, " + "Address  TEXT, " + "Phonenumber	INTEGER UNIQUE, "
-			+ "Notes	TEXT, " + ");";
+			sql = "CREATE TABLE Patient " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "name	TEXT, "
+			+ "email	TEXT UNIQUE " + "dob     DATE, " + "address  TEXT, " + "phonenumber	INTEGER UNIQUE, "
+			+ "notes	TEXT, " + ");";
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Prosthetic " + "(Code INTEGER PRIMARY KEY AUTOINCREMENT, " + "Price REAL NOT NULL, " + "Functionalities	TEXT, " 
-					+ "Type TEXT NOT NULL, " + "Model TEXT NOT NULL, " + "Company_id INTEGER REFERENCES Company (Id)," 
-					+ "Measurement_id INTEGER REFERENCES Measurements (Id) " + ");";
+			sql = "CREATE TABLE Prosthetic " + "(code INTEGER PRIMARY KEY AUTOINCREMENT, " + "price REAL, " + "functionalities	TEXT, " 
+					+ "type TEXT NOT NULL, " + "model TEXT, " + "company_id INTEGER REFERENCES Company (id)," 
+					+ "measurement_id INTEGER REFERENCES Measurement (id) " + ");";
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE ProstheticHasMaterials " + "(Prosthetic_code INTEGER REFERENCES Prosthetic(Code), " 
-			+ "	Material_name TEXT REFERENCES Material(Name), " + "PRIMARY KEY (Prosthetic_code, Material_name)" + ");";
+			sql = "CREATE TABLE ProstheticHasMaterials " + "(prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
+			+ "	material_name TEXT REFERENCES Material(name), " + "PRIMARY KEY (prosthetic_code, material_name)" + ");";
 			
 			stmt.executeUpdate(sql);
 

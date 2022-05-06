@@ -18,7 +18,7 @@ public class JDBCPatientManager implements PatientManager {
 		
 		Prosthetic p= null;
 		try {
-			String sql= "INSERT INTO Prosthetic (Functionalities, Type, Measurements) VALUES (?,?,?)";
+			String sql= "INSERT INTO Prosthetic (functionalities, type, measurement_id) VALUES (?,?,?)";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			
 			prep.setString(1, p.getFunctionalities());

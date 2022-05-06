@@ -1,8 +1,8 @@
 package prosthetidist.ifaces;
 
-import prosthetidist.pojos.Measurements;
+import prosthetidist.pojos.Measurement;
 
 public interface MeasurementsManager {
-	public Measurements getMeasurementById (int measurement_id);
+	public Measurement getMeasurementById (int measurement_id);
 	//returns a object from the class Measurement by its id
 }
