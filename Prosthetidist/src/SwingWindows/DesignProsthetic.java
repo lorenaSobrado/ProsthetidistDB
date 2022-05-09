@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -14,7 +15,7 @@ import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DesignProsth extends JFrame {
+public class DesignProsthetic extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -25,23 +26,24 @@ public class DesignProsth extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DesignProsth frame = new DesignProsth();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					DesignProsthetic frame = new DesignProsthetic();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public DesignProsth() {
+	public DesignProsthetic(JFrame patientMenuDisplay) {
+		patientMenuDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 343);
 		contentPane = new JPanel();
@@ -104,11 +106,14 @@ public class DesignProsth extends JFrame {
 		JButton btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				patientMenuDisplay.setEnabled(true);
 				Float length = Float.parseFloat(textField.getText());
 				Float width = Float.parseFloat(textField_1.getText());
 				Float weight = Float.parseFloat(textField_2.getText());
 				String functionalities = textField_3.getText();
-				
+				JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !", "Message", 
+						JOptionPane.INFORMATION_MESSAGE);
+				DesignProsthetic.this.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(306, 275, 85, 21);
@@ -117,7 +122,8 @@ public class DesignProsth extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancelar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DesignProsth.this.setVisible(false);
+				patientMenuDisplay.setEnabled(true);
+				DesignProsthetic.this.setVisible(false);
 			}
 		});
 		btnNewButton_1.setBounds(417, 275, 85, 21);

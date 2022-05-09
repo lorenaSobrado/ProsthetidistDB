@@ -112,7 +112,8 @@ public class CLogInDisplay extends JFrame {
 		logIn.setBackground(new Color(240, 240, 240));
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame companyMenuDisplay = new CompanyMenuDisplay();
+				Company company = new Company();
+				JFrame companyMenuDisplay = new CompanyMenuDisplay(/*company*/);
 				companyMenuDisplay.setVisible(true);
 			}
 		});

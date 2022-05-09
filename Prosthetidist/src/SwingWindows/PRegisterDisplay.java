@@ -3,8 +3,13 @@ package SwingWindows;
 import java.awt.BorderLayout;
 
 
+<<<<<<< HEAD
 import prosthetidist.ifaces.PatientManager;
 import prosthetidist.ifaces.UserManager;
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/lorenaSobrado/ProsthetidistDB.git
 import prosthetidist.pojos.*;
 import java.awt.EventQueue;
 
@@ -45,23 +50,24 @@ public class PRegisterDisplay extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PRegisterDisplay frame = new PRegisterDisplay();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					PRegisterDisplay frame = new PRegisterDisplay();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public PRegisterDisplay() {
+	public PRegisterDisplay(JFrame patientDisplay) {
+		patientDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -137,6 +143,7 @@ public class PRegisterDisplay extends JFrame {
 		JButton btnNewButton = new JButton("Register");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 			}
 		});
 		btnNewButton.addMouseListener(new MouseAdapter() {
@@ -186,6 +193,11 @@ public class PRegisterDisplay extends JFrame {
 				} else {
 					validarDatos();
 				}
+=======
+				patientDisplay.setEnabled(true);
+				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
+				PRegisterDisplay.this.setVisible(false);
+>>>>>>> branch 'master' of https://github.com/lorenaSobrado/ProsthetidistDB.git
 			}
 		});
 		btnNewButton.setBounds(225, 232, 85, 21);
@@ -194,6 +206,7 @@ public class PRegisterDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				patientDisplay.setEnabled(true);
 				PRegisterDisplay.this.setVisible(false);
 			}
 		});

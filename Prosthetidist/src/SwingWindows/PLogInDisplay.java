@@ -27,23 +27,24 @@ public class PLogInDisplay extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PLogInDisplay frame = new PLogInDisplay();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					PLogInDisplay frame = new PLogInDisplay();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public PLogInDisplay() {
+	public PLogInDisplay(JFrame patientDisplay) {
+		patientDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -64,36 +65,19 @@ public class PLogInDisplay extends JFrame {
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				boolean Validado = false;
-				if (textField.getText().length() > 0 || textField_1.getText().length() > 0) {
-					Validado = true;
-					JFrame patientMenuDisplay = new PatientMenuDisplay(/*Patient p*/);
-					patientMenuDisplay.setVisible(Validado);
-				} else {
-					validarDatos();
-					JFrame patientMenuDisplay = new PatientMenuDisplay(/*Patient p*/);
-					patientMenuDisplay.setVisible(Validado);
-				}
-
+				//Patient patient = new Patient(); get patient by SELECT query
+				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this/*, patient*/);
+				patientMenuDisplay.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(221, 230, 89, 23);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("CANCEL");
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				PLogInDisplay.this.setVisible(false);
-			}
-		});
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				patientDisplay.setEnabled(true);
+				PLogInDisplay.this.setVisible(false);
 			}
 		});
 		btnNewButton_1.setBounds(320, 231, 85, 21);

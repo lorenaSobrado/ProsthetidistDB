@@ -2,6 +2,7 @@ package SwingWindows;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -9,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JRadioButton;
@@ -16,33 +18,40 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class CartDisplay extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField creditCard;
 	private JTable table;
+	private JRadioButton standard;
+	private JRadioButton premium;
+	private JButton buy;
+	private JButton back;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CartDisplay frame = new CartDisplay();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					CartDisplay frame = new CartDisplay();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public CartDisplay() {
+	public CartDisplay(JFrame patientMenuDisplay) {
+		patientMenuDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 488, 351);
 		contentPane = new JPanel();
@@ -54,45 +63,85 @@ public class CartDisplay extends JFrame {
 		lblNewLabel.setBounds(24, 11, 113, 14);
 		contentPane.add(lblNewLabel);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("STANDARD");
-		rdbtnNewRadioButton.setBounds(41, 177, 111, 23);
-		contentPane.add(rdbtnNewRadioButton);
+		standard = new JRadioButton("STANDARD");
+		standard.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				if (standard.isSelected()) {
+					premium.setSelected(false);
+				}
+				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() >= 15)) {
+					buy.setEnabled(true);
+				} else {
+					buy.setEnabled(false);
+				}
+			}
+		});
+		standard.setBounds(41, 177, 111, 23);
+		contentPane.add(standard);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("PREMIUM");
-		rdbtnNewRadioButton_1.setBounds(195, 177, 111, 23);
-		contentPane.add(rdbtnNewRadioButton_1);
-		
-		JLabel lblNewLabel_1 = new JLabel("CHOOSE DELIVERY :");
-		lblNewLabel_1.setBounds(24, 156, 113, 14);
-		contentPane.add(lblNewLabel_1);
+		premium = new JRadioButton("PREMIUM");
+		premium.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				if (premium.isSelected()) {
+					standard.setSelected(false);
+				}
+				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() >= 15)) {
+					buy.setEnabled(true);
+				} else {
+					buy.setEnabled(false);
+				}
+			}
+		});
+		premium.setBounds(195, 177, 111, 23);
+		contentPane.add(premium);
 		
 		JLabel lblNewLabel_2 = new JLabel("CREDIT CARD NUMBER :");
 		lblNewLabel_2.setBounds(24, 224, 128, 14);
 		contentPane.add(lblNewLabel_2);
 		
-		textField = new JTextField();
-		textField.setBounds(173, 221, 133, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JButton btnNewButton = new JButton("BUY");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JPanel buyDisplay = new BuyDisplay();
-				buyDisplay.setVisible(true);
+		creditCard = new JTextField();
+		creditCard.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (creditCard.getText().length() >= 16) {
+					e.consume(); //deja de procesar este evento
+					Toolkit.getDefaultToolkit().beep();
+				}
+				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() >= 15)) { //pq 15 y no 16?
+					buy.setEnabled(true);
+				} else {
+					buy.setEnabled(false);
+				}
 			}
 		});
-		btnNewButton.setBounds(377, 282, 89, 23);
-		contentPane.add(btnNewButton);
+		creditCard.setBounds(173, 221, 133, 20);
+		contentPane.add(creditCard);
+		creditCard.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("BACK");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		buy = new JButton("BUY");
+		buy.setEnabled(false);
+		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				patientMenuDisplay.setEnabled(true);
+				JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message", 
+						JOptionPane.INFORMATION_MESSAGE);
 				CartDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(24, 282, 89, 23);
-		contentPane.add(btnNewButton_1);
+		buy.setBounds(377, 282, 89, 23);
+		contentPane.add(buy);
+		
+		back = new JButton("BACK");
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				patientMenuDisplay.setEnabled(true);
+				CartDisplay.this.setVisible(false);
+			}
+		});
+		back.setBounds(24, 282, 89, 23);
+		contentPane.add(back);
 		
 		table = new JTable();
 		table.setBounds(10, 46, 465, 96);
