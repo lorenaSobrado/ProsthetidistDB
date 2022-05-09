@@ -8,35 +8,47 @@ import prosthetidist.ifaces.MeasurementsManager;
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Measurement;
 
-public class JDBCMeasurementsManager implements MeasurementsManager{
+public class JDBCMeasurementsManager implements MeasurementsManager {
 	private JDBCManager manager;
 
 	public JDBCMeasurementsManager(JDBCManager m) {
 		this.manager = m;
 	}
 	
-	
-
-public Measurement getMeasurementById (int measurement_id){
-	Measurement m = null;
-	try {
-		String sql= "SELECT * FROM Measurements WHERE id=?";
-		PreparedStatement prep= manager.getConnection().prepareStatement(sql);
-		prep.setInt(1, measurement_id);
-		ResultSet rs = prep.executeQuery();
-		//get the values , @CHECK
-		float lengthiness= rs.getFloat(2);
-		float width =rs.getFloat(3);
-		float weight =rs.getFloat(4);
+	public void addMeasurement(Measurement m) {
 		
-		 m = new Measurement(measurement_id,lengthiness,width,weight);
-		 rs.close();
-		 prep.close();
+		try {
+			String sql = "INSERT INTO Measurement (lengthiness, width, weight) VALUES (?,?,?)";
+			PreparedStatement p = manager.getConnection().prepareStatement(sql);
+			p.setFloat(1, m.getLength());
+			p.setFloat(2, m.getWidth());
+			p.setFloat(3, m.getWeight());
+			p.executeUpdate();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
 	}
-	catch (SQLException ex) {
-		ex.printStackTrace();
-	}
-	 return m;
 
-}
+	public Measurement getMeasurementById(int measurement_id) {
+		Measurement m = null;
+		try {
+			String sql = "SELECT * FROM Measurements WHERE id=?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setInt(1, measurement_id);
+			ResultSet rs = prep.executeQuery();
+			// get the values , @CHECK
+			float lengthiness = rs.getFloat(2);
+			float width = rs.getFloat(3);
+			float weight = rs.getFloat(4);
+
+			m = new Measurement(measurement_id, lengthiness, width, weight);
+			rs.close();
+			prep.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return m;
+
+	}
+	
 }

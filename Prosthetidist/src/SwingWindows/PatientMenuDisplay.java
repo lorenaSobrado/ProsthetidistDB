@@ -15,6 +15,8 @@ import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import prosthetidist.pojos.Patient;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextField;
@@ -50,7 +52,7 @@ public class PatientMenuDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PatientMenuDisplay(JFrame pLogInDisplay/*, Patient patient*/) {
+	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient) {
 		pLogInDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 587, 357);

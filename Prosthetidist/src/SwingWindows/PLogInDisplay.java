@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import prosthetidist.pojos.Patient;
+
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -65,8 +68,9 @@ public class PLogInDisplay extends JFrame {
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Patient patient = new Patient(); get patient by SELECT query
-				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this/*, patient*/);
+				//After jpa log in
+				Patient patient = new Patient();
+				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient);
 				patientMenuDisplay.setVisible(true);
 			}
 		});
@@ -95,5 +99,5 @@ public class PLogInDisplay extends JFrame {
 	public void validarDatos() {
 		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
-	//HACER METODO DE LOG IN COMPANY AND LOG IN OWNER PARA JPA
+	
 }

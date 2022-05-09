@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import prosthetidist.ifaces.PatientManager;
 import prosthetidist.pojos.Company;
+import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
 
@@ -38,18 +39,19 @@ public class JDBCPatientManager implements PatientManager {
 		}
 	}
 	
-	public void designProsthetic () {
+	public void designProsthetic (/*String functionalities, String type,*/ Measurement measurement) {
 		
+		int measurement_id = measurement.getId();
 		Prosthetic p= null;
 		try {
 			String sql= "INSERT INTO Prosthetic (functionalities, type, measurement_id) VALUES (?,?,?)";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			
-			prep.setString(1, p.getFunctionalities());
-			prep.setString(2, p.getType());
-			prep.setInt(3, p.getMeasurements().getId());
+			prep.setString(1, p.getFunctionalities()/*functionalities*/);
+			prep.setString(2, p.getType()/*type*/);
+			prep.setInt(3, measurement_id);
 			//@HELP funciona?
-			p.getCompany().setId(null);
+			p.getCompany().setId(null);// why?? 
 
 			prep.executeUpdate();
 			//luego esta prosthetic se mete en la db, lo de null se ha metido???????
