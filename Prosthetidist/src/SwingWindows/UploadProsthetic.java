@@ -150,7 +150,7 @@ public class UploadProsthetic extends JFrame {
 				p.setMeasurements(m);
 
 				cm.uploadProsthetics(p);
-				// TODO SABER COMPANY ID
+			
 
 				UploadProsthetic.this.setVisible(false);
 			}

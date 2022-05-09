@@ -124,4 +124,5 @@ public class CLogInDisplay extends JFrame {
 	public void validarDatos() {
 		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
+	//HACER METODO DE LOG IN COMPANY AND LOG IN OWNER PARA JPA
 }

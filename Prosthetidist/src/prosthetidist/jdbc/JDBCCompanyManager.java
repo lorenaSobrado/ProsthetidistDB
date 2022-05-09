@@ -22,9 +22,22 @@ public class JDBCCompanyManager implements CompanyManager {
 		this.manager = m;
 	}
 
-//@TODO addCompany mediante base de datos pero la relacion con el register????
 
-//@Override
+
+	
+	public void addCompany(Company c) {
+		
+		try {
+			String sql = "INSERT INTO Company (name, email, phone) VALUES (?,?,?)";
+			PreparedStatement p = manager.getConnection().prepareStatement(sql);
+			p.setString(1, c.getName());
+			p.setString(2, c.getEmail());
+			p.setInt(3, c.getPhone());
+			p.executeUpdate();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
 
 	public void deleteCompany(int companyId) {
 		try {

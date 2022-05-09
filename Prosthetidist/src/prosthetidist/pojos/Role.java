@@ -25,7 +25,7 @@ public class Role implements Serializable {
 					pkColumnName="name", valueColumnName="seq", pkColumnValue="roles")
 	
 	private Integer id;
-	private String name;
+	private String name; //it indicates if it is company or patient
 	
 	@OneToMany(fetch= FetchType.LAZY, mappedBy= "users")
 

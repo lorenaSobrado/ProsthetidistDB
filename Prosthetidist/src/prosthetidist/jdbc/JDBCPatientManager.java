@@ -1,11 +1,15 @@
 package prosthetidist.jdbc;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import prosthetidist.ifaces.PatientManager;
+import prosthetidist.pojos.Company;
+import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
 
 public class JDBCPatientManager implements PatientManager {
+	
 	private JDBCManager manager;
 
 	public JDBCPatientManager(JDBCManager m) {
@@ -13,6 +17,26 @@ public class JDBCPatientManager implements PatientManager {
 	}
 	
 	//@TODO materials
+	
+	@Override
+	
+	public void addPatient(Patient p) {
+		
+		try {
+			String sql = "INSERT INTO Patient (name, email, phone,address, notes,dob) VALUES (?,?,?,?,?,?)";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setString(1, p.getName());
+			prep.setString(2, p.getEmail());
+			prep.setInt(3, p.getPhone());
+			prep.setString(4, p.getAddress());
+			prep.setString(5, p.getNotes());
+			prep.setDate(0, null); // COMO SE HACE ESTO (6, p.getDob())
+			
+			prep.executeUpdate();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
 	
 	public void designProsthetic () {
 		
@@ -35,6 +59,8 @@ public class JDBCPatientManager implements PatientManager {
 			ex.printStackTrace();
 		}
 	}
+
+
 	
 	
 }

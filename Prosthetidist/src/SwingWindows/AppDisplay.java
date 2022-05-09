@@ -86,5 +86,6 @@ public class AppDisplay extends JFrame {
 		contentPane.add(txtProsthetidist);
 		txtProsthetidist.setColumns(30);
 	}
+	
 
 }

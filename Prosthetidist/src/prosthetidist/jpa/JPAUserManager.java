@@ -14,6 +14,10 @@ import prosthetidist.pojos.*;
 import prosthetidist.ifaces.UserManager;
 
 
+//PREGUNTAR SI TENEMOS QUE INICIALIZAR JPA Y JDBC EN CADA DISPLAY
+//GENERATE CONSTRUCTORS EN SWING?? PARA JPA
+
+
 
 
 public class JPAUserManager implements UserManager {
@@ -26,7 +30,7 @@ public class JPAUserManager implements UserManager {
 	}
 
 
-	public void connect() {
+	private void connect() {
 		
 		//we can only use persist in classes that are annotated
 		
@@ -35,13 +39,11 @@ public class JPAUserManager implements UserManager {
 		em.createNativeQuery("PRAGMA foreign_keys=ON").executeUpdate();
 		em.getTransaction().commit();
 		
-		// Insert the roles needed only if they are not there already
 		
 		if (this.getRoles().isEmpty()) {
 			Role company = new Role("Company");
 			Role patient = new Role("Patient");
 			this.newRole(company);
-			
 			this.newRole(patient);
 		}
 	}
@@ -59,7 +61,7 @@ public class JPAUserManager implements UserManager {
 	}
 	
 
-	public void newRole(Role r) {
+	private void newRole(Role r) {
 		em.getTransaction().begin();
 		em.persist(r);
 		em.getTransaction().commit();
@@ -83,23 +85,27 @@ public class JPAUserManager implements UserManager {
 	public User checkPassword(String email, String passwd) {
 		
 		//PASSWORDS ARE NERVER STORED INTO THE DATA BASE
-		
 		//TODO investigar
 		// null user if match not found
+		
 		User u = null;
 		Query q = em.createNativeQuery("SELECT * FROM users WHERE email = ? AND password = ?", User.class);
 		q.setParameter(1, email);
 		try {
-			MessageDigest md = MessageDigest.getInstance("MD5");
+			MessageDigest md = MessageDigest.getInstance("MD5"); //MD5 most common algorithim 
 			md.update(passwd.getBytes());
 			byte[] digest = md.digest();
 			q.setParameter(2, digest);
+			
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
+		
 		try {
 			u = (User) q.getSingleResult();
+			
 		} catch (NoResultException e) {}
+		
 		return u;
 	}
 

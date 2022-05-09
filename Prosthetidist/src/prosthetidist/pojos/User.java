@@ -29,7 +29,7 @@ public class User implements Serializable {
 	private Integer id;
 	private String email;
 	@Lob
-	private byte[] password;
+	private byte[] password; //this is the digest
 	
 	@ManyToOne 
 	@JoinColumn(name= "role_id")

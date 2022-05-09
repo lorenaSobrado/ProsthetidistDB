@@ -122,6 +122,7 @@ public class Company implements Serializable{
 	}
 		
 	}
+	
 //IT WORKS
 	public void deleteProsthetic (Prosthetic p) {
 		prosthetics.remove(p);

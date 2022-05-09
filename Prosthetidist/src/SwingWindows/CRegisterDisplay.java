@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.ifaces.CompanyManager;
+import prosthetidist.ifaces.UserManager;
 import prosthetidist.pojos.*;
 
 import javax.swing.JLabel;
@@ -18,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class CRegisterDisplay extends JFrame {
 
@@ -26,6 +30,9 @@ public class CRegisterDisplay extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	
+	private UserManager um;
+	private CompanyManager cm;
 
 	/**
 	 * Launch the application.
@@ -105,13 +112,41 @@ public class CRegisterDisplay extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				if (textField.getText().length() > 0 && textField_1.getText().length() > 0
 						&& textField_2.getText().length() > 0 && textField_3.getText().length() > 0) {
+					
 					boolean Validar = true; // para que haces esto?
 					JFrame companyMenuDisp = new CompanyMenuDisplay();
 					companyMenuDisp.setVisible(Validar); // se puede poner directo true?
+					
 					Company company = new Company();
+					
+					company.setName(textField.getText());
 					company.setPhone(Integer.parseInt(textField_1.getText()));
-					company.setEmail(textField_2.getText());
-					//password??
+					String email= textField_2.getText();
+					company.setEmail(email);
+					String password= textField_3.getText();
+					
+					//for the password
+					try {
+						MessageDigest md= MessageDigest.getInstance ("MD5");
+						md.update(password.getBytes());
+						byte [] digest= md.digest();
+						User u= new User (email, digest);
+						Role role = um.getRole("Company");
+						u.setRole(role);
+						role.addUser(u);
+						um.newUser(u);
+		
+					}catch (NoSuchAlgorithmException e1) { 
+						
+						e1.printStackTrace();
+						
+					}
+					cm.addCompany (company);
+					
+					
+					
+					
+					
 
 				} else {
 					validarDatos();
