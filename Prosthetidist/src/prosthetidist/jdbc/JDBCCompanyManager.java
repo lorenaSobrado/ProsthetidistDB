@@ -72,7 +72,9 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	}
 
-	public void uploadProsthetics(Prosthetic p) {
+	public void uploadProsthetics(Company c, Prosthetic p) {
+		
+		int company_id= c.getId();
 
 		try {
 			String sql = "INSERT INTO Prosthetic (price, functionalities, type, model, company_id, measurement_id) VALUES (?,?,?,?,?,?)";
@@ -81,7 +83,7 @@ public class JDBCCompanyManager implements CompanyManager {
 			prep.setString(2, p.getFunctionalities());
 			prep.setString(3, p.getType());
 			prep.setString(4, p.getModel());
-			prep.setInt(5, p.getCompany().getId());
+			prep.setInt(5, company_id);
 			prep.setInt(6, p.getMeasurements().getId());
 			prep.executeUpdate();
 
@@ -92,7 +94,7 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	public List<Prosthetic> listProstheticsWithoutCompanyID() {
 
-		List<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
+		ArrayList<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
 		Company c = null;
 		Measurement m = null;
 
@@ -120,6 +122,36 @@ public class JDBCCompanyManager implements CompanyManager {
 			ex.printStackTrace();
 		}
 		return prostheticsWithoutCompany;
+	}
+	public List<Prosthetic> listProstheticsOfCompany(Company c) {
+
+		List<Prosthetic> prostheticsOfCompany = new ArrayList<Prosthetic>();
+		
+		int company_id= c.getId();
+
+		try {
+			Statement stat = manager.getConnection().createStatement();
+			String sql = "SELECT * FROM Prosthetic WHERE company_id = " + company_id;
+			ResultSet rs = stat.executeQuery(sql);
+			// rs.next() moves to the next row of the table
+			while (rs.next()) {
+				Integer code = rs.getInt("code");
+				Float price =rs.getFloat("price");
+				String functionalities =rs.getString("functionalities");
+				String type =rs.getString("type");
+				String model = rs.getString("model");
+
+				Prosthetic p = new Prosthetic(code, price,functionalities, type,model);
+				
+				prostheticsOfCompany.add(p);
+			}
+			rs.close();
+			stat.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return prostheticsOfCompany;
 	}
 
 //@TODO LA PROTESIS LA RECIBE A TRAVES DE SWING MEDIANTE SELECT

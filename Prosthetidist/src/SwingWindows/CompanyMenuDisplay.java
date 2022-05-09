@@ -39,7 +39,7 @@ public class CompanyMenuDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CompanyMenuDisplay(/*Company company*/) {
+	public CompanyMenuDisplay(Company company) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -50,15 +50,8 @@ public class CompanyMenuDisplay extends JFrame {
 		JButton btnNewButton = new JButton("UPLOAD PROSTHETIC");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame uploadProsthetic = new UploadProsthetic();
+				JFrame uploadProsthetic = new UploadProsthetic(company);
 				uploadProsthetic.setVisible(true);
-			}
-		});
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				JFrame uploadprost = new UploadProsthetic();
-				uploadprost.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(149, 55, 178, 29);
@@ -67,7 +60,7 @@ public class CompanyMenuDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("DELETE PROSTHETIC");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame deleteProsthetic = new DeleteProsthetic();
+				JFrame deleteProsthetic = new DeleteProsthetic(company);
 				deleteProsthetic.setVisible(true);
 			}
 		});
@@ -77,7 +70,7 @@ public class CompanyMenuDisplay extends JFrame {
 		JButton btnNewButton_2 = new JButton("OFFER DESIGN");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame offerProsthetic = new OfferProsthetic();
+				JFrame offerProsthetic = new OfferProsthetic(company);
 				offerProsthetic.setVisible(true);
 			}
 		});

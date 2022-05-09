@@ -2,6 +2,7 @@ package SwingWindows;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,33 +10,41 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import org.eclipse.persistence.internal.oxm.schema.model.List;
+
+import prosthetidist.jdbc.JDBCCompanyManager;
+import prosthetidist.pojos.Company;
+import prosthetidist.pojos.Prosthetic;
+
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class OfferProsthetic extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	
+	private JDBCCompanyManager cm;
+	private JTextField textField;
+	private JTextField textField_1;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					OfferProsthetic frame = new OfferProsthetic();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					OfferProsthetic frame = new OfferProsthetic();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
-	/**
-	 * Create the frame.
-	 */
-	public OfferProsthetic() {
+	
+	public OfferProsthetic(Company company) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -47,8 +56,10 @@ public class OfferProsthetic extends JFrame {
 		lblNewLabel.setBounds(55, 11, 218, 14);
 		contentPane.add(lblNewLabel);
 		
+		//cm.listProstheticsWithoutCompanyID();
+		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		table.setModel(new DefaultTableModel( //en ves de default pasamos directamente el cm.
 			new Object[][] {
 				{null, null, null, null, null, Boolean.FALSE, null, null},
 				{null, null, null, null, null, null, null, null},
@@ -67,7 +78,7 @@ public class OfferProsthetic extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		});
-		table.setBounds(91, 98, 246, 85);
+		table.setBounds(85, 48, 246, 85);
 		contentPane.add(table);
 		
 		JButton btnNewButton = new JButton("DESIGN");
@@ -77,5 +88,15 @@ public class OfferProsthetic extends JFrame {
 		JButton btnNewButton_1 = new JButton("BACK");
 		btnNewButton_1.setBounds(217, 231, 89, 23);
 		contentPane.add(btnNewButton_1);
+		
+		textField = new JTextField();
+		textField.setBounds(55, 173, 96, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(166, 173, 96, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
 	}
 }

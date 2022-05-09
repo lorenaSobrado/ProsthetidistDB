@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Prosthetic;
 
@@ -51,7 +52,7 @@ public class UploadProsthetic extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public UploadProsthetic() {
+	public UploadProsthetic(Company company) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 598, 382);
 		contentPane = new JPanel();
@@ -148,8 +149,9 @@ public class UploadProsthetic extends JFrame {
 				m.setWidth(Float.parseFloat(textField_5.getText()));
 				m.setWeight(Float.parseFloat(textField_6.getText()));
 				p.setMeasurements(m);
+				
 
-				cm.uploadProsthetics(p);
+				cm.uploadProsthetics(company,p);
 			
 
 				UploadProsthetic.this.setVisible(false);

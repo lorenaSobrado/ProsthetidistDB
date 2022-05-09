@@ -25,6 +25,7 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 	
 	
 	// @TODO comprobar si funciona
+	
 	public List<Prosthetic> listAllProsthetics () {
 	List <Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
 	Company c= null;

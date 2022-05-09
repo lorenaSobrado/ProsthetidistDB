@@ -25,6 +25,8 @@ public class Prosthetic implements Serializable{
 	private String type;
 	private String model;
 	
+	
+
 	//@ManyToOne (fetch=FetchType.LAZY)
 	private Company company;
 	private Measurement measurements;
@@ -40,7 +42,7 @@ public class Prosthetic implements Serializable{
 		this.materials = new ArrayList();
 		this.invoices = new ArrayList();
 	}
-	//@TODO problemas
+
 	public Prosthetic (Integer code, Float price, String functionalities, String type, String model, Company company, Measurement measurement) {
 		this.code=code;
 		this.price=price;
@@ -62,10 +64,10 @@ public class Prosthetic implements Serializable{
 			
 		}
 	//test constructor
-	public Prosthetic(Integer code, Float price, String abilities, String type, String model) {
+	public Prosthetic(Integer code, Float price, String functionalities, String type, String model) {
 		this.code=code;
 		this.price=price;
-		this.functionalities=abilities;
+		this.functionalities=functionalities;
 		this.type=type;
 		this.model=model;
 	}

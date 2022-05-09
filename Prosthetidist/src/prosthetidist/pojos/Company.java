@@ -129,6 +129,7 @@ public class Company implements Serializable{
 	//now the prosthetic is removed from the list
 	}
 //IT WORKS, ver si sirve
+	
 	public void showProsthetics () {
 		for ( Prosthetic p: prosthetics ) {
 			System.out.println(p);
