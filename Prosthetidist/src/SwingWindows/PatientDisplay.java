@@ -48,34 +48,34 @@ public class PatientDisplay extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton back = new JButton("Back");
+		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				appDisplay.setEnabled(true);
 				PatientDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(339, 231, 89, 23);
-		contentPane.add(btnNewButton);
+		back.setBounds(339, 231, 89, 23);
+		contentPane.add(back);
 		
-		JButton btnNewButton_1 = new JButton("Log in");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton logIn = new JButton("Log in");
+		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame pLogInDisplay = new PLogInDisplay(PatientDisplay.this);
 				pLogInDisplay.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(161, 97, 89, 23);
-		contentPane.add(btnNewButton_1);
+		logIn.setBounds(161, 97, 89, 23);
+		contentPane.add(logIn);
 		
-		JButton btnNewButton_2 = new JButton("Register");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton register = new JButton("Register");
+		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame pRegisterDisplay = new PRegisterDisplay(PatientDisplay.this);
 				pRegisterDisplay.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(161, 144, 89, 23);
-		contentPane.add(btnNewButton_2);
+		register.setBounds(161, 144, 89, 23);
+		contentPane.add(register);
 	}
 }

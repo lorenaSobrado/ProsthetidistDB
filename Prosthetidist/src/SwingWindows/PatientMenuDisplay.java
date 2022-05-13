@@ -15,6 +15,7 @@ import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import prosthetidist.jdbc.JDBCProstheticsManager;
 import prosthetidist.pojos.Patient;
 
 import java.awt.event.MouseAdapter;
@@ -31,7 +32,7 @@ public class PatientMenuDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTable patTable;
-	private JTextField textField;
+	//private JDBCInvoiceManager im;
 
 	/**
 	 * Launch the application.
@@ -87,16 +88,10 @@ public class PatientMenuDisplay extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		});
-		patTable.setBounds(10, 88, 416, 141);
+		patTable.setBounds(10, 88, 467, 143);
 		contentPane.add(patTable);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(58, 26, 96, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel = new JLabel("User");
+		JLabel lblNewLabel = new JLabel("User :");
 		lblNewLabel.setToolTipText("User\r\n");
 		lblNewLabel.setBounds(27, 29, 45, 13);
 		contentPane.add(lblNewLabel);
@@ -110,16 +105,6 @@ public class PatientMenuDisplay extends JFrame {
 		});
 		btnNewButton_1.setBounds(253, 25, 119, 23);
 		contentPane.add(btnNewButton_1);
-		
-		/*JButton btnNewButton_2 = new JButton("ADD TO CART");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFrame orderFrame= new OrderDisplay();
-				orderFrame.setVisible(true);
-			}
-		});
-		btnNewButton_2.setBounds(452, 289, 113, 21);
-		contentPane.add(btnNewButton_2);*/
 		
 		JLabel lblNewLabel_1 = new JLabel("Code");
 		lblNewLabel_1.setBounds(10, 65, 45, 13);
@@ -166,5 +151,18 @@ public class PatientMenuDisplay extends JFrame {
 		});
 		btnNewButton_4.setBounds(500, 11, 70, 37);
 		contentPane.add(btnNewButton_4);
+		
+		JLabel username = new JLabel(patient.getName());
+		username.setBounds(82, 28, 89, 14);
+		contentPane.add(username);
+		
+		JButton addToCart = new JButton("ADD TO CART");
+		addToCart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//im.addProstheticToCart(la protesis seleccionada en la tabla)
+			}
+		});
+		addToCart.setBounds(424, 288, 111, 23);
+		contentPane.add(addToCart);
 	}
 }

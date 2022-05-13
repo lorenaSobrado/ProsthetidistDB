@@ -92,7 +92,7 @@ public class JDBCCompanyManager implements CompanyManager {
 		}
 	}
 
-	public List<Prosthetic> listProstheticsWithoutCompanyID() {
+	public ArrayList<Prosthetic> listProstheticsWithoutCompanyID() {
 
 		ArrayList<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
 		Company c = null;

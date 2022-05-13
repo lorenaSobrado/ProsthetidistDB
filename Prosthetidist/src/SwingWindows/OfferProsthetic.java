@@ -26,8 +26,6 @@ public class OfferProsthetic extends JFrame {
 	private JTable table;
 	
 	private JDBCCompanyManager cm;
-	private JTextField textField;
-	private JTextField textField_1;
 
 	
 //	public static void main(String[] args) {
@@ -54,9 +52,12 @@ public class OfferProsthetic extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Prosthetic to design: ");
 		lblNewLabel.setBounds(55, 11, 218, 14);
-		contentPane.add(lblNewLabel);
+		contentPane.add(lblNewLabel);		
 		
-		//cm.listProstheticsWithoutCompanyID();
+		ArrayList<Prosthetic> prostheticsWithoutId = new ArrayList<>();
+		prostheticsWithoutId= cm.listProstheticsWithoutCompanyID();
+		
+		
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel( //en ves de default pasamos directamente el cm.
@@ -88,15 +89,5 @@ public class OfferProsthetic extends JFrame {
 		JButton btnNewButton_1 = new JButton("BACK");
 		btnNewButton_1.setBounds(217, 231, 89, 23);
 		contentPane.add(btnNewButton_1);
-		
-		textField = new JTextField();
-		textField.setBounds(55, 173, 96, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(166, 173, 96, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
 	}
 }

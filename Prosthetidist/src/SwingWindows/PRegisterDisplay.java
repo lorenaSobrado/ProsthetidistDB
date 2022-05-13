@@ -3,13 +3,9 @@ package SwingWindows;
 import java.awt.BorderLayout;
 
 
-<<<<<<< HEAD
+
 import prosthetidist.ifaces.PatientManager;
 import prosthetidist.ifaces.UserManager;
-=======
-
-
->>>>>>> branch 'master' of https://github.com/lorenaSobrado/ProsthetidistDB.git
 import prosthetidist.pojos.*;
 import java.awt.EventQueue;
 
@@ -30,6 +26,8 @@ import java.time.format.DateTimeFormatter;
 import java.sql.Date;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PRegisterDisplay extends JFrame {
 
@@ -43,6 +41,7 @@ public class PRegisterDisplay extends JFrame {
 	private JTextField textField_6;
 	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	private JTextField textField_7;
+	private JButton register;
 	
 	private UserManager um;
 	private PatientManager pm;
@@ -104,104 +103,142 @@ public class PRegisterDisplay extends JFrame {
 		contentPane.add(lblNewLabel_6_1);
 
 		
-		textField_1 = new JTextField(); //PQ TE HACE DE UNA EL 1 Y NO EL QUE ES SIN NUMERO??
+		textField_1 = new JTextField(); 
+		textField_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!textField_1.getText().isEmpty() && !textField_2.getText().isEmpty() && !textField_3.getText().isEmpty() && !textField_4.getText().isEmpty() &&
+						!textField_5.getText().isEmpty() && !textField_6.getText().isEmpty() && !textField_7.getText().isEmpty()){
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+					
+			}
+		});
 		textField_1.setBounds(121, 23, 96, 19);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
+		textField_2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!textField_1.getText().isEmpty() && !textField_2.getText().isEmpty() && !textField_3.getText().isEmpty() && !textField_4.getText().isEmpty() &&
+						!textField_5.getText().isEmpty() && !textField_6.getText().isEmpty() && !textField_7.getText().isEmpty()){
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
 		textField_2.setBounds(121, 47, 96, 19);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
 		textField_3 = new JTextField();
+		textField_3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!textField_1.getText().isEmpty() && !textField_2.getText().isEmpty() && !textField_3.getText().isEmpty() && !textField_4.getText().isEmpty() &&
+						!textField_5.getText().isEmpty() && !textField_6.getText().isEmpty() && !textField_7.getText().isEmpty()){
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
 		textField_3.setBounds(121, 77, 96, 19);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 
 		textField_4 = new JTextField();
+		textField_4.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!textField_1.getText().isEmpty() && !textField_2.getText().isEmpty() && !textField_3.getText().isEmpty() && !textField_4.getText().isEmpty() &&
+						!textField_5.getText().isEmpty() && !textField_6.getText().isEmpty() && !textField_7.getText().isEmpty()){
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
 		textField_4.setBounds(121, 109, 96, 19);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 
 		textField_5 = new JTextField();
+		textField_5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!textField_1.getText().isEmpty() && !textField_2.getText().isEmpty() && !textField_3.getText().isEmpty() && !textField_4.getText().isEmpty() &&
+						!textField_5.getText().isEmpty() && !textField_6.getText().isEmpty() && !textField_7.getText().isEmpty()){
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
 		textField_5.setBounds(121, 141, 96, 19);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 
 		textField_6 = new JTextField();
+		textField_6.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!textField_1.getText().isEmpty() && !textField_2.getText().isEmpty() && !textField_3.getText().isEmpty() && !textField_4.getText().isEmpty() &&
+						!textField_5.getText().isEmpty() && !textField_6.getText().isEmpty() && !textField_7.getText().isEmpty()){
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
 		textField_6.setBounds(121, 173, 96, 19);
 		contentPane.add(textField_6);
 		textField_6.setColumns(10);
 		
 			
 		textField_7 = new JTextField();
+		textField_7.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!textField_1.getText().isEmpty() && !textField_2.getText().isEmpty() && !textField_3.getText().isEmpty() && !textField_4.getText().isEmpty() &&
+						!textField_5.getText().isEmpty() && !textField_6.getText().isEmpty() && !textField_7.getText().isEmpty()){
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
 		textField_7.setBounds(121, 211, 96, 20);
 		contentPane.add(textField_7);
 		textField_7.setColumns(10);
 
-		JButton btnNewButton = new JButton("Register");
-		btnNewButton.addActionListener(new ActionListener() {
+		register= new JButton("Register");
+		register.setEnabled(false);
+		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-			}
-		});
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
+				Patient patient = new Patient();
+				
+				patient.setName(textField_1.getText());
+				String email= textField_2.getText();
+				patient.setEmail(email);
+				patient.setPhone(Integer.parseInt(textField_3.getText()));
+				patient.setAddress(textField_4.getText());
+				patient.setNotes(textField_5.getText());
+				LocalDate date = LocalDate.parse(textField_6.getText(), formatter);
+				patient.setDob(Date.valueOf(date)); 
+				String password= textField_7.getText();
+				try {
+					
+					MessageDigest md= MessageDigest.getInstance ("MD5");
+					md.update(password.getBytes());
+					byte [] digest= md.digest();
+					User u= new User (email, digest);
+					Role role = um.getRole("Patient");
+					u.setRole(role);
+					role.addUser(u);
+					um.newUser(u);
 
-			public void mouseReleased(MouseEvent e) {
-				if (textField_1.getText().length() > 0 && textField_2.getText().length() > 0
-						&& textField_3.getText().length() > 0 && textField_4.getText().length() > 0
-						&& textField_5.getText().length() > 0 && textField_6.getText().length() > 0) {
+				}catch (NoSuchAlgorithmException e1) { 
 					
-					boolean Validar = true; 
-					JFrame patientMenuDisp = new PatientMenuDisplay();
-					patientMenuDisp.setVisible(Validar);
-					
-					Patient patient = new Patient();
-					
-					patient.setName(textField_1.getText());
-					String email= textField_2.getText();
-					patient.setEmail(email);
-					patient.setPhone(Integer.parseInt(textField_3.getText()));
-					patient.setAddress(textField_4.getText());
-					patient.setNotes(textField_5.getText());
-					LocalDate date = LocalDate.parse(textField_6.getText(), formatter);
-					patient.setDob(Date.valueOf(date)); //it must be a date 
-					String password= textField_7.getText();
-					
-					try {
-						
-						MessageDigest md= MessageDigest.getInstance ("MD5");
-						md.update(password.getBytes());
-						byte [] digest= md.digest();
-						User u= new User (email, digest);
-						Role role = um.getRole("Patient");
-						u.setRole(role);
-						role.addUser(u);
-						um.newUser(u);
-		
-					}catch (NoSuchAlgorithmException e1) { 
-						
-						e1.printStackTrace();
-						
-					}
-					pm.addPatient(patient);
-					
-					
-
-				} else {
-					validarDatos();
+					e1.printStackTrace();
 				}
-=======
-				patientDisplay.setEnabled(true);
+				pm.addPatient(patient);
 				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
-				PRegisterDisplay.this.setVisible(false);
->>>>>>> branch 'master' of https://github.com/lorenaSobrado/ProsthetidistDB.git
 			}
 		});
-		btnNewButton.setBounds(225, 232, 85, 21);
-		contentPane.add(btnNewButton);
+		register.setBounds(225, 232, 85, 21);
+		contentPane.add(register);
 
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -225,4 +262,6 @@ public class PRegisterDisplay extends JFrame {
 	public void validarDatos() {
 		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
+	
+	
 }

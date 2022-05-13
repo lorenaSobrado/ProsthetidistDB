@@ -7,7 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.jdbc.JDBCPatientManager;
+import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.Patient;
+import prosthetidist.pojos.User;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -20,12 +23,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PLogInDisplay extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField email;
+	private JTextField password;
+	private JButton logIn;
+	private JPAUserManager um;
+	private JDBCPatientManager pm;
+	private User user;
+	private Patient patient;
 
 	/**
 	 * Launch the application.
@@ -55,37 +65,55 @@ public class PLogInDisplay extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
-		textField = new JTextField();
-		textField.setBounds(146, 63, 164, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		email = new JTextField();
+		email.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!email.getText().isEmpty() && !password.getText().isEmpty()) {
+					logIn.setEnabled(true);
+				} else logIn.setEnabled(false);
+			}
+		});
+		email.setBounds(146, 63, 164, 20);
+		contentPane.add(email);
+		email.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(146, 100, 164, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		password = new JTextField();
+		password.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!email.getText().isEmpty() && !password.getText().isEmpty()) {
+					logIn.setEnabled(true);
+				} else logIn.setEnabled(false);
+			}
+		});
+		password.setBounds(146, 100, 164, 20);
+		contentPane.add(password);
+		password.setColumns(10);
 
-		JButton btnNewButton = new JButton("OK");
-		btnNewButton.addActionListener(new ActionListener() {
+		logIn = new JButton("Log in");
+		logIn.setEnabled(false);
+		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//After jpa log in
-				Patient patient = new Patient();
+				user = um.checkPassword(email.getText(), password.getText());
+				patient = pm.getPatientByEmail(user.getEmail());
 				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient);
 				patientMenuDisplay.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(221, 230, 89, 23);
-		contentPane.add(btnNewButton);
+		logIn.setBounds(221, 230, 89, 23);
+		contentPane.add(logIn);
 
-		JButton btnNewButton_1 = new JButton("CANCEL");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton cancel = new JButton("Cancel");
+		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientDisplay.setEnabled(true);
 				PLogInDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(320, 231, 85, 21);
-		contentPane.add(btnNewButton_1);
+		cancel.setBounds(320, 231, 85, 21);
+		contentPane.add(cancel);
 
 		JLabel lblNewLabel = new JLabel("EMAIL :");
 		lblNewLabel.setBounds(28, 67, 65, 13);
