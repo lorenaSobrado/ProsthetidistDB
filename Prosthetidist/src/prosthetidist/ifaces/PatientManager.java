@@ -7,5 +7,7 @@ public interface PatientManager {
 
 	public void designProsthetic (Measurement m);
 	public void addPatient (Patient p);
+	public Patient getPatientByEmail (String email);
+
 
 }

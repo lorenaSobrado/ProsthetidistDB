@@ -1,6 +1,7 @@
 package prosthetidist.pojos;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 public class Material implements Serializable{
@@ -15,6 +16,8 @@ public class Material implements Serializable{
 	private float price;
 	private String temperatureResistence;
 	private String flexibility;
+	private List <Prosthetic> prosthetics;
+	
 	
 	public Material () {
 		super();
@@ -60,6 +63,15 @@ public class Material implements Serializable{
 		this.flexibility = flexibility;
 	}
 
+	
+	public List<Prosthetic> getProsthetics() {
+		return prosthetics;
+	}
+
+	public void setProsthetics(List<Prosthetic> prosthetics) {
+		this.prosthetics = prosthetics;
+	}
+
 	@Override
 	public String toString() {
 		return "Materials [Name=" + name + ", Strength=" + strength + ", Price=" + price + ", TemperatureResistence="
@@ -82,5 +94,6 @@ public class Material implements Serializable{
 		Material other = (Material) obj;
 		return Objects.equals(name, other.name);
 	}
+	
 	
 }
