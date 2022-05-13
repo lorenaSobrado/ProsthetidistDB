@@ -3,6 +3,7 @@ package prosthetidist.pojos;
 import java.io.Serializable;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -24,13 +25,26 @@ public class Patient implements Serializable {
 	private Integer phone;
 	private String address;
 	private String notes;
-	private Date dob;
+	private LocalDate dob;
 	
 	//CONSTRUCTORS
 	
 	public Patient() {
 	  super();
 	  
+	}
+	
+	//test constructor
+
+	public Patient(Integer id, String name, String email, Integer phone, String address, String notes, LocalDate dob) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.notes = notes;
+		this.dob = dob;
 	}
 
 	//EQUALS AND HASH CODE
@@ -115,12 +129,12 @@ public class Patient implements Serializable {
 	}
 
 
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
 
 
-	public void setDob(Date d) {
+	public void setDob(LocalDate d) {
 		this.dob = d;
 	}
 

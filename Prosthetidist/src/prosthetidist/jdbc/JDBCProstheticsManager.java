@@ -23,16 +23,15 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 		this.manager = m;
 	}
 	
-	
 	// @TODO comprobar si funciona
 	
-	public List<Prosthetic> listAllProsthetics () {
+	public List<Prosthetic> listAllProstheticsWithCompanyID () {
 	List <Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
 	Company c= null;
 	Measurement m= null;
 	try {
 			Statement stat = manager.getConnection().createStatement();
-			String sql= "SELECT * FROM Prosthetic";
+			String sql= "SELECT * FROM Prosthetic WHERE company_id IS NOT NULL";
 			ResultSet rs = stat.executeQuery(sql);
 			//rs.next() moves to the next row of the table
 			while (rs.next()) {
@@ -49,7 +48,7 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 				
 				c=cm.getCompanyById(company_id);
 				m=mm.getMeasurementById(measurement_id);
-				Prosthetic p = new Prosthetic (code, price, functionalities, type, model, c);
+				Prosthetic p = new Prosthetic (code, price, functionalities, type, model, c, m);
 				allProsthetics.add(p);
 			}
 			rs.close();

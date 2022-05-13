@@ -1,7 +1,12 @@
 package prosthetidist.jdbc;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 import prosthetidist.ifaces.PatientManager;
 import prosthetidist.pojos.Company;
@@ -31,8 +36,11 @@ public class JDBCPatientManager implements PatientManager {
 			prep.setInt(3, p.getPhone());
 			prep.setString(4, p.getAddress());
 			prep.setString(5, p.getNotes());
-			prep.setDate(0, null); // COMO SE HACE ESTO (6, p.getDob())
-			
+			LocalDate dob= LocalDate.now();
+			dob=p.getDob();
+			prep.setDate(6, Date.valueOf(dob));
+ 			
+		
 			prep.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -61,8 +69,37 @@ public class JDBCPatientManager implements PatientManager {
 			ex.printStackTrace();
 		}
 	}
+	
+	public Patient getPatientByEmail (String email) {
+		
+		Patient p = null;
+		try {
+			String sql = "SELECT * FROM Patient WHERE email=?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setString(1, email);
+			ResultSet rs = prep.executeQuery();
+			//get the values
+			Integer id= rs.getInt(1);
+			String name= rs.getString(2);
+			Date dob= rs.getDate(4); //probablemente esto no funcione
+			String adress= rs.getString(5);
+			Integer phonenumber=rs.getInt(6);
+			String notes= rs.getString(7);
+			
+			p= new Patient (id, name, email, phonenumber, adress, notes, dob.toLocalDate());
+			
+			
 
-
+			rs.close();
+			prep.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return p;
+	}
 	
 	
-}
+	}
+	
+	
+

@@ -23,8 +23,6 @@ public class JDBCCompanyManager implements CompanyManager {
 	}
 
 
-
-	
 	public void addCompany(Company c) {
 		
 		try {
@@ -57,7 +55,7 @@ public class JDBCCompanyManager implements CompanyManager {
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, company_id);
 			ResultSet rs = prep.executeQuery();
-			// get the values , @CHECK
+			// get the values , @CHECK 
 			String name = rs.getString(2);
 			String email = rs.getString(3);
 			Integer phone = rs.getInt(4);
@@ -71,7 +69,7 @@ public class JDBCCompanyManager implements CompanyManager {
 		return c;
 
 	}
-
+	//falta materials
 	public void uploadProsthetics(Company c, Prosthetic p) {
 		
 		int company_id= c.getId();
@@ -174,6 +172,13 @@ public class JDBCCompanyManager implements CompanyManager {
 		}
 
 	}
+
+
+
+
+
+
+
 	
 
 }
