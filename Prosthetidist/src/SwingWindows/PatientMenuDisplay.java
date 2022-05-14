@@ -14,12 +14,16 @@ import javax.swing.AbstractListModel;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import prosthetidist.jdbc.JDBCProstheticsManager;
 import prosthetidist.pojos.Patient;
+import prosthetidist.pojos.Prosthetic;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
@@ -27,12 +31,16 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class PatientMenuDisplay extends JFrame {
 
 	private JPanel contentPane;
-	private JTable patTable;
+	private JTable table;
 	//private JDBCInvoiceManager im;
+	
+	private JDBCProstheticsManager pm;
 
 	/**
 	 * Launch the application.
@@ -50,9 +58,7 @@ public class PatientMenuDisplay extends JFrame {
 //		});
 //	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient) {
 		pLogInDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,25 +78,6 @@ public class PatientMenuDisplay extends JFrame {
 		btnNewButton.setBounds(27, 288, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		patTable = new JTable();
-		patTable.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"Code", "Company", "Type", "Model", "Functionality", "Measurments", "Materials", "Price"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, String.class, String.class, String.class, Integer.class, Integer.class, Float.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		patTable.setBounds(10, 88, 467, 143);
-		contentPane.add(patTable);
-		
 		JLabel lblNewLabel = new JLabel("User :");
 		lblNewLabel.setToolTipText("User\r\n");
 		lblNewLabel.setBounds(27, 29, 45, 13);
@@ -105,38 +92,6 @@ public class PatientMenuDisplay extends JFrame {
 		});
 		btnNewButton_1.setBounds(253, 25, 119, 23);
 		contentPane.add(btnNewButton_1);
-		
-		JLabel lblNewLabel_1 = new JLabel("Code");
-		lblNewLabel_1.setBounds(10, 65, 45, 13);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Company");
-		lblNewLabel_2.setBounds(65, 65, 45, 13);
-		contentPane.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("Type");
-		lblNewLabel_3.setBounds(126, 66, 45, 13);
-		contentPane.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("Model");
-		lblNewLabel_4.setBounds(175, 66, 45, 13);
-		contentPane.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_5 = new JLabel("Function");
-		lblNewLabel_5.setBounds(226, 65, 45, 13);
-		contentPane.add(lblNewLabel_5);
-		
-		JLabel lblNewLabel_6 = new JLabel("Size");
-		lblNewLabel_6.setBounds(281, 66, 28, 13);
-		contentPane.add(lblNewLabel_6);
-		
-		JLabel lblNewLabel_7 = new JLabel("Materials");
-		lblNewLabel_7.setBounds(326, 66, 45, 13);
-		contentPane.add(lblNewLabel_7);
-		
-		JLabel lblNewLabel_8 = new JLabel("Price");
-		lblNewLabel_8.setBounds(381, 65, 45, 13);
-		contentPane.add(lblNewLabel_8);
 
 		JButton btnNewButton_3 = new JButton("Filters");
 		btnNewButton_3.setBounds(382, 24, 89, 23);
@@ -164,5 +119,70 @@ public class PatientMenuDisplay extends JFrame {
 		});
 		addToCart.setBounds(424, 288, 111, 23);
 		contentPane.add(addToCart);
-	}
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(39, 79, 488, 177);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
+		
+		
+		
+		
+		
+			
+		
+		}
+		
+		
+		
+//	TableModel dataModel= new AbstractTableModel () {
+//		
+//		public int getColumnCount() {
+//			return 7;
+//		}
+//		public int getRowCount() {
+//			return 7; //pm.listAllProstheticsWithCompanyId();
+//		}
+//		
+//		public Object getValueAt (int row, int col) {
+//			return new 
+//		}
+	
+		public String[][] getDatos () {
+			
+			ArrayList<Prosthetic> list = new ArrayList<>();
+			list = pm.listAllProstheticsWithCompanyID();
+
+			int fil = pm.listAllProstheticsWithCompanyID().size();
+			
+			String [][] datos = new String [fil][7];
+			
+			for (int i=0;i<fil;i++) {
+				Prosthetic p = list.get(i);
+				datos[i][0] = (String) p.getPrice();
+				datos[i][1] = 	
+				datos[i][2] = 
+				datos[i][3] = 
+				datos[i][4] = 
+				datos[i][5] = 	
+			}
+			
+			
+			
+		}
+		
 }
+
+	
+	
+	
+	
+	
+	
+	
+	
+

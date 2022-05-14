@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 
 import prosthetidist.ifaces.PatientManager;
 import prosthetidist.ifaces.UserManager;
+import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.*;
 import java.awt.EventQueue;
 
@@ -43,7 +44,7 @@ public class PRegisterDisplay extends JFrame {
 	private JTextField textField_7;
 	private JButton register;
 	
-	private UserManager um;
+	private JPAUserManager um;
 	private PatientManager pm;
 
 	/**
@@ -215,26 +216,28 @@ public class PRegisterDisplay extends JFrame {
 				patient.setPhone(Integer.parseInt(textField_3.getText()));
 				patient.setAddress(textField_4.getText());
 				patient.setNotes(textField_5.getText());
-				LocalDate date = LocalDate.parse(textField_6.getText(), formatter);
-				patient.setDob(Date.valueOf(date)); 
+				LocalDate date = LocalDate.parse(textField_6.getText()); //year-mes-dia
+				patient.setDob(date); 
 				String password= textField_7.getText();
-				try {
-					
-					MessageDigest md= MessageDigest.getInstance ("MD5");
-					md.update(password.getBytes());
-					byte [] digest= md.digest();
-					User u = new User (email, digest);
-					Role role = um.getRole("Patient");
-					u.setRole(role);
-					role.addUser(u);
-					um.newUser(u);
-
-				} catch (NoSuchAlgorithmException e1) { 
-					
-					e1.printStackTrace();
-				}
-				pm.addPatient(patient);
+//				try {
+//					
+//					MessageDigest md= MessageDigest.getInstance ("MD5");
+//					md.update(password.getBytes());
+//					byte [] digest= md.digest();
+//					User u = new User (email, digest);
+//					Role role = um.getRole("Patient");
+//					u.setRole(role);
+//					role.addUser(u);
+//					um.newUser(u);
+//
+//				} catch (NoSuchAlgorithmException e1) { 
+//					
+//					e1.printStackTrace();
+//				}
+//				pm.addPatient(patient);
 				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
+				patientDisplay.setEnabled(true);
+				PRegisterDisplay.this.setVisible(false);
 			}
 		});
 		register.setBounds(225, 232, 85, 21);

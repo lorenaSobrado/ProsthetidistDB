@@ -69,14 +69,14 @@ public class JPAUserManager implements UserManager {
 
 	@Override
 	public Role getRole(String name) {
-		Query q = em.createNativeQuery("SELECT * FROM roles WHERE name = ?", Role.class);
+		Query q = em.createNativeQuery("SELECT * FROM Role WHERE name = ?", Role.class);
 		q.setParameter(1, name);
 		return (Role) q.getSingleResult();
 	}
 	
 	@Override
 	public List<Role> getRoles() {
-		Query q = em.createNativeQuery("SELECT * FROM roles", Role.class);
+		Query q = em.createNativeQuery("SELECT * FROM Role", Role.class);
 		List<Role> roles = (List<Role>) q.getResultList();
 		return roles;
 	}
@@ -89,7 +89,7 @@ public class JPAUserManager implements UserManager {
 		// null user if match not found
 		
 		User u = null;
-		Query q = em.createNativeQuery("SELECT * FROM users WHERE email = ? AND password = ?", User.class); //user no debe ser con mayuscula?
+		Query q = em.createNativeQuery("SELECT * FROM User WHERE email = ? AND password = ?", User.class); //user no debe ser con mayuscula?
 		q.setParameter(1, email);
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5"); //MD5 most common algorithim 

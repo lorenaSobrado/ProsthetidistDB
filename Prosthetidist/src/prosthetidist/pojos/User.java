@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
 @Entity
-@Table(name = "users")
+@Table(name = "User")
 
 public class User implements Serializable {
 	
@@ -22,9 +22,9 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 2832971669855617832L;
 	
 	@Id
-	@GeneratedValue (generator= "users")
-	@TableGenerator (name= "users", table= "sqlite_sequence",
-					pkColumnName="name", valueColumnName="seq", pkColumnValue="users")
+	@GeneratedValue (generator= "User")
+	@TableGenerator (name= "User", table= "sqlite_sequence",
+					pkColumnName="name", valueColumnName="seq", pkColumnValue="User")
 	
 	private Integer id;
 	private String email;

@@ -95,9 +95,10 @@ public class PLogInDisplay extends JFrame {
 		logIn.setEnabled(false);
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//After jpa log in
-				user = um.checkPassword(email.getText(), password.getText());
-				patient = pm.getPatientByEmail(user.getEmail());
+//				//After jpa log in
+//				user = um.checkPassword(email.getText(), password.getText());
+//				patient = pm.getPatientByEmail(user.getEmail());
+				patient = new Patient();
 				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient);
 				patientMenuDisplay.setVisible(true);
 			}
