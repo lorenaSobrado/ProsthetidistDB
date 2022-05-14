@@ -22,6 +22,17 @@ public class Material implements Serializable{
 	public Material () {
 		super();
 	}
+	
+
+	public Material(String name, String strength, float price, String temperatureResistence, String flexibility) {
+		super();
+		this.name = name;
+		this.strength = strength;
+		this.price = price;
+		this.temperatureResistence = temperatureResistence;
+		this.flexibility = flexibility;
+	}
+
 
 	public String getName() {
 		return name;
