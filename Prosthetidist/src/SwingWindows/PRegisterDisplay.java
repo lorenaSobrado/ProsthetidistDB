@@ -223,13 +223,13 @@ public class PRegisterDisplay extends JFrame {
 					MessageDigest md= MessageDigest.getInstance ("MD5");
 					md.update(password.getBytes());
 					byte [] digest= md.digest();
-					User u= new User (email, digest);
+					User u = new User (email, digest);
 					Role role = um.getRole("Patient");
 					u.setRole(role);
 					role.addUser(u);
 					um.newUser(u);
 
-				}catch (NoSuchAlgorithmException e1) { 
+				} catch (NoSuchAlgorithmException e1) { 
 					
 					e1.printStackTrace();
 				}
@@ -240,23 +240,16 @@ public class PRegisterDisplay extends JFrame {
 		register.setBounds(225, 232, 85, 21);
 		contentPane.add(register);
 
-		JButton btnNewButton_1 = new JButton("Cancel");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton cancel = new JButton("Cancel");
+		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientDisplay.setEnabled(true);
 				PRegisterDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-
-			}
-		});
-		btnNewButton_1.setBounds(341, 232, 85, 21);
-		contentPane.add(btnNewButton_1);
+		cancel.setBounds(341, 232, 85, 21);
+		contentPane.add(cancel);
 		
-	
 	}
 
 	public void validarDatos() {
