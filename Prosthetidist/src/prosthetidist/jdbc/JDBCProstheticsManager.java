@@ -8,9 +8,7 @@ import java.util.List;
 
 //no deberia
 import prosthetidist.ifaces.ProstheticsManager;
-import prosthetidist.pojos.Company;
-import prosthetidist.pojos.Measurement;
-import prosthetidist.pojos.Prosthetic;
+import prosthetidist.pojos.*;
 
 
 public class JDBCProstheticsManager implements ProstheticsManager {
@@ -25,10 +23,13 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 	
 	// @TODO comprobar si funciona
 	
-	public List<Prosthetic> listAllProstheticsWithCompanyID () {
+	public ArrayList<Prosthetic> listAllProstheticsWithCompanyId () {
 	List <Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
+	List <Material> materials = new ArrayList<Material>();
+
 	Company c= null;
 	Measurement m= null;
+	
 	try {
 			Statement stat = manager.getConnection().createStatement();
 			String sql= "SELECT * FROM Prosthetic WHERE company_id IS NOT NULL";
@@ -42,14 +43,23 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 				String model = rs.getString("model");
 				Integer company_id = rs.getInt("company_id");
 				Integer measurement_id= rs.getInt("measurement_id");
-				
-				//FALTAN LOS MATERIALES
-			
+				String sql2="SELECT * FROM Material  AS m JOIN Prosthetic AS p WHERE m.prosthetic_code=p.code";
+				ResultSet rs2 = stat.executeQuery(sql2);
+							while(rs2.next()) {
+								String namemat = rs2.getString("name");
+								String strength = rs2.getString("strength");
+								Float pricemat = rs2.getFloat("price");
+								String temperatureresistance= rs2.getString("temperatureResistance");
+								String flexibility=rs2.getString("flexibility");				
+								Material mat= new Material (namemat,strength, pricemat, temperatureresistance, flexibility);
+								materials.add(mat);
+
 				
 				c=cm.getCompanyById(company_id);
 				m=mm.getMeasurementById(measurement_id);
-				Prosthetic p = new Prosthetic (code, price, functionalities, type, model, c, m);
+				Prosthetic p = new Prosthetic (code, price, functionalities, type, model, c, m, materials);
 				allProsthetics.add(p);
+			}
 			}
 			rs.close();
 			stat.close();

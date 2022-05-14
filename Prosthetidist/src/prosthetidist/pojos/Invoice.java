@@ -33,12 +33,12 @@ public class Invoice implements Serializable{
 	}
 
 
-	public LocalDate getDatePurchase() {
+	public LocalDate getdatePurchase() {
 		return datePurchase;
 	}
 
 
-	public void setDatePurchase(LocalDate datePurchase) {
+	public void setdatePurchase(LocalDate datePurchase) {
 		this.datePurchase = datePurchase;
 	}
 
@@ -60,6 +60,36 @@ public class Invoice implements Serializable{
 
 	public void setPaymentMethod(String paymentMethod) {
 		this.paymentMethod = paymentMethod;
+	}
+
+
+	public String getDelivery_type() {
+		return delivery_type;
+	}
+
+
+	public void setDelivery_type(String delivery_type) {
+		this.delivery_type = delivery_type;
+	}
+
+
+	public Integer getPatient_id() {
+		return patient_id;
+	}
+
+
+	public void setPatient_id(Integer patient_id) {
+		this.patient_id = patient_id;
+	}
+
+
+	public Integer getProsthetic_code() {
+		return prosthetic_code;
+	}
+
+
+	public void setProsthetic_code(Integer prosthetic_code) {
+		this.prosthetic_code = prosthetic_code;
 	}
 
 
