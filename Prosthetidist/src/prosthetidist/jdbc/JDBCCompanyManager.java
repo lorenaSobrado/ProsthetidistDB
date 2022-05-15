@@ -9,6 +9,7 @@ import java.util.List;
 
 import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
+import prosthetidist.pojos.Material;
 import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Prosthetic;
 
@@ -69,7 +70,7 @@ public class JDBCCompanyManager implements CompanyManager {
 		return c;
 
 	}
-	//falta materials
+	//TODO falta materials
 	public void uploadProsthetics(Company c, Prosthetic p) {
 		
 		int company_id= c.getId();
@@ -93,6 +94,8 @@ public class JDBCCompanyManager implements CompanyManager {
 	public ArrayList<Prosthetic> listProstheticsWithoutCompanyID() {
 
 		ArrayList<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
+		ArrayList<Material> materials = new ArrayList<Material>();
+
 		Company c = null;
 		Measurement m = null;
 
@@ -106,17 +109,25 @@ public class JDBCCompanyManager implements CompanyManager {
 				String functionalities = rs.getString("functionalities");
 				String type = rs.getString("type");
 				Integer measurement_id = rs.getInt("measurement_id");
-
-				// FALTAN LOS MATERIALES
+				String sql2="SELECT * FROM Material  AS m JOIN Prosthetic AS p WHERE m.prosthetic_code=p.code";
+				ResultSet rs2 = stat.executeQuery(sql2);
+							while(rs2.next()) {
+								String namemat = rs2.getString("name");
+								String strength = rs2.getString("strength");
+								Float pricemat = rs2.getFloat("price");
+								String temperatureresistance= rs2.getString("temperatureResistance");
+								String flexibility=rs2.getString("flexibility");				
+								Material mat= new Material (namemat,strength, pricemat, temperatureresistance, flexibility);
+								materials.add(mat);
 
 				m = mm.getMeasurementById(measurement_id);
-				Prosthetic p = new Prosthetic(code, functionalities, type, m);
+				Prosthetic p = new Prosthetic(code, functionalities, type, m, materials);
 				prostheticsWithoutCompany.add(p);
-			}
+			}}
 			rs.close();
 			stat.close();
 
-		} catch (Exception ex) {
+		}catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return prostheticsWithoutCompany;
@@ -182,6 +193,7 @@ public class JDBCCompanyManager implements CompanyManager {
 	
 
 }
+
 
 /*
  * public void addCompany(Company c) { try { String sql=

@@ -54,6 +54,19 @@ public class Prosthetic implements Serializable{
 		
 	}
 	
+	
+public Prosthetic(Float price, String functionalities, String type, String model, Company company,
+			Measurement measurements, Patient patient) {
+		super();
+		this.price = price;
+		this.functionalities = functionalities;
+		this.type = type;
+		this.model = model;
+		this.company = company;
+		this.measurements = measurements;
+		this.patient = patient;
+	}
+
 public Prosthetic(Integer code, Float price, String functionalities, String type, String model, Company company,
 			Measurement measurements, List<Material> materials) {
 		super();
@@ -67,7 +80,19 @@ public Prosthetic(Integer code, Float price, String functionalities, String type
 		this.materials = materials;
 	}
 
-//test constructor
+
+
+public Prosthetic(Integer code, String functionalities, String type, Measurement measurements,
+		List<Material> materials) {
+	super();
+	this.code = code;
+	this.functionalities = functionalities;
+	this.type = type;
+	this.measurements = measurements;
+	this.materials = materials;
+}
+
+	//test constructor
 	public Prosthetic (Integer code, Float price, String functionalities, String type, String model, Company company) {
 			this.code=code;
 			this.price=price;

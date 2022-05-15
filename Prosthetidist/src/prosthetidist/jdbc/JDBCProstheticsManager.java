@@ -2,6 +2,7 @@ package prosthetidist.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 	// @TODO comprobar si funciona
 	
 	public ArrayList<Prosthetic> listAllProstheticsWithCompanyId () {
-	List <Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
+	ArrayList <Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
 	List <Material> materials = new ArrayList<Material>();
 
 	Company c= null;
@@ -71,4 +72,37 @@ public class JDBCProstheticsManager implements ProstheticsManager {
 	return allProsthetics;
 	}
 	
+	//crear listprosthetic by code
+	public Prosthetic getProstheticByCode (int code) {
+		Prosthetic pros= null;
+		Company company= null;
+		Measurement mes=null;
+		
+		try {
+			String sql = "SELECT * FROM Prosthetic WHERE id=?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setInt(1, code);
+			ResultSet rs = prep.executeQuery();
+			
+			Float price = rs.getFloat("price");
+			String functionalities = rs.getString("functionalities");
+			String type = rs.getString("type");
+			String model = rs.getString("model");
+			int company_id = rs.getInt("company_id");
+			company=cm.getCompanyById(company_id);
+			int measurement_id = rs.getInt("measurement_id");
+			mes=mm.getMeasurementById(measurement_id);
+			//materials
+			//invoice
+			
+			pros = new Prosthetic (code, price,functionalities,type,model,company, mes);
+			rs.close();
+			prep.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		
+	}
+		return pros;
+	
+}
 }
