@@ -100,7 +100,7 @@ public class PatientMenuDisplay extends JFrame {
 		JButton btnNewButton_4 = new JButton("CART");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame cartDisplay = new CartDisplay(PatientMenuDisplay.this);
+				JFrame cartDisplay = new CartDisplay(PatientMenuDisplay.this, patient);
 				cartDisplay.setVisible(true);
 			}
 		});
@@ -125,55 +125,67 @@ public class PatientMenuDisplay extends JFrame {
 		scrollPane.setBounds(39, 79, 488, 177);
 		contentPane.add(scrollPane);
 		
-		table = new JTable();
+		String[] cabecera = {"Price", "Functionalities", "Type", "Model", "Length", "Weight"," Width", "Materials"};
+		
+		table = new JTable(getDatosBorrar(), cabecera);
 		scrollPane.setViewportView(table);
 		
 		
 		
-		
-		
-		
-			
-		
 		}
 		
-		
-		
-//	TableModel dataModel= new AbstractTableModel () {
-//		
-//		public int getColumnCount() {
-//			return 7;
-//		}
-//		public int getRowCount() {
-//			return 7; //pm.listAllProstheticsWithCompanyId();
-//		}
-//		
-//		public Object getValueAt (int row, int col) {
-//			return new 
-//		}
+
 	
 		public String[][] getDatos () {
 			
 			ArrayList<Prosthetic> list = new ArrayList<>();
-			list = pm.listAllProstheticsWithCompanyID();
+			list = pm.listAllProstheticsWithCompanyId();
 
-			int fil = pm.listAllProstheticsWithCompanyID().size();
+			int fil = pm.listAllProstheticsWithCompanyId().size();
 			
-			String [][] datos = new String [fil][7];
+			String [][] datos = new String [fil][8];
 			
 			for (int i=0;i<fil;i++) {
 				Prosthetic p = list.get(i);
-				datos[i][0] = (String) p.getPrice();
-				datos[i][1] = 	
-				datos[i][2] = 
-				datos[i][3] = 
-				datos[i][4] = 
-				datos[i][5] = 	
+				datos[i][0] = String.valueOf(p.getPrice());
+				datos[i][1] = p.getFunctionalities();
+				datos[i][2] = p.getType();
+				datos[i][3] = p.getModel();
+				datos[i][4] = String.valueOf(p.getMeasurements().getLength());
+				datos[i][5] = String.valueOf(p.getMeasurements().getWeight());
+				datos[i][6] = String.valueOf(p.getMeasurements().getWidth());
+				datos[i][7] = "See Materials";
 			}
+			
+			return datos;
 			
 			
 			
 		}
+public String[][] getDatosBorrar () {
+			
+		
+
+			//int fil = pm.listAllProstheticsWithCompanyId().size();
+			
+			String [][] datos = new String [20][8];
+			
+			for (int i=0;i<20;i++) {
+				datos[i][0] = "hola";
+				datos[i][1] = "hola";
+				datos[i][2] = "hola";
+				datos[i][3] = "hola";
+				datos[i][4] = "hola4";
+				datos[i][5] = "hola";
+				datos[i][6] = "hola";
+				datos[i][7] = "See Materials";
+			}
+			
+			return datos;
+			
+			
+			
+		} //CMABIAR QUE LAS PUEDA MODICIAR Y SELECCIONAR
 		
 }
 

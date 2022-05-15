@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,6 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import prosthetidist.jdbc.JDBCInvoiceManager;
+import prosthetidist.pojos.Patient;
+import prosthetidist.pojos.Prosthetic;
+
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -20,20 +26,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class CartDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField creditCard;
-	private JTable table;
 	private JRadioButton standard;
 	private JRadioButton premium;
 	private JButton buy;
 	private JButton back;
+	private JTable table;
+	
+    private JDBCInvoiceManager im;
 
-	/**
-	 * Launch the application.
-	 */
+
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -47,10 +55,8 @@ public class CartDisplay extends JFrame {
 //		});
 //	}
 
-	/**
-	 * Create the frame.
-	 */
-	public CartDisplay(JFrame patientMenuDisplay) {
+	
+	public CartDisplay(JFrame patientMenuDisplay, Patient patient) {
 		patientMenuDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 488, 351);
@@ -143,8 +149,64 @@ public class CartDisplay extends JFrame {
 		back.setBounds(24, 282, 89, 23);
 		contentPane.add(back);
 		
-		table = new JTable();
-		table.setBounds(10, 46, 465, 96);
-		contentPane.add(table);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(41, 55, 450, 89);
+		contentPane.add(scrollPane);
+		
+		String[] cabecera = {"Price", "Functionalities", "Type", "Model", "Length", "Weight"," Width", "Materials"};
+		
+		table = new JTable(getDatosBorrar(patient), cabecera);
+		scrollPane.setViewportView(table);
+		
+	}
+	public String[][] getDatos (Patient patient) {
+		
+		ArrayList<Prosthetic> list = new ArrayList<>();
+		list = im.patientSelection(patient);
+
+		int fil = im.patientSelection.size();
+		
+		String [][] datos = new String [fil][8];
+		
+		for (int i=0;i<fil;i++) {
+			Prosthetic p = list.get(i);
+			datos[i][0] = String.valueOf(p.getPrice());
+			datos[i][1] = p.getFunctionalities();
+			datos[i][2] = p.getType();
+			datos[i][3] = p.getModel();
+			datos[i][4] = String.valueOf(p.getMeasurements().getLength());
+			datos[i][5] = String.valueOf(p.getMeasurements().getWeight());
+			datos[i][6] = String.valueOf(p.getMeasurements().getWidth());
+			datos[i][7] = "See Materials";
+		}
+		
+		return datos;
+		
+		
+		
+	}
+	public String[][] getDatosBorrar (Patient patient) {
+		
+	
+
+		
+		String [][] datos = new String [10][8];
+		
+		for (int i=0;i<10;i++) {
+			datos[i][0] = "hola";
+			datos[i][1] = "hola";
+			datos[i][2] = "hola";
+			datos[i][3] = "hola";
+			datos[i][4] = "hola4";
+			datos[i][5] = "hola";
+			datos[i][6] = "hola";
+			datos[i][7] = "See Materials";
+		}
+		
+		return datos;
+		
+		
+		
 	}
 }
