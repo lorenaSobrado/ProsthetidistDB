@@ -26,17 +26,20 @@ import javax.swing.JOptionPane;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPasswordField;
+import javax.swing.JCheckBox;
 
 public class PLogInDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField email;
-	private JPasswordField password;
+	private JPasswordField passwordHide;
 	private JButton logIn;
 	private JPAUserManager um;
 	private JDBCPatientManager pm;
 	private User user;
 	private Patient patient;
+	private JTextField passwordReadable;
+	private JCheckBox showPassword;
 
 	/**
 	 * Launch the application.
@@ -70,7 +73,7 @@ public class PLogInDisplay extends JFrame {
 		email.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!email.getText().isEmpty() && !password.getText().isEmpty()) {
+				if(!email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					logIn.setEnabled(true);
 				} else logIn.setEnabled(false);
 			}
@@ -79,17 +82,22 @@ public class PLogInDisplay extends JFrame {
 		contentPane.add(email);
 		email.setColumns(10);
 		
-		password = new JPasswordField();
-		password.addKeyListener(new KeyAdapter() {
+		passwordHide = new JPasswordField();
+		passwordHide.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!email.getText().isEmpty() && !password.getText().isEmpty()) {
+				if(!email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					logIn.setEnabled(true);
 				} else logIn.setEnabled(false);
 			}
 		});
-		password.setBounds(146, 94, 164, 20);
-		contentPane.add(password);
+		passwordHide.setBounds(146, 94, 164, 20);
+		contentPane.add(passwordHide);
+		
+		passwordReadable = new JTextField();
+		passwordReadable.setBounds(146, 94, 164, 20);
+		contentPane.add(passwordReadable);
+		passwordReadable.setColumns(10);
 
 		logIn = new JButton("Log in");
 		logIn.setEnabled(false);
@@ -123,6 +131,27 @@ public class PLogInDisplay extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("PASSWORD :");
 		lblNewLabel_1.setBounds(28, 104, 79, 13);
 		contentPane.add(lblNewLabel_1);
+		
+		showPassword = new JCheckBox("");
+		showPassword.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				showPassword.setSelected(true);
+				passwordReadable.setVisible(true);
+				passwordHide.setVisible(false);
+				passwordReadable.setText(passwordHide.getText());
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				showPassword.setSelected(false);
+				passwordHide.setVisible(true);
+				passwordReadable.setVisible(false);
+				passwordHide.setText(passwordReadable.getText());
+			}
+		});
+		showPassword.setBounds(316, 93, 29, 23);
+		contentPane.add(showPassword);
+		
 		
 	}
 

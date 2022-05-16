@@ -31,6 +31,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
+import javax.swing.SwingConstants;
 
 public class PRegisterDisplay extends JFrame {
 
@@ -201,9 +202,9 @@ public class PRegisterDisplay extends JFrame {
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
-				if(!passwordHide.getText().isEmpty()) {
-					showPassword.setEnabled(true);
-				} else showPassword.setEnabled(false);
+//				if(!passwordHide.getText().isEmpty()) {
+//					showPassword.setEnabled(true);
+//				} else showPassword.setEnabled(false);
 				
 			}
 		});
@@ -266,7 +267,6 @@ public class PRegisterDisplay extends JFrame {
 		contentPane.add(cancel);
 		
 		showPassword = new JCheckBox("");
-		showPassword.setEnabled(false);
 		showPassword.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
