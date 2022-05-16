@@ -31,7 +31,7 @@ public class Prosthetic implements Serializable{
 	private Company company;
 	private Measurement measurements;
 	private List<Material> materials;
-	private Patient patient;
+	private Patient patient; //PARA QUE PONEMOS ESTO?? despues habra que hacer una lista en pacientes de protesis 
 	private List<Invoice> invoices;
 	
 	//CONSTRUCTORS

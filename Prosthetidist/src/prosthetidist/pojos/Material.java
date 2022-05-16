@@ -12,8 +12,8 @@ public class Material implements Serializable{
 	private static final long serialVersionUID = -5001802543288251520L;
 	
 	private String name;
-	private String strength;
 	private float price;
+	private String strength;
 	private String temperatureResistence;
 	private String flexibility;
 	private List <Prosthetic> prosthetics;

@@ -80,14 +80,14 @@ public class JDBCManager {
 			
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Measurement " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "lengthinees REAL NOT NULL, " 
-					+ "width REAL NOT NULL, " + "weight	    REAL, " + ");";
+			sql = "CREATE TABLE Measurement " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "lengthiness REAL NOT NULL, " 
+					+ "width REAL NOT NULL, " + "weight	    REAL, " + ");"; //lengthiness tiene que llamarse igual que en java?
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Patient " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "name	TEXT, "
-			+ "email	TEXT UNIQUE " + "dob     DATE, " + "address  TEXT, " + "phonenumber	INTEGER UNIQUE, "
-			+ "notes	TEXT, " + ");";
+			sql = "CREATE TABLE Patient " + "(id INTEGER PRIMARY KEY, " + "name	TEXT, "
+			+ "email	TEXT UNIQUE " + "dob     DATE, " + "address  TEXT, " + "phone	INTEGER UNIQUE, "
+			+ "notes	TEXT, " + ");"; //email tambien not null
 
 			stmt.executeUpdate(sql);
 
