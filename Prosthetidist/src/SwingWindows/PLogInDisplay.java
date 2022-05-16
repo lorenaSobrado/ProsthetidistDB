@@ -25,12 +25,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JPasswordField;
 
 public class PLogInDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField email;
-	private JTextField password;
+	private JPasswordField password;
 	private JButton logIn;
 	private JPAUserManager um;
 	private JDBCPatientManager pm;
@@ -77,8 +78,8 @@ public class PLogInDisplay extends JFrame {
 		email.setBounds(146, 63, 164, 20);
 		contentPane.add(email);
 		email.setColumns(10);
-
-		password = new JTextField();
+		
+		password = new JPasswordField();
 		password.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -87,9 +88,8 @@ public class PLogInDisplay extends JFrame {
 				} else logIn.setEnabled(false);
 			}
 		});
-		password.setBounds(146, 100, 164, 20);
+		password.setBounds(146, 94, 164, 20);
 		contentPane.add(password);
-		password.setColumns(10);
 
 		logIn = new JButton("Log in");
 		logIn.setEnabled(false);
@@ -123,10 +123,10 @@ public class PLogInDisplay extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("PASSWORD :");
 		lblNewLabel_1.setBounds(28, 104, 79, 13);
 		contentPane.add(lblNewLabel_1);
+		
 	}
 
 	public void validarDatos() {
 		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
-	
 }
