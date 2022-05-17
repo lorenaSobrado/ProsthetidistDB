@@ -52,6 +52,7 @@ public class PRegisterDisplay extends JFrame {
 	private JPAUserManager um;
 	private JDBCManager m;
 	private JDBCPatientManager pm;
+	private JTextField id;
 	
 
 	/**
@@ -76,7 +77,7 @@ public class PRegisterDisplay extends JFrame {
 	public PRegisterDisplay(JFrame patientDisplay) {
 		patientDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 563, 349);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -85,29 +86,33 @@ public class PRegisterDisplay extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Name");
 		lblNewLabel_1.setBounds(10, 23, 61, 13);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel = new JLabel("Id");
+		lblNewLabel.setBounds(10, 52, 46, 14);
+		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_2 = new JLabel("Email");
-		lblNewLabel_2.setBounds(10, 51, 61, 13);
+		lblNewLabel_2.setBounds(10, 83, 61, 13);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Phone");
-		lblNewLabel_3.setBounds(10, 75, 61, 16);
+		lblNewLabel_3.setBounds(10, 111, 61, 16);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("Address");
-		lblNewLabel_4.setBounds(10, 112, 61, 14);
+		lblNewLabel_4.setBounds(10, 144, 61, 14);
 		contentPane.add(lblNewLabel_4);
 
 		JLabel lblNewLabel_5 = new JLabel("Medical Condition");
-		lblNewLabel_5.setBounds(10, 143, 112, 16);
+		lblNewLabel_5.setBounds(10, 169, 112, 16);
 		contentPane.add(lblNewLabel_5);
 
 		JLabel lblNewLabel_6 = new JLabel("Date of Birth");
-		lblNewLabel_6.setBounds(10, 170, 85, 27);
+		lblNewLabel_6.setBounds(10, 196, 85, 27);
 		contentPane.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_6_1 = new JLabel("Password");
-		lblNewLabel_6_1.setBounds(10, 208, 85, 27);
+		lblNewLabel_6_1.setBounds(10, 234, 85, 27);
 		contentPane.add(lblNewLabel_6_1);
 
 		
@@ -115,7 +120,7 @@ public class PRegisterDisplay extends JFrame {
 		name.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
+				if(!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
@@ -125,18 +130,32 @@ public class PRegisterDisplay extends JFrame {
 		name.setBounds(121, 19, 96, 19);
 		contentPane.add(name);
 		name.setColumns(10);
-
-		email = new JTextField();
-		email.addKeyListener(new KeyAdapter() {
+		
+		id = new JTextField();
+		id.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
+				if(!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
 			}
 		});
-		email.setBounds(121, 47, 96, 19);
+		id.setBounds(121, 49, 96, 20);
+		contentPane.add(id);
+		id.setColumns(10);
+
+		email = new JTextField();
+		email.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
+						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
+		email.setBounds(121, 79, 96, 19);
 		contentPane.add(email);
 		email.setColumns(10);
 
@@ -144,13 +163,13 @@ public class PRegisterDisplay extends JFrame {
 		phone.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
+				if(!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
 			}
 		});
-		phone.setBounds(121, 77, 96, 19);
+		phone.setBounds(121, 109, 96, 19);
 		contentPane.add(phone);
 		phone.setColumns(10);
 
@@ -158,13 +177,13 @@ public class PRegisterDisplay extends JFrame {
 		address.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
+				if(!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
 			}
 		});
-		address.setBounds(121, 109, 96, 19);
+		address.setBounds(121, 139, 96, 19);
 		contentPane.add(address);
 		address.setColumns(10);
 
@@ -172,13 +191,13 @@ public class PRegisterDisplay extends JFrame {
 		medicalCond.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
+				if(!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
 			}
 		});
-		medicalCond.setBounds(121, 141, 96, 19);
+		medicalCond.setBounds(121, 167, 96, 19);
 		contentPane.add(medicalCond);
 		medicalCond.setColumns(10);
 
@@ -186,13 +205,13 @@ public class PRegisterDisplay extends JFrame {
 		dob.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
+				if(!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
 			}
 		});
-		dob.setBounds(121, 173, 96, 19);
+		dob.setBounds(121, 202, 96, 19);
 		contentPane.add(dob);
 		dob.setColumns(10);
 		
@@ -200,17 +219,17 @@ public class PRegisterDisplay extends JFrame {
 		passwordHide.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
+				if(!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty() && !phone.getText().isEmpty() && !address.getText().isEmpty() &&
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
 			}
 		});
-		passwordHide.setBounds(121, 211, 96, 20);
+		passwordHide.setBounds(121, 237, 96, 20);
 		contentPane.add(passwordHide);
 		
 		passwordReadable = new JTextField();
-		passwordReadable.setBounds(121, 211, 96, 20);
+		passwordReadable.setBounds(121, 237, 96, 20);
 		contentPane.add(passwordReadable);
 		passwordReadable.setColumns(10);
 		passwordReadable.setVisible(false);
@@ -222,6 +241,7 @@ public class PRegisterDisplay extends JFrame {
 				Patient patient = new Patient();
 				
 				patient.setName(name.getText());
+				patient.setId(Integer.parseInt(id.getText()));
 				patient.setEmail(email.getText());
 				patient.setPhone(Integer.parseInt(phone.getText()));
 				patient.setAddress(address.getText());
@@ -254,7 +274,7 @@ public class PRegisterDisplay extends JFrame {
 				PRegisterDisplay.this.setVisible(false);
 			}
 		});
-		register.setBounds(246, 232, 85, 21);
+		register.setBounds(330, 264, 85, 21);
 		contentPane.add(register);
 
 		JButton cancel = new JButton("Cancel");
@@ -264,7 +284,7 @@ public class PRegisterDisplay extends JFrame {
 				PRegisterDisplay.this.setVisible(false);
 			}
 		});
-		cancel.setBounds(341, 232, 85, 21);
+		cancel.setBounds(425, 264, 85, 21);
 		contentPane.add(cancel);
 		
 		showPassword = new JCheckBox("");
@@ -284,8 +304,9 @@ public class PRegisterDisplay extends JFrame {
 				passwordHide.setText(passwordReadable.getText());
 			}
 		});
-		showPassword.setBounds(223, 210, 21, 23);
+		showPassword.setBounds(223, 234, 21, 23);
 		contentPane.add(showPassword);
+		
 		
 		
 	}
