@@ -10,7 +10,7 @@ public class Measurement implements Serializable{
 	 */
 	private static final long serialVersionUID = -4715526459276722419L;
 	private Integer id;
-	private float length;
+	private float lengthiness;
 	private float width;
 	private float weight;
 //CONSTRUCTOR
@@ -20,7 +20,7 @@ public class Measurement implements Serializable{
 
     public Measurement(int id, float lengthiness, float width, float weight) {
     	this.id=id;
-    	this.length=lengthiness;
+    	this.lengthiness=lengthiness;
     	this.width=width;
     	this.weight=weight;
     	
@@ -34,12 +34,12 @@ public class Measurement implements Serializable{
 		this.id = id;
 	}
 
-	public float getLength() {
-		return length;
+	public float getLengthiness() {
+		return lengthiness;
 	}
 
-	public void setLength(float length) {
-		this.length = length;
+	public void setLengthiness(float length) {
+		this.lengthiness = length;
 	}
 
 	public float getWidth() {
@@ -60,7 +60,7 @@ public class Measurement implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Measurements [Id=" + id + ", Length=" + length + ", Width=" + width + ", Weight=" + weight + "]";
+		return "Measurements [Id=" + id + ", Length=" + lengthiness + ", Width=" + width + ", Weight=" + weight + "]";
 	}
 
 	@Override

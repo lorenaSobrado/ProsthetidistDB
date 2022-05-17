@@ -175,7 +175,7 @@ public class CartDisplay extends JFrame {
 			datos[i][1] = p.getFunctionalities();
 			datos[i][2] = p.getType();
 			datos[i][3] = p.getModel();
-			datos[i][4] = String.valueOf(p.getMeasurements().getLength());
+			datos[i][4] = String.valueOf(p.getMeasurements().getLengthiness());
 			datos[i][5] = String.valueOf(p.getMeasurements().getWeight());
 			datos[i][6] = String.valueOf(p.getMeasurements().getWidth());
 			datos[i][7] = "See Materials";

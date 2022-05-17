@@ -20,7 +20,7 @@ public class JDBCMeasurementsManager implements MeasurementsManager {
 		try {
 			String sql = "INSERT INTO Measurement (lengthiness, width, weight) VALUES (?,?,?)";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
-			p.setFloat(1, m.getLength());
+			p.setFloat(1, m.getLengthiness());
 			p.setFloat(2, m.getWidth());
 			p.setFloat(3, m.getWeight());
 			p.executeUpdate();

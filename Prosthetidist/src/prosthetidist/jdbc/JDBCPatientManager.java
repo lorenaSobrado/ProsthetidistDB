@@ -29,17 +29,15 @@ public class JDBCPatientManager implements PatientManager {
 	public void addPatient(Patient p) {
 		
 		try {
-			String sql = "INSERT INTO Patient (name, email, phone,address, notes,dob) VALUES (?,?,?,?,?,?)";
+			String sql = "INSERT INTO Patient (id, name, email, phone, address, notes, dob) VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
-			prep.setString(1, p.getName());
-			prep.setString(2, p.getEmail());
-			prep.setInt(3, p.getPhone());
-			prep.setString(4, p.getAddress());
-			prep.setString(5, p.getNotes());
-			LocalDate dob= LocalDate.now();
-			dob=p.getDob();
-			prep.setDate(6, Date.valueOf(dob));
- 			
+			prep.setInt(1, p.getId());
+			prep.setString(2, p.getName());
+			prep.setString(3, p.getEmail());
+			prep.setInt(4, p.getPhone());
+			prep.setString(5, p.getAddress());
+			prep.setString(6, p.getNotes());
+			prep.setDate(7, Date.valueOf(p.getDob()));
 		
 			prep.executeUpdate();
 		} catch (SQLException ex) {

@@ -145,7 +145,7 @@ public class UploadProsthetic extends JFrame {
 				p.setType(textField_2.getText());
 				p.setModel(textField_3.getText());
 				p.setMaterials(null);
-				m.setLength(Float.parseFloat(textField_4.getText()));
+				m.setLengthiness(Float.parseFloat(textField_4.getText()));
 				m.setWidth(Float.parseFloat(textField_5.getText()));
 				m.setWeight(Float.parseFloat(textField_6.getText()));
 				p.setMeasurements(m);

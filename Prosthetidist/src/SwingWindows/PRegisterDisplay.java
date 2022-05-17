@@ -6,6 +6,8 @@ import java.awt.BorderLayout;
 
 import prosthetidist.ifaces.PatientManager;
 import prosthetidist.ifaces.UserManager;
+import prosthetidist.jdbc.JDBCManager;
+import prosthetidist.jdbc.JDBCPatientManager;
 import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.*;
 import java.awt.EventQueue;
@@ -36,21 +38,21 @@ import javax.swing.SwingConstants;
 public class PRegisterDisplay extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField name;
 	private JTextField email;
 	private JTextField phone;
 	private JTextField address;
 	private JTextField medicalCond;
 	private JTextField dob;
-	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	private JButton register;
-	
-	private JPAUserManager um;
-	private PatientManager pm;
 	private JPasswordField passwordHide;
 	private JCheckBox showPassword;
 	private JTextField passwordReadable;
+	private JButton register;
+	
+	private JPAUserManager um;
+	private JDBCManager m;
+	private JDBCPatientManager pm;
+	
 
 	/**
 	 * Launch the application.
@@ -202,10 +204,6 @@ public class PRegisterDisplay extends JFrame {
 						!medicalCond.getText().isEmpty() && !dob.getText().isEmpty() && !passwordHide.getText().isEmpty()){
 					register.setEnabled(true);
 				} else register.setEnabled(false);
-//				if(!passwordHide.getText().isEmpty()) {
-//					showPassword.setEnabled(true);
-//				} else showPassword.setEnabled(false);
-				
 			}
 		});
 		passwordHide.setBounds(121, 211, 96, 20);
@@ -236,8 +234,9 @@ public class PRegisterDisplay extends JFrame {
 //					
 //					MessageDigest md= MessageDigest.getInstance ("MD5");
 //					md.update(password.getBytes());
-//					byte [] digest= md.digest();
-//					User u = new User (email, digest);
+//					byte [] digest = md.digest();
+//					User u = new User (email.getText(), digest);
+//					um = new JPAUserManager(); nose si este bien
 //					Role role = um.getRole("Patient");
 //					u.setRole(role);
 //					role.addUser(u);
@@ -247,7 +246,9 @@ public class PRegisterDisplay extends JFrame {
 //					
 //					e1.printStackTrace();
 //				}
-//				pm.addPatient(patient);
+				m = new JDBCManager();
+				pm = new JDBCPatientManager(m);
+				pm.addPatient(patient);
 				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
 				patientDisplay.setEnabled(true);
 				PRegisterDisplay.this.setVisible(false);

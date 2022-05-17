@@ -60,7 +60,7 @@ public class JDBCManager {
 			
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Material " + "(name TEXT PRIMARY KEY, " + "price	REAL, " + "strength	TEXT, " + "flexibility TEXT, "
+			sql = "CREATE TABLE Material " + "(name TEXT PRIMARY KEY, " + "price	REAL NOT NULL, " + "strength	TEXT, " + "flexibility TEXT, "
 					+ "temperature_resistance TEXT, " + ");";
 
 			stmt.executeUpdate(sql);
@@ -81,17 +81,17 @@ public class JDBCManager {
 			stmt.executeUpdate(sql);
 
 			sql = "CREATE TABLE Measurement " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "lengthiness REAL NOT NULL, " 
-					+ "width REAL NOT NULL, " + "weight	    REAL, " + ");"; //lengthiness tiene que llamarse igual que en java?
+					+ "width REAL NOT NULL, " + "weight	    REAL, " + ");"; 
 
 			stmt.executeUpdate(sql);
 
 			sql = "CREATE TABLE Patient " + "(id INTEGER PRIMARY KEY, " + "name	TEXT, "
-			+ "email	TEXT UNIQUE " + "dob     DATE, " + "address  TEXT, " + "phone	INTEGER UNIQUE, "
-			+ "notes	TEXT, " + ");"; //email tambien not null
+			+ "email	TEXT UNIQUE NOT NULL" + "dob     DATE, " + "address  TEXT, " + "phone	INTEGER UNIQUE, "
+			+ "notes	TEXT, " + ");"; 
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Prosthetic " + "(code INTEGER PRIMARY KEY AUTOINCREMENT, " + "price REAL, " + "functionalities	TEXT, " 
+			sql = "CREATE TABLE Prosthetic " + "(code INTEGER PRIMARY KEY AUTOINCREMENT, " + "price REAL NOT NULL, " + "functionalities	TEXT, " 
 					+ "type TEXT NOT NULL, " + "model TEXT, " + "company_id INTEGER REFERENCES Company (id)," 
 					+ "measurement_id INTEGER REFERENCES Measurement (id) " + ");";
 

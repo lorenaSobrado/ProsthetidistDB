@@ -22,9 +22,9 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 2832971669855617832L;
 	
 	@Id
-	@GeneratedValue (generator= "User")
-	@TableGenerator (name= "User", table= "sqlite_sequence",
-					pkColumnName="name", valueColumnName="seq", pkColumnValue="User")
+	@GeneratedValue (generator = "User")
+	@TableGenerator (name = "User", table = "sqlite_sequence",
+					pkColumnName = "name", valueColumnName = "seq", pkColumnValue = "User")
 	
 	private Integer id;
 	private String email;
@@ -32,7 +32,7 @@ public class User implements Serializable {
 	private byte[] password; //this is the digest
 	
 	@ManyToOne 
-	@JoinColumn(name= "role_id")
+	@JoinColumn(name = "role_id")
 	
 	private Role role;
 
