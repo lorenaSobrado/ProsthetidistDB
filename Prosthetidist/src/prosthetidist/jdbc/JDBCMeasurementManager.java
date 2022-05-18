@@ -8,10 +8,10 @@ import prosthetidist.ifaces.MeasurementsManager;
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Measurement;
 
-public class JDBCMeasurementsManager implements MeasurementsManager {
+public class JDBCMeasurementManager implements MeasurementsManager {
 	private JDBCManager manager;
 
-	public JDBCMeasurementsManager(JDBCManager m) {
+	public JDBCMeasurementManager(JDBCManager m) {
 		this.manager = m;
 	}
 	

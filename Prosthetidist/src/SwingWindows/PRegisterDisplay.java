@@ -74,7 +74,7 @@ public class PRegisterDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PRegisterDisplay(JFrame patientDisplay) {
+	public PRegisterDisplay(JFrame patientDisplay, JDBCManager manager) {
 		patientDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 563, 349);
@@ -266,8 +266,7 @@ public class PRegisterDisplay extends JFrame {
 //					
 //					e1.printStackTrace();
 //				}
-				m = new JDBCManager();
-				pm = new JDBCPatientManager(m);
+				pm = new JDBCPatientManager(manager);
 				pm.addPatient(patient);
 				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
 				patientDisplay.setEnabled(true);

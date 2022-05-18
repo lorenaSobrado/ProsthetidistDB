@@ -2,6 +2,7 @@ package prosthetidist.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -61,33 +62,45 @@ public class JDBCManager {
 			stmt.executeUpdate(sql);
 			
 			sql = "CREATE TABLE Material " + "(name TEXT PRIMARY KEY, " + "price	REAL NOT NULL, " + "strength	TEXT, " + "flexibility TEXT, "
-					+ "temperature_resistance TEXT, " + ");";
+					+ "temperature_resistance TEXT " + ");";
 
 			stmt.executeUpdate(sql);
 			
-			sql = "UPDATE Material " + "SET name = Plastic " + "SET price = " + 4.99 + " SET strength = Low " + "SET flexibility = High " 
-					+ "SET temperature_resistance = Low ";
+			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperature_resistance) VALUES (?,?,?,?,?)";
+			PreparedStatement prep = c.prepareStatement(sql);
+			prep.setString(1, "Plastic");
+			prep.setFloat(2, 3.49f);
+			prep.setString(3, "low");
+			prep.setString(4, "high");
+			prep.setString(5, "low");
+			prep.executeUpdate();
 			
-			stmt.executeUpdate(sql);
+			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperature_resistance) VALUES (?,?,?,?,?)";
+			prep = c.prepareStatement(sql);
+			prep.setString(1, "Carbon Fiber");
+			prep.setFloat(2, 19.99f);
+			prep.setString(3, "high");
+			prep.setString(4, "medium");
+			prep.setString(5, "high");
+			prep.executeUpdate();
 			
-			sql = "UPDATE Material " + "SET name = Carbon Fiber " + "SET price = " + 19.99 + " SET strength = High " + "SET flexibility = High " 
-					+ "SET temperature_resistance = High ";
-			
-			stmt.executeUpdate(sql);
-			
-			sql = "UPDATE Material " + "SET name = Aluminum " + "SET price = " + 5.4 + " SET strength = Low* " + "SET flexibility = Medium* " 
-					+ "SET temperature_resistance = Low* ";
-			
-			stmt.executeUpdate(sql);
+			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperature_resistance) VALUES (?,?,?,?,?)";
+			prep = c.prepareStatement(sql);
+			prep.setString(1, "Aluminum");
+			prep.setFloat(2, 5.49f);
+			prep.setString(3, "medium");
+			prep.setString(4, "medium");
+			prep.setString(5, "low");
+			prep.executeUpdate();
 
 			sql = "CREATE TABLE Measurement " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "lengthiness REAL NOT NULL, " 
-					+ "width REAL NOT NULL, " + "weight	    REAL, " + ");"; 
+					+ "width REAL NOT NULL, " + "weight	    REAL " + ");"; 
 
 			stmt.executeUpdate(sql);
 
 			sql = "CREATE TABLE Patient " + "(id INTEGER PRIMARY KEY, " + "name	TEXT, "
-			+ "email	TEXT UNIQUE NOT NULL" + "dob     DATE, " + "address  TEXT, " + "phone	INTEGER UNIQUE, "
-			+ "notes	TEXT, " + ");"; 
+			+ "email	TEXT UNIQUE NOT NULL, " + "dob     DATE, " + "address  TEXT, " + "phone	INTEGER UNIQUE, "
+			+ "notes	TEXT " + ");"; 
 
 			stmt.executeUpdate(sql);
 

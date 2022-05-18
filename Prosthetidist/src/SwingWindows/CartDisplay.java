@@ -151,12 +151,16 @@ public class CartDisplay extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(41, 55, 450, 89);
+		scrollPane.setBounds(10, 46, 450, 89);
 		contentPane.add(scrollPane);
+		
+		JLabel lblNewLabel_1 = new JLabel("Choose delivery");
+		lblNewLabel_1.setBounds(24, 157, 83, 14);
+		contentPane.add(lblNewLabel_1);
 		
 		String[] cabecera = {"Price", "Functionalities", "Type", "Model", "Length", "Weight"," Width", "Materials"};
 		
-		table = new JTable(getDatosBorrar(patient), cabecera);
+		table = new JTable(/*getDatosBorrar(patient), cabecera*/);
 		scrollPane.setViewportView(table);
 		
 	}
@@ -165,7 +169,7 @@ public class CartDisplay extends JFrame {
 		ArrayList<Prosthetic> list = new ArrayList<>();
 		list = im.patientSelection(patient);
 
-		int fil = im.patientSelection.size();
+		int fil = list.size();
 		
 		String [][] datos = new String [fil][8];
 		
@@ -189,7 +193,6 @@ public class CartDisplay extends JFrame {
 	public String[][] getDatosBorrar (Patient patient) {
 		
 	
-
 		
 		String [][] datos = new String [10][8];
 		

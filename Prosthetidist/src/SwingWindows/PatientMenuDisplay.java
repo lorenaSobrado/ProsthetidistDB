@@ -1,6 +1,7 @@
 package SwingWindows;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JToolBar;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.AbstractListModel;
 import java.awt.Color;
@@ -16,9 +18,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-import prosthetidist.jdbc.JDBCProstheticsManager;
+import prosthetidist.jdbc.JDBCInvoiceManager;
+import prosthetidist.jdbc.JDBCManager;
+import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
+import prosthetidist.ui.*;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -34,13 +39,13 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+
 public class PatientMenuDisplay extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	//private JDBCInvoiceManager im;
-	
-	private JDBCProstheticsManager pm;
+	private JDBCInvoiceManager im;
+	private JDBCProstheticManager pm;
 
 	/**
 	 * Launch the application.
@@ -59,8 +64,11 @@ public class PatientMenuDisplay extends JFrame {
 //	}
 
 
-	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient) {
+	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient, JDBCManager manager) {
 		pLogInDisplay.setEnabled(false);
+		im = new JDBCInvoiceManager(manager);
+		pm = new JDBCProstheticManager(manager);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 587, 357);
 		contentPane = new JPanel();
@@ -114,7 +122,16 @@ public class PatientMenuDisplay extends JFrame {
 		JButton addToCart = new JButton("ADD TO CART");
 		addToCart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//im.addProstheticToCart(la protesis seleccionada en la tabla)
+				if(table.getSelectedRowCount() > 0) {
+					int[] selection = table.getSelectedRows();
+					for (int i : selection) {
+						Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
+						im.addProstheticToCart(patient, prosCode);
+					}
+					JOptionPane.showMessageDialog(PatientMenuDisplay.this, "Your selection was added to your cart", "Message", JOptionPane.PLAIN_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(PatientMenuDisplay.this, "Select a prosthetic first", "Message", JOptionPane.PLAIN_MESSAGE);
+				}
 			}
 		});
 		addToCart.setBounds(424, 288, 111, 23);
@@ -127,7 +144,7 @@ public class PatientMenuDisplay extends JFrame {
 		
 		String[] cabecera = {"Price", "Functionalities", "Type", "Model", "Length", "Weight"," Width", "Materials"};
 		
-		table = new JTable(getDatosBorrar(), cabecera);
+		table = new JTable(/*getDatosBorrar(), cabecera*/);
 		scrollPane.setViewportView(table);
 		
 		
@@ -136,25 +153,26 @@ public class PatientMenuDisplay extends JFrame {
 		
 
 	
-		public String[][] getDatos () {
+		public String[][] getData (JDBCProstheticManager pm) {
 			
 			ArrayList<Prosthetic> list = new ArrayList<>();
 			list = pm.listAllProstheticsWithCompanyId();
 
 			int fil = pm.listAllProstheticsWithCompanyId().size();
 			
-			String [][] datos = new String [fil][8];
+			String [][] datos = new String [fil][9];
 			
 			for (int i=0;i<fil;i++) {
 				Prosthetic p = list.get(i);
-				datos[i][0] = String.valueOf(p.getPrice());
-				datos[i][1] = p.getFunctionalities();
-				datos[i][2] = p.getType();
-				datos[i][3] = p.getModel();
-				datos[i][4] = String.valueOf(p.getMeasurements().getLengthiness());
-				datos[i][5] = String.valueOf(p.getMeasurements().getWeight());
-				datos[i][6] = String.valueOf(p.getMeasurements().getWidth());
-				datos[i][7] = "See Materials";
+				datos[i][0] = String.valueOf(p.getCode());
+				datos[i][1] = String.valueOf(p.getPrice());
+				datos[i][2] = p.getFunctionalities();
+				datos[i][3] = p.getType();
+				datos[i][4] = p.getModel();
+				datos[i][5] = String.valueOf(p.getMeasurements().getLengthiness());
+				datos[i][6] = String.valueOf(p.getMeasurements().getWeight());
+				datos[i][7] = String.valueOf(p.getMeasurements().getWidth());
+				datos[i][8] = "See Materials";
 			}
 			
 			return datos;

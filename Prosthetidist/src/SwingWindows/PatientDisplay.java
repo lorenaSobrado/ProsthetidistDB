@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.jdbc.JDBCManager;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -39,7 +41,7 @@ public class PatientDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PatientDisplay(JFrame appDisplay) {
+	public PatientDisplay(JFrame appDisplay, JDBCManager manager) {
 		appDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -61,7 +63,7 @@ public class PatientDisplay extends JFrame {
 		JButton logIn = new JButton("Log in");
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame pLogInDisplay = new PLogInDisplay(PatientDisplay.this);
+				JFrame pLogInDisplay = new PLogInDisplay(PatientDisplay.this, manager);
 				pLogInDisplay.setVisible(true);
 			}
 		});
@@ -71,7 +73,7 @@ public class PatientDisplay extends JFrame {
 		JButton register = new JButton("Register");
 		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame pRegisterDisplay = new PRegisterDisplay(PatientDisplay.this);
+				JFrame pRegisterDisplay = new PRegisterDisplay(PatientDisplay.this, manager);
 				pRegisterDisplay.setVisible(true);
 			}
 		});

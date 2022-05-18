@@ -11,10 +11,7 @@ public interface CompanyManager {
 	public void addCompany (Company c);
 	public void deleteCompany (int companyId); 	//delete a company by its id
 	public Company getCompanyById (int company_id); //get a company by its id
-	public void uploadProsthetics (Company c, Prosthetic p);//upload a prosthetic 
-	
 	public List<Prosthetic> listProstheticsWithoutCompanyID();
-	
 	public void offerDesign (Prosthetic prosthetic);
 	
 

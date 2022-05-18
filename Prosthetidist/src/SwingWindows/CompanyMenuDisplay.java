@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.pojos.Company;
 
 import javax.swing.JButton;
@@ -39,7 +40,7 @@ public class CompanyMenuDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CompanyMenuDisplay(Company company) {
+	public CompanyMenuDisplay(Company company, JDBCManager manager) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -50,7 +51,7 @@ public class CompanyMenuDisplay extends JFrame {
 		JButton btnNewButton = new JButton("UPLOAD PROSTHETIC");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame uploadProsthetic = new UploadProsthetic(company);
+				JFrame uploadProsthetic = new UploadProsthetic(company, manager);
 				uploadProsthetic.setVisible(true);
 			}
 		});

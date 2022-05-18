@@ -39,8 +39,8 @@ public class Prosthetic implements Serializable{
 	public Prosthetic() {
 		super();
 		//?
-		this.materials = new ArrayList();
-		this.invoices = new ArrayList();
+		this.materials = new ArrayList<Material>();
+		this.invoices = new ArrayList<Invoice>();
 	}
 
 	public Prosthetic (Integer code, Float price, String functionalities, String type, String model, Company company, Measurement measurement) {

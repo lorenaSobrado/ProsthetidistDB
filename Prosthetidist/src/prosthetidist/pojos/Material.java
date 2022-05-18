@@ -14,8 +14,8 @@ public class Material implements Serializable{
 	private String name;
 	private float price;
 	private String strength;
-	private String temperatureResistence;
 	private String flexibility;
+	private String temperatureResistence;
 	private List <Prosthetic> prosthetics;
 	
 	
@@ -24,13 +24,13 @@ public class Material implements Serializable{
 	}
 	
 
-	public Material(String name, String strength, float price, String temperatureResistence, String flexibility) {
+	public Material(String name, float price, String strength, String flexibility, String temperatureResistence) {
 		super();
 		this.name = name;
-		this.strength = strength;
 		this.price = price;
-		this.temperatureResistence = temperatureResistence;
+		this.strength = strength;
 		this.flexibility = flexibility;
+		this.temperatureResistence = temperatureResistence;
 	}
 
 

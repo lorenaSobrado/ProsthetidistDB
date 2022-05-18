@@ -13,19 +13,17 @@ import prosthetidist.pojos.Material;
 import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Prosthetic;
 
-
 public class JDBCCompanyManager implements CompanyManager {
 
 	private JDBCManager manager;
-	private JDBCMeasurementsManager mm;
+	private JDBCMeasurementManager mm;
 
 	public JDBCCompanyManager(JDBCManager m) {
 		this.manager = m;
 	}
 
-
 	public void addCompany(Company c) {
-		
+
 		try {
 			String sql = "INSERT INTO Company (name, email, phone) VALUES (?,?,?)";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
@@ -56,7 +54,7 @@ public class JDBCCompanyManager implements CompanyManager {
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, company_id);
 			ResultSet rs = prep.executeQuery();
-			// get the values , @CHECK 
+			// get the values , @CHECK
 			String name = rs.getString(2);
 			String email = rs.getString(3);
 			Integer phone = rs.getInt(4);
@@ -70,28 +68,8 @@ public class JDBCCompanyManager implements CompanyManager {
 		return c;
 
 	}
-	//TODO falta materials
-	public void uploadProsthetics(Company c, Prosthetic p) {
-		
-		int company_id= c.getId();
 
-		try {
-			String sql = "INSERT INTO Prosthetic (price, functionalities, type, model, company_id, measurement_id) VALUES (?,?,?,?,?,?)";
-			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
-			prep.setFloat(1, p.getPrice());
-			prep.setString(2, p.getFunctionalities());
-			prep.setString(3, p.getType());
-			prep.setString(4, p.getModel());
-			prep.setInt(5, company_id);
-			prep.setInt(6, p.getMeasurements().getId());
-			prep.executeUpdate();
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
-
-	public ArrayList<Prosthetic> listProstheticsWithoutCompanyID() {
+	public ArrayList<Prosthetic> listProstheticsWithoutCompanyID() { //esta mal
 
 		ArrayList<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
 		ArrayList<Material> materials = new ArrayList<Material>();
@@ -102,41 +80,43 @@ public class JDBCCompanyManager implements CompanyManager {
 		try {
 			Statement stat = manager.getConnection().createStatement();
 			String sql = "SELECT * FROM Prosthetic WHERE company_id= NULL";
-			ResultSet rs = stat.executeQuery(sql);
-			// rs.next() moves to the next row of the table
+			ResultSet rs = stat.executeQuery(sql); //a result set puts a cursor before the first row
+			// rs.next() moves the cursor to the next row of the table, so the first time puts it to the first row
 			while (rs.next()) {
 				Integer code = rs.getInt("code");
 				String functionalities = rs.getString("functionalities");
 				String type = rs.getString("type");
 				Integer measurement_id = rs.getInt("measurement_id");
-				String sql2="SELECT * FROM Material  AS m JOIN Prosthetic AS p WHERE m.prosthetic_code=p.code";
+				String sql2 = "SELECT * FROM Material  AS m JOIN Prosthetic AS p WHERE m.prosthetic_code = p.code";
 				ResultSet rs2 = stat.executeQuery(sql2);
-							while(rs2.next()) {
-								String namemat = rs2.getString("name");
-								String strength = rs2.getString("strength");
-								Float pricemat = rs2.getFloat("price");
-								String temperatureresistance= rs2.getString("temperatureResistance");
-								String flexibility=rs2.getString("flexibility");				
-								Material mat= new Material (namemat,strength, pricemat, temperatureresistance, flexibility);
-								materials.add(mat);
+				while (rs2.next()) {
+					String matName = rs2.getString("name");
+					Float matPrice = rs2.getFloat("price");
+					String strength = rs2.getString("strength");
+					String flexibility = rs2.getString("flexibility");
+					String temperatureResistance = rs2.getString("temperatureResistance");
+					Material mat = new Material(matName, matPrice, strength, flexibility, temperatureResistance);
+					materials.add(mat);
 
-				m = mm.getMeasurementById(measurement_id);
-				Prosthetic p = new Prosthetic(code, functionalities, type, m, materials);
-				prostheticsWithoutCompany.add(p);
-			}}
+					m = mm.getMeasurementById(measurement_id);
+					Prosthetic p = new Prosthetic(code, functionalities, type, m, materials);
+					prostheticsWithoutCompany.add(p);
+				}
+			}
 			rs.close();
 			stat.close();
 
-		}catch (Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return prostheticsWithoutCompany;
 	}
+
 	public List<Prosthetic> listProstheticsOfCompany(Company c) {
 
 		List<Prosthetic> prostheticsOfCompany = new ArrayList<Prosthetic>();
-		
-		int company_id= c.getId();
+
+		int company_id = c.getId();
 
 		try {
 			Statement stat = manager.getConnection().createStatement();
@@ -145,13 +125,13 @@ public class JDBCCompanyManager implements CompanyManager {
 			// rs.next() moves to the next row of the table
 			while (rs.next()) {
 				Integer code = rs.getInt("code");
-				Float price =rs.getFloat("price");
-				String functionalities =rs.getString("functionalities");
-				String type =rs.getString("type");
+				Float price = rs.getFloat("price");
+				String functionalities = rs.getString("functionalities");
+				String type = rs.getString("type");
 				String model = rs.getString("model");
 
-				Prosthetic p = new Prosthetic(code, price,functionalities, type,model);
-				
+				Prosthetic p = new Prosthetic(code, price, functionalities, type, model);
+
 				prostheticsOfCompany.add(p);
 			}
 			rs.close();
@@ -184,16 +164,7 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	}
 
-
-
-
-
-
-
-	
-
 }
-
 
 /*
  * public void addCompany(Company c) { try { String sql=

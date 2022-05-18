@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import prosthetidist.ifaces.CompanyManager;
 import prosthetidist.ifaces.UserManager;
+import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.pojos.*;
 
 import javax.swing.JLabel;
@@ -37,18 +38,18 @@ public class CRegisterDisplay extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CRegisterDisplay frame = new CRegisterDisplay();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					CRegisterDisplay frame = new CRegisterDisplay();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
@@ -112,10 +113,6 @@ public class CRegisterDisplay extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				if (textField.getText().length() > 0 && textField_1.getText().length() > 0
 						&& textField_2.getText().length() > 0 && textField_3.getText().length() > 0) {
-					
-					boolean Validar = true; // para que haces esto?
-					JFrame companyMenuDisp = new CompanyMenuDisplay();
-					companyMenuDisp.setVisible(Validar); // se puede poner directo true?
 					
 					Company company = new Company();
 					

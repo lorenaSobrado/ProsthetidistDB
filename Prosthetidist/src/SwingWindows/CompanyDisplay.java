@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import prosthetidist.jdbc.JDBCManager;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -33,7 +36,7 @@ public class CompanyDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CompanyDisplay(JFrame appDisplay) {
+	public CompanyDisplay(JFrame appDisplay, JDBCManager manager) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -44,7 +47,7 @@ public class CompanyDisplay extends JFrame {
 		JButton btnNewButton = new JButton("Log in");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame cLogInDisplay = new CLogInDisplay();
+				JFrame cLogInDisplay = new CLogInDisplay(manager);
 				cLogInDisplay.setVisible(true);
 			}
 		});

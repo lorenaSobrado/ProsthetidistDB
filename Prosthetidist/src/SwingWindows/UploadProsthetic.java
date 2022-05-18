@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import prosthetidist.pojos.Company;
+import prosthetidist.pojos.Material;
 import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Prosthetic;
 
@@ -34,25 +35,29 @@ public class UploadProsthetic extends JFrame {
 	 * Launch the application.
 	 */
 
-	private JDBCCompanyManager cm;
+	private JDBCProstheticManager pm;
+	private JDBCMaterialManager matm;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UploadProsthetic frame = new UploadProsthetic();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					UploadProsthetic frame = new UploadProsthetic();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public UploadProsthetic(Company company) {
+	public UploadProsthetic(Company company, JDBCManager manager) {
+		pm = new JDBCProstheticManager(manager);
+		matm = new JDBCMaterialManager(manager);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 598, 382);
 		contentPane = new JPanel();
@@ -108,17 +113,17 @@ public class UploadProsthetic extends JFrame {
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Plastic");
-		chckbxNewCheckBox.setBounds(104, 167, 113, 23);
-		contentPane.add(chckbxNewCheckBox);
+		JCheckBox plastic = new JCheckBox("Plastic");
+		plastic.setBounds(104, 167, 113, 23);
+		contentPane.add(plastic);
 
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Aluminium");
-		chckbxNewCheckBox_2.setBounds(333, 168, 99, 23);
-		contentPane.add(chckbxNewCheckBox_2);
+		JCheckBox aluminium = new JCheckBox("Aluminium");
+		aluminium.setBounds(333, 168, 99, 23);
+		contentPane.add(aluminium);
 
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Carbon Fiber");
-		chckbxNewCheckBox_1.setBounds(224, 168, 107, 23);
-		contentPane.add(chckbxNewCheckBox_1);
+		JCheckBox carbonFiber = new JCheckBox("Carbon Fiber");
+		carbonFiber.setBounds(224, 168, 107, 23);
+		contentPane.add(carbonFiber);
 
 		textField_4 = new JTextField();
 		textField_4.setBounds(136, 197, 96, 20);
@@ -149,9 +154,19 @@ public class UploadProsthetic extends JFrame {
 				m.setWidth(Float.parseFloat(textField_5.getText()));
 				m.setWeight(Float.parseFloat(textField_6.getText()));
 				p.setMeasurements(m);
-				
-
-				cm.uploadProsthetics(company,p);
+				pm.uploadProsthetics(company, p);
+				if(plastic.isSelected()) {
+					Material material = matm.getMaterialByName("Plastic");
+					matm.uploadMaterialsOfProsthetic(material, p);
+				}
+				if(carbonFiber.isSelected()) {
+					Material material = matm.getMaterialByName("Carbon Fiber");
+					matm.uploadMaterialsOfProsthetic(material, p);
+				}
+				if(aluminium.isSelected()) {
+					Material material = matm.getMaterialByName("Aluminium");
+					matm.uploadMaterialsOfProsthetic(material, p);
+				}
 			
 
 				UploadProsthetic.this.setVisible(false);

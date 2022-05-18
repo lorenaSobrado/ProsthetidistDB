@@ -37,7 +37,6 @@ public class PLogInDisplay extends JFrame {
 	private JButton logIn;
 	private JPAUserManager um;
 	private JDBCPatientManager pm;
-	private JDBCManager m;
 	private User user;
 	private Patient patient;
 	private JTextField passwordReadable;
@@ -62,7 +61,7 @@ public class PLogInDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PLogInDisplay(JFrame patientDisplay) {
+	public PLogInDisplay(JFrame patientDisplay, JDBCManager manager) {
 		patientDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -105,15 +104,14 @@ public class PLogInDisplay extends JFrame {
 		logIn.setEnabled(false);
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				//After jpa log in.   HAY QUE PASARLE EL MISMO MANAGER QUE CUANDO HACEMOS EL REGISTER??
+//				//After jpa log in. 
 //				um = new JPAUserManager();
-//				m = new JDBCManager();
-//				pm = new JDBCPatientManager(m);
+//				pm = new JDBCPatientManager(manager);
 //				user = new User();
 //				user = um.checkPassword(email.getText(), passwordHide.getText());
 //				patient = pm.getPatientByEmail(user.getEmail());
 				patient = new Patient();
-				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient);
+				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient, manager);
 				patientMenuDisplay.setVisible(true);
 			}
 		});

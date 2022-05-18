@@ -11,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import prosthetidist.jdbc.JDBCCompanyManager;
-import prosthetidist.jdbc.JDBCProstheticsManager;
+import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Company;
 
 import javax.swing.JTextField;
