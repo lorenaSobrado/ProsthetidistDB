@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCPatientManager;
 import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.Patient;
@@ -36,6 +37,7 @@ public class PLogInDisplay extends JFrame {
 	private JButton logIn;
 	private JPAUserManager um;
 	private JDBCPatientManager pm;
+	private JDBCManager m;
 	private User user;
 	private Patient patient;
 	private JTextField passwordReadable;
@@ -103,8 +105,12 @@ public class PLogInDisplay extends JFrame {
 		logIn.setEnabled(false);
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				//After jpa log in
-//				user = um.checkPassword(email.getText(), password.getText());
+//				//After jpa log in.   HAY QUE PASARLE EL MISMO MANAGER QUE CUANDO HACEMOS EL REGISTER??
+//				um = new JPAUserManager();
+//				m = new JDBCManager();
+//				pm = new JDBCPatientManager(m);
+//				user = new User();
+//				user = um.checkPassword(email.getText(), passwordHide.getText());
 //				patient = pm.getPatientByEmail(user.getEmail());
 				patient = new Patient();
 				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient);
