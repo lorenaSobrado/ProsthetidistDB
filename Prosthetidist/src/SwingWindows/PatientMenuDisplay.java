@@ -3,6 +3,7 @@ package SwingWindows;
 import java.awt.BorderLayout;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -34,6 +35,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -83,13 +86,16 @@ public class PatientMenuDisplay extends JFrame {
 				PatientMenuDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(27, 288, 89, 23);
+		Image logOutImg = new ImageIcon(this.getClass().getResource("/logOut.png")).getImage();
+		btnNewButton.setIcon(new ImageIcon(logOutImg));
+		btnNewButton.setBounds(27, 288, 103, 23);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("User :");
-		lblNewLabel.setToolTipText("User\r\n");
-		lblNewLabel.setBounds(27, 29, 45, 13);
-		contentPane.add(lblNewLabel);
+		JLabel userLabel = new JLabel("");
+		Image userImg = new ImageIcon(this.getClass().getResource("/user.png")).getImage();
+		userLabel.setIcon(new ImageIcon(userImg));
+		userLabel.setBounds(27, 15, 45, 39);
+		contentPane.add(userLabel);
 		
 		JButton btnNewButton_1 = new JButton("Design My Own");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -105,18 +111,20 @@ public class PatientMenuDisplay extends JFrame {
 		btnNewButton_3.setBounds(382, 24, 89, 23);
 		contentPane.add(btnNewButton_3);
 		
-		JButton btnNewButton_4 = new JButton("CART");
+		JButton btnNewButton_4 = new JButton("");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame cartDisplay = new CartDisplay(PatientMenuDisplay.this, patient);
 				cartDisplay.setVisible(true);
 			}
 		});
-		btnNewButton_4.setBounds(500, 11, 70, 37);
+		btnNewButton_4.setBounds(491, 17, 70, 37);
 		contentPane.add(btnNewButton_4);
+		Image img = new ImageIcon(this.getClass().getResource("/cart.png")).getImage();
+		btnNewButton_4.setIcon(new ImageIcon(img));
 		
 		JLabel username = new JLabel(patient.getName());
-		username.setBounds(82, 28, 89, 14);
+		username.setBounds(70, 29, 89, 14);
 		contentPane.add(username);
 		
 		JButton addToCart = new JButton("ADD TO CART");
@@ -148,7 +156,6 @@ public class PatientMenuDisplay extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		
-		
 		}
 		
 
@@ -156,9 +163,9 @@ public class PatientMenuDisplay extends JFrame {
 		public String[][] getData (JDBCProstheticManager pm) {
 			
 			ArrayList<Prosthetic> list = new ArrayList<>();
-			list = pm.listAllProstheticsWithCompanyId();
+			list = pm.listProstheticsWithCompanyId();
 
-			int fil = pm.listAllProstheticsWithCompanyId().size();
+			int fil = pm.listProstheticsWithCompanyId().size();
 			
 			String [][] datos = new String [fil][9];
 			

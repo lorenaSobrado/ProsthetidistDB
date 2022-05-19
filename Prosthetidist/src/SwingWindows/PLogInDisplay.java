@@ -2,6 +2,7 @@ package SwingWindows;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,6 +16,7 @@ import prosthetidist.pojos.User;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 
@@ -41,6 +43,7 @@ public class PLogInDisplay extends JFrame {
 	private Patient patient;
 	private JTextField passwordReadable;
 	private JCheckBox showPassword;
+	private JLabel imgLabel;
 
 	/**
 	 * Launch the application.
@@ -79,7 +82,7 @@ public class PLogInDisplay extends JFrame {
 				} else logIn.setEnabled(false);
 			}
 		});
-		email.setBounds(146, 63, 164, 20);
+		email.setBounds(146, 137, 164, 20);
 		contentPane.add(email);
 		email.setColumns(10);
 		
@@ -92,11 +95,11 @@ public class PLogInDisplay extends JFrame {
 				} else logIn.setEnabled(false);
 			}
 		});
-		passwordHide.setBounds(146, 94, 164, 20);
+		passwordHide.setBounds(146, 168, 164, 20);
 		contentPane.add(passwordHide);
 		
 		passwordReadable = new JTextField();
-		passwordReadable.setBounds(146, 94, 164, 20);
+		passwordReadable.setBounds(146, 168, 164, 20);
 		contentPane.add(passwordReadable);
 		passwordReadable.setColumns(10);
 
@@ -129,11 +132,11 @@ public class PLogInDisplay extends JFrame {
 		contentPane.add(cancel);
 
 		JLabel lblNewLabel = new JLabel("EMAIL :");
-		lblNewLabel.setBounds(28, 67, 65, 13);
+		lblNewLabel.setBounds(28, 141, 65, 13);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("PASSWORD :");
-		lblNewLabel_1.setBounds(28, 104, 79, 13);
+		lblNewLabel_1.setBounds(28, 172, 79, 13);
 		contentPane.add(lblNewLabel_1);
 		
 		showPassword = new JCheckBox("");
@@ -153,8 +156,14 @@ public class PLogInDisplay extends JFrame {
 				passwordHide.setText(passwordReadable.getText());
 			}
 		});
-		showPassword.setBounds(316, 93, 29, 23);
+		showPassword.setBounds(317, 165, 29, 23);
 		contentPane.add(showPassword);
+		
+		imgLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/logIn.png")).getImage();
+		imgLabel.setIcon(new ImageIcon(img));
+		imgLabel.setBounds(146, 11, 164, 103);
+		contentPane.add(imgLabel);
 		
 		
 	}

@@ -167,7 +167,7 @@ public class CartDisplay extends JFrame {
 	public String[][] getDatos (Patient patient) {
 		
 		ArrayList<Prosthetic> list = new ArrayList<>();
-		list = im.patientSelection(patient);
+		list = im.getPatientSelection(patient);
 
 		int fil = list.size();
 		

@@ -6,5 +6,5 @@ public interface MeasurementsManager {
 	
 	public void addMeasurement(Measurement m);
 	public Measurement getMeasurementById (int measurement_id);
-	//returns a object from the class Measurement by its id
+	
 }

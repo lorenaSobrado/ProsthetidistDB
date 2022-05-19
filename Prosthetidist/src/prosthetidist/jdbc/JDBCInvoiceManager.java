@@ -17,6 +17,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 
 	public JDBCInvoiceManager(JDBCManager m) {
 		this.manager = m;
+		this.pm = new JDBCProstheticManager(m);
 	}
 
 	public void addProstheticToCart(Patient pa, Integer prosCode) {
@@ -43,26 +44,23 @@ public class JDBCInvoiceManager implements InvoiceManager {
 		}
 	}
 
-//TODO la prosthetic que te devuelve debe tener el id de una invoice?? 
-	public ArrayList<Prosthetic> patientSelection(Patient pa) { //better to return the ids and then call the pm.getpro(prosId)??
+	public ArrayList<Prosthetic> getPatientSelection(Patient pa) {
 
-		ArrayList<Prosthetic> prostheticInvoice = new ArrayList<Prosthetic>();
-		int patientId = pa.getId();
-		Prosthetic pros = null;
+		ArrayList<Prosthetic> cart = new ArrayList<Prosthetic>();
 		try {
-			Statement stat = manager.getConnection().createStatement();
-			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id= ? AND purchase= FALSE";
-			ResultSet rs = stat.executeQuery(sql);
+			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase = FALSE"; //preguntar si si false esta bien o es \"FALSE\"
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setInt(0, pa.getId());
+			ResultSet rs = prep.executeQuery();
 			while (rs.next()) {
-				int pcode = rs.getInt("prosthetic_code");
-				pros = pm.getProstheticByCode(pcode);
-				pros.setPatient(pa);
-				prostheticInvoice.add(pros);
+				Integer pcode = rs.getInt("prosthetic_code");
+				Prosthetic pros = pm.getProstheticByCode(pcode);
+				cart.add(pros);
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
-		return prostheticInvoice;
+		return cart;
 
 	}
 

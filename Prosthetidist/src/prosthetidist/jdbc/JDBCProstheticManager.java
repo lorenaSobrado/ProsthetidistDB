@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 //no deberia
 import prosthetidist.ifaces.ProstheticsManager;
@@ -26,7 +27,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 
 	// @TODO comprobar si funciona
 
-	public ArrayList<Prosthetic> listAllProstheticsWithCompanyId() {
+	public ArrayList<Prosthetic> listProstheticsWithCompanyId() {
 		ArrayList<Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
 
 		try {
@@ -55,6 +56,34 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			ex.printStackTrace();
 		}
 		return allProsthetics;
+	}
+	
+	public ArrayList<Prosthetic> listProstheticsWithoutCompanyId() { 
+
+		ArrayList<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
+
+		try {
+			Statement stat = manager.getConnection().createStatement();
+			String sql = "SELECT * FROM Prosthetic WHERE company_id = NULL";//preguntar si NULL == NULL
+			ResultSet rs = stat.executeQuery(sql); //a result set puts a cursor before the first row
+			// rs.next() moves the cursor to the next row of the table, so the first time puts it to the first row
+			while (rs.next()) {
+				Integer code = rs.getInt("code");
+				String functionalities = rs.getString("functionalities");
+				String type = rs.getString("type");
+				Integer measurement_id = rs.getInt("measurement_id");
+				Measurement meas = mm.getMeasurementById(measurement_id);
+				ArrayList<Material> materials = matm.getMaterialsFromProstheticCode(code);
+				Prosthetic p = new Prosthetic(code, functionalities, type, meas, materials);
+				prostheticsWithoutCompany.add(p);
+			}
+			rs.close();
+			stat.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return prostheticsWithoutCompany;
 	}
 
 	public Prosthetic getProstheticByCode(Integer code) {

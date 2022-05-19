@@ -13,6 +13,8 @@ public class Main {
 		
 		JDBCManager manager = new JDBCManager();
 		JFrame appDisplay = new AppDisplay(manager);
+		appDisplay.setVisible(true);
+		
 		
 	}
 	

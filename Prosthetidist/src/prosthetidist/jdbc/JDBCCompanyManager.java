@@ -16,7 +16,6 @@ import prosthetidist.pojos.Prosthetic;
 public class JDBCCompanyManager implements CompanyManager {
 
 	private JDBCManager manager;
-	private JDBCMeasurementManager mm;
 
 	public JDBCCompanyManager(JDBCManager m) {
 		this.manager = m;
@@ -36,11 +35,11 @@ public class JDBCCompanyManager implements CompanyManager {
 		}
 	}
 
-	public void deleteCompany(int companyId) {
+	public void deleteCompany(Company c) {
 		try {
-			String sql = "DELETE FROM Company WHERE id= ?";
+			String sql = "DELETE FROM Company WHERE id = ?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
-			p.setInt(1, companyId);
+			p.setInt(1, c.getId());
 			p.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -50,14 +49,14 @@ public class JDBCCompanyManager implements CompanyManager {
 	public Company getCompanyById(int company_id) {
 		Company c = null;
 		try {
-			String sql = "SELECT * FROM Company WHERE id=?";
+			String sql = "SELECT * FROM Company WHERE id = ?";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, company_id);
 			ResultSet rs = prep.executeQuery();
-			// get the values , @CHECK
-			String name = rs.getString(2);
-			String email = rs.getString(3);
-			Integer phone = rs.getInt(4);
+			
+			String name = rs.getString("name");
+			String email = rs.getString("email");
+			Integer phone = rs.getInt("phone");
 
 			c = new Company(company_id, name, email, phone);
 			rs.close();
@@ -69,48 +68,7 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	}
 
-	public ArrayList<Prosthetic> listProstheticsWithoutCompanyID() { //esta mal
-
-		ArrayList<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
-		ArrayList<Material> materials = new ArrayList<Material>();
-
-		Company c = null;
-		Measurement m = null;
-
-		try {
-			Statement stat = manager.getConnection().createStatement();
-			String sql = "SELECT * FROM Prosthetic WHERE company_id= NULL";
-			ResultSet rs = stat.executeQuery(sql); //a result set puts a cursor before the first row
-			// rs.next() moves the cursor to the next row of the table, so the first time puts it to the first row
-			while (rs.next()) {
-				Integer code = rs.getInt("code");
-				String functionalities = rs.getString("functionalities");
-				String type = rs.getString("type");
-				Integer measurement_id = rs.getInt("measurement_id");
-				String sql2 = "SELECT * FROM Material  AS m JOIN Prosthetic AS p WHERE m.prosthetic_code = p.code";
-				ResultSet rs2 = stat.executeQuery(sql2);
-				while (rs2.next()) {
-					String matName = rs2.getString("name");
-					Float matPrice = rs2.getFloat("price");
-					String strength = rs2.getString("strength");
-					String flexibility = rs2.getString("flexibility");
-					String temperatureResistance = rs2.getString("temperatureResistance");
-					Material mat = new Material(matName, matPrice, strength, flexibility, temperatureResistance);
-					materials.add(mat);
-
-					m = mm.getMeasurementById(measurement_id);
-					Prosthetic p = new Prosthetic(code, functionalities, type, m, materials);
-					prostheticsWithoutCompany.add(p);
-				}
-			}
-			rs.close();
-			stat.close();
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return prostheticsWithoutCompany;
-	}
+	
 
 	public List<Prosthetic> listProstheticsOfCompany(Company c) {
 
@@ -148,7 +106,7 @@ public class JDBCCompanyManager implements CompanyManager {
 	public void offerDesign(Prosthetic prosthetic) {
 
 		try {
-			String sql = "UPDATE Prosthetic" + " SET price=?" + " model=?" + " company_id=?";
+			String sql = "UPDATE Prosthetic" + " SET price = ?" + " model = ?" + " company_id = ?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 
 			// @TODO SOLVE PROBLEMS
@@ -166,8 +124,3 @@ public class JDBCCompanyManager implements CompanyManager {
 
 }
 
-/*
- * public void addCompany(Company c) { try { String sql=
- * "INSERT INTO Company (Name, Email, Phone) VALUES (?,?,?)" } catch (Exception
- * ex) { ex.printStackTrace(); } }
- */

@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import org.eclipse.persistence.internal.oxm.schema.model.List;
 
 import prosthetidist.jdbc.JDBCCompanyManager;
+import prosthetidist.jdbc.JDBCManager;
+import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Prosthetic;
 
@@ -25,7 +27,7 @@ public class OfferProsthetic extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 	
-	private JDBCCompanyManager cm;
+	private JDBCProstheticManager pm;
 
 	
 //	public static void main(String[] args) {
@@ -42,7 +44,8 @@ public class OfferProsthetic extends JFrame {
 //	}
 
 	
-	public OfferProsthetic(Company company) {
+	public OfferProsthetic(Company company, JDBCManager manager) {
+		pm = new JDBCProstheticManager(manager);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -55,7 +58,7 @@ public class OfferProsthetic extends JFrame {
 		contentPane.add(lblNewLabel);		
 		
 		ArrayList<Prosthetic> prostheticsWithoutId = new ArrayList<>();
-		prostheticsWithoutId= cm.listProstheticsWithoutCompanyID();
+		prostheticsWithoutId= pm.listProstheticsWithoutCompanyId();
 		
 		
 		

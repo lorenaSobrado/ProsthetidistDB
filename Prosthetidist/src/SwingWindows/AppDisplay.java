@@ -1,7 +1,6 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,17 +8,15 @@ import javax.swing.border.EmptyBorder;
 
 import prosthetidist.jdbc.JDBCManager;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.SystemColor;
+
+import javax.swing.JLabel;
 
 public class AppDisplay extends JFrame {
 
@@ -49,14 +46,14 @@ public class AppDisplay extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(204, 255, 153));
+		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		JButton btnNewButton_1 = new JButton("PATIENT");
-		btnNewButton_1.setBackground(new Color(204, 153, 255));
+		btnNewButton_1.setBackground(SystemColor.inactiveCaption);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setBounds(228, 203, 145, 36);
+		btnNewButton_1.setBounds(247, 196, 158, 36);
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -69,8 +66,8 @@ public class AppDisplay extends JFrame {
 		
 		JButton btnNewButton = new JButton("COMPANY");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(36, 203, 145, 36);
-		btnNewButton.setBackground(new Color(204, 153, 255));
+		btnNewButton.setBounds(28, 196, 158, 36);
+		btnNewButton.setBackground(SystemColor.inactiveCaption);
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,14 +78,20 @@ public class AppDisplay extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		txtProsthetidist = new JTextField();
-		txtProsthetidist.setBounds(10, 11, 414, 160);
-		txtProsthetidist.setBackground(new Color(204, 204, 204));
+		txtProsthetidist.setForeground(new Color(0, 0, 0));
+		txtProsthetidist.setBounds(28, 140, 377, 36);
+		txtProsthetidist.setCaretColor(SystemColor.inactiveCaptionBorder);
+		txtProsthetidist.setBackground(SystemColor.inactiveCaptionBorder);
 		txtProsthetidist.setHorizontalAlignment(SwingConstants.CENTER);
-		txtProsthetidist.setFont(new Font("Segoe UI Black", Font.ITALIC, 47));
+		txtProsthetidist.setFont(new Font("Perpetua", Font.BOLD | Font.ITALIC, 40));
 		txtProsthetidist.setText("PROSTHETIDIST\r\n");
 		contentPane.add(txtProsthetidist);
 		txtProsthetidist.setColumns(30);
+		
+		JLabel imgLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/prosthetic.png")).getImage();
+		imgLabel.setIcon(new ImageIcon(img));
+		imgLabel.setBounds(107, 0, 205, 129);
+		contentPane.add(imgLabel);
 	}
-	
-
 }

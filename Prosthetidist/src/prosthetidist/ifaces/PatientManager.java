@@ -9,5 +9,4 @@ public interface PatientManager {
 	public void addPatient (Patient p);
 	public Patient getPatientByEmail (String email);
 
-
 }
