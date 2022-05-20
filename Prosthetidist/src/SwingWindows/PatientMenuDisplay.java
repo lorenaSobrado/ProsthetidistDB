@@ -49,6 +49,7 @@ public class PatientMenuDisplay extends JFrame {
 	private JTable table;
 	private JDBCInvoiceManager im;
 	private JDBCProstheticManager pm;
+//	private JButton matButton;
 
 	/**
 	 * Launch the application.
@@ -146,13 +147,24 @@ public class PatientMenuDisplay extends JFrame {
 		contentPane.add(addToCart);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setEnabled(false);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(39, 79, 488, 177);
 		contentPane.add(scrollPane);
 		
+		
 		String[] cabecera = {"Price", "Functionalities", "Type", "Model", "Length", "Weight"," Width", "Materials"};
 		
 		table = new JTable(/*getDatosBorrar(), cabecera*/);
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				boolean a = table.isEditing();
+				if(a == false) {
+					JOptionPane.showMessageDialog(null, null);
+				}
+			}
+		});
 		scrollPane.setViewportView(table);
 		
 		
@@ -179,7 +191,7 @@ public class PatientMenuDisplay extends JFrame {
 				datos[i][5] = String.valueOf(p.getMeasurements().getLengthiness());
 				datos[i][6] = String.valueOf(p.getMeasurements().getWeight());
 				datos[i][7] = String.valueOf(p.getMeasurements().getWidth());
-				datos[i][8] = "See Materials";
+				datos[i][8] = "See materials";
 			}
 			
 			return datos;
@@ -203,7 +215,7 @@ public String[][] getDatosBorrar () {
 				datos[i][4] = "hola4";
 				datos[i][5] = "hola";
 				datos[i][6] = "hola";
-				datos[i][7] = "See Materials";
+				datos[i][7] = "See materials";
 			}
 			
 			return datos;
