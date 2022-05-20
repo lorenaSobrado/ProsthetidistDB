@@ -50,7 +50,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 		try {
 			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase = FALSE"; //preguntar si si false esta bien o es \"FALSE\"
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
-			prep.setInt(0, pa.getId());
+			prep.setInt(1, pa.getId());
 			ResultSet rs = prep.executeQuery();
 			while (rs.next()) {
 				Integer pcode = rs.getInt("prosthetic_code");
