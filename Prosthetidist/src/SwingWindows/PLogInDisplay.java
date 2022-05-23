@@ -107,6 +107,7 @@ public class PLogInDisplay extends JFrame {
 		logIn.setEnabled(false);
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 //				//After jpa log in. 
 //				um = new JPAUserManager();
 //				pm = new JDBCPatientManager(manager);

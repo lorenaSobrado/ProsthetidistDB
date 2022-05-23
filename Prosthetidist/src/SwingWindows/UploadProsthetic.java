@@ -19,17 +19,21 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.JList;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class UploadProsthetic extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JComboBox typeOptions;
 
 	/**
 	 * Launch the application.
@@ -103,11 +107,6 @@ public class UploadProsthetic extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(160, 110, 130, 26);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-
 		textField_3 = new JTextField();
 		textField_3.setBounds(160, 138, 130, 26);
 		contentPane.add(textField_3);
@@ -143,18 +142,18 @@ public class UploadProsthetic extends JFrame {
 		JButton btnNewButton = new JButton("Ok");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Prosthetic p = new Prosthetic();
-				Measurement m = new Measurement();
-				p.setPrice(Float.parseFloat(textField.getText()));
-				p.setFunctionalities(textField_1.getText());
-				p.setType(textField_2.getText());
-				p.setModel(textField_3.getText());
+				
+				Float price = Float.parseFloat(textField.getText());
+				String functionalities= textField_1.getText();
+				String model =textField_3.getText();
+				String type = typeOptions.getSelectedItem().toString();
 				p.setMaterials(null);
 				m.setLengthiness(Float.parseFloat(textField_4.getText()));
 				m.setWidth(Float.parseFloat(textField_5.getText()));
 				m.setWeight(Float.parseFloat(textField_6.getText()));
 				p.setMeasurements(m);
 				pm.uploadProsthetics(company, p);
+				
 				if(plastic.isSelected()) {
 					Material material = matm.getMaterialByName("Plastic");
 					matm.uploadMaterialsOfProsthetic(material, p);
@@ -183,6 +182,26 @@ public class UploadProsthetic extends JFrame {
 		});
 		btnNewButton_1.setBounds(343, 313, 89, 23);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_7 = new JLabel("Length");
+		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_7.setBounds(136, 235, 96, 14);
+		contentPane.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_7_1 = new JLabel("Width");
+		lblNewLabel_7_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_7_1.setBounds(290, 235, 96, 14);
+		contentPane.add(lblNewLabel_7_1);
+		
+		JLabel lblNewLabel_7_2 = new JLabel("Weight");
+		lblNewLabel_7_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_7_2.setBounds(455, 235, 96, 14);
+		contentPane.add(lblNewLabel_7_2);
+		
+		typeOptions = new JComboBox();
+		typeOptions.setModel(new DefaultComboBoxModel(new String[] {"Right arm", "Right hand", "Right leg", "Right foot", "Left arm", "Left hand", "Left leg", "Left foot"}));
+		typeOptions.setBounds(160, 112, 130, 22);
+		contentPane.add(typeOptions);
 
 	}
 }

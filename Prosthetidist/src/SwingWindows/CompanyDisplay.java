@@ -17,26 +17,9 @@ public class CompanyDisplay extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					CompanyDisplay frame = new CompanyDisplay();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
-	/**
-	 * Create the frame.
-	 */
 	public CompanyDisplay(JFrame appDisplay, JDBCManager manager) {
+		appDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -57,7 +40,7 @@ public class CompanyDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame cRegisterDisplay = new CRegisterDisplay();
+				JFrame cRegisterDisplay = new CRegisterDisplay(CompanyDisplay.this, manager);
 				cRegisterDisplay.setVisible(true);
 			}
 		});
@@ -67,6 +50,7 @@ public class CompanyDisplay extends JFrame {
 		JButton btnNewButton_2 = new JButton("BACK");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				appDisplay.setEnabled(true);
 				CompanyDisplay.this.setVisible(false);
 			}
 		});

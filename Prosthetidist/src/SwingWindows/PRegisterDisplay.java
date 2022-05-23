@@ -55,25 +55,6 @@ public class PRegisterDisplay extends JFrame {
 	private JTextField id;
 	
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					PRegisterDisplay frame = new PRegisterDisplay();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
 	public PRegisterDisplay(JFrame patientDisplay, JDBCManager manager) {
 		patientDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

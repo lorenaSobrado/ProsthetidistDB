@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import prosthetidist.ifaces.CompanyManager;
 import prosthetidist.ifaces.UserManager;
+import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.pojos.*;
 
@@ -31,30 +32,14 @@ public class CRegisterDisplay extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	
+
 	private UserManager um;
 	private CompanyManager cm;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					CRegisterDisplay frame = new CRegisterDisplay();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public CRegisterDisplay(JFrame companyDisplay, JDBCManager manager) {
 
-	/**
-	 * Create the frame.
-	 */
-	public CRegisterDisplay() {
+		companyDisplay.setEnabled(false);
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -101,6 +86,7 @@ public class CRegisterDisplay extends JFrame {
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				companyDisplay.setEnabled(true);
 				CRegisterDisplay.this.setVisible(false);
 			}
 		});
@@ -108,51 +94,40 @@ public class CRegisterDisplay extends JFrame {
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Register");
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (textField.getText().length() > 0 && textField_1.getText().length() > 0
-						&& textField_2.getText().length() > 0 && textField_3.getText().length() > 0) {
-					
-					Company company = new Company();
-					
-					company.setName(textField.getText());
-					company.setPhone(Integer.parseInt(textField_1.getText()));
-					String email= textField_2.getText();
-					company.setEmail(email);
-					String password= textField_3.getText();
-					
-					//for the password
-					try {
-						MessageDigest md= MessageDigest.getInstance ("MD5");
-						md.update(password.getBytes());
-						byte [] digest= md.digest();
-						User u= new User (email, digest);
-						Role role = um.getRole("Company");
-						u.setRole(role);
-						role.addUser(u);
-						um.newUser(u);
-		
-					}catch (NoSuchAlgorithmException e1) { 
-						
-						e1.printStackTrace();
-						
-					}
-					cm.addCompany (company);
-					
-					
-					
-					
-					
-
-				} else {
-					validarDatos();
-				}
-			}
-		});
 		btnNewButton_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+
+				Company company = new Company();
+
+				company.setName(textField.getText());
+				company.setPhone(Integer.parseInt(textField_1.getText()));
+				String email = textField_2.getText();
+				company.setEmail(email);
+				String password = textField_3.getText();
+
+//				// for the password
+//				try {
+//					MessageDigest md = MessageDigest.getInstance("MD5");
+//					md.update(password.getBytes());
+//					byte[] digest = md.digest();
+//					User u = new User(email, digest);
+//					Role role = um.getRole("Company");
+//					u.setRole(role);
+//					role.addUser(u);
+//					um.newUser(u);
+//
+//				} catch (NoSuchAlgorithmException e1) {
+//
+//					e1.printStackTrace();
+//
+//				}
+				cm = new JDBCCompanyManager (manager);
+				cm.addCompany(company);
+				JOptionPane.showMessageDialog(CRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
+				companyDisplay.setEnabled(true);
+				CRegisterDisplay.this.setVisible(false);
+
 			}
 		});
 		btnNewButton_1.setBounds(236, 227, 89, 23);
