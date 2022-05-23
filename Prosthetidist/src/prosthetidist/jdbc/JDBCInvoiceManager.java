@@ -36,7 +36,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 	
 	public void deleteProstheticFromCart(Patient pa, Integer prosCode) {
 		try {
-			String sql = "DELETE * FROM Invoice WHERE patient_id = " + pa.getId() + " AND prosthetic_code" + prosCode + " AND purchase = \"FALSE\")";
+			String sql = "DELETE * FROM Invoice WHERE patient_id = " + pa.getId() + " AND prosthetic_code" + prosCode + " AND purchase = FALSE)";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 			p.executeUpdate();
 		} catch (SQLException ex) {
@@ -48,7 +48,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 
 		ArrayList<Prosthetic> cart = new ArrayList<Prosthetic>();
 		try {
-			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase = FALSE"; //preguntar si si false esta bien o es \"FALSE\"
+			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase = FALSE"; 
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, pa.getId());
 			ResultSet rs = prep.executeQuery();

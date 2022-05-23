@@ -25,8 +25,6 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		this.matm = new JDBCMaterialManager(m);
 	}
 
-	// @TODO comprobar si funciona
-
 	public ArrayList<Prosthetic> listProstheticsWithCompanyId() {
 		ArrayList<Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
 
@@ -64,7 +62,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 
 		try {
 			Statement stat = manager.getConnection().createStatement();
-			String sql = "SELECT * FROM Prosthetic WHERE company_id = NULL";//preguntar si NULL == NULL
+			String sql = "SELECT * FROM Prosthetic WHERE company_id = NULL";
 			ResultSet rs = stat.executeQuery(sql); //a result set puts a cursor before the first row
 			// rs.next() moves the cursor to the next row of the table, so the first time puts it to the first row
 			while (rs.next()) {
@@ -99,7 +97,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			String functionalities = rs.getString("functionalities");
 			String type = rs.getString("type");
 			String model = rs.getString("model");
-			int company_id = rs.getInt("company_id"); // que pasa si no tiene company
+			int company_id = rs.getInt("company_id");  
 			int measurement_id = rs.getInt("measurement_id");
 			Company company = cm.getCompanyById(company_id);
 			Measurement meas = mm.getMeasurementById(measurement_id);
@@ -114,7 +112,6 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		return pros;
 
 	}
-	
 	public void uploadProsthetics(Company c, Prosthetic p) {
 
 		int company_id = c.getId();

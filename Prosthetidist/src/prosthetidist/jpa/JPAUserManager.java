@@ -18,8 +18,6 @@ import prosthetidist.ifaces.UserManager;
 //GENERATE CONSTRUCTORS EN SWING?? PARA JPA
 
 
-
-
 public class JPAUserManager implements UserManager {
 
 	private EntityManager em;
