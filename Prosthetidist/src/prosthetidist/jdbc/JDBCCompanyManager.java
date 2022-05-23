@@ -59,6 +59,7 @@ public class JDBCCompanyManager implements CompanyManager {
 			Integer phone = rs.getInt("phone");
 
 			c = new Company(company_id, name, email, phone);
+			
 			rs.close();
 			prep.close();
 		} catch (SQLException ex) {
