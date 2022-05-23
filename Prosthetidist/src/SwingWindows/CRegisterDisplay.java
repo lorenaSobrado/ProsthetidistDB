@@ -12,6 +12,7 @@ import prosthetidist.ifaces.CompanyManager;
 import prosthetidist.ifaces.UserManager;
 import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
+import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.*;
 
 import javax.swing.JLabel;
@@ -38,13 +39,15 @@ public class CRegisterDisplay extends JFrame {
 	private JTextField passwordReadable;
 	private JButton register;
 
-	private UserManager um;
+	private JPAUserManager um;
 	private CompanyManager cm;
 	private JPasswordField passwordHide;
 
 	public CRegisterDisplay(JFrame companyDisplay, JDBCManager manager) {
 
 		companyDisplay.setEnabled(false);
+		
+		um= new JPAUserManager ();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -137,22 +140,23 @@ public class CRegisterDisplay extends JFrame {
 				company.setEmail(email.getText());
 				String password = passwordHide.getText();
 
-//				// for the password
-//				try {
-//					MessageDigest md = MessageDigest.getInstance("MD5");
-//					md.update(password.getBytes());
-//					byte[] digest = md.digest();
-//					User u = new User(email.getText(), digest);
-//					Role role = um.getRole("Company");
-//					u.setRole(role);
-//					role.addUser(u);
-//					um.newUser(u);
-//
-//				} catch (NoSuchAlgorithmException e1) {
-//
-//					e1.printStackTrace();
-//
-//				}
+
+				try {
+					
+				MessageDigest md = MessageDigest.getInstance("MD5");
+				md.update(password.getBytes());
+				byte[] digest = md.digest();
+				User u = new User(email.getText(), digest);
+				Role role = um.getRole("Company");
+				u.setRole(role);
+				role.addUser(u);
+				um.newUser(u);
+
+				} catch (NoSuchAlgorithmException e1) {
+
+					e1.printStackTrace();
+
+				}
 				cm = new JDBCCompanyManager (manager);
 				cm.addCompany(company);
 				JOptionPane.showMessageDialog(CRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);

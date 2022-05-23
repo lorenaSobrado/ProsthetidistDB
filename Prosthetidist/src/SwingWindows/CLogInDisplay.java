@@ -8,7 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
+import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.*;
 
 import javax.swing.JButton;
@@ -35,27 +37,13 @@ public class CLogInDisplay extends JFrame {
 	private JButton logIn;
 	private JPasswordField passwordHide;
 	private JCheckBox showPassword;
-
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					CLogInDisplay frame = new CLogInDisplay();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
+	private JPAUserManager um;
+	private JDBCCompanyManager cm;
+	
 	public CLogInDisplay(JDBCManager manager) {
+		um= new JPAUserManager ();
+		cm = new JDBCCompanyManager (manager);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -118,10 +106,20 @@ public class CLogInDisplay extends JFrame {
 		
 		logIn = new JButton("LOG IN");
 		logIn.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-				Company company = new Company();
-				JFrame companyMenuDisplay = new CompanyMenuDisplay(company, manager);
-				companyMenuDisplay.setVisible(true);
+				
+				User u =um.checkPassword(userName.getText(), passwordHide.getText());
+				
+				if (u != null) {
+					Company company = cm.getCompanyByEmail(u.getEmail());
+					
+					JFrame companyMenuDisplay = new CompanyMenuDisplay(company, manager);
+					companyMenuDisplay.setVisible(true);
+					
+				}
+				
+				
 			}
 		});
 		logIn.setBounds(335, 227, 89, 23);

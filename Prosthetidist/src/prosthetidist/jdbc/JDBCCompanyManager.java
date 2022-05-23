@@ -1,5 +1,6 @@
 package prosthetidist.jdbc;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import prosthetidist.ifaces.CompanyManager; //REVISAR
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Material;
 import prosthetidist.pojos.Measurement;
+import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
 
 public class JDBCCompanyManager implements CompanyManager {
@@ -126,6 +128,30 @@ public class JDBCCompanyManager implements CompanyManager {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public Company getCompanyByEmail (String email) {
+		
+		Company  c = null;
+		try {
+			String sql = "SELECT * FROM Company WHERE email = ?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setString(1, email);
+			ResultSet rs = prep.executeQuery();
+			// get the values
+			Integer id = rs.getInt("id");
+			String name = rs.getString("name");
+			Integer phone = rs.getInt("phone");
+
+			c = new Company(id, name, email, phone);
+
+			rs.close();
+			prep.close();
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return c;
 	}
 
 
