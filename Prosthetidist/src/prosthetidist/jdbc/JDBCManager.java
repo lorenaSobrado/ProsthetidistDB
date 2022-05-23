@@ -55,7 +55,7 @@ public class JDBCManager {
 
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "paymentMethod    TEXT NOT NULL, "
+			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "creditCard    INTEGER NOT NULL, "
 					+ "purchase BOOLEAN DEFAULT \"FALSE\", " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
 					+ "delivery_type TEXT REFERENCES Delivery(type) " + ");";
 			

@@ -16,6 +16,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import prosthetidist.jdbc.JDBCInvoiceManager;
+import prosthetidist.jdbc.JDBCManager;
+import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
 
@@ -38,25 +40,16 @@ public class CartDisplay extends JFrame {
 	private JButton buy;
 	private JButton back;
 	private JTable table;
+	private DefaultTableModel model;
 	
     private JDBCInvoiceManager im;
+    private JDBCProstheticManager pm;
 
-
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					CartDisplay frame = new CartDisplay();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	
-	public CartDisplay(JFrame patientMenuDisplay, Patient patient) {
+	public CartDisplay(JFrame patientMenuDisplay, Patient patient, JDBCManager manager) {
+		im = new JDBCInvoiceManager(manager);
+		pm = new JDBCProstheticManager(manager);
 		patientMenuDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 488, 351);
@@ -131,6 +124,16 @@ public class CartDisplay extends JFrame {
 		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientMenuDisplay.setEnabled(true);
+				int[] selection = table.getSelectedRows();
+				for(int i : selection) {
+					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 1).toString()));
+					if(premium.isSelected()) {
+						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), premium.toString());
+					}
+					if(standard.isSelected()) {
+						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), standard.toString());
+					}
+				}
 				JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message", 
 						JOptionPane.INFORMATION_MESSAGE);
 				CartDisplay.this.setVisible(false);
@@ -149,6 +152,33 @@ public class CartDisplay extends JFrame {
 		back.setBounds(24, 282, 89, 23);
 		contentPane.add(back);
 		
+		table = new JTable();
+		model = new DefaultTableModel() {
+			public boolean isCellEditable(int fil, int col) {
+				return false;
+			}
+		};
+		model.addColumn("Code");
+		model.addColumn("Price");
+		model.addColumn("Functionalities");
+		model.addColumn("Type");
+		model.addColumn("Model");
+		model.addColumn("Length");
+		model.addColumn("Width");
+		model.addColumn("Weight");
+		model.addColumn("Plastic");
+		model.addColumn("Carbon Fiber");
+		model.addColumn("Aluminium");
+
+		for (Prosthetic p : im.getPatientSelection(patient)) {
+
+			Object[] datos = new Object[] { p.getCode(), p.getPrice(), p.getFunctionalities(), p.getType(),
+					p.getModel(), p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),
+					p.getMeasurements().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+			model.addRow(datos);
+		}
+		table.setModel(model);
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(10, 46, 450, 89);
@@ -158,56 +188,7 @@ public class CartDisplay extends JFrame {
 		lblNewLabel_1.setBounds(24, 157, 83, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		String[] cabecera = {"Price", "Functionalities", "Type", "Model", "Length", "Weight"," Width", "Materials"};
 		
-		table = new JTable(/*getDatosBorrar(patient), cabecera*/);
-		scrollPane.setViewportView(table);
-		
-	}
-	public String[][] getDatos (Patient patient) {
-		
-		ArrayList<Prosthetic> list = new ArrayList<>();
-		list = im.getPatientSelection(patient);
-
-		int fil = list.size();
-		
-		String [][] datos = new String [fil][8];
-		
-		for (int i=0;i<fil;i++) {
-			Prosthetic p = list.get(i);
-			datos[i][0] = String.valueOf(p.getPrice());
-			datos[i][1] = p.getFunctionalities();
-			datos[i][2] = p.getType();
-			datos[i][3] = p.getModel();
-			datos[i][4] = String.valueOf(p.getMeasurements().getLengthiness());
-			datos[i][5] = String.valueOf(p.getMeasurements().getWeight());
-			datos[i][6] = String.valueOf(p.getMeasurements().getWidth());
-			datos[i][7] = "See Materials";
-		}
-		
-		return datos;
-		
-		
-		
-	}
-	public String[][] getDatosBorrar (Patient patient) {
-		
-	
-		
-		String [][] datos = new String [10][8];
-		
-		for (int i=0;i<10;i++) {
-			datos[i][0] = "hola";
-			datos[i][1] = "hola";
-			datos[i][2] = "hola";
-			datos[i][3] = "hola";
-			datos[i][4] = "hola4";
-			datos[i][5] = "hola";
-			datos[i][6] = "hola";
-			datos[i][7] = "See Materials";
-		}
-		
-		return datos;
 		
 		
 		

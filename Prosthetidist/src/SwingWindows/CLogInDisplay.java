@@ -23,14 +23,18 @@ import java.awt.event.MouseEvent;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JPasswordField;
+import javax.swing.JCheckBox;
 
 public class CLogInDisplay extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField userName;
+	private JTextField passwordReadable;
 	private JButton cancel;
 	private JButton logIn;
+	private JPasswordField passwordHide;
+	private JCheckBox showPassword;
 
 	/**
 	 * Launch the application.
@@ -59,35 +63,39 @@ public class CLogInDisplay extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.addKeyListener(new KeyAdapter() {
+		userName = new JTextField();
+		userName.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!textField.getText().isEmpty() && !textField_1.getText().isEmpty()) {
+				if (!userName.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					logIn.setEnabled(true);
 				} else {
 					logIn.setEnabled(false);
 				}
 			}
 		});
-		textField.setBounds(165, 73, 124, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		userName.setBounds(165, 73, 124, 20);
+		contentPane.add(userName);
+		userName.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.addKeyListener(new KeyAdapter() {
+		passwordHide = new JPasswordField();
+		passwordHide.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!textField.getText().isEmpty() && !textField_1.getText().isEmpty()) {
+				if (!userName.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					logIn.setEnabled(true);
 				} else {
 					logIn.setEnabled(false);
 				}
 			}
 		});
-		textField_1.setBounds(165, 134, 124, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		passwordHide.setBounds(165, 134, 124, 20);
+		contentPane.add(passwordHide);
+		
+		passwordReadable = new JTextField();
+		passwordReadable.setBounds(165, 134, 124, 20);
+		contentPane.add(passwordReadable);
+		passwordReadable.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("USERNAME :");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
@@ -109,8 +117,6 @@ public class CLogInDisplay extends JFrame {
 		contentPane.add(cancel);
 		
 		logIn = new JButton("LOG IN");
-		logIn.setEnabled(false);
-		logIn.setBackground(new Color(240, 240, 240));
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Company company = new Company();
@@ -118,13 +124,31 @@ public class CLogInDisplay extends JFrame {
 				companyMenuDisplay.setVisible(true);
 			}
 		});
-		
-		logIn.setBounds(338, 227, 89, 23);
+		logIn.setBounds(335, 227, 89, 23);
+		logIn.setEnabled(false);
 		contentPane.add(logIn);
+		
+		showPassword = new JCheckBox("");
+		showPassword.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				showPassword.setSelected(true);
+				passwordReadable.setVisible(true);
+				passwordHide.setVisible(false);
+				passwordReadable.setText(passwordHide.getText());
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				showPassword.setSelected(false);
+				passwordReadable.setVisible(false);
+				passwordHide.setVisible(true);
+				passwordHide.setText(passwordReadable.getText());
+			}
+		});
+		showPassword.setBounds(295, 133, 25, 23);
+		contentPane.add(showPassword);
+		
 	}
 	
-	public void validarDatos() {
-		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
-	}
-	//HACER METODO DE LOG IN COMPANY AND LOG IN OWNER PARA JPA
+	
 }

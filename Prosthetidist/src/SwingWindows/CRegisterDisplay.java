@@ -24,17 +24,23 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.swing.JPasswordField;
+import javax.swing.JCheckBox;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class CRegisterDisplay extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField name;
+	private JTextField phone;
+	private JTextField email;
+	private JTextField passwordReadable;
+	private JButton register;
 
 	private UserManager um;
 	private CompanyManager cm;
+	private JPasswordField passwordHide;
 
 	public CRegisterDisplay(JFrame companyDisplay, JDBCManager manager) {
 
@@ -63,25 +69,50 @@ public class CRegisterDisplay extends JFrame {
 		lblNewLabel_3.setBounds(41, 171, 93, 14);
 		contentPane.add(lblNewLabel_3);
 
-		textField = new JTextField();
-		textField.setBounds(183, 40, 110, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		name = new JTextField();
+		name.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
+		name.setBounds(183, 40, 110, 20);
+		contentPane.add(name);
+		name.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(183, 83, 110, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		phone = new JTextField();
+		phone.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
+		phone.setBounds(183, 83, 110, 20);
+		contentPane.add(phone);
+		phone.setColumns(10);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(183, 124, 110, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		email = new JTextField();
+		email.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
+		email.setBounds(183, 124, 110, 20);
+		contentPane.add(email);
+		email.setColumns(10);
 
-		textField_3 = new JTextField();
-		textField_3.setBounds(183, 168, 110, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		passwordReadable = new JTextField();
+		passwordReadable.setVisible(false);
+		passwordReadable.setBounds(183, 168, 110, 20);
+		contentPane.add(passwordReadable);
+		passwordReadable.setColumns(10);
 
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -93,25 +124,25 @@ public class CRegisterDisplay extends JFrame {
 		btnNewButton.setBounds(335, 227, 89, 23);
 		contentPane.add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("Register");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		register = new JButton("Register");
+		register.setEnabled(false);
+		register.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 
 				Company company = new Company();
 
-				company.setName(textField.getText());
-				company.setPhone(Integer.parseInt(textField_1.getText()));
-				String email = textField_2.getText();
-				company.setEmail(email);
-				String password = textField_3.getText();
+				company.setName(name.getText());
+				company.setPhone(Integer.parseInt(phone.getText()));
+				company.setEmail(email.getText());
+				String password = passwordHide.getText();
 
 //				// for the password
 //				try {
 //					MessageDigest md = MessageDigest.getInstance("MD5");
 //					md.update(password.getBytes());
 //					byte[] digest = md.digest();
-//					User u = new User(email, digest);
+//					User u = new User(email.getText(), digest);
 //					Role role = um.getRole("Company");
 //					u.setRole(role);
 //					role.addUser(u);
@@ -130,8 +161,40 @@ public class CRegisterDisplay extends JFrame {
 
 			}
 		});
-		btnNewButton_1.setBounds(236, 227, 89, 23);
-		contentPane.add(btnNewButton_1);
+		register.setBounds(236, 227, 89, 23);
+		contentPane.add(register);
+		
+		passwordHide = new JPasswordField();
+		passwordHide.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
+					register.setEnabled(true);
+				} else register.setEnabled(false);
+			}
+		});
+		passwordHide.setBounds(183, 168, 110, 20);
+		contentPane.add(passwordHide);
+		
+		JCheckBox showPassword = new JCheckBox("");
+		showPassword.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				showPassword.setSelected(true);
+				passwordReadable.setVisible(true);
+				passwordHide.setVisible(false);
+				passwordReadable.setText(passwordHide.getText());
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				showPassword.setSelected(false);
+				passwordReadable.setVisible(false);
+				passwordHide.setVisible(true);
+				passwordHide.setText(passwordReadable.getText());
+			}
+		});
+		showPassword.setBounds(302, 167, 30, 23);
+		contentPane.add(showPassword);
 	}
 
 	public void validarDatos() {

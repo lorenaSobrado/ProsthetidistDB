@@ -1,5 +1,6 @@
 package prosthetidist.ifaces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -13,6 +14,7 @@ public interface CompanyManager {
 	public void deleteCompany (Company c); 	
 	public Company getCompanyById (int company_id); 
 	public void offerDesign (Prosthetic prosthetic);
+	public ArrayList<Prosthetic> getProstheticsOfCompany(Company company);
 	
 
 }

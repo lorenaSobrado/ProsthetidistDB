@@ -123,5 +123,11 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	}
 
+	@Override
+	public ArrayList<Prosthetic> getProstheticsOfCompany(Company company) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 

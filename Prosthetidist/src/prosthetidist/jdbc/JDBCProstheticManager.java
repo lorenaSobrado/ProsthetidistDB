@@ -133,4 +133,16 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			ex.printStackTrace();
 		}
 	}
+
+	@Override
+	public void deleteProsthetic(Prosthetic pros) {
+		try {
+			String sql = "DELETE FROM Prosthetic WHERE id = ?";
+			PreparedStatement p = manager.getConnection().prepareStatement(sql);
+			p.setInt(1, pros.getCode());
+			p.executeUpdate();
+		} catch(SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
 }

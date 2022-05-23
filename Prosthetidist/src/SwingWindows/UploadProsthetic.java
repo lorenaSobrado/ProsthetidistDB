@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JList;
@@ -35,29 +36,9 @@ public class UploadProsthetic extends JFrame {
 	private JTextField textField_6;
 	private JComboBox typeOptions;
 
-	/**
-	 * Launch the application.
-	 */
-
 	private JDBCProstheticManager pm;
 	private JDBCMaterialManager matm;
 
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					UploadProsthetic frame = new UploadProsthetic();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
 	public UploadProsthetic(Company company, JDBCManager manager) {
 		pm = new JDBCProstheticManager(manager);
 		matm = new JDBCMaterialManager(manager);
@@ -143,31 +124,36 @@ public class UploadProsthetic extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Float price = Float.parseFloat(textField.getText());
-				String functionalities= textField_1.getText();
-				String model =textField_3.getText();
-				String type = typeOptions.getSelectedItem().toString();
-				p.setMaterials(null);
+				Measurement m = new Measurement();
+				Prosthetic p = new Prosthetic();
+				
+				p.setPrice(Float.parseFloat(textField.getText()));
+				p.setFunctionalities(textField_1.getText());
+				p.setModel(textField_3.getText());
+				p.setType(typeOptions.getSelectedItem().toString());
 				m.setLengthiness(Float.parseFloat(textField_4.getText()));
 				m.setWidth(Float.parseFloat(textField_5.getText()));
 				m.setWeight(Float.parseFloat(textField_6.getText()));
 				p.setMeasurements(m);
-				pm.uploadProsthetics(company, p);
+				ArrayList<Material> materials = new ArrayList<Material>();
 				
 				if(plastic.isSelected()) {
-					Material material = matm.getMaterialByName("Plastic");
-					matm.uploadMaterialsOfProsthetic(material, p);
+					Material plastic = matm.getMaterialByName("Plastic");
+					materials.add(plastic);
+					matm.uploadMaterialsOfProsthetic(plastic, p);
 				}
 				if(carbonFiber.isSelected()) {
-					Material material = matm.getMaterialByName("Carbon Fiber");
-					matm.uploadMaterialsOfProsthetic(material, p);
+					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
+					materials.add(carbonFiber);
+					matm.uploadMaterialsOfProsthetic(carbonFiber, p);
 				}
 				if(aluminium.isSelected()) {
-					Material material = matm.getMaterialByName("Aluminium");
-					matm.uploadMaterialsOfProsthetic(material, p);
+					Material aluminium = matm.getMaterialByName("Aluminium");
+					materials.add(aluminium);
+					matm.uploadMaterialsOfProsthetic(aluminium, p);
 				}
-			
-
+				p.setMaterials(materials);
+				pm.uploadProsthetics(company, p);
 				UploadProsthetic.this.setVisible(false);
 			}
 		});
