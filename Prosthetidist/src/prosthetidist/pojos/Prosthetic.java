@@ -57,6 +57,18 @@ public class Prosthetic implements Serializable{
 	}
 	
 	
+public Prosthetic(Integer code, Float price, String functionalities, String type, String model,
+			Measurement measurements, ArrayList<Material> materials) {
+		super();
+		this.code = code;
+		this.price = price;
+		this.functionalities = functionalities;
+		this.type = type;
+		this.model = model;
+		this.measurements = measurements;
+		this.materials = materials;
+	}
+
 public Prosthetic(Float price, String functionalities, String type, String model, Company company,
 			Measurement measurements, Patient patient) {
 		super();

@@ -36,10 +36,9 @@ public class JDBCMeasurementManager implements MeasurementsManager {
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, measurement_id);
 			ResultSet rs = prep.executeQuery();
-			// get the values , @CHECK
-			float lengthiness = rs.getFloat(2);
-			float width = rs.getFloat(3);
-			float weight = rs.getFloat(4);
+			Float lengthiness = rs.getFloat(2);
+			Float width = rs.getFloat(3);
+			Float weight = rs.getFloat(4);
 
 			m = new Measurement(measurement_id, lengthiness, width, weight);
 			rs.close();

@@ -16,6 +16,8 @@ import prosthetidist.pojos.Prosthetic;
 public class JDBCCompanyManager implements CompanyManager {
 
 	private JDBCManager manager;
+	private JDBCMeasurementManager mm;
+	private JDBCMaterialManager matm;
 
 	public JDBCCompanyManager(JDBCManager m) {
 		this.manager = m;
@@ -74,6 +76,8 @@ public class JDBCCompanyManager implements CompanyManager {
 	public List<Prosthetic> listProstheticsOfCompany(Company c) {
 
 		List<Prosthetic> prostheticsOfCompany = new ArrayList<Prosthetic>();
+		ArrayList <Material> materials = new ArrayList<Material>();
+		Measurement m= null;
 
 		int company_id = c.getId();
 
@@ -88,8 +92,11 @@ public class JDBCCompanyManager implements CompanyManager {
 				String functionalities = rs.getString("functionalities");
 				String type = rs.getString("type");
 				String model = rs.getString("model");
-
-				Prosthetic p = new Prosthetic(code, price, functionalities, type, model);
+				Integer measurement_id= rs.getInt("measurement_id");
+				m=mm.getMeasurementById(measurement_id);
+				
+				materials = matm.getMaterialsFromProstheticCode(code);
+				Prosthetic p = new Prosthetic(code, price, functionalities, type, model, m, materials);
 
 				prostheticsOfCompany.add(p);
 			}
@@ -102,19 +109,17 @@ public class JDBCCompanyManager implements CompanyManager {
 		return prostheticsOfCompany;
 	}
 
-//@TODO LA PROTESIS LA RECIBE A TRAVES DE SWING MEDIANTE SELECT
 
 	public void offerDesign(Prosthetic prosthetic) {
 
 		try {
-			String sql = "UPDATE Prosthetic" + " SET price = ?" + " model = ?" + " company_id = ?";
+			String sql = "UPDATE Prosthetic" + " SET price = ?" + " model = ?" + " company_id = ? WHERE prosthetic_code=?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 
-			// @TODO SOLVE PROBLEMS
-
-			// p.setFloat(1, prosthetic.setPrice(36));
-			// p.setString(2, prosthetic.setModel("x1"));
-			// p.setInt(3, prosthetic.getCompany());
+			p.setFloat(1, prosthetic.getPrice());
+		    p.setString(2, prosthetic.getModel());
+			p.setInt(3, prosthetic.getCompany().getId());
+			p.setInt(4, prosthetic.getCode());
 
 			p.executeUpdate();
 		} catch (Exception e) {
@@ -123,11 +128,7 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	}
 
-	@Override
-	public ArrayList<Prosthetic> getProstheticsOfCompany(Company company) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }
 

@@ -6,7 +6,6 @@ import java.util.List;
 
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Prosthetic;
-import prosthetidist.pojos.Prosthetic;
 
 public interface CompanyManager {
 	
@@ -14,7 +13,7 @@ public interface CompanyManager {
 	public void deleteCompany (Company c); 	
 	public Company getCompanyById (int company_id); 
 	public void offerDesign (Prosthetic prosthetic);
-	public ArrayList<Prosthetic> getProstheticsOfCompany(Company company);
-	
+	public List<Prosthetic> listProstheticsOfCompany(Company c);
+
 
 }
