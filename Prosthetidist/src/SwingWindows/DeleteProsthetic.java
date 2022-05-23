@@ -60,7 +60,7 @@ public class DeleteProsthetic extends JFrame {
 		model.addColumn("Carbon Fiber");
 		model.addColumn("Aluminium");
 
-		for (Prosthetic p : cm.getProstheticsOfCompany(company)) {
+		for (Prosthetic p : cm.listProstheticsOfCompany(company)) {
 
 			Object[] datos = new Object[] { p.getCode(), p.getPrice(), p.getFunctionalities(), p.getType(),
 					p.getModel(), p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),

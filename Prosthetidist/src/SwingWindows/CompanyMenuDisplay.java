@@ -49,7 +49,7 @@ public class CompanyMenuDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("DELETE PROSTHETIC");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(cm.getProstheticsOfCompany(company).isEmpty()) {
+				if(cm.listProstheticsOfCompany(company).isEmpty()) {
 					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, "No prosthetics to delete", "Message", JOptionPane.ERROR_MESSAGE);
 				} else {
 					JFrame deleteProsthetic = new DeleteProsthetic(company, manager);
