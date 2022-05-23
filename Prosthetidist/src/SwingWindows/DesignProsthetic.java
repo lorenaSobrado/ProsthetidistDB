@@ -6,6 +6,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import prosthetidist.jdbc.JDBCManager;
+import prosthetidist.jdbc.JDBCMaterialManager;
+import prosthetidist.jdbc.JDBCPatientManager;
+import prosthetidist.jdbc.JDBCProstheticManager;
+import prosthetidist.pojos.Material;
+import prosthetidist.pojos.Measurement;
+import prosthetidist.pojos.Prosthetic;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
@@ -13,7 +22,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
 
 public class DesignProsthetic extends JFrame {
 
@@ -21,29 +32,16 @@ public class DesignProsthetic extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField functionalities;
+	
+	private JDBCMaterialManager matm;
+	private JDBCPatientManager patm;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					DesignProsthetic frame = new DesignProsthetic();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
-	public DesignProsthetic(JFrame patientMenuDisplay) {
+	public DesignProsthetic(JFrame patientMenuDisplay, JDBCManager manager) {
 		patientMenuDisplay.setEnabled(false);
+		matm = new JDBCMaterialManager(manager);
+		patm = new JDBCPatientManager(manager);
+		patm = new JDBCPatientManager(manager);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 343);
 		contentPane = new JPanel();
@@ -67,9 +65,10 @@ public class DesignProsthetic extends JFrame {
 		lblNewLabel_3.setBounds(10, 158, 45, 13);
 		contentPane.add(lblNewLabel_3);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(99, 37, 29, 21);
-		contentPane.add(comboBox);
+		JComboBox type = new JComboBox();
+		type.setModel(new DefaultComboBoxModel(new String[] {"Right arm", "Right hand", "Right leg", "Right foot", "Left arm", "Left hand", "Left leg", "Left foot"}));
+		type.setBounds(128, 37, 96, 21);
+		contentPane.add(type);
 
 		textField = new JTextField();
 		textField.setBounds(128, 77, 96, 19);
@@ -86,31 +85,55 @@ public class DesignProsthetic extends JFrame {
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
-		textField_3 = new JTextField();
-		textField_3.setBounds(128, 114, 96, 19);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		functionalities = new JTextField();
+		functionalities.setBounds(128, 114, 96, 19);
+		contentPane.add(functionalities);
+		functionalities.setColumns(10);
 
-		JCheckBox chckbxPlastic = new JCheckBox("Plastic");
-		chckbxPlastic.setBounds(102, 154, 93, 21);
-		contentPane.add(chckbxPlastic);
+		JCheckBox plastic = new JCheckBox("Plastic");
+		plastic.setBounds(131, 154, 93, 21);
+		contentPane.add(plastic);
 
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Carbon Fiber");
-		chckbxNewCheckBox_1.setBounds(205, 154, 93, 21);
-		contentPane.add(chckbxNewCheckBox_1);
+		JCheckBox carbonFiber = new JCheckBox("Carbon Fiber");
+		carbonFiber.setBounds(237, 154, 93, 21);
+		contentPane.add(carbonFiber);
 
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Aluminum");
-		chckbxNewCheckBox_2.setBounds(311, 154, 93, 21);
-		contentPane.add(chckbxNewCheckBox_2);
+		JCheckBox aluminium = new JCheckBox("Aluminum");
+		aluminium.setBounds(356, 154, 93, 21);
+		contentPane.add(aluminium);
 
 		JButton btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientMenuDisplay.setEnabled(true);
+				Prosthetic p = new Prosthetic();
+				Measurement m = new Measurement();
 				Float length = Float.parseFloat(textField.getText());
 				Float width = Float.parseFloat(textField_1.getText());
 				Float weight = Float.parseFloat(textField_2.getText());
-				String functionalities = textField_3.getText();
+				m.setLengthiness(length);
+				m.setWidth(width);
+				m.setWeight(weight);
+				p.setMeasurements(m);
+				p.setType(type.getSelectedItem().toString());
+				p.setFunctionalities(functionalities.getText());
+				patm.designProsthetic(functionalities.getText(), type.getSelectedItem().toString(), m);
+				ArrayList<Material> materials = new ArrayList<Material>();
+				if(plastic.isSelected()) {
+					Material plastic = matm.getMaterialByName("Plastic");
+					materials.add(plastic);
+					matm.uploadMaterialsOfProsthetic(plastic, p);
+				}
+				if(carbonFiber.isSelected()) {
+					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
+					materials.add(carbonFiber);
+					matm.uploadMaterialsOfProsthetic(carbonFiber, p);
+				}
+				if(aluminium.isSelected()) {
+					Material aluminium = matm.getMaterialByName("Aluminium");
+					materials.add(aluminium);
+					matm.uploadMaterialsOfProsthetic(aluminium, p);
+				}
 				JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !", "Message", 
 						JOptionPane.INFORMATION_MESSAGE);
 				DesignProsthetic.this.setVisible(false);

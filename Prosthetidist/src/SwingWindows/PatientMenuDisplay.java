@@ -83,7 +83,7 @@ public class PatientMenuDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("Design My Own");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame designProsthetic = new DesignProsthetic(PatientMenuDisplay.this);
+				JFrame designProsthetic = new DesignProsthetic(PatientMenuDisplay.this, manager);
 				designProsthetic.setVisible(true);
 			}
 		});
