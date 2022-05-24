@@ -1,21 +1,26 @@
 package SwingWindows;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCPatientManager;
 import prosthetidist.jpa.JPAUserManager;
+import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.User;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -34,112 +39,86 @@ import javax.swing.JCheckBox;
 public class PLogInDisplay extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField email;
-	private JPasswordField passwordHide;
+	private JTextField userName;
+	private JTextField passwordReadable;
+	private JButton back;
 	private JButton logIn;
+	private JPasswordField passwordHide;
+	private JCheckBox showPassword;
 	private JPAUserManager um;
 	private JDBCPatientManager pm;
-	private User user;
-	private Patient patient;
-	private JTextField passwordReadable;
-	private JCheckBox showPassword;
-	private JLabel imgLabel;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					PLogInDisplay frame = new PLogInDisplay();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public PLogInDisplay(JFrame appDisplay, JDBCManager manager) {
+		appDisplay.setEnabled(false);
+		um = new JPAUserManager();
+		pm = new JDBCPatientManager(manager);
 
-	/**
-	 * Create the frame.
-	 */
-	public PLogInDisplay(JFrame patientDisplay, JDBCManager manager) {
-		patientDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 
-		email = new JTextField();
-		email.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if(!email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
-					logIn.setEnabled(true);
-				} else logIn.setEnabled(false);
-			}
-		});
-		email.setBounds(146, 137, 164, 20);
-		contentPane.add(email);
-		email.setColumns(10);
-		
+		userName = new JTextField();
+		userName.setBounds(140, 59, 149, 20);
+		contentPane.add(userName);
+		userName.setColumns(10);
+
 		passwordHide = new JPasswordField();
-		passwordHide.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if(!email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
-					logIn.setEnabled(true);
-				} else logIn.setEnabled(false);
-			}
-		});
-		passwordHide.setBounds(146, 168, 164, 20);
+		passwordHide.setBackground(Color.WHITE);
+		passwordHide.setBounds(140, 101, 149, 20);
 		contentPane.add(passwordHide);
-		
+
 		passwordReadable = new JTextField();
-		passwordReadable.setBounds(146, 168, 164, 20);
+		passwordReadable.setBounds(140, 101, 149, 20);
 		contentPane.add(passwordReadable);
 		passwordReadable.setColumns(10);
 
-		logIn = new JButton("Log in");
-		logIn.setEnabled(false);
-		logIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-//				//After jpa log in. 
-//				um = new JPAUserManager();
-//				pm = new JDBCPatientManager(manager);
-//				user = new User();
-//				user = um.checkPassword(email.getText(), passwordHide.getText());
-//				patient = pm.getPatientByEmail(user.getEmail());
-				patient = new Patient();
-				JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient, manager);
-				patientMenuDisplay.setVisible(true);
-			}
-		});
-		logIn.setBounds(221, 230, 89, 23);
-		contentPane.add(logIn);
-
-		JButton cancel = new JButton("Cancel");
-		cancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				patientDisplay.setEnabled(true);
-				PLogInDisplay.this.setVisible(false);
-			}
-		});
-		cancel.setBounds(320, 231, 85, 21);
-		contentPane.add(cancel);
-
-		JLabel lblNewLabel = new JLabel("EMAIL :");
-		lblNewLabel.setBounds(28, 141, 65, 13);
+		JLabel lblNewLabel = new JLabel("USERNAME :");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel.setBounds(42, 61, 88, 17);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("PASSWORD :");
-		lblNewLabel_1.setBounds(28, 172, 79, 13);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_1.setBounds(42, 103, 88, 17);
 		contentPane.add(lblNewLabel_1);
-		
+
+		back = new JButton("");
+		back.setForeground(new Color(240, 240, 240));
+		Image img = new ImageIcon(this.getClass().getResource("/back.png")).getImage();
+		back.setIcon(new ImageIcon(img));
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				appDisplay.setEnabled(true);
+				PLogInDisplay.this.setVisible(false);
+			}
+		});
+		back.setBounds(10, 218, 32, 32);
+		contentPane.add(back);
+
+		logIn = new JButton("LOG IN");
+		logIn.setFont(new Font("Tahoma", Font.BOLD, 12));
+		logIn.setBackground(new Color(0, 191, 255));
+		logIn.setVerticalAlignment(SwingConstants.CENTER);
+		logIn.setForeground(Color.WHITE);
+		logIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				User u = um.checkPassword(userName.getText(), passwordHide.getText());
+				if (u != null) {
+					Patient patient = pm.getPatientByEmail(u.getEmail());
+					JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient, manager);
+					patientMenuDisplay.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(PLogInDisplay.this, "Your password is incorrect or this account does not exist", "Message", 
+							JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
+		logIn.setBounds(107, 142, 213, 23);
+		contentPane.add(logIn);
+
 		showPassword = new JCheckBox("");
 		showPassword.addMouseListener(new MouseAdapter() {
 			@Override
@@ -149,27 +128,33 @@ public class PLogInDisplay extends JFrame {
 				passwordHide.setVisible(false);
 				passwordReadable.setText(passwordHide.getText());
 			}
+
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				showPassword.setSelected(false);
-				passwordHide.setVisible(true);
 				passwordReadable.setVisible(false);
+				passwordHide.setVisible(true);
 				passwordHide.setText(passwordReadable.getText());
 			}
 		});
-		showPassword.setBounds(317, 165, 29, 23);
+		showPassword.setBounds(295, 101, 25, 23);
 		contentPane.add(showPassword);
-		
-		imgLabel = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/logIn.png")).getImage();
-		imgLabel.setIcon(new ImageIcon(img));
-		imgLabel.setBounds(146, 11, 164, 103);
-		contentPane.add(imgLabel);
-		
-		
-	}
 
-	public void validarDatos() {
-		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
+		JLabel separation = new JLabel("-----------------------------------------------------\r\n");
+		separation.setBounds(107, 170, 213, 14);
+		contentPane.add(separation);
+
+		JButton register = new JButton("Create New Account");
+		register.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame pRegisterDisplay = new PRegisterDisplay(PLogInDisplay.this, manager);
+				pRegisterDisplay.setVisible(true);
+			}
+		});
+		register.setBackground(Color.BLACK);
+		register.setForeground(Color.WHITE);
+		register.setBounds(107, 191, 213, 23);
+		contentPane.add(register);
+
 	}
 }

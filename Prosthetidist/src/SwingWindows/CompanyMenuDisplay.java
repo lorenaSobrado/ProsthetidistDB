@@ -27,7 +27,8 @@ public class CompanyMenuDisplay extends JFrame {
 	private JPanel contentPane;
 	private JDBCCompanyManager cm;
 
-	public CompanyMenuDisplay(Company company, JDBCManager manager) {
+	public CompanyMenuDisplay(JFrame cLogInDisplay, Company company, JDBCManager manager) {
+		cLogInDisplay.setEnabled(false);
 		cm = new JDBCCompanyManager(manager);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -75,6 +76,7 @@ public class CompanyMenuDisplay extends JFrame {
 		logOut.setIcon(new ImageIcon(logOutImg));
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cLogInDisplay.setEnabled(true);
 				CompanyMenuDisplay.this.setVisible(false);
 			}
 		});
