@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import prosthetidist.ifaces.PatientManager;
 import prosthetidist.pojos.Company;
+import prosthetidist.pojos.Material;
 import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
@@ -22,31 +23,24 @@ public class JDBCPatientManager implements PatientManager {
 		this.manager = m;
 	}
 
-	// @TODO materials
-
 	@Override
 
-	public void addPatient(Patient p) {
+	public void addPatient(Patient p) throws SQLException {
 
-		try {
-			String sql = "INSERT INTO Patient (id, name, email, phone, address, notes, dob) VALUES (?,?,?,?,?,?,?)";
-			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
-			prep.setInt(1, p.getId());
-			prep.setString(2, p.getName());
-			prep.setString(3, p.getEmail());
-			prep.setInt(4, p.getPhone());
-			prep.setString(5, p.getAddress());
-			prep.setString(6, p.getNotes());
-			prep.setDate(7, Date.valueOf(p.getDob()));
+		String sql = "INSERT INTO Patient (id, name, email, phone, address, notes, dob) VALUES (?,?,?,?,?,?,?)";
+		PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+		prep.setInt(1, p.getId());
+		prep.setString(2, p.getName());
+		prep.setString(3, p.getEmail());
+		prep.setInt(4, p.getPhone());
+		prep.setString(5, p.getAddress());
+		prep.setString(6, p.getNotes());
+		prep.setDate(7, Date.valueOf(p.getDob()));
 
-			prep.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-		}
+		prep.executeUpdate();
 	}
 
 	public void designProsthetic(String functionalities, String type, Measurement measurement) {
-
 		int measurement_id = measurement.getId();
 		try {
 			String sql = "INSERT INTO Prosthetic (functionalities, type, measurement_id) VALUES (?,?,?)";
@@ -54,8 +48,6 @@ public class JDBCPatientManager implements PatientManager {
 			prep.setString(1, functionalities);
 			prep.setString(2, type);
 			prep.setInt(3, measurement_id);
-			//preguntar si metemos el company_id como null o simplemente no lo metemos y automaticamente se pone null
-
 			prep.executeUpdate();
 
 		} catch (Exception ex) {
@@ -74,7 +66,7 @@ public class JDBCPatientManager implements PatientManager {
 			// get the values
 			Integer id = rs.getInt("id");
 			String name = rs.getString("name");
-			Date dob = rs.getDate("dob"); // probablemente esto no funcione
+			Date dob = rs.getDate("dob");
 			String address = rs.getString("address");
 			Integer phone = rs.getInt("phone");
 			String notes = rs.getString("notes");

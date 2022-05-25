@@ -12,7 +12,7 @@ public class Invoice implements Serializable{
 	private Integer id;
 	private LocalDate datePurchase;
 	private boolean purchase;
-	private String paymentMethod;
+	private Integer creditCard;
 	private String delivery_type;
 	private Integer patient_id;
 	private Integer prosthetic_code;
@@ -53,13 +53,13 @@ public class Invoice implements Serializable{
 	}
 
 
-	public String getPaymentMethod() {
-		return paymentMethod;
+	public Integer getCreditCard() {
+		return creditCard;
 	}
 
 
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
+	public void setCreditCard(Integer creditCard) {
+		this.creditCard = creditCard;
 	}
 
 
@@ -96,7 +96,7 @@ public class Invoice implements Serializable{
 	@Override
 	public String toString() {
 		return "Invoice [Id=" + id + ", DatePurchase=" + datePurchase + ", Purchase=" + purchase + ", PaymentMethod="
-				+ paymentMethod + "]";
+				+ creditCard + "]";
 	}
 
 

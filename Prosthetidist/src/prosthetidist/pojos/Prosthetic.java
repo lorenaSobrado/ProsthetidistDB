@@ -1,6 +1,7 @@
 
 package prosthetidist.pojos;
 
+import java.awt.Image;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
+import javax.swing.ImageIcon;
 
 public class Prosthetic implements Serializable{
 
@@ -30,9 +32,9 @@ public class Prosthetic implements Serializable{
 	//@ManyToOne (fetch=FetchType.LAZY)
 	private Company company;
 	private Measurement measurements;
-	private List<Material> materials;
+	private ArrayList<Material> materials;
 	private Patient patient; //PARA QUE PONEMOS ESTO?? despues habra que hacer una lista en pacientes de protesis 
-	private List<Invoice> invoices;
+	private ArrayList<Invoice> invoices;
 	
 	//CONSTRUCTORS
 	
@@ -55,6 +57,18 @@ public class Prosthetic implements Serializable{
 	}
 	
 	
+public Prosthetic(Integer code, Float price, String functionalities, String type, String model,
+			Measurement measurements, ArrayList<Material> materials) {
+		super();
+		this.code = code;
+		this.price = price;
+		this.functionalities = functionalities;
+		this.type = type;
+		this.model = model;
+		this.measurements = measurements;
+		this.materials = materials;
+	}
+
 public Prosthetic(Float price, String functionalities, String type, String model, Company company,
 			Measurement measurements, Patient patient) {
 		super();
@@ -68,7 +82,7 @@ public Prosthetic(Float price, String functionalities, String type, String model
 	}
 
 public Prosthetic(Integer code, Float price, String functionalities, String type, String model, Company company,
-			Measurement measurements, List<Material> materials) {
+			Measurement measurements, ArrayList<Material> materials) {
 		super();
 		this.code = code;
 		this.price = price;
@@ -83,7 +97,7 @@ public Prosthetic(Integer code, Float price, String functionalities, String type
 
 
 public Prosthetic(Integer code, String functionalities, String type, Measurement measurements,
-		List<Material> materials) {
+		ArrayList<Material> materials) {
 	super();
 	this.code = code;
 	this.functionalities = functionalities;
@@ -215,10 +229,10 @@ public Prosthetic(Integer code, String functionalities, String type, Measurement
 	public void setMeasurements(Measurement measurements) {
 		this.measurements = measurements;
 	}
-	public List<Material> getMaterials() {
+	public ArrayList<Material> getMaterials() {
 		return materials;
 	}
-	public void setMaterials(List<Material> materials) {
+	public void setMaterials(ArrayList<Material> materials) {
 		this.materials = materials;
 	}
 	public Patient getPatient() {
@@ -227,11 +241,44 @@ public Prosthetic(Integer code, String functionalities, String type, Measurement
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
-	public List<Invoice> getInvoices() {
+	public ArrayList<Invoice> getInvoices() {
 		return invoices;
 	}
-	public void setInvoices(List<Invoice> invoices) {
+	public void setInvoices(ArrayList<Invoice> invoices) {
 		this.invoices = invoices;
+	}
+	
+	public Image hasPlastic() {
+		for(Material m : this.materials) {
+			if(m.getName().equalsIgnoreCase("plastic")) {
+				Image img = new ImageIcon(this.getClass().getResource("/hasMaterial.png")).getImage();
+				return img;
+			}
+		}
+		Image img = new ImageIcon(this.getClass().getResource("/noMaterial.png")).getImage();
+		return img;
+	}
+	
+	public Image hasCarbonFiber() {
+		for(Material m : this.materials) {
+			if(m.getName().equalsIgnoreCase("carbon fiber")) {
+				Image img = new ImageIcon(this.getClass().getResource("/hasMaterial.png")).getImage();
+				return img;
+			}
+		}
+		Image img = new ImageIcon(this.getClass().getResource("/noMaterial.png")).getImage();
+		return img;
+	}
+	
+	public Image hasAluminium() {
+		for(Material m : this.materials) {
+			if(m.getName().equalsIgnoreCase("aluminium")) {
+				Image img = new ImageIcon(this.getClass().getResource("/hasMaterial.png")).getImage();
+				return img;
+			}
+		}
+		Image img = new ImageIcon(this.getClass().getResource("/noMaterial.png")).getImage();
+		return img;
 	}
 	
 	//TO STRING

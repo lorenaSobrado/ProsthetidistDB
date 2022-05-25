@@ -27,7 +27,7 @@ public class Role implements Serializable {
 	private Integer id;
 	private String name; //it indicates if it is company or patient
 	
-	@OneToMany(fetch= FetchType.LAZY, mappedBy= "User")
+	@OneToMany(fetch= FetchType.LAZY, mappedBy= "role")
 
 	private List <User> users;
 

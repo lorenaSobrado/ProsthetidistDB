@@ -1,7 +1,6 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -15,12 +14,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import prosthetidist.jdbc.JDBCDeliveryManager;
 import prosthetidist.jdbc.JDBCInvoiceManager;
+import prosthetidist.jdbc.JDBCManager;
+import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -28,6 +31,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.ListSelectionModel;
 
 public class CartDisplay extends JFrame {
 
@@ -38,25 +42,19 @@ public class CartDisplay extends JFrame {
 	private JButton buy;
 	private JButton back;
 	private JTable table;
+	private DefaultTableModel model;
 	
     private JDBCInvoiceManager im;
+    private JDBCProstheticManager pm;
+    private JDBCDeliveryManager dm;
 
-
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					CartDisplay frame = new CartDisplay();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	
-	public CartDisplay(JFrame patientMenuDisplay, Patient patient) {
+	public CartDisplay(JFrame patientMenuDisplay, Patient patient, JDBCManager manager) {
+		im = new JDBCInvoiceManager(manager);
+		pm = new JDBCProstheticManager(manager);
+		dm = new JDBCDeliveryManager(manager);
+		
 		patientMenuDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 488, 351);
@@ -131,6 +129,16 @@ public class CartDisplay extends JFrame {
 		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientMenuDisplay.setEnabled(true);
+				int[] selection = table.getSelectedRows();
+				for(int i : selection) {
+					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 1).toString()));
+					if(premium.isSelected()) {
+						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), premium.toString());
+					}
+					if(standard.isSelected()) {
+						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), standard.toString());
+					}
+				}
 				JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message", 
 						JOptionPane.INFORMATION_MESSAGE);
 				CartDisplay.this.setVisible(false);
@@ -139,77 +147,95 @@ public class CartDisplay extends JFrame {
 		buy.setBounds(377, 282, 89, 23);
 		contentPane.add(buy);
 		
-		back = new JButton("BACK");
+		back = new JButton("");
+		Image img = new ImageIcon(this.getClass().getResource("/back.png")).getImage();
+		back.setIcon(new ImageIcon(img));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientMenuDisplay.setEnabled(true);
 				CartDisplay.this.setVisible(false);
 			}
 		});
-		back.setBounds(24, 282, 89, 23);
+		back.setBounds(10, 269, 32, 32);
 		contentPane.add(back);
+		
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		model = new DefaultTableModel() {
+			public boolean isCellEditable(int fil, int col) {
+				return false;
+			}
+		};
+		model.addColumn("Code");
+		model.addColumn("Price");
+		model.addColumn("Functionalities");
+		model.addColumn("Type");
+		model.addColumn("Model");
+		model.addColumn("Length");
+		model.addColumn("Width");
+		model.addColumn("Weight");
+		model.addColumn("Plastic");
+		model.addColumn("Carbon Fiber");
+		model.addColumn("Aluminium");
+
+		for (Prosthetic p : im.getPatientSelection(patient)) {
+
+			Object[] datos = new Object[] { p.getCode(), p.getPrice(), p.getFunctionalities(), p.getType(),
+					p.getModel(), p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),
+					p.getMeasurements().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+			model.addRow(datos);
+		}
+		table.setModel(model);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(10, 46, 450, 89);
 		contentPane.add(scrollPane);
+		scrollPane.add(table);
 		
 		JLabel lblNewLabel_1 = new JLabel("Choose delivery");
 		lblNewLabel_1.setBounds(24, 157, 83, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		String[] cabecera = {"Price", "Functionalities", "Type", "Model", "Length", "Weight"," Width", "Materials"};
+		JButton delete = new JButton("DELETE");
+		delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(table.getSelectedRowCount() > 0) {
+					int i = table.getSelectedRow();
+					Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
+					im.deleteProstheticFromCart(patient, prosCode);
+					model.removeRow(i);
+				} else {
+					JOptionPane.showMessageDialog(CartDisplay.this, "Select a prosthetic", "Message", JOptionPane.WARNING_MESSAGE);
+				}
+			}
+		});
+		delete.setBounds(370, 7, 77, 23);
+		contentPane.add(delete);
 		
-		table = new JTable(/*getDatosBorrar(patient), cabecera*/);
-		scrollPane.setViewportView(table);
+		JLabel total = new JLabel(getTotalPrice(im.getPatientSelection(patient)));
+		total.setBounds(377, 257, 53, 14);
+		contentPane.add(total);
 		
-	}
-	public String[][] getDatos (Patient patient) {
-		
-		ArrayList<Prosthetic> list = new ArrayList<>();
-		list = im.getPatientSelection(patient);
-
-		int fil = list.size();
-		
-		String [][] datos = new String [fil][8];
-		
-		for (int i=0;i<fil;i++) {
-			Prosthetic p = list.get(i);
-			datos[i][0] = String.valueOf(p.getPrice());
-			datos[i][1] = p.getFunctionalities();
-			datos[i][2] = p.getType();
-			datos[i][3] = p.getModel();
-			datos[i][4] = String.valueOf(p.getMeasurements().getLengthiness());
-			datos[i][5] = String.valueOf(p.getMeasurements().getWeight());
-			datos[i][6] = String.valueOf(p.getMeasurements().getWidth());
-			datos[i][7] = "See Materials";
-		}
-		
-		return datos;
-		
-		
+		JLabel dollar = new JLabel("");
+		Image dollarImg = new ImageIcon(this.getClass().getResource("/dollar.png")).getImage();
+		dollar.setIcon(new ImageIcon(dollarImg));
+		dollar.setBounds(440, 255, 16, 16);
+		contentPane.add(dollar);	
 		
 	}
-	public String[][] getDatosBorrar (Patient patient) {
-		
 	
-		
-		String [][] datos = new String [10][8];
-		
-		for (int i=0;i<10;i++) {
-			datos[i][0] = "hola";
-			datos[i][1] = "hola";
-			datos[i][2] = "hola";
-			datos[i][3] = "hola";
-			datos[i][4] = "hola4";
-			datos[i][5] = "hola";
-			datos[i][6] = "hola";
-			datos[i][7] = "See Materials";
+	private String getTotalPrice(ArrayList<Prosthetic> cart) {
+		Float totalPrice = 0f;
+		for (Prosthetic p : cart) {
+			totalPrice += p.getPrice();
+//			for(Material m : p.getMaterials()) { el precio de la protesis ya no incluye los materials?
+//				totalPrice += m.getPrice();
+//			}
 		}
-		
-		return datos;
-		
-		
-		
+		if(premium.isSelected()) {
+			totalPrice += dm.getPremiumDelivery().getPrice();
+		}
+		return String.valueOf(totalPrice);
 	}
 }

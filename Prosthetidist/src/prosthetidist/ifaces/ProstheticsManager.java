@@ -11,5 +11,6 @@ public interface ProstheticsManager {
 	public List<Prosthetic> listProstheticsWithoutCompanyId();
 	public void uploadProsthetics (Company c, Prosthetic p);
 	public Prosthetic getProstheticByCode(Integer code);
+	public void deleteProsthetic(Prosthetic p);
 
 }

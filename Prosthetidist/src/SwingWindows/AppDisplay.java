@@ -2,13 +2,13 @@ package SwingWindows;
 
 import java.awt.*;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import prosthetidist.jdbc.JDBCManager;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -23,26 +23,9 @@ public class AppDisplay extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtProsthetidist;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					AppDisplay frame = new AppDisplay();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public AppDisplay(JDBCManager manager) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -57,8 +40,8 @@ public class AppDisplay extends JFrame {
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame patientDisplay = new PatientDisplay(AppDisplay.this, manager);
-				patientDisplay.setVisible(true);
+				JFrame pLogInDisplay = new PLogInDisplay(AppDisplay.this, manager);
+				pLogInDisplay.setVisible(true);
 			}
 		});
 		contentPane.setLayout(null);
@@ -71,8 +54,8 @@ public class AppDisplay extends JFrame {
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame companyDisplay = new CompanyDisplay(AppDisplay.this, manager);
-				companyDisplay.setVisible(true);
+				JFrame cLogInDisplay = new CLogInDisplay(AppDisplay.this, manager);
+				cLogInDisplay.setVisible(true);
 			}
 		});
 		contentPane.add(btnNewButton);

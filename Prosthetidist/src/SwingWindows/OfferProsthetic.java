@@ -1,8 +1,6 @@
 package SwingWindows;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,16 +9,17 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import org.eclipse.persistence.internal.oxm.schema.model.List;
-
-import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Prosthetic;
 
 import javax.swing.JButton;
-import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.ListSelectionModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class OfferProsthetic extends JFrame {
 
@@ -28,20 +27,6 @@ public class OfferProsthetic extends JFrame {
 	private JTable table;
 	
 	private JDBCProstheticManager pm;
-
-	
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					OfferProsthetic frame = new OfferProsthetic();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	
 	public OfferProsthetic(Company company, JDBCManager manager) {
@@ -57,39 +42,57 @@ public class OfferProsthetic extends JFrame {
 		lblNewLabel.setBounds(55, 11, 218, 14);
 		contentPane.add(lblNewLabel);		
 		
-		ArrayList<Prosthetic> prostheticsWithoutId = new ArrayList<>();
-		prostheticsWithoutId= pm.listProstheticsWithoutCompanyId();
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(26, 48, 370, 119);
+		contentPane.add(scrollPane);
 		
-		
-		
+		DefaultTableModel model = new DefaultTableModel() {
+			public boolean isCellEditable(int fil, int col) {
+				return false;
+			}
+		};
+		model.addColumn("Code");
+		model.addColumn("Functionalities");
+		model.addColumn("Type");
+		model.addColumn("Length");
+		model.addColumn("Width");
+		model.addColumn("Weight");
+		model.addColumn("Plastic");
+		model.addColumn("Carbon Fiber");
+		model.addColumn("Aluminium");
+
+		for (Prosthetic p : pm.listProstheticsWithoutCompanyId()) {
+
+			Object[] datos = new Object[] { p.getCode(), p.getFunctionalities(), p.getType(),
+					p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),
+					p.getMeasurements().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+			model.addRow(datos);
+		}
 		table = new JTable();
-		table.setModel(new DefaultTableModel( //en ves de default pasamos directamente el cm.
-			new Object[][] {
-				{null, null, null, null, null, Boolean.FALSE, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"Functionalities", "Type", "Lenght", "Width", "Weight", "Plastic", "Aluminium", "Carbon Fiber"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, String.class, Float.class, Float.class, Float.class, Boolean.class, Boolean.class, Boolean.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		table.setBounds(85, 48, 246, 85);
-		contentPane.add(table);
+		table.setModel(model);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setToolTipText("");
+		scrollPane.setViewportView(table);
 		
 		JButton btnNewButton = new JButton("DESIGN");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int i = table.getSelectedRow();
+				Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 1).toString()));
+				JFrame offerProstheticByCompany = new OfferProstheticByCompany(OfferProsthetic.this, company, p, manager);
+				offerProstheticByCompany.setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(327, 231, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("BACK");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OfferProsthetic.this.setVisible(false);
+			}
+		});
 		btnNewButton_1.setBounds(217, 231, 89, 23);
 		contentPane.add(btnNewButton_1);
 	}

@@ -1,46 +1,30 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-
-import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.pojos.Company;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class CompanyMenuDisplay extends JFrame {
 
 	private JPanel contentPane;
+	private JDBCCompanyManager cm;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					CompanyMenuDisplay frame = new CompanyMenuDisplay(Company company);
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
-	public CompanyMenuDisplay(Company company, JDBCManager manager) {
+	public CompanyMenuDisplay(JFrame cLogInDisplay, Company company, JDBCManager manager) {
+		cLogInDisplay.setEnabled(false);
+		cm = new JDBCCompanyManager(manager);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -55,17 +39,21 @@ public class CompanyMenuDisplay extends JFrame {
 				uploadProsthetic.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(149, 55, 178, 29);
+		btnNewButton.setBounds(125, 74, 178, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("DELETE PROSTHETIC");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame deleteProsthetic = new DeleteProsthetic(company);
-				deleteProsthetic.setVisible(true);
+				if(cm.listProstheticsOfCompany(company).isEmpty()) {
+					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, "No prosthetics to delete", "Message", JOptionPane.ERROR_MESSAGE);
+				} else {
+					JFrame deleteProsthetic = new DeleteProsthetic(company, manager);
+					deleteProsthetic.setVisible(true);
+				}
 			}
 		});
-		btnNewButton_1.setBounds(149, 96, 178, 29);
+		btnNewButton_1.setBounds(125, 114, 178, 29);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("OFFER DESIGN");
@@ -75,16 +63,29 @@ public class CompanyMenuDisplay extends JFrame {
 				offerProsthetic.setVisible(true);
 			}
 		});
-		btnNewButton_2.setBounds(149, 142, 178, 29);
+		btnNewButton_2.setBounds(125, 154, 178, 29);
 		contentPane.add(btnNewButton_2);
 		
-		JButton btnNewButton_4 = new JButton("LOG OUT");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton logOut = new JButton("LOG OUT");
+		Image logOutImg = new ImageIcon(this.getClass().getResource("/logOut.png")).getImage();
+		logOut.setIcon(new ImageIcon(logOutImg));
+		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cLogInDisplay.setEnabled(true);
 				CompanyMenuDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton_4.setBounds(322, 237, 117, 29);
-		contentPane.add(btnNewButton_4);
+		logOut.setBounds(322, 237, 117, 29);
+		contentPane.add(logOut);
+		
+		JLabel user = new JLabel("");
+		Image userImg = new ImageIcon(this.getClass().getResource("/user.png")).getImage();
+		user.setIcon(new ImageIcon(userImg));
+		user.setBounds(28, 23, 45, 39);
+		contentPane.add(user);
+		
+		JLabel username = new JLabel(company.getName());
+		username.setBounds(71, 35, 89, 14);
+		contentPane.add(username);
 	}
 }

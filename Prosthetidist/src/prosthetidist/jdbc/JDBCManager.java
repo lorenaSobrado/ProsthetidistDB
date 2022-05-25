@@ -55,7 +55,21 @@ public class JDBCManager {
 
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "paymentMethod    TEXT NOT NULL, "
+			sql = "INSERT INTO Delivery " + "(type, price, description) VALUES (?,?,?)";
+			PreparedStatement prep = c.prepareStatement(sql);
+			prep.setString(1, "Standard");
+			prep.setFloat(2, 0f);
+			prep.setString(3, "basic");
+			prep.executeUpdate();
+			
+			sql = "INSERT INTO Delivery " + "(type, price, description) VALUES (?,?,?)";
+			prep = c.prepareStatement(sql);
+			prep.setString(1, "Premium");
+			prep.setFloat(2, 10f);
+			prep.setString(3, "premium");
+			prep.executeUpdate();
+			
+			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "creditCard    INTEGER NOT NULL, "
 					+ "purchase BOOLEAN DEFAULT \"FALSE\", " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
 					+ "delivery_type TEXT REFERENCES Delivery(type) " + ");";
 			
@@ -67,7 +81,7 @@ public class JDBCManager {
 			stmt.executeUpdate(sql);
 			
 			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperature_resistance) VALUES (?,?,?,?,?)";
-			PreparedStatement prep = c.prepareStatement(sql);
+			prep = c.prepareStatement(sql);
 			prep.setString(1, "Plastic");
 			prep.setFloat(2, 3.49f);
 			prep.setString(3, "low");
