@@ -92,7 +92,7 @@ public class JPAUserManager implements UserManager {
 		Query q = em.createNativeQuery("SELECT * FROM User WHERE email = ? AND password = ?", User.class); //user no debe ser con mayuscula?
 		q.setParameter(1, email);
 		try {
-			MessageDigest md = MessageDigest.getInstance("MD5"); //MD5 most common algorithim 
+			MessageDigest md = MessageDigest.getInstance("MD5"); //MD5 most common algorithm 
 			md.update(passwd.getBytes());
 			byte[] digest = md.digest();
 			q.setParameter(2, digest);
