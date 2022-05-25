@@ -12,6 +12,7 @@ import prosthetidist.pojos.Measurement;
 import prosthetidist.pojos.Prosthetic;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
@@ -126,6 +127,7 @@ public class UploadProsthetic extends JFrame {
 				Measurement m = new Measurement();
 				Prosthetic p = new Prosthetic();
 				
+				p.setCompany(company);
 				p.setPrice(Float.parseFloat(textField.getText()));
 				p.setFunctionalities(textField_1.getText());
 				p.setModel(textField_3.getText());
@@ -134,25 +136,24 @@ public class UploadProsthetic extends JFrame {
 				m.setWidth(Float.parseFloat(textField_5.getText()));
 				m.setWeight(Float.parseFloat(textField_6.getText()));
 				mm.addMeasurement(m);
-				p.setMeasurements(mm.getMeasurement(Float.parseFloat(textField_4.getText()), Float.parseFloat(textField_5.getText()), Float.parseFloat(textField_6.getText())));
-				pm.uploadProsthetics(company, p);
-				ArrayList<Material> materials = new ArrayList<Material>();
+				p.setMeasurement(mm.getMeasurement(Float.parseFloat(textField_4.getText()), Float.parseFloat(textField_5.getText()), Float.parseFloat(textField_6.getText())));
+				pm.uploadProsthetic(p);
+				Integer prosCode = pm.getProstheticCode(p);
+				p = pm.getProstheticByCode(prosCode);
 				
 				if(plastic.isSelected()) {
 					Material plastic = matm.getMaterialByName("Plastic");
-					materials.add(plastic);
-					matm.uploadMaterialsOfProsthetic(plastic, p);
+					matm.uploadMaterialOfProsthetic(plastic, p);
 				}
 				if(carbonFiber.isSelected()) {
 					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
-					materials.add(carbonFiber);
-					matm.uploadMaterialsOfProsthetic(carbonFiber, p);
+					matm.uploadMaterialOfProsthetic(carbonFiber, p);
 				}
 				if(aluminium.isSelected()) {
 					Material aluminium = matm.getMaterialByName("Aluminium");
-					materials.add(aluminium);
-					matm.uploadMaterialsOfProsthetic(aluminium, p);
+					matm.uploadMaterialOfProsthetic(aluminium, p);
 				}
+				JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message", JOptionPane.PLAIN_MESSAGE);
 				UploadProsthetic.this.setVisible(false);
 			}
 		});

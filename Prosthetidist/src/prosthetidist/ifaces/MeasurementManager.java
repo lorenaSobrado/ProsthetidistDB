@@ -2,7 +2,7 @@ package prosthetidist.ifaces;
 
 import prosthetidist.pojos.Measurement;
 
-public interface MeasurementsManager {
+public interface MeasurementManager {
 	
 	public void addMeasurement(Measurement m);
 	public Measurement getMeasurementById (Integer measurement_id);

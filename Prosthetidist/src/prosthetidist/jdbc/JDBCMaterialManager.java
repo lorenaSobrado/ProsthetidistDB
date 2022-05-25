@@ -63,7 +63,7 @@ public class JDBCMaterialManager implements MaterialManager {
 		return materials;
 	}
 
-	public void uploadMaterialsOfProsthetic(Material material, Prosthetic prosthetic) {
+	public void uploadMaterialOfProsthetic(Material material, Prosthetic prosthetic) {
 		try {
 			String sql = "INSERT INTO ProstheticHasMaterials (prosthetic_code, material_name) VALUES (?,?)";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);

@@ -65,8 +65,8 @@ public class OfferProsthetic extends JFrame {
 		for (Prosthetic p : pm.listProstheticsWithoutCompanyId()) {
 
 			Object[] datos = new Object[] { p.getCode(), p.getFunctionalities(), p.getType(),
-					p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),
-					p.getMeasurements().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+					p.getMeasurement().getLengthiness(), p.getMeasurement().getWidth(),
+					p.getMeasurement().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
 			model.addRow(datos);
 		}
 		table = new JTable();

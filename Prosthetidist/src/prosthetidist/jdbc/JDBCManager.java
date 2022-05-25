@@ -70,8 +70,8 @@ public class JDBCManager {
 			prep.setString(3, "premium");
 			prep.executeUpdate();
 			
-			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "creditCard    INTEGER NOT NULL, "
-					+ "purchase BOOLEAN DEFAULT \"FALSE\", " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
+			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "creditCard    INTEGER, "
+					+ "purchase BOOLEAN DEFAULT FALSE, " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
 					+ "delivery_type TEXT REFERENCES Delivery(type) " + ");";
 			
 			stmt.executeUpdate(sql);

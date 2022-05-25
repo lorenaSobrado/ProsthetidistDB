@@ -4,11 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import prosthetidist.ifaces.MeasurementsManager;
-import prosthetidist.pojos.Company;
+import prosthetidist.ifaces.MeasurementManager;
 import prosthetidist.pojos.Measurement;
 
-public class JDBCMeasurementManager implements MeasurementsManager {
+public class JDBCMeasurementManager implements MeasurementManager {
 	private JDBCManager manager;
 
 	public JDBCMeasurementManager(JDBCManager m) {
@@ -55,8 +54,8 @@ public class JDBCMeasurementManager implements MeasurementsManager {
 			String sql = "SELECT id FROM Measurement WHERE lengthiness = ? AND width = ? AND weight = ?";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setFloat(1, length);
-			prep.setFloat(1, width);
-			prep.setFloat(1, weight);
+			prep.setFloat(2, width);
+			prep.setFloat(3, weight);
 			ResultSet rs = prep.executeQuery();
 			Integer id = rs.getInt("id");
 			m = this.getMeasurementById(id);

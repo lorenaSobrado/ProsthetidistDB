@@ -1,23 +1,14 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JToolBar;
 import javax.swing.JButton;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
-import javax.swing.AbstractListModel;
-import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 import prosthetidist.jdbc.JDBCInvoiceManager;
 import prosthetidist.jdbc.JDBCManager;
@@ -25,23 +16,16 @@ import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
 import prosthetidist.pojos.User;
-import prosthetidist.ui.*;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-
-import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PatientMenuDisplay extends JFrame {
 
@@ -58,6 +42,12 @@ public class PatientMenuDisplay extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 587, 357);
 		contentPane = new JPanel();
+		contentPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				table.clearSelection();
+			}
+		});
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
@@ -158,11 +148,11 @@ public class PatientMenuDisplay extends JFrame {
 		for (Prosthetic p : pm.listProstheticsWithCompanyId()) {
 
 			Object[] datos = new Object[] { p.getCode(), p.getPrice(), p.getFunctionalities(), p.getType(),
-					p.getModel(), p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),
-					p.getMeasurements().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+					p.getModel(), p.getMeasurement().getLengthiness(), p.getMeasurement().getWidth(),
+					p.getMeasurement().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
 			model.addRow(datos);
 		}
 		table.setModel(model);
-
+		scrollPane.setViewportView(table);
 	}
 }

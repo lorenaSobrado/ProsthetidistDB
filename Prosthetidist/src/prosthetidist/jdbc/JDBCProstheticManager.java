@@ -88,7 +88,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		Prosthetic pros = null;
 
 		try {
-			String sql = "SELECT * FROM Prosthetic WHERE id = ?";
+			String sql = "SELECT * FROM Prosthetic WHERE code = ?";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, code);
 			ResultSet rs = prep.executeQuery();
@@ -112,9 +112,10 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		return pros;
 
 	}
-	public void uploadProsthetics(Company c, Prosthetic p) {
+	
+	public void uploadProsthetic(Prosthetic p) {
 
-		int company_id = c.getId();
+		int company_id = p.getCompany().getId();
 		try {
 			String sql = "INSERT INTO Prosthetic (price, functionalities, type, model, company_id, measurement_id) VALUES (?,?,?,?,?,?)";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
@@ -123,7 +124,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			prep.setString(3, p.getType());
 			prep.setString(4, p.getModel());
 			prep.setInt(5, company_id);
-			prep.setInt(6, p.getMeasurements().getId());
+			prep.setInt(6, p.getMeasurement().getId());
 			prep.executeUpdate();
 
 		} catch (Exception ex) {
@@ -141,5 +142,28 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		} catch(SQLException ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	@Override
+	public Integer getProstheticCode(Prosthetic p) {
+		Integer prosCode = null;
+		try {
+			String sql = "SELECT code FROM Prosthetic WHERE price = ? AND functionalities = ? AND type = ? AND model = ? AND "
+					+ "company_id = ? AND measurement_id = ?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setFloat(1, p.getPrice());
+			prep.setString(2, p.getFunctionalities());
+			prep.setString(3, p.getType());
+			prep.setString(4, p.getModel());
+			prep.setInt(5, p.getCompany().getId());
+			prep.setInt(6, p.getMeasurement().getId());
+			
+			ResultSet rs = prep.executeQuery();
+			prosCode = rs.getInt("code");
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return prosCode;
 	}
 }
