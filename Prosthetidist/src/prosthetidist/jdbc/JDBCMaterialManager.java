@@ -30,9 +30,9 @@ public class JDBCMaterialManager implements MaterialManager {
 			Float price = rs.getFloat("price");
 			String strength = rs.getString("strength");
 			String flexibility = rs.getString("flexibility");
-			String temperatureResistence = rs.getString("temperatureResistence");
+			String temperatureResistance = rs.getString("temperatureResistance");
 
-			mat = new Material(name, price, strength, flexibility, temperatureResistence);
+			mat = new Material(name, price, strength, flexibility, temperatureResistance);
 
 			rs.close();
 			prep.close();

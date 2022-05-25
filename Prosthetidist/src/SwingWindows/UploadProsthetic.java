@@ -35,10 +35,12 @@ public class UploadProsthetic extends JFrame {
 
 	private JDBCProstheticManager pm;
 	private JDBCMaterialManager matm;
+	private JDBCMeasurementManager mm;
 
 	public UploadProsthetic(Company company, JDBCManager manager) {
 		pm = new JDBCProstheticManager(manager);
 		matm = new JDBCMaterialManager(manager);
+		mm = new JDBCMeasurementManager(manager);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 598, 382);
@@ -131,7 +133,9 @@ public class UploadProsthetic extends JFrame {
 				m.setLengthiness(Float.parseFloat(textField_4.getText()));
 				m.setWidth(Float.parseFloat(textField_5.getText()));
 				m.setWeight(Float.parseFloat(textField_6.getText()));
-				p.setMeasurements(m);
+				mm.addMeasurement(m);
+				p.setMeasurements(mm.getMeasurement(Float.parseFloat(textField_4.getText()), Float.parseFloat(textField_5.getText()), Float.parseFloat(textField_6.getText())));
+				pm.uploadProsthetics(company, p);
 				ArrayList<Material> materials = new ArrayList<Material>();
 				
 				if(plastic.isSelected()) {
@@ -149,8 +153,6 @@ public class UploadProsthetic extends JFrame {
 					materials.add(aluminium);
 					matm.uploadMaterialsOfProsthetic(aluminium, p);
 				}
-				p.setMaterials(materials);
-				pm.uploadProsthetics(company, p);
 				UploadProsthetic.this.setVisible(false);
 			}
 		});

@@ -65,7 +65,7 @@ public class CLogInDisplay extends JFrame {
 		contentPane.add(passwordReadable);
 		passwordReadable.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("USERNAME :");
+		JLabel lblNewLabel = new JLabel("EMAIL:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBounds(42, 61, 88, 17);
 		contentPane.add(lblNewLabel);

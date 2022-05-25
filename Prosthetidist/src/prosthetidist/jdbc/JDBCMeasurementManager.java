@@ -29,18 +29,38 @@ public class JDBCMeasurementManager implements MeasurementsManager {
 		}
 	}
 
-	public Measurement getMeasurementById(int measurement_id) {
+	public Measurement getMeasurementById(Integer measurement_id) {
 		Measurement m = null;
 		try {
-			String sql = "SELECT * FROM Measurements WHERE id=?";
+			String sql = "SELECT * FROM Measurement WHERE id = ?";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, measurement_id);
 			ResultSet rs = prep.executeQuery();
-			Float lengthiness = rs.getFloat(2);
-			Float width = rs.getFloat(3);
-			Float weight = rs.getFloat(4);
+			Float lengthiness = rs.getFloat("lengthiness");
+			Float width = rs.getFloat("width");
+			Float weight = rs.getFloat("weight");
 
 			m = new Measurement(measurement_id, lengthiness, width, weight);
+			rs.close();
+			prep.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return m;
+	}
+	
+	public Measurement getMeasurement(Float length, Float width, Float weight) {
+		Measurement m = new Measurement();
+		try {
+			String sql = "SELECT id FROM Measurement WHERE lengthiness = ? AND width = ? AND weight = ?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setFloat(1, length);
+			prep.setFloat(1, width);
+			prep.setFloat(1, weight);
+			ResultSet rs = prep.executeQuery();
+			Integer id = rs.getInt("id");
+			m = this.getMeasurementById(id);
+			
 			rs.close();
 			prep.close();
 		} catch (SQLException ex) {
