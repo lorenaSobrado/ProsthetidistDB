@@ -36,7 +36,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 	
 	public void deleteProstheticFromCart(Patient pa, Integer prosCode) {
 		try {
-			String sql = "DELETE * FROM Invoice WHERE patient_id = " + pa.getId() + " AND prosthetic_code" + prosCode + " AND purchase = FALSE)";
+			String sql = "DELETE * FROM Invoice WHERE patient_id = " + pa.getId() + " AND prosthetic_code = " + prosCode + " AND purchase = FALSE)";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 			p.executeUpdate();
 		} catch (SQLException ex) {

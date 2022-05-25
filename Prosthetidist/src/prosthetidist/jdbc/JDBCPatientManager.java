@@ -23,26 +23,21 @@ public class JDBCPatientManager implements PatientManager {
 		this.manager = m;
 	}
 
-
 	@Override
 
-	public void addPatient(Patient p) {
+	public void addPatient(Patient p) throws SQLException {
 
-		try {
-			String sql = "INSERT INTO Patient (id, name, email, phone, address, notes, dob) VALUES (?,?,?,?,?,?,?)";
-			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
-			prep.setInt(1, p.getId());
-			prep.setString(2, p.getName());
-			prep.setString(3, p.getEmail());
-			prep.setInt(4, p.getPhone());
-			prep.setString(5, p.getAddress());
-			prep.setString(6, p.getNotes());
-			prep.setDate(7, Date.valueOf(p.getDob()));
+		String sql = "INSERT INTO Patient (id, name, email, phone, address, notes, dob) VALUES (?,?,?,?,?,?,?)";
+		PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+		prep.setInt(1, p.getId());
+		prep.setString(2, p.getName());
+		prep.setString(3, p.getEmail());
+		prep.setInt(4, p.getPhone());
+		prep.setString(5, p.getAddress());
+		prep.setString(6, p.getNotes());
+		prep.setDate(7, Date.valueOf(p.getDob()));
 
-			prep.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-		}
+		prep.executeUpdate();
 	}
 
 	public void designProsthetic(String functionalities, String type, Measurement measurement) {
@@ -71,7 +66,7 @@ public class JDBCPatientManager implements PatientManager {
 			// get the values
 			Integer id = rs.getInt("id");
 			String name = rs.getString("name");
-			Date dob = rs.getDate("dob"); 
+			Date dob = rs.getDate("dob");
 			String address = rs.getString("address");
 			Integer phone = rs.getInt("phone");
 			String notes = rs.getString("notes");

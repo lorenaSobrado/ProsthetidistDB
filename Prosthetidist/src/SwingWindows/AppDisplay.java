@@ -2,13 +2,13 @@ package SwingWindows;
 
 import java.awt.*;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import prosthetidist.jdbc.JDBCManager;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -25,6 +25,7 @@ public class AppDisplay extends JFrame {
 
 	
 	public AppDisplay(JDBCManager manager) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

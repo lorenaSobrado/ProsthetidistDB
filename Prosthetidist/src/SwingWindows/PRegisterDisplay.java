@@ -1,14 +1,9 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-
-import prosthetidist.ifaces.PatientManager;
-import prosthetidist.ifaces.UserManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCPatientManager;
 import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.*;
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -23,17 +18,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.sql.Date;
+import java.sql.SQLException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
-import javax.swing.SwingConstants;
 
 public class PRegisterDisplay extends JFrame {
 
@@ -57,7 +49,7 @@ public class PRegisterDisplay extends JFrame {
 		patientDisplay.setEnabled(false);
 		pm = new JDBCPatientManager(manager);
 		um = new JPAUserManager();
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 563, 349);
 		contentPane = new JPanel();
@@ -243,19 +235,19 @@ public class PRegisterDisplay extends JFrame {
 		register.setEnabled(false);
 		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Patient patient = new Patient();
-
-				patient.setName(name.getText());
-				patient.setId(Integer.parseInt(id.getText()));
-				patient.setEmail(email.getText());
-				patient.setPhone(Integer.parseInt(phone.getText()));
-				patient.setAddress(address.getText());
-				patient.setNotes(medicalCond.getText());
-				LocalDate date = LocalDate.parse(dob.getText()); // year-mes-dia
-				patient.setDob(date);
-				String password = passwordHide.getText();
 
 				try {
+					
+					Patient patient = new Patient();
+					patient.setName(name.getText());
+					patient.setId(Integer.parseInt(id.getText()));
+					patient.setEmail(email.getText());
+					patient.setPhone(Integer.parseInt(phone.getText()));
+					patient.setAddress(address.getText());
+					patient.setNotes(medicalCond.getText());
+					LocalDate date = LocalDate.parse(dob.getText()); // year-mes-dia
+					patient.setDob(date);
+					String password = passwordHide.getText();
 
 					MessageDigest md = MessageDigest.getInstance("MD5");
 					md.update(password.getBytes());
@@ -266,16 +258,20 @@ public class PRegisterDisplay extends JFrame {
 					role.addUser(u);
 					um.newUser(u);
 
+					pm.addPatient(patient);
+					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
+					patientDisplay.setEnabled(true);
+					PRegisterDisplay.this.setVisible(false);
+
 				} catch (NoSuchAlgorithmException e1) {
-
 					e1.printStackTrace();
-
-				}
-				pm.addPatient(patient);
-				JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message",
-						JOptionPane.PLAIN_MESSAGE);
-				patientDisplay.setEnabled(true);
-				PRegisterDisplay.this.setVisible(false);
+				} catch (SQLException | NumberFormatException ex) {
+					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Non valid data, try again", "Message", JOptionPane.ERROR_MESSAGE);
+					ex.printStackTrace();
+				} //catch (DateTimeParseException e) {
+//					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Non valid date, try again", "Message", JOptionPane.ERROR_MESSAGE);
+//					e.printStackTrace();
+//				}
 			}
 		});
 		register.setBounds(330, 264, 85, 21);
@@ -318,9 +314,5 @@ public class PRegisterDisplay extends JFrame {
 		imgIcon.setBounds(301, 23, 225, 201);
 		contentPane.add(imgIcon);
 
-	}
-
-	public void validarDatos() {
-		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
 }

@@ -1,8 +1,5 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -10,7 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import prosthetidist.ifaces.CompanyManager;
-import prosthetidist.ifaces.UserManager;
 import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jpa.JPAUserManager;
@@ -172,8 +168,8 @@ public class CRegisterDisplay extends JFrame {
 				} catch (NoSuchAlgorithmException e1) {
 					e1.printStackTrace();
 
-				} catch (SQLException ex) {
-					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Data not valid, try again", "Message",
+				} catch (SQLException | NumberFormatException ex) {
+					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Non valid data, try again", "Message",
 							JOptionPane.ERROR_MESSAGE);
 					ex.printStackTrace();
 				}
@@ -216,9 +212,5 @@ public class CRegisterDisplay extends JFrame {
 		});
 		showPassword.setBounds(302, 167, 30, 23);
 		contentPane.add(showPassword);
-	}
-
-	public void validarDatos() {
-		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
 }
