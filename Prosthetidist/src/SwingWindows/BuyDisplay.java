@@ -10,9 +10,7 @@ import java.awt.event.ActionEvent;
 
 public class BuyDisplay extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
+	
 	public BuyDisplay() {
 		setLayout(null);
 		

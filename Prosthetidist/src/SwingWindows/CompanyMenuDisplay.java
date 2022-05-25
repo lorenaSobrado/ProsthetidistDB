@@ -1,8 +1,5 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -15,8 +12,6 @@ import prosthetidist.pojos.Company;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
@@ -27,7 +22,8 @@ public class CompanyMenuDisplay extends JFrame {
 	private JPanel contentPane;
 	private JDBCCompanyManager cm;
 
-	public CompanyMenuDisplay(Company company, JDBCManager manager) {
+	public CompanyMenuDisplay(JFrame cLogInDisplay, Company company, JDBCManager manager) {
+		cLogInDisplay.setEnabled(false);
 		cm = new JDBCCompanyManager(manager);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -75,6 +71,7 @@ public class CompanyMenuDisplay extends JFrame {
 		logOut.setIcon(new ImageIcon(logOutImg));
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cLogInDisplay.setEnabled(true);
 				CompanyMenuDisplay.this.setVisible(false);
 			}
 		});

@@ -1,8 +1,6 @@
 package SwingWindows;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,16 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import org.eclipse.persistence.internal.oxm.schema.model.List;
-
-import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Prosthetic;
 
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ListSelectionModel;

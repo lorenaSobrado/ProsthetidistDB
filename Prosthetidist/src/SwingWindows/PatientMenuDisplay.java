@@ -48,7 +48,6 @@ public class PatientMenuDisplay extends JFrame {
 	private JDBCInvoiceManager im;
 	private JDBCProstheticManager pm;
 	private JTable table;
-//	private JButton matButton;
 
 	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient, JDBCManager manager) {
 		pLogInDisplay.setEnabled(false);
@@ -62,17 +61,17 @@ public class PatientMenuDisplay extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
-		JButton btnNewButton = new JButton("LOG OUT");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton logOut = new JButton("LOG OUT");
+		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pLogInDisplay.setEnabled(true);
 				PatientMenuDisplay.this.setVisible(false);
 			}
 		});
 		Image logOutImg = new ImageIcon(this.getClass().getResource("/logOut.png")).getImage();
-		btnNewButton.setIcon(new ImageIcon(logOutImg));
-		btnNewButton.setBounds(27, 288, 103, 23);
-		contentPane.add(btnNewButton);
+		logOut.setIcon(new ImageIcon(logOutImg));
+		logOut.setBounds(27, 288, 103, 23);
+		contentPane.add(logOut);
 
 		JLabel userLabel = new JLabel("");
 		Image userImg = new ImageIcon(this.getClass().getResource("/user.png")).getImage();
@@ -80,31 +79,31 @@ public class PatientMenuDisplay extends JFrame {
 		userLabel.setBounds(27, 15, 45, 39);
 		contentPane.add(userLabel);
 
-		JButton btnNewButton_1 = new JButton("Design My Own");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton design = new JButton("Design My Own");
+		design.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame designProsthetic = new DesignProsthetic(PatientMenuDisplay.this, manager);
 				designProsthetic.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(253, 25, 119, 23);
-		contentPane.add(btnNewButton_1);
+		design.setBounds(253, 25, 119, 23);
+		contentPane.add(design);
 
 		JButton btnNewButton_3 = new JButton("Filters");
 		btnNewButton_3.setBounds(382, 24, 89, 23);
 		contentPane.add(btnNewButton_3);
 
-		JButton btnNewButton_4 = new JButton("");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton cart = new JButton("");
+		cart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame cartDisplay = new CartDisplay(PatientMenuDisplay.this, patient, manager);
 				cartDisplay.setVisible(true);
 			}
 		});
-		btnNewButton_4.setBounds(491, 17, 70, 37);
-		contentPane.add(btnNewButton_4);
+		cart.setBounds(491, 17, 70, 37);
+		contentPane.add(cart);
 		Image img = new ImageIcon(this.getClass().getResource("/cart.png")).getImage();
-		btnNewButton_4.setIcon(new ImageIcon(img));
+		cart.setIcon(new ImageIcon(img));
 
 		JLabel username = new JLabel(patient.getName());
 		username.setBounds(70, 29, 89, 14);

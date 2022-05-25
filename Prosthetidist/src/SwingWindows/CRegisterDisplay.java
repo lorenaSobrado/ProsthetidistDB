@@ -1,15 +1,12 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-
-import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import prosthetidist.ifaces.CompanyManager;
-import prosthetidist.ifaces.UserManager;
 import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jpa.JPAUserManager;
@@ -18,6 +15,7 @@ import prosthetidist.pojos.*;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -25,10 +23,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
+
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Color;
 
 public class CRegisterDisplay extends JFrame {
 
@@ -38,16 +39,16 @@ public class CRegisterDisplay extends JFrame {
 	private JTextField email;
 	private JTextField passwordReadable;
 	private JButton register;
+	private JButton back;
 
 	private JPAUserManager um;
 	private CompanyManager cm;
 	private JPasswordField passwordHide;
 
-	public CRegisterDisplay(JFrame companyDisplay, JDBCManager manager) {
-
-		companyDisplay.setEnabled(false);
-		
-		um= new JPAUserManager ();
+	public CRegisterDisplay(JFrame cLogInDisplay, JDBCManager manager) {
+		cLogInDisplay.setEnabled(false);
+		cm = new JDBCCompanyManager(manager);
+		um = new JPAUserManager();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -76,9 +77,11 @@ public class CRegisterDisplay extends JFrame {
 		name.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
+				if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()
+						&& !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
-				} else register.setEnabled(false);
+				} else
+					register.setEnabled(false);
 			}
 		});
 		name.setBounds(183, 40, 110, 20);
@@ -89,9 +92,11 @@ public class CRegisterDisplay extends JFrame {
 		phone.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
+				if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()
+						&& !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
-				} else register.setEnabled(false);
+				} else
+					register.setEnabled(false);
 			}
 		});
 		phone.setBounds(183, 83, 110, 20);
@@ -102,9 +107,11 @@ public class CRegisterDisplay extends JFrame {
 		email.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
+				if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()
+						&& !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
-				} else register.setEnabled(false);
+				} else
+					register.setEnabled(false);
 			}
 		});
 		email.setBounds(183, 124, 110, 20);
@@ -117,69 +124,74 @@ public class CRegisterDisplay extends JFrame {
 		contentPane.add(passwordReadable);
 		passwordReadable.setColumns(10);
 
-		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.addActionListener(new ActionListener() {
+		back = new JButton("");
+		back.setForeground(new Color(240, 240, 240));
+		Image img = new ImageIcon(this.getClass().getResource("/back.png")).getImage();
+		back.setIcon(new ImageIcon(img));
+		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				companyDisplay.setEnabled(true);
+				cLogInDisplay.setEnabled(true);
 				CRegisterDisplay.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(335, 227, 89, 23);
-		contentPane.add(btnNewButton);
+		back.setBounds(10, 218, 32, 32);
+		contentPane.add(back);
 
 		register = new JButton("Register");
 		register.setEnabled(false);
 		register.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 
-				Company company = new Company();
-
-				company.setName(name.getText());
-				company.setPhone(Integer.parseInt(phone.getText()));
-				company.setEmail(email.getText());
-				String password = passwordHide.getText();
-
-
 				try {
-					
-				MessageDigest md = MessageDigest.getInstance("MD5");
-				md.update(password.getBytes());
-				byte[] digest = md.digest();
-				User u = new User(email.getText(), digest);
-				Role role = um.getRole("Company");
-				u.setRole(role);
-				role.addUser(u);
-				um.newUser(u);
+
+					Company company = new Company();
+					company.setName(name.getText());
+					company.setPhone(Integer.parseInt(phone.getText()));
+					company.setEmail(email.getText());
+					String password = passwordHide.getText();
+
+					MessageDigest md = MessageDigest.getInstance("MD5");
+					md.update(password.getBytes());
+					byte[] digest = md.digest();
+					User u = new User(email.getText(), digest);
+					Role role = um.getRole("Company");
+					u.setRole(role);
+					role.addUser(u);
+					um.newUser(u);
+
+					cm.addCompany(company);
+
+					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
+					cLogInDisplay.setEnabled(true);
+					CRegisterDisplay.this.setVisible(false);
 
 				} catch (NoSuchAlgorithmException e1) {
-
 					e1.printStackTrace();
 
+				} catch (SQLException | NumberFormatException ex) {
+					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Non valid data, try again", "Message",
+							JOptionPane.ERROR_MESSAGE);
+					ex.printStackTrace();
 				}
-				cm = new JDBCCompanyManager (manager);
-				cm.addCompany(company);
-				JOptionPane.showMessageDialog(CRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
-				companyDisplay.setEnabled(true);
-				CRegisterDisplay.this.setVisible(false);
-
 			}
 		});
-		register.setBounds(236, 227, 89, 23);
+		register.setBounds(302, 227, 110, 23);
 		contentPane.add(register);
-		
+
 		passwordHide = new JPasswordField();
 		passwordHide.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
+				if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()
+						&& !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
-				} else register.setEnabled(false);
+				} else
+					register.setEnabled(false);
 			}
 		});
 		passwordHide.setBounds(183, 168, 110, 20);
 		contentPane.add(passwordHide);
-		
+
 		JCheckBox showPassword = new JCheckBox("");
 		showPassword.addMouseListener(new MouseAdapter() {
 			@Override
@@ -189,6 +201,7 @@ public class CRegisterDisplay extends JFrame {
 				passwordHide.setVisible(false);
 				passwordReadable.setText(passwordHide.getText());
 			}
+
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				showPassword.setSelected(false);
@@ -199,9 +212,5 @@ public class CRegisterDisplay extends JFrame {
 		});
 		showPassword.setBounds(302, 167, 30, 23);
 		contentPane.add(showPassword);
-	}
-
-	public void validarDatos() {
-		JOptionPane.showMessageDialog(this, "Datos erroneos", "ERROR", JOptionPane.ERROR_MESSAGE);
 	}
 }

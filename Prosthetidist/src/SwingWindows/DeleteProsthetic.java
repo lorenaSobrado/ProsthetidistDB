@@ -1,12 +1,9 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -17,8 +14,6 @@ import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Prosthetic;
 
-import javax.swing.JTextField;
-import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JButton;
