@@ -31,6 +31,7 @@ public class JDBCManager {
 	public void disconnect() {
 		try {
 			c.close();
+			System.out.println("Database connection closed.");
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -69,18 +70,18 @@ public class JDBCManager {
 			prep.setString(3, "premium");
 			prep.executeUpdate();
 			
-			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "creditCard    INTEGER NOT NULL, "
-					+ "purchase BOOLEAN DEFAULT \"FALSE\", " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
+			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "creditCard    INTEGER, "
+					+ "purchase BOOLEAN DEFAULT FALSE, " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
 					+ "delivery_type TEXT REFERENCES Delivery(type) " + ");";
 			
 			stmt.executeUpdate(sql);
 			
 			sql = "CREATE TABLE Material " + "(name TEXT PRIMARY KEY, " + "price	REAL NOT NULL, " + "strength	TEXT, " + "flexibility TEXT, "
-					+ "temperature_resistance TEXT " + ");";
+					+ "temperatureResistance TEXT " + ");";
 
 			stmt.executeUpdate(sql);
 			
-			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperature_resistance) VALUES (?,?,?,?,?)";
+			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperatureResistance) VALUES (?,?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Plastic");
 			prep.setFloat(2, 3.49f);
@@ -89,7 +90,7 @@ public class JDBCManager {
 			prep.setString(5, "low");
 			prep.executeUpdate();
 			
-			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperature_resistance) VALUES (?,?,?,?,?)";
+			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperatureResistance) VALUES (?,?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Carbon Fiber");
 			prep.setFloat(2, 19.99f);
@@ -98,9 +99,9 @@ public class JDBCManager {
 			prep.setString(5, "high");
 			prep.executeUpdate();
 			
-			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperature_resistance) VALUES (?,?,?,?,?)";
+			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperatureResistance) VALUES (?,?,?,?,?)";
 			prep = c.prepareStatement(sql);
-			prep.setString(1, "Aluminum");
+			prep.setString(1, "Aluminium");
 			prep.setFloat(2, 5.49f);
 			prep.setString(3, "medium");
 			prep.setString(4, "medium");

@@ -62,7 +62,7 @@ public class CRegisterDisplay extends JFrame {
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("PHONE NUMBER :");
-		lblNewLabel_1.setBounds(41, 86, 93, 14);
+		lblNewLabel_1.setBounds(41, 86, 131, 14);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("EMAIL :");

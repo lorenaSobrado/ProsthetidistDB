@@ -75,7 +75,7 @@ public class PLogInDisplay extends JFrame {
 		contentPane.add(passwordReadable);
 		passwordReadable.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("USERNAME :");
+		JLabel lblNewLabel = new JLabel("EMAIL:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBounds(42, 61, 88, 17);
 		contentPane.add(lblNewLabel);
@@ -105,10 +105,10 @@ public class PLogInDisplay extends JFrame {
 		logIn.setForeground(Color.WHITE);
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				User u = um.checkPassword(userName.getText(), passwordHide.getText());
-				if (u != null) {
-					Patient patient = pm.getPatientByEmail(u.getEmail());
-					JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient, manager);
+				User user = um.checkPassword(userName.getText(), passwordHide.getText());
+				if (user != null) {
+					Patient patient = pm.getPatientByEmail(user.getEmail());
+					JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient, manager, user);
 					patientMenuDisplay.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(PLogInDisplay.this, "Your password is incorrect or this account does not exist", "Message", 

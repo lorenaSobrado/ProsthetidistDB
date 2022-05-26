@@ -14,6 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JLabel;
@@ -25,7 +28,17 @@ public class AppDisplay extends JFrame {
 
 	
 	public AppDisplay(JDBCManager manager) {
-		
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("TEST");
+                manager.disconnect();
+               
+            }
+        };
+        this.addWindowListener(exitListener);
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

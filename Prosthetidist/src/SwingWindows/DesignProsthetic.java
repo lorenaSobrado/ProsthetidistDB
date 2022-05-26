@@ -114,7 +114,7 @@ public class DesignProsthetic extends JFrame {
 				m.setLengthiness(length);
 				m.setWidth(width);
 				m.setWeight(weight);
-				p.setMeasurements(m);
+				p.setMeasurement(m);
 				p.setType(type.getSelectedItem().toString());
 				p.setFunctionalities(functionalities.getText());
 				patm.designProsthetic(functionalities.getText(), type.getSelectedItem().toString(), m);
@@ -122,17 +122,17 @@ public class DesignProsthetic extends JFrame {
 				if(plastic.isSelected()) {
 					Material plastic = matm.getMaterialByName("Plastic");
 					materials.add(plastic);
-					matm.uploadMaterialsOfProsthetic(plastic, p);
+					matm.uploadMaterialOfProsthetic(plastic, p);
 				}
 				if(carbonFiber.isSelected()) {
 					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
 					materials.add(carbonFiber);
-					matm.uploadMaterialsOfProsthetic(carbonFiber, p);
+					matm.uploadMaterialOfProsthetic(carbonFiber, p);
 				}
 				if(aluminium.isSelected()) {
 					Material aluminium = matm.getMaterialByName("Aluminium");
 					materials.add(aluminium);
-					matm.uploadMaterialsOfProsthetic(aluminium, p);
+					matm.uploadMaterialOfProsthetic(aluminium, p);
 				}
 				JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !", "Message", 
 						JOptionPane.INFORMATION_MESSAGE);

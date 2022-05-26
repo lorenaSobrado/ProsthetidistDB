@@ -181,8 +181,8 @@ public class CartDisplay extends JFrame {
 		for (Prosthetic p : im.getPatientSelection(patient)) {
 
 			Object[] datos = new Object[] { p.getCode(), p.getPrice(), p.getFunctionalities(), p.getType(),
-					p.getModel(), p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),
-					p.getMeasurements().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+					p.getModel(), p.getMeasurement().getLengthiness(), p.getMeasurement().getWidth(),
+					p.getMeasurement().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
 			model.addRow(datos);
 		}
 		table.setModel(model);
