@@ -25,8 +25,11 @@ public class JDBCManager {
 		} catch (ClassNotFoundException e) {
 			System.out.println("Libraries not loaded");
 		}
-
 	}
+	
+//	public void connect() {
+//
+//	}
 
 	public void disconnect() {
 		try {
@@ -41,7 +44,6 @@ public class JDBCManager {
 		return c;
 	}
 
-	// @TODO finish tables
 	private void createTables() {
 		// Create Tables
 		try {

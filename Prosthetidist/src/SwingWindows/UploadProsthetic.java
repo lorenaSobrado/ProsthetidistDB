@@ -17,11 +17,18 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+
+import java.awt.Image;
+import java.awt.SystemColor;
 
 public class UploadProsthetic extends JFrame {
 
@@ -32,17 +39,18 @@ public class UploadProsthetic extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-	private JComboBox typeOptions;
+	private JComboBox<String> typeOptions;
 
 	private JDBCProstheticManager pm;
 	private JDBCMaterialManager matm;
 	private JDBCMeasurementManager mm;
 
-	public UploadProsthetic(Company company, JDBCManager manager) {
+	public UploadProsthetic(JFrame companyMenuDisplay, Company company, JDBCManager manager) {
 		pm = new JDBCProstheticManager(manager);
 		matm = new JDBCMaterialManager(manager);
 		mm = new JDBCMeasurementManager(manager);
-		
+		companyMenuDisplay.setEnabled(false);
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 598, 382);
 		contentPane = new JPanel();
@@ -120,13 +128,13 @@ public class UploadProsthetic extends JFrame {
 		contentPane.add(textField_6);
 		textField_6.setColumns(10);
 
-		JButton btnNewButton = new JButton("Ok");
+		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				Measurement m = new Measurement();
 				Prosthetic p = new Prosthetic();
-				
+
 				p.setCompany(company);
 				p.setPrice(Float.parseFloat(textField.getText()));
 				p.setFunctionalities(textField_1.getText());
@@ -136,58 +144,77 @@ public class UploadProsthetic extends JFrame {
 				m.setWidth(Float.parseFloat(textField_5.getText()));
 				m.setWeight(Float.parseFloat(textField_6.getText()));
 				mm.addMeasurement(m);
-				p.setMeasurement(mm.getMeasurement(Float.parseFloat(textField_4.getText()), Float.parseFloat(textField_5.getText()), Float.parseFloat(textField_6.getText())));
+				p.setMeasurement(mm.getMeasurement(Float.parseFloat(textField_4.getText()),
+						Float.parseFloat(textField_5.getText()), Float.parseFloat(textField_6.getText())));
 				pm.uploadProsthetic(p);
 				Integer prosCode = pm.getProstheticCode(p);
 				p = pm.getProstheticByCode(prosCode);
-				
-				if(plastic.isSelected()) {
+
+				if (plastic.isSelected()) {
 					Material plastic = matm.getMaterialByName("Plastic");
 					matm.uploadMaterialOfProsthetic(plastic, p);
 				}
-				if(carbonFiber.isSelected()) {
+				if (carbonFiber.isSelected()) {
 					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
 					matm.uploadMaterialOfProsthetic(carbonFiber, p);
 				}
-				if(aluminium.isSelected()) {
+				if (aluminium.isSelected()) {
 					Material aluminium = matm.getMaterialByName("Aluminium");
 					matm.uploadMaterialOfProsthetic(aluminium, p);
 				}
-				JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message",
+						JOptionPane.PLAIN_MESSAGE);
+				companyMenuDisplay.setEnabled(true);
 				UploadProsthetic.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(473, 313, 89, 23);
+		btnNewButton.setBounds(455, 309, 89, 23);
 		contentPane.add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("Cancel");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UploadProsthetic.this.setVisible(false);
-			}
-		});
-		btnNewButton_1.setBounds(343, 313, 89, 23);
-		contentPane.add(btnNewButton_1);
-		
 		JLabel lblNewLabel_7 = new JLabel("Length");
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_7.setBounds(136, 235, 96, 14);
 		contentPane.add(lblNewLabel_7);
-		
+
 		JLabel lblNewLabel_7_1 = new JLabel("Width");
 		lblNewLabel_7_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_7_1.setBounds(290, 235, 96, 14);
 		contentPane.add(lblNewLabel_7_1);
-		
+
 		JLabel lblNewLabel_7_2 = new JLabel("Weight");
 		lblNewLabel_7_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_7_2.setBounds(455, 235, 96, 14);
 		contentPane.add(lblNewLabel_7_2);
-		
-		typeOptions = new JComboBox();
-		typeOptions.setModel(new DefaultComboBoxModel(new String[] {"Right arm", "Right hand", "Right leg", "Right foot", "Left arm", "Left hand", "Left leg", "Left foot"}));
+
+		typeOptions = new JComboBox<String>();
+		typeOptions.setModel(new DefaultComboBoxModel<String>(new String[] { "Right arm", "Right hand", "Right leg",
+				"Right foot", "Left arm", "Left hand", "Left leg", "Left foot" }));
 		typeOptions.setBounds(160, 112, 130, 22);
 		contentPane.add(typeOptions);
+		
+		JButton back = new JButton("");
+		Image img = new ImageIcon(this.getClass().getResource("/back.png")).getImage();
+		back.setIcon(new ImageIcon(img));
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				companyMenuDisplay.setEnabled(true);
+				UploadProsthetic.this.setVisible(false);
+			}
+		});
+		back.setForeground(SystemColor.menu);
+		back.setBounds(10, 300, 32, 32);
+		contentPane.add(back);
+
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
 
 	}
 }

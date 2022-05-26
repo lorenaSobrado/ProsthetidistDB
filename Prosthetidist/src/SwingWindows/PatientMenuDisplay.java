@@ -1,5 +1,7 @@
 package SwingWindows;
 
+import java.awt.Component;
+
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -26,6 +28,9 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class PatientMenuDisplay extends JFrame {
 
@@ -40,7 +45,7 @@ public class PatientMenuDisplay extends JFrame {
 		pm = new JDBCProstheticManager(manager);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 587, 357);
+		setBounds(100, 100, 636, 360);
 		contentPane = new JPanel();
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
@@ -55,7 +60,7 @@ public class PatientMenuDisplay extends JFrame {
 		JButton logOut = new JButton("LOG OUT");
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+//				manager.disconnect();
 				pLogInDisplay.setEnabled(true);
 				PatientMenuDisplay.this.setVisible(false);
 			}
@@ -78,11 +83,11 @@ public class PatientMenuDisplay extends JFrame {
 				designProsthetic.setVisible(true);
 			}
 		});
-		design.setBounds(253, 25, 119, 23);
+		design.setBounds(290, 31, 119, 23);
 		contentPane.add(design);
 
 		JButton btnNewButton_3 = new JButton("Filters");
-		btnNewButton_3.setBounds(382, 24, 89, 23);
+		btnNewButton_3.setBounds(419, 31, 89, 23);
 		contentPane.add(btnNewButton_3);
 
 		JButton cart = new JButton("");
@@ -92,7 +97,7 @@ public class PatientMenuDisplay extends JFrame {
 				cartDisplay.setVisible(true);
 			}
 		});
-		cart.setBounds(491, 17, 70, 37);
+		cart.setBounds(540, 15, 70, 37);
 		contentPane.add(cart);
 		Image img = new ImageIcon(this.getClass().getResource("/cart.png")).getImage();
 		cart.setIcon(new ImageIcon(img));
@@ -118,13 +123,13 @@ public class PatientMenuDisplay extends JFrame {
 				}
 			}
 		});
-		addToCart.setBounds(424, 288, 111, 23);
+		addToCart.setBounds(476, 288, 111, 23);
 		contentPane.add(addToCart);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setEnabled(false);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(39, 79, 488, 177);
+		scrollPane.setBounds(39, 79, 548, 177);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -145,14 +150,35 @@ public class PatientMenuDisplay extends JFrame {
 		model.addColumn("Carbon Fiber");
 		model.addColumn("Aluminium");
 
-		for (Prosthetic p : pm.listProstheticsWithCompanyId()) {
+		for (Prosthetic p : pm.getProstheticsWithCompanyId()) {
+			JLabel plasticImg = new JLabel();
+			plasticImg.setIcon(new ImageIcon(p.hasPlastic()));
+			JLabel carbonFiberImg = new JLabel();
+			carbonFiberImg.setIcon(new ImageIcon(p.hasCarbonFiber()));
+			JLabel aluminiumImg = new JLabel();
+			aluminiumImg.setIcon(new ImageIcon(p.hasAluminium()));
 
 			Object[] datos = new Object[] { p.getCode(), p.getPrice(), p.getFunctionalities(), p.getType(),
 					p.getModel(), p.getMeasurement().getLengthiness(), p.getMeasurement().getWidth(),
-					p.getMeasurement().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+					p.getMeasurement().getWeight(), plasticImg, carbonFiberImg, aluminiumImg };
 			model.addRow(datos);
 		}
 		table.setModel(model);
+		table.getColumn("Plastic").setCellRenderer(new LabelRenderer()); // sets the renderer implemented at the end of this class
+		table.getColumn("Carbon Fiber").setCellRenderer(new LabelRenderer());
+		table.getColumn("Aluminium").setCellRenderer(new LabelRenderer());
 		scrollPane.setViewportView(table);
+
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
 	}
+
 }

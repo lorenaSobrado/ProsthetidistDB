@@ -16,6 +16,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
@@ -237,7 +240,7 @@ public class PRegisterDisplay extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					
+
 					Patient patient = new Patient();
 					patient.setName(name.getText());
 					patient.setId(Integer.parseInt(id.getText()));
@@ -259,16 +262,18 @@ public class PRegisterDisplay extends JFrame {
 					um.newUser(u);
 
 					pm.addPatient(patient);
-					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message",
+							JOptionPane.PLAIN_MESSAGE);
 					patientDisplay.setEnabled(true);
 					PRegisterDisplay.this.setVisible(false);
 
 				} catch (NoSuchAlgorithmException e1) {
 					e1.printStackTrace();
 				} catch (SQLException | NumberFormatException ex) {
-					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Non valid data, try again", "Message", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Non valid data, try again", "Message",
+							JOptionPane.ERROR_MESSAGE);
 					ex.printStackTrace();
-				} //catch (DateTimeParseException e) {
+				} // catch (DateTimeParseException e) {
 //					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Non valid date, try again", "Message", JOptionPane.ERROR_MESSAGE);
 //					e.printStackTrace();
 //				}
@@ -313,6 +318,17 @@ public class PRegisterDisplay extends JFrame {
 		imgIcon.setIcon(new ImageIcon(img));
 		imgIcon.setBounds(301, 23, 225, 201);
 		contentPane.add(imgIcon);
+
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
 
 	}
 }

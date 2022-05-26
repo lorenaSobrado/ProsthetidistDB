@@ -22,6 +22,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
@@ -33,7 +36,7 @@ public class DesignProsthetic extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField functionalities;
-	
+
 	private JDBCMaterialManager matm;
 	private JDBCPatientManager patm;
 
@@ -66,7 +69,8 @@ public class DesignProsthetic extends JFrame {
 		contentPane.add(lblNewLabel_3);
 
 		JComboBox type = new JComboBox();
-		type.setModel(new DefaultComboBoxModel(new String[] {"Right arm", "Right hand", "Right leg", "Right foot", "Left arm", "Left hand", "Left leg", "Left foot"}));
+		type.setModel(new DefaultComboBoxModel(new String[] { "Right arm", "Right hand", "Right leg", "Right foot",
+				"Left arm", "Left hand", "Left leg", "Left foot" }));
 		type.setBounds(128, 37, 96, 21);
 		contentPane.add(type);
 
@@ -119,23 +123,23 @@ public class DesignProsthetic extends JFrame {
 				p.setFunctionalities(functionalities.getText());
 				patm.designProsthetic(functionalities.getText(), type.getSelectedItem().toString(), m);
 				ArrayList<Material> materials = new ArrayList<Material>();
-				if(plastic.isSelected()) {
+				if (plastic.isSelected()) {
 					Material plastic = matm.getMaterialByName("Plastic");
 					materials.add(plastic);
 					matm.uploadMaterialOfProsthetic(plastic, p);
 				}
-				if(carbonFiber.isSelected()) {
+				if (carbonFiber.isSelected()) {
 					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
 					materials.add(carbonFiber);
 					matm.uploadMaterialOfProsthetic(carbonFiber, p);
 				}
-				if(aluminium.isSelected()) {
+				if (aluminium.isSelected()) {
 					Material aluminium = matm.getMaterialByName("Aluminium");
 					materials.add(aluminium);
 					matm.uploadMaterialOfProsthetic(aluminium, p);
 				}
-				JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !", "Message", 
-						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !",
+						"Message", JOptionPane.INFORMATION_MESSAGE);
 				DesignProsthetic.this.setVisible(false);
 			}
 		});
@@ -151,6 +155,17 @@ public class DesignProsthetic extends JFrame {
 		});
 		btnNewButton_1.setBounds(417, 275, 85, 21);
 		contentPane.add(btnNewButton_1);
+
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
 
 	}
 }
