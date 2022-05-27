@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
@@ -43,7 +44,8 @@ public class DesignProsthetic extends JFrame {
 	private JDBCPatientManager patm;
 	private JDBCMeasurementManager mm;
 	private JDBCProstheticManager pm;
-
+	//private DecimalFormat formats = new DecimalFormat ("#.00");
+	
 	public DesignProsthetic(JFrame patientMenuDisplay, JDBCManager manager) {
 		patientMenuDisplay.setEnabled(false);
 		matm = new JDBCMaterialManager(manager);
