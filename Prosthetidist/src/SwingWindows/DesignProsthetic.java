@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
@@ -124,10 +125,9 @@ public class DesignProsthetic extends JFrame {
 				m.setLengthiness(length);
 				m.setWidth(width);
 				m.setWeight(weight);
-//				if(mm.getMeasurement(length, width, weight) == null) {
-//					mm.addMeasurement(m);
-//				}
-				mm.addMeasurement(m);
+				if(mm.getMeasurement(length, width, weight) == null) {
+					mm.addMeasurement(m);
+				}
 				m = mm.getMeasurement(length, width, weight);
 				patm.designProsthetic(functionalities.getText(), type.getSelectedItem().toString(), m); //Doesn't matter if anyone else design exactly the same bc the company could offer the 2 (each for each patient)
 				Integer prosCode = patm.getDesignCode(functionalities.getText(), type.getSelectedItem().toString(), m);

@@ -138,14 +138,15 @@ public class CartDisplay extends JFrame {
 		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientMenuDisplay.setEnabled(true);
+				table.selectAll();
 				int[] selection = table.getSelectedRows();
 				for (int i : selection) {
-					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 1).toString()));
+					Integer prosCode = Integer.valueOf(table.getValueAt(i, 0).toString());
 					if (premium.isSelected()) {
-						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), premium.toString());
+						im.updateInvoice(patient, prosCode, Long.valueOf(creditCard.getText()), premium.toString());
 					}
 					if (standard.isSelected()) {
-						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), standard.toString());
+						im.updateInvoice(patient, prosCode, Long.valueOf(creditCard.getText()), standard.toString());
 					}
 				}
 				JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message",
@@ -209,13 +210,13 @@ public class CartDisplay extends JFrame {
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(10, 46, 450, 89);
 		contentPane.add(scrollPane);
-		scrollPane.add(table);
+		scrollPane.setViewportView(table);
 
 		JLabel lblNewLabel_1 = new JLabel("Choose delivery");
 		lblNewLabel_1.setBounds(24, 157, 83, 14);
 		contentPane.add(lblNewLabel_1);
 
-		JButton delete = new JButton("DELETE");
+		JButton delete = new JButton("REMOVE");
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (table.getSelectedRowCount() > 0) {

@@ -36,9 +36,13 @@ public class JDBCInvoiceManager implements InvoiceManager {
 	
 	public void deleteProstheticFromCart(Patient pa, Integer prosCode) {
 		try {
-			String sql = "DELETE * FROM Invoice WHERE patient_id = " + pa.getId() + " AND prosthetic_code = " + prosCode + " AND purchase = FALSE)";
-			PreparedStatement p = manager.getConnection().prepareStatement(sql);
-			p.executeUpdate();
+			String sql = "DELETE FROM Invoice WHERE patient_id = ? AND prosthetic_code = ? AND purchase = ?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setInt(1, pa.getId());
+			prep.setInt(2, prosCode);
+			prep.setBoolean(3, false);
+			
+			prep.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -48,9 +52,10 @@ public class JDBCInvoiceManager implements InvoiceManager {
 
 		ArrayList<Prosthetic> cart = new ArrayList<Prosthetic>();
 		try {
-			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase IS 'FALSE'"; 
+			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase = ?"; 
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, pa.getId());
+			prep.setBoolean(2, false);
 			ResultSet rs = prep.executeQuery();
 			while (rs.next()) {
 				Integer pcode = rs.getInt("prosthetic_code");
@@ -64,19 +69,19 @@ public class JDBCInvoiceManager implements InvoiceManager {
 
 	}
 
-	public void updateInvoice(Patient patient, Prosthetic pros, Integer creditCard, String deliveryType) {
-
+	public void updateInvoice(Patient patient, Integer prosCode, Long creditCard, String deliveryType) {
+		//DA ERROR (FOREIGN KEY constraint failed) NOSE SI EN DELIVERY. NO ENTIENDO PQ 
 		try {
-			String sql = "UPDATE Invoice " + "SET purchase = ? " + "SET datePurchase = ? " + "creditCard = ?"
+			String sql = "UPDATE Invoice SET purchase = ?, datePurchase = ?, creditCard = ?, "
 					+ "delivery_type = ? WHERE patient_id = ? AND prosthetic_code = ? AND purchase = ?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 			p.setBoolean(1, true);
 			LocalDate datePurchase = LocalDate.now();
 			p.setDate(2, Date.valueOf(datePurchase));
-			p.setInt(3, creditCard);
+			p.setLong(3, creditCard);
 			p.setString(4, deliveryType);
 			p.setInt(5, patient.getId());
-			p.setInt(6, pros.getCode());
+			p.setInt(6, prosCode);
 			p.setBoolean(7, false);
 
 			p.executeUpdate();
