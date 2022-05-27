@@ -21,6 +21,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class OfferProstheticByCompany extends JFrame {
 
@@ -31,10 +32,11 @@ public class OfferProstheticByCompany extends JFrame {
 	private JButton back;
 	private JDBCCompanyManager cm;
 
-	public OfferProstheticByCompany(JFrame offerProsthetic, Company company, Prosthetic prosthetic, JDBCManager manager) {
+	public OfferProstheticByCompany(JFrame offerProsthetic, Company company, Prosthetic prosthetic,
+			JDBCManager manager) {
 		cm = new JDBCCompanyManager(manager);
 		offerProsthetic.setEnabled(false);
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -57,7 +59,9 @@ public class OfferProstheticByCompany extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				prosthetic.setPrice(Float.valueOf(price.getText()));
 				prosthetic.setModel(model.getText());
-				cm.offerDesign(prosthetic);
+				cm.offerDesign(prosthetic, company.getId());
+				JOptionPane.showConfirmDialog(OfferProstheticByCompany.this, "Prosthetic has been made!", "Message",
+						JOptionPane.PLAIN_MESSAGE);
 				offerProsthetic.setEnabled(true);
 				OfferProstheticByCompany.this.setVisible(false);
 			}

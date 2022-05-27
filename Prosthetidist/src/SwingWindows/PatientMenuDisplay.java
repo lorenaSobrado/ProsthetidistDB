@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import prosthetidist.jdbc.JDBCInvoiceManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
+import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
 import prosthetidist.pojos.User;
@@ -37,7 +38,7 @@ public class PatientMenuDisplay extends JFrame {
 	private JDBCProstheticManager pm;
 	private JTable table;
 
-	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient, JDBCManager manager, User user) {
+	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient, JDBCManager manager, JPAUserManager um) {
 		pLogInDisplay.setEnabled(false);
 		im = new JDBCInvoiceManager(manager);
 		pm = new JDBCProstheticManager(manager);
@@ -58,7 +59,7 @@ public class PatientMenuDisplay extends JFrame {
 		JButton logOut = new JButton("LOG OUT");
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				manager.disconnect();
+				um.disconnect();
 				pLogInDisplay.setEnabled(true);
 				PatientMenuDisplay.this.setVisible(false);
 			}

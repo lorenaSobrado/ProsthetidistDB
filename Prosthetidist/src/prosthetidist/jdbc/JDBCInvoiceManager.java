@@ -48,7 +48,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 
 		ArrayList<Prosthetic> cart = new ArrayList<Prosthetic>();
 		try {
-			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase IS FALSE"; 
+			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase IS 'FALSE'"; 
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, pa.getId());
 			ResultSet rs = prep.executeQuery();

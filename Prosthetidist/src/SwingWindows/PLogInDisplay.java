@@ -103,7 +103,7 @@ public class PLogInDisplay extends JFrame {
 				User user = um.checkPassword(userName.getText(), passwordHide.getText());
 				if (user != null) {
 					Patient patient = pm.getPatientByEmail(user.getEmail());
-					JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient, manager, user);
+					JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient, manager, um);
 					patientMenuDisplay.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(PLogInDisplay.this,

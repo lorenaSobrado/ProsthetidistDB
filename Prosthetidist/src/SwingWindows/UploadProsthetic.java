@@ -148,19 +148,19 @@ public class UploadProsthetic extends JFrame {
 						Float.parseFloat(textField_5.getText()), Float.parseFloat(textField_6.getText())));
 				pm.uploadProsthetic(p);
 				Integer prosCode = pm.getProstheticCode(p);
-				p = pm.getProstheticByCode(prosCode);
+//				p = pm.getProstheticByCode(prosCode);
 
 				if (plastic.isSelected()) {
 					Material plastic = matm.getMaterialByName("Plastic");
-					matm.uploadMaterialOfProsthetic(plastic, p);
+					matm.uploadMaterialOfProsthetic(plastic, prosCode);
 				}
 				if (carbonFiber.isSelected()) {
 					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
-					matm.uploadMaterialOfProsthetic(carbonFiber, p);
+					matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
 				}
 				if (aluminium.isSelected()) {
 					Material aluminium = matm.getMaterialByName("Aluminium");
-					matm.uploadMaterialOfProsthetic(aluminium, p);
+					matm.uploadMaterialOfProsthetic(aluminium, prosCode);
 				}
 				JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message",
 						JOptionPane.PLAIN_MESSAGE);
