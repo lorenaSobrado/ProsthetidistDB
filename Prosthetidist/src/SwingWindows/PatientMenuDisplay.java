@@ -1,46 +1,34 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
-
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JToolBar;
 import javax.swing.JButton;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
-import javax.swing.AbstractListModel;
-import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 import prosthetidist.jdbc.JDBCInvoiceManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.Prosthetic;
-import prosthetidist.ui.*;
+import prosthetidist.pojos.User;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-
-import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class PatientMenuDisplay extends JFrame {
 
@@ -49,14 +37,20 @@ public class PatientMenuDisplay extends JFrame {
 	private JDBCProstheticManager pm;
 	private JTable table;
 
-	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient, JDBCManager manager) {
+	public PatientMenuDisplay(JFrame pLogInDisplay, Patient patient, JDBCManager manager, User user) {
 		pLogInDisplay.setEnabled(false);
 		im = new JDBCInvoiceManager(manager);
 		pm = new JDBCProstheticManager(manager);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 587, 357);
+		setBounds(100, 100, 636, 360);
 		contentPane = new JPanel();
+		contentPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				table.clearSelection();
+			}
+		});
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
@@ -64,6 +58,7 @@ public class PatientMenuDisplay extends JFrame {
 		JButton logOut = new JButton("LOG OUT");
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+//				manager.disconnect();
 				pLogInDisplay.setEnabled(true);
 				PatientMenuDisplay.this.setVisible(false);
 			}
@@ -86,12 +81,8 @@ public class PatientMenuDisplay extends JFrame {
 				designProsthetic.setVisible(true);
 			}
 		});
-		design.setBounds(253, 25, 119, 23);
+		design.setBounds(368, 29, 119, 23);
 		contentPane.add(design);
-
-		JButton btnNewButton_3 = new JButton("Filters");
-		btnNewButton_3.setBounds(382, 24, 89, 23);
-		contentPane.add(btnNewButton_3);
 
 		JButton cart = new JButton("");
 		cart.addActionListener(new ActionListener() {
@@ -100,7 +91,7 @@ public class PatientMenuDisplay extends JFrame {
 				cartDisplay.setVisible(true);
 			}
 		});
-		cart.setBounds(491, 17, 70, 37);
+		cart.setBounds(540, 15, 70, 37);
 		contentPane.add(cart);
 		Image img = new ImageIcon(this.getClass().getResource("/cart.png")).getImage();
 		cart.setIcon(new ImageIcon(img));
@@ -126,13 +117,13 @@ public class PatientMenuDisplay extends JFrame {
 				}
 			}
 		});
-		addToCart.setBounds(424, 288, 111, 23);
+		addToCart.setBounds(476, 288, 111, 23);
 		contentPane.add(addToCart);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setEnabled(false);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(39, 79, 488, 177);
+		scrollPane.setBounds(39, 79, 548, 177);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -153,14 +144,35 @@ public class PatientMenuDisplay extends JFrame {
 		model.addColumn("Carbon Fiber");
 		model.addColumn("Aluminium");
 
-		for (Prosthetic p : pm.listProstheticsWithCompanyId()) {
+		for (Prosthetic p : pm.getProstheticsWithCompanyId()) {
+			JLabel plasticImg = new JLabel();
+			plasticImg.setIcon(new ImageIcon(p.hasPlastic()));
+			JLabel carbonFiberImg = new JLabel();
+			carbonFiberImg.setIcon(new ImageIcon(p.hasCarbonFiber()));
+			JLabel aluminiumImg = new JLabel();
+			aluminiumImg.setIcon(new ImageIcon(p.hasAluminium()));
 
 			Object[] datos = new Object[] { p.getCode(), p.getPrice(), p.getFunctionalities(), p.getType(),
-					p.getModel(), p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),
-					p.getMeasurements().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+					p.getModel(), p.getMeasurement().getLengthiness(), p.getMeasurement().getWidth(),
+					p.getMeasurement().getWeight(), plasticImg, carbonFiberImg, aluminiumImg };
 			model.addRow(datos);
 		}
 		table.setModel(model);
+		table.getColumn("Plastic").setCellRenderer(new LabelRenderer()); // sets the renderer implemented at the end of this class
+		table.getColumn("Carbon Fiber").setCellRenderer(new LabelRenderer());
+		table.getColumn("Aluminium").setCellRenderer(new LabelRenderer());
+		scrollPane.setViewportView(table);
 
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
 	}
+
 }

@@ -7,10 +7,11 @@ import prosthetidist.pojos.Prosthetic;
 
 public interface ProstheticsManager {
 	
-	public List<Prosthetic> listProstheticsWithCompanyId ();
-	public List<Prosthetic> listProstheticsWithoutCompanyId();
-	public void uploadProsthetics (Company c, Prosthetic p);
+	public List<Prosthetic> getProstheticsWithCompanyId ();
+	public List<Prosthetic> getProstheticsWithoutCompanyId();
+	public void uploadProsthetic(Prosthetic p);
 	public Prosthetic getProstheticByCode(Integer code);
 	public void deleteProsthetic(Prosthetic p);
+	public Integer getProstheticCode(Prosthetic p);
 
 }

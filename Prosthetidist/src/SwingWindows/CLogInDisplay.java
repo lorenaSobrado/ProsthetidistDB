@@ -21,6 +21,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.Color;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
@@ -65,7 +68,7 @@ public class CLogInDisplay extends JFrame {
 		contentPane.add(passwordReadable);
 		passwordReadable.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("USERNAME :");
+		JLabel lblNewLabel = new JLabel("EMAIL:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBounds(42, 61, 88, 17);
 		contentPane.add(lblNewLabel);
@@ -101,7 +104,8 @@ public class CLogInDisplay extends JFrame {
 					JFrame companyMenuDisplay = new CompanyMenuDisplay(CLogInDisplay.this, company, manager);
 					companyMenuDisplay.setVisible(true);
 				} else {
-					JOptionPane.showMessageDialog(CLogInDisplay.this, "Your password is incorrect or this account does not exist", "Message", 
+					JOptionPane.showMessageDialog(CLogInDisplay.this,
+							"Your password is incorrect or this account does not exist", "Message",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
@@ -146,5 +150,15 @@ public class CLogInDisplay extends JFrame {
 		register.setBounds(107, 191, 213, 23);
 		contentPane.add(register);
 
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
 	}
 }

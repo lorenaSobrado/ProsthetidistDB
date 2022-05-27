@@ -4,6 +4,9 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -43,30 +46,34 @@ public class CartDisplay extends JFrame {
 	private JButton back;
 	private JTable table;
 	private DefaultTableModel model;
-	
-    private JDBCInvoiceManager im;
-    private JDBCProstheticManager pm;
-    private JDBCDeliveryManager dm;
 
+	private JDBCInvoiceManager im;
+	private JDBCProstheticManager pm;
+	private JDBCDeliveryManager dm;
 
-	
 	public CartDisplay(JFrame patientMenuDisplay, Patient patient, JDBCManager manager) {
 		im = new JDBCInvoiceManager(manager);
 		pm = new JDBCProstheticManager(manager);
 		dm = new JDBCDeliveryManager(manager);
-		
+
 		patientMenuDisplay.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 488, 351);
 		contentPane = new JPanel();
+		contentPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				table.clearSelection();
+			}
+		});
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("YOUR SELECTION :");
 		lblNewLabel.setBounds(24, 11, 113, 14);
 		contentPane.add(lblNewLabel);
-		
+
 		standard = new JRadioButton("STANDARD");
 		standard.addMouseListener(new MouseAdapter() {
 			@Override
@@ -83,7 +90,7 @@ public class CartDisplay extends JFrame {
 		});
 		standard.setBounds(41, 177, 111, 23);
 		contentPane.add(standard);
-		
+
 		premium = new JRadioButton("PREMIUM");
 		premium.addMouseListener(new MouseAdapter() {
 			@Override
@@ -100,20 +107,22 @@ public class CartDisplay extends JFrame {
 		});
 		premium.setBounds(195, 177, 111, 23);
 		contentPane.add(premium);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("CREDIT CARD NUMBER :");
 		lblNewLabel_2.setBounds(24, 224, 128, 14);
 		contentPane.add(lblNewLabel_2);
-		
+
 		creditCard = new JTextField();
 		creditCard.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				if (creditCard.getText().length() >= 16) {
-					e.consume(); //deja de procesar este evento
+					e.consume(); // deja de procesar este evento
 					Toolkit.getDefaultToolkit().beep();
 				}
-				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() >= 15)) { //pq 15 y no 16?
+				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() >= 15)) { // pq 15
+																												// y no
+																												// 16?
 					buy.setEnabled(true);
 				} else {
 					buy.setEnabled(false);
@@ -123,30 +132,30 @@ public class CartDisplay extends JFrame {
 		creditCard.setBounds(173, 221, 133, 20);
 		contentPane.add(creditCard);
 		creditCard.setColumns(10);
-		
+
 		buy = new JButton("BUY");
 		buy.setEnabled(false);
 		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientMenuDisplay.setEnabled(true);
 				int[] selection = table.getSelectedRows();
-				for(int i : selection) {
+				for (int i : selection) {
 					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 1).toString()));
-					if(premium.isSelected()) {
+					if (premium.isSelected()) {
 						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), premium.toString());
 					}
-					if(standard.isSelected()) {
+					if (standard.isSelected()) {
 						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), standard.toString());
 					}
 				}
-				JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message", 
+				JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message",
 						JOptionPane.INFORMATION_MESSAGE);
 				CartDisplay.this.setVisible(false);
 			}
 		});
 		buy.setBounds(377, 282, 89, 23);
 		contentPane.add(buy);
-		
+
 		back = new JButton("");
 		Image img = new ImageIcon(this.getClass().getResource("/back.png")).getImage();
 		back.setIcon(new ImageIcon(img));
@@ -158,7 +167,7 @@ public class CartDisplay extends JFrame {
 		});
 		back.setBounds(10, 269, 32, 32);
 		contentPane.add(back);
-		
+
 		table = new JTable();
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		model = new DefaultTableModel() {
@@ -179,52 +188,73 @@ public class CartDisplay extends JFrame {
 		model.addColumn("Aluminium");
 
 		for (Prosthetic p : im.getPatientSelection(patient)) {
+			JLabel plasticImg = new JLabel();
+			plasticImg.setIcon(new ImageIcon(p.hasPlastic()));
+			JLabel carbonFiberImg = new JLabel();
+			carbonFiberImg.setIcon(new ImageIcon(p.hasCarbonFiber()));
+			JLabel aluminiumImg = new JLabel();
+			aluminiumImg.setIcon(new ImageIcon(p.hasAluminium()));
 
 			Object[] datos = new Object[] { p.getCode(), p.getPrice(), p.getFunctionalities(), p.getType(),
-					p.getModel(), p.getMeasurements().getLengthiness(), p.getMeasurements().getWidth(),
-					p.getMeasurements().getWeight(), p.hasPlastic(), p.hasCarbonFiber(), p.hasAluminium() };
+					p.getModel(), p.getMeasurement().getLengthiness(), p.getMeasurement().getWidth(),
+					p.getMeasurement().getWeight(), plasticImg, carbonFiberImg, aluminiumImg };
 			model.addRow(datos);
 		}
 		table.setModel(model);
+		table.getColumn("Plastic").setCellRenderer(new LabelRenderer()); // sets the renderer implemented at the end of this class
+		table.getColumn("Carbon Fiber").setCellRenderer(new LabelRenderer());
+		table.getColumn("Aluminium").setCellRenderer(new LabelRenderer());
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(10, 46, 450, 89);
 		contentPane.add(scrollPane);
 		scrollPane.add(table);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Choose delivery");
 		lblNewLabel_1.setBounds(24, 157, 83, 14);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JButton delete = new JButton("DELETE");
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(table.getSelectedRowCount() > 0) {
+				if (table.getSelectedRowCount() > 0) {
 					int i = table.getSelectedRow();
 					Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
 					im.deleteProstheticFromCart(patient, prosCode);
 					model.removeRow(i);
 				} else {
-					JOptionPane.showMessageDialog(CartDisplay.this, "Select a prosthetic", "Message", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(CartDisplay.this, "Select a prosthetic", "Message",
+							JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		});
 		delete.setBounds(370, 7, 77, 23);
 		contentPane.add(delete);
-		
+
 		JLabel total = new JLabel(getTotalPrice(im.getPatientSelection(patient)));
 		total.setBounds(377, 257, 53, 14);
 		contentPane.add(total);
-		
+
 		JLabel dollar = new JLabel("");
 		Image dollarImg = new ImageIcon(this.getClass().getResource("/dollar.png")).getImage();
 		dollar.setIcon(new ImageIcon(dollarImg));
 		dollar.setBounds(440, 255, 16, 16);
-		contentPane.add(dollar);	
-		
+		contentPane.add(dollar);
+
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
+
 	}
-	
+
 	private String getTotalPrice(ArrayList<Prosthetic> cart) {
 		Float totalPrice = 0f;
 		for (Prosthetic p : cart) {
@@ -233,7 +263,7 @@ public class CartDisplay extends JFrame {
 //				totalPrice += m.getPrice();
 //			}
 		}
-		if(premium.isSelected()) {
+		if (premium.isSelected()) {
 			totalPrice += dm.getPremiumDelivery().getPrice();
 		}
 		return String.valueOf(totalPrice);

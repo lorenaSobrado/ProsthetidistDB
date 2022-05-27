@@ -23,6 +23,8 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	public JDBCCompanyManager(JDBCManager m) {
 		this.manager = m;
+		this.mm = new JDBCMeasurementManager(manager);
+		this.matm = new JDBCMaterialManager(manager);
 	}
 
 //	public void addCompany(Company c) {

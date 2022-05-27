@@ -22,7 +22,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 
 	public void addProstheticToCart(Patient pa, Integer prosCode) {
 		try {
-			String sql = "INSERT INTO Invoice SET(purchase, patient_id, prosthetic_code) VALUES (?,?,?)";
+			String sql = "INSERT INTO Invoice (purchase, patient_id, prosthetic_code) VALUES (?,?,?)";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 			p.setBoolean(1, false);
 			p.setInt(2, pa.getId());
@@ -48,7 +48,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 
 		ArrayList<Prosthetic> cart = new ArrayList<Prosthetic>();
 		try {
-			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase = FALSE"; 
+			String sql = "SELECT prosthetic_code FROM Invoice WHERE patient_id = ? AND purchase IS FALSE"; 
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setInt(1, pa.getId());
 			ResultSet rs = prep.executeQuery();
