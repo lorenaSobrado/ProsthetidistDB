@@ -80,5 +80,23 @@ public class JDBCPatientManager implements PatientManager {
 		}
 		return p;
 	}
+	
+	public Integer getDesignCode(String functionalities, String type, Measurement m) {
+		Integer prosCode = null;
+		try {
+			String sql = "SELECT code FROM Prosthetic WHERE functionalities = ? AND type = ? AND measurement_id = ?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setString(2, functionalities);
+			prep.setString(3, type);
+			prep.setInt(6, m.getId());
+			
+			ResultSet rs = prep.executeQuery();
+			prosCode = rs.getInt("code");
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return prosCode;
+	}
 
 }

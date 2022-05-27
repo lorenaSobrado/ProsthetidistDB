@@ -1,8 +1,6 @@
 package SwingWindows;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 
@@ -10,29 +8,26 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCPatientManager;
 import prosthetidist.jpa.JPAUserManager;
-import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Patient;
 import prosthetidist.pojos.User;
 
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
 
@@ -111,7 +106,8 @@ public class PLogInDisplay extends JFrame {
 					JFrame patientMenuDisplay = new PatientMenuDisplay(PLogInDisplay.this, patient, manager, user);
 					patientMenuDisplay.setVisible(true);
 				} else {
-					JOptionPane.showMessageDialog(PLogInDisplay.this, "Your password is incorrect or this account does not exist", "Message", 
+					JOptionPane.showMessageDialog(PLogInDisplay.this,
+							"Your password is incorrect or this account does not exist", "Message",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
@@ -155,6 +151,17 @@ public class PLogInDisplay extends JFrame {
 		register.setForeground(Color.WHITE);
 		register.setBounds(107, 191, 213, 23);
 		contentPane.add(register);
+
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
 
 	}
 }

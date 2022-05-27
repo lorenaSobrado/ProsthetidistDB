@@ -25,7 +25,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		this.matm = new JDBCMaterialManager(m);
 	}
 
-	public ArrayList<Prosthetic> listProstheticsWithCompanyId() {
+	public ArrayList<Prosthetic> getProstheticsWithCompanyId() {
 		ArrayList<Prosthetic> allProsthetics = new ArrayList<Prosthetic>();
 
 		try {
@@ -56,7 +56,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		return allProsthetics;
 	}
 	
-	public ArrayList<Prosthetic> listProstheticsWithoutCompanyId() { 
+	public ArrayList<Prosthetic> getProstheticsWithoutCompanyId() { 
 
 		ArrayList<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
 
@@ -166,4 +166,5 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		}
 		return prosCode;
 	}
+	
 }

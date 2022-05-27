@@ -66,7 +66,6 @@ public class JDBCMeasurementManager implements MeasurementManager {
 			ex.printStackTrace();
 		}
 		return m;
-
 	}
 	
 }

@@ -21,6 +21,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -161,7 +164,8 @@ public class CRegisterDisplay extends JFrame {
 
 					cm.addCompany(company);
 
-					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Register successfull", "Message", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Register successfull", "Message",
+							JOptionPane.PLAIN_MESSAGE);
 					cLogInDisplay.setEnabled(true);
 					CRegisterDisplay.this.setVisible(false);
 
@@ -212,5 +216,16 @@ public class CRegisterDisplay extends JFrame {
 		});
 		showPassword.setBounds(302, 167, 30, 23);
 		contentPane.add(showPassword);
+
+		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
+		WindowListener exitListener = (WindowListener) new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				manager.disconnect();
+
+			}
+		};
+		this.addWindowListener(exitListener);
 	}
 }

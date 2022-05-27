@@ -6,26 +6,28 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 
 public class BuyDisplay extends JPanel {
 
-	
 	public BuyDisplay() {
 		setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("THANK YOU FOR BUYING WITH US!!");
 		lblNewLabel.setBackground(new Color(240, 240, 240));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(109, 86, 210, 44);
 		add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("YOUR ORDER WILL ARRIVE \r\nAS SOON AS POSSIBLE");
 		lblNewLabel_1.setLabelFor(this);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(76, 141, 291, 83);
 		add(lblNewLabel_1);
-		
+
 		JButton btnNewButton = new JButton("CLOSE");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -25,8 +25,11 @@ public class JDBCManager {
 		} catch (ClassNotFoundException e) {
 			System.out.println("Libraries not loaded");
 		}
-
 	}
+	
+//	public void connect() {
+//
+//	}
 
 	public void disconnect() {
 		try {
@@ -41,7 +44,6 @@ public class JDBCManager {
 		return c;
 	}
 
-	// @TODO finish tables
 	private void createTables() {
 		// Create Tables
 		try {
@@ -119,7 +121,7 @@ public class JDBCManager {
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE Prosthetic " + "(code INTEGER PRIMARY KEY AUTOINCREMENT, " + "price REAL NOT NULL, " + "functionalities	TEXT, " 
+			sql = "CREATE TABLE Prosthetic " + "(code INTEGER PRIMARY KEY AUTOINCREMENT, " + "price REAL, " + "functionalities	TEXT, " 
 					+ "type TEXT NOT NULL, " + "model TEXT, " + "company_id INTEGER REFERENCES Company (id)," 
 					+ "measurement_id INTEGER REFERENCES Measurement (id) " + ");";
 
