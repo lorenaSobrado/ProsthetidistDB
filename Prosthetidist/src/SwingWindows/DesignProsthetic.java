@@ -124,28 +124,28 @@ public class DesignProsthetic extends JFrame {
 				m.setLengthiness(length);
 				m.setWidth(width);
 				m.setWeight(weight);
-				if(mm.getMeasurement(length, width, weight) == null) {
-					mm.addMeasurement(m);
-				}
+//				if(mm.getMeasurement(length, width, weight) == null) {
+//					mm.addMeasurement(m);
+//				}
+				mm.addMeasurement(m);
 				m = mm.getMeasurement(length, width, weight);
 				patm.designProsthetic(functionalities.getText(), type.getSelectedItem().toString(), m); //Doesn't matter if anyone else design exactly the same bc the company could offer the 2 (each for each patient)
 				Integer prosCode = patm.getDesignCode(functionalities.getText(), type.getSelectedItem().toString(), m);
-				Prosthetic p = pm.getProstheticByCode(prosCode);
 				ArrayList<Material> materials = new ArrayList<Material>();
 				if (plastic.isSelected()) {
 					Material plastic = matm.getMaterialByName("Plastic");
 					materials.add(plastic);
-					matm.uploadMaterialOfProsthetic(plastic, p);
+					matm.uploadMaterialOfProsthetic(plastic, prosCode);
 				}
 				if (carbonFiber.isSelected()) {
 					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
 					materials.add(carbonFiber);
-					matm.uploadMaterialOfProsthetic(carbonFiber, p);
+					matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
 				}
 				if (aluminium.isSelected()) {
 					Material aluminium = matm.getMaterialByName("Aluminium");
 					materials.add(aluminium);
-					matm.uploadMaterialOfProsthetic(aluminium, p);
+					matm.uploadMaterialOfProsthetic(aluminium, prosCode);
 				}
 				JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !",
 						"Message", JOptionPane.INFORMATION_MESSAGE);

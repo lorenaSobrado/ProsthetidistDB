@@ -104,7 +104,7 @@ public class OfferProsthetic extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(table.getSelectedRowCount() > 0) {
 					int i = table.getSelectedRow();
-					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 1).toString()));
+					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 0).toString()));
 					JFrame offerProstheticByCompany = new OfferProstheticByCompany(OfferProsthetic.this, company, p, manager);
 					offerProstheticByCompany.setVisible(true);
 				} else {

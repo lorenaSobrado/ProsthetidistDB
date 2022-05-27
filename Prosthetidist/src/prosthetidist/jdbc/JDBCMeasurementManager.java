@@ -59,7 +59,7 @@ public class JDBCMeasurementManager implements MeasurementManager {
 			ResultSet rs = prep.executeQuery();
 			Integer id = rs.getInt("id");
 			m = this.getMeasurementById(id);
-			
+					
 			rs.close();
 			prep.close();
 		} catch (SQLException ex) {

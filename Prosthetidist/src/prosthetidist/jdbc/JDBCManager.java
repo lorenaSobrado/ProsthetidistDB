@@ -73,7 +73,7 @@ public class JDBCManager {
 			prep.executeUpdate();
 			
 			sql = "CREATE TABLE Invoice " + "(id	INTEGER PRIMARY KEY AUTOINCREMENT, " + "datePurchase	DATE, " + "creditCard    INTEGER, "
-					+ "purchase BOOLEAN DEFAULT FALSE, " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
+					+ "purchase BOOLEAN DEFAULT FALSE, " + "patient_id INTEGER REFERENCES Patient(id), " + "prosthetic_code INTEGER REFERENCES Prosthetic(code) ON DELETE CASCADE, " 
 					+ "delivery_type TEXT REFERENCES Delivery(type) " + ");";
 			
 			stmt.executeUpdate(sql);
@@ -122,13 +122,13 @@ public class JDBCManager {
 			stmt.executeUpdate(sql);
 
 			sql = "CREATE TABLE Prosthetic " + "(code INTEGER PRIMARY KEY AUTOINCREMENT, " + "price REAL, " + "functionalities	TEXT, " 
-					+ "type TEXT NOT NULL, " + "model TEXT, " + "company_id INTEGER REFERENCES Company (id)," 
+					+ "type TEXT NOT NULL, " + "model TEXT, " + "company_id INTEGER REFERENCES Company (id) ON DELETE CASCADE," 
 					+ "measurement_id INTEGER REFERENCES Measurement (id) " + ");";
 
 			stmt.executeUpdate(sql);
 
-			sql = "CREATE TABLE ProstheticHasMaterials " + "(prosthetic_code INTEGER REFERENCES Prosthetic(code), " 
-			+ "	material_name TEXT REFERENCES Material(name), " + "PRIMARY KEY (prosthetic_code, material_name)" + ");";
+			sql = "CREATE TABLE ProstheticHasMaterials " + "(prosthetic_code INTEGER REFERENCES Prosthetic(code) ON DELETE CASCADE, " 
+			+ "	material_name TEXT REFERENCES Material(name) ON DELETE CASCADE, " + "PRIMARY KEY (prosthetic_code, material_name)" + ");";
 			
 			stmt.executeUpdate(sql);
 

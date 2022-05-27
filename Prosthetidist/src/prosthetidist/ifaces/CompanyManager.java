@@ -13,7 +13,7 @@ public interface CompanyManager {
 	public void addCompany (Company c) throws SQLException;
 	public void deleteCompany (Company c); 	
 	public Company getCompanyById (int company_id); 
-	public void offerDesign (Prosthetic prosthetic);
+	public void offerDesign (Prosthetic prosthetic, Integer companyId);
 	public List<Prosthetic> listProstheticsOfCompany(Company c);
 
 

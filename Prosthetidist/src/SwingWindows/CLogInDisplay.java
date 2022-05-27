@@ -101,7 +101,7 @@ public class CLogInDisplay extends JFrame {
 				User u = um.checkPassword(userName.getText(), passwordHide.getText());
 				if (u != null) {
 					Company company = cm.getCompanyByEmail(u.getEmail());
-					JFrame companyMenuDisplay = new CompanyMenuDisplay(CLogInDisplay.this, company, manager);
+					JFrame companyMenuDisplay = new CompanyMenuDisplay(CLogInDisplay.this, company, manager, um);
 					companyMenuDisplay.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(CLogInDisplay.this,

@@ -122,16 +122,15 @@ public class JDBCCompanyManager implements CompanyManager {
 		return prostheticsOfCompany;
 	}
 
-	public void offerDesign(Prosthetic prosthetic) {
+	public void offerDesign(Prosthetic prosthetic, Integer companyId) {
 
 		try {
-			String sql = "UPDATE Prosthetic" + " SET price = ?" + " model = ?"
-					+ " company_id = ? WHERE prosthetic_code=?";
+			String sql = "UPDATE Prosthetic SET price = ?, model = ?, company_id = ? WHERE code = ?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 
 			p.setFloat(1, prosthetic.getPrice());
 			p.setString(2, prosthetic.getModel());
-			p.setInt(3, prosthetic.getCompany().getId());
+			p.setInt(3, companyId);
 			p.setInt(4, prosthetic.getCode());
 
 			p.executeUpdate();
