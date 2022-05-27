@@ -1,7 +1,5 @@
 package SwingWindows;
 
-import java.awt.Component;
-
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -83,12 +81,8 @@ public class PatientMenuDisplay extends JFrame {
 				designProsthetic.setVisible(true);
 			}
 		});
-		design.setBounds(290, 31, 119, 23);
+		design.setBounds(368, 29, 119, 23);
 		contentPane.add(design);
-
-		JButton btnNewButton_3 = new JButton("Filters");
-		btnNewButton_3.setBounds(419, 31, 89, 23);
-		contentPane.add(btnNewButton_3);
 
 		JButton cart = new JButton("");
 		cart.addActionListener(new ActionListener() {
