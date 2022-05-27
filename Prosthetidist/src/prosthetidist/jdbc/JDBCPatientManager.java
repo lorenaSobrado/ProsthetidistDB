@@ -86,9 +86,9 @@ public class JDBCPatientManager implements PatientManager {
 		try {
 			String sql = "SELECT code FROM Prosthetic WHERE functionalities = ? AND type = ? AND measurement_id = ?";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
-			prep.setString(2, functionalities);
-			prep.setString(3, type);
-			prep.setInt(6, m.getId());
+			prep.setString(1, functionalities);
+			prep.setString(2, type);
+			prep.setInt(3, m.getId());
 			
 			ResultSet rs = prep.executeQuery();
 			prosCode = rs.getInt("code");

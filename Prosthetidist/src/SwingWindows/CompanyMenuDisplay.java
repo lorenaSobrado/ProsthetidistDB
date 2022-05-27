@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
+import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.Company;
 
 import javax.swing.ImageIcon;
@@ -27,7 +28,7 @@ public class CompanyMenuDisplay extends JFrame {
 	private JDBCCompanyManager cm;
 	private JDBCProstheticManager pm;
 
-	public CompanyMenuDisplay(JFrame cLogInDisplay, Company company, JDBCManager manager) {
+	public CompanyMenuDisplay(JFrame cLogInDisplay, Company company, JDBCManager manager, JPAUserManager um) {
 		cLogInDisplay.setEnabled(false);
 		cm = new JDBCCompanyManager(manager);
 		pm = new JDBCProstheticManager(manager);
@@ -84,7 +85,7 @@ public class CompanyMenuDisplay extends JFrame {
 		logOut.setIcon(new ImageIcon(logOutImg));
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				manager.disconnect();
+				um.disconnect();
 				cLogInDisplay.setEnabled(true);
 				CompanyMenuDisplay.this.setVisible(false);
 			}
