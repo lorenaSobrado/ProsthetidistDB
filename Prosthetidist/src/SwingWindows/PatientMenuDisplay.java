@@ -30,6 +30,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.ListSelectionModel;
 
 public class PatientMenuDisplay extends JFrame {
 
@@ -105,11 +106,9 @@ public class PatientMenuDisplay extends JFrame {
 		addToCart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (table.getSelectedRowCount() > 0) {
-					int[] selection = table.getSelectedRows();
-					for (int i : selection) {
-						Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
-						im.addProstheticToCart(patient, prosCode);
-					}
+					int i = table.getSelectedRow();
+					Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
+					im.addProstheticToCart(patient, prosCode);
 					JOptionPane.showMessageDialog(PatientMenuDisplay.this, "Your selection was added to your cart",
 							"Message", JOptionPane.PLAIN_MESSAGE);
 				} else {
@@ -128,6 +127,7 @@ public class PatientMenuDisplay extends JFrame {
 		contentPane.add(scrollPane);
 
 		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		DefaultTableModel model = new DefaultTableModel() {
 			public boolean isCellEditable(int fil, int col) {
 				return false;
@@ -159,7 +159,8 @@ public class PatientMenuDisplay extends JFrame {
 			model.addRow(datos);
 		}
 		table.setModel(model);
-		table.getColumn("Plastic").setCellRenderer(new LabelRenderer()); // sets the renderer implemented at the end of this class
+		table.getColumn("Plastic").setCellRenderer(new LabelRenderer()); // sets the renderer implemented at the end of
+																			// this class
 		table.getColumn("Carbon Fiber").setCellRenderer(new LabelRenderer());
 		table.getColumn("Aluminium").setCellRenderer(new LabelRenderer());
 		scrollPane.setViewportView(table);

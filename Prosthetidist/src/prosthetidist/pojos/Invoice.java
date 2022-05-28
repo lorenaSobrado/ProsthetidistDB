@@ -12,7 +12,7 @@ public class Invoice implements Serializable{
 	private Integer id;
 	private LocalDate datePurchase;
 	private boolean purchase;
-	private Integer creditCard;
+	private Long creditCard;
 	private String delivery_type;
 	private Integer patient_id;
 	private Integer prosthetic_code;
@@ -53,12 +53,12 @@ public class Invoice implements Serializable{
 	}
 
 
-	public Integer getCreditCard() {
+	public Long getCreditCard() {
 		return creditCard;
 	}
 
 
-	public void setCreditCard(Integer creditCard) {
+	public void setCreditCard(Long creditCard) {
 		this.creditCard = creditCard;
 	}
 
