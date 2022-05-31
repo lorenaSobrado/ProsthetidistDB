@@ -4,18 +4,32 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "Material")
+@XmlType(propOrder = { "name", "price", "strength", "flexibility", "temperatureResistance"})
+
 public class Material implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5001802543288251520L;
-	
+	@XmlAttribute
 	private String name;
+	@XmlAttribute
 	private float price;
+	@XmlAttribute
 	private String strength;
+	@XmlAttribute
 	private String flexibility;
-	private String temperatureResistence;
+	@XmlAttribute
+	private String temperatureResistance;
+	@XmlTransient
 	private List <Prosthetic> prosthetics;
 	
 	
@@ -30,7 +44,7 @@ public class Material implements Serializable{
 		this.price = price;
 		this.strength = strength;
 		this.flexibility = flexibility;
-		this.temperatureResistence = temperatureResistence;
+		this.temperatureResistance = temperatureResistence;
 	}
 
 
@@ -59,11 +73,11 @@ public class Material implements Serializable{
 	}
 
 	public String getTemperatureResistence() {
-		return temperatureResistence;
+		return temperatureResistance;
 	}
 
 	public void setTemperatureResistence(String temperatureResistence) {
-		this.temperatureResistence = temperatureResistence;
+		this.temperatureResistance = temperatureResistence;
 	}
 
 	public String getFlexibility() {
@@ -86,7 +100,7 @@ public class Material implements Serializable{
 	@Override
 	public String toString() {
 		return "Materials [Name=" + name + ", Strength=" + strength + ", Price=" + price + ", TemperatureResistence="
-				+ temperatureResistence + ", Flexibility=" + flexibility + "]";
+				+ temperatureResistance + ", Flexibility=" + flexibility + "]";
 	}
 
 	@Override

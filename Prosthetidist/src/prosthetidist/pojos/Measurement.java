@@ -60,7 +60,7 @@ public class Measurement implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Measurements [Id=" + id + ", Length=" + lengthiness + ", Width=" + width + ", Weight=" + weight + "]";
+		return "Measurements [Length=" + lengthiness + ", Width=" + width + ", Weight=" + weight + "]";
 	}
 
 	@Override

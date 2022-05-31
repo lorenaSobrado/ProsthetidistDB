@@ -13,32 +13,47 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
 import javax.swing.ImageIcon;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "Prosthetic")
+@XmlType(propOrder = { "price", "functionalities", "type", "model", "measurement", "materials"})
 public class Prosthetic implements Serializable {
 
 	private static final long serialVersionUID = -6066466581324943260L;
 
 	// ATTRIBUTES OF THE POJO
-
+	@XmlAttribute
 	private Integer code;
+	@XmlElement
 	private Float price;
+	@XmlElement
 	private String functionalities;
+	@XmlElement
 	private String type;
+	@XmlElement
 	private String model;
-
-	// @ManyToOne (fetch=FetchType.LAZY)
+	@XmlTransient
 	private Company company;
+	@XmlElement
 	private Measurement measurement;
+	@XmlElement
+	@XmlElementWrapper(name = "Materials")
 	private ArrayList<Material> materials;
-	private Patient patient; // PARA QUE PONEMOS ESTO?? despues habra que hacer una lista en pacientes de
-								// protesis
+	@XmlTransient
 	private ArrayList<Invoice> invoices;
 
 	// CONSTRUCTORS
 
 	public Prosthetic() {
 		super();
-		// ?
 		this.materials = new ArrayList<Material>();
 		this.invoices = new ArrayList<Invoice>();
 	}
@@ -67,17 +82,6 @@ public class Prosthetic implements Serializable {
 		this.materials = materials;
 	}
 
-	public Prosthetic(Float price, String functionalities, String type, String model, Company company,
-			Measurement measurements, Patient patient) {
-		super();
-		this.price = price;
-		this.functionalities = functionalities;
-		this.type = type;
-		this.model = model;
-		this.company = company;
-		this.measurement = measurements;
-		this.patient = patient;
-	}
 
 	public Prosthetic(Integer code, Float price, String functionalities, String type, String model, Company company,
 			Measurement measurements, ArrayList<Material> materials) {
@@ -223,14 +227,6 @@ public class Prosthetic implements Serializable {
 		this.materials = materials;
 	}
 
-	public Patient getPatient() {
-		return patient;
-	}
-
-	public void setPatient(Patient patient) {
-		this.patient = patient;
-	}
-
 	public ArrayList<Invoice> getInvoices() {
 		return invoices;
 	}
@@ -273,11 +269,10 @@ public class Prosthetic implements Serializable {
 	}
 
 	// TO STRING
-
 	@Override
 	public String toString() {
-		return "Prosthetics [code=" + code + ", price=" + price + ", abilities=" + functionalities + ", type=" + type
-				+ ", model=" + model + "]";
+		return "Prosthetic [code=" + code + ", price=" + price + ", functionalities=" + functionalities + ", type="
+				+ type + ", model=" + model + ", measurement=" + this.measurement.toString() + ", materials=" + this.materials.toString() + "]";
 	}
 
 }

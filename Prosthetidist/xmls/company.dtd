@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!DOCTYPE Company [
+   <!ELEMENT Company (name, email, phone, Prosthetics)>
+   <!ELEMENT name (#PCDATA)>
+   <!ELEMENT email (#PCDATA)>
+   <!ELEMENT phone (#PCDATA)>
+   <!ELEMENT Prosthetics (price, functionalities, type, model, measurement, Materials)>
+   <!ATTLIST Prosthetics code CDATA #REQUIRED>
+   <!ELEMENT price (#PCDATA)>
+   <!ELEMENT functionalities (#PCDATA)>
+   <!ELEMENT type (#PCDATA)>
+   <!ELEMENT model (#PCDATA)>
+   <!ELEMENT measurement (#PCDATA)>
+   <!ATTLIST measurement length CDATA #REQUIRED
+   						 width CDATA  #REQUIRED
+   						 weight CDATA >
+   <!ELEMENT Materials (#PCDATA)
+   <!ATTLIST Materials 	 name CDATA #REQUIRED
+   						 price CDATA  #REQUIRED
+   						 strength CDATA 
+   						 flexibility CDATA
+   						 temperatureResistance CDATA>
+]>
+
+
+<Company>
+    <name>External Sales Report</name>
+    <email>Eh, better than expected!</email>
+    <phone>2016-11-09</phone>
+    <Prosthetics>
+    	<Prosthetic code= "2">
+    		<price> 89 </price>
+    		<functionalities> Walk </functionalities>
+    		<type> right leg </type>
+    		<model> 098 </model>
+    		<measurement lenght=9 width=8 weight= 7>
+    		</measurement>
+       		<Materials name="Aluminium" price=90 strength="low" flexibility= "high" temperatureResistance="high">
+        </Materials>
+     </Prosthetics>
+</Company>
