@@ -41,7 +41,7 @@ public class Company implements Serializable{
 	private Integer phone;
 	@XmlElement
 	@XmlElementWrapper(name = "Prosthetics")
-	private List<Prosthetic> prosthetics;
+	private ArrayList<Prosthetic> prosthetics;
 	
 	//CONSTRUCTORS
 	
@@ -52,11 +52,12 @@ public class Company implements Serializable{
 	
 	//@CHECK
 	public Company(Integer id, String name, String email, Integer phone) {
-		//necesita super?
+	
 		this.id=id;
 		this.name=name;
 		this.email=email;
 		this.phone=phone;
+		this.prosthetics = new ArrayList<>();
 	}
 	
 	//EQUALS
@@ -122,6 +123,14 @@ public class Company implements Serializable{
 		return "Company [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + this.prosthetics.toString() + "]";
 	}
 
+	public ArrayList<Prosthetic> getProsthetics() {
+		return prosthetics;
+	}
+	
+	public void setProsthetics(ArrayList<Prosthetic> prosthetics) {
+		this.prosthetics = prosthetics;
+	}
+
 	public void addProsthetic (Prosthetic p) {
 
 		if (!prosthetics.contains(p)) {
@@ -130,7 +139,6 @@ public class Company implements Serializable{
 		
 	}
 	
-
 	public void deleteProsthetic (Prosthetic p) {
 		prosthetics.remove(p);
 	}

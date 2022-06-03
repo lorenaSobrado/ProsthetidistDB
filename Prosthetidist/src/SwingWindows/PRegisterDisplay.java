@@ -266,6 +266,7 @@ public class PRegisterDisplay extends JFrame {
 							JOptionPane.PLAIN_MESSAGE);
 					patientDisplay.setEnabled(true);
 					PRegisterDisplay.this.setVisible(false);
+					um.disconnect();
 
 				} catch (NoSuchAlgorithmException e1) {
 					e1.printStackTrace();
