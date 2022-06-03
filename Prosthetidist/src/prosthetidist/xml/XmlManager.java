@@ -26,6 +26,17 @@ public class XmlManager {
 
 	public void marshall(Company comp) throws Exception { //JAVA TO XML
 		
+		// Create the JAXBContext
+		JAXBContext jaxbContext = JAXBContext.newInstance(Company.class);
+		Marshaller marshaller = jaxbContext.createMarshaller();
+		
+		// Pretty formatting
+		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+		
+		
+		
+		
+		/*
 		em = Persistence.createEntityManagerFactory("prosthetidist-provider").createEntityManager();
 		em.getTransaction().begin();
 		em.createNativeQuery("PRAGMA foreign_keys=ON").executeUpdate();
@@ -42,8 +53,9 @@ public class XmlManager {
 		
 		File file = new File("./xmls/Company.xml");
 		marshaller.marshal(comp, file);
-
+*/
 	}
+	
 
 	public void unmarshall(JDBCCompanyManager cm) throws JAXBException, SQLException { //XML TO JAVA
 		
