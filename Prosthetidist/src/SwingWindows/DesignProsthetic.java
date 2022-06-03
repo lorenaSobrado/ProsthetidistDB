@@ -25,6 +25,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
@@ -43,7 +45,8 @@ public class DesignProsthetic extends JFrame {
 	private JDBCPatientManager patm;
 	private JDBCMeasurementManager mm;
 	private JDBCProstheticManager pm;
-
+	//private DecimalFormat formats = new DecimalFormat ("#.00");
+	
 	public DesignProsthetic(JFrame patientMenuDisplay, JDBCManager manager) {
 		patientMenuDisplay.setEnabled(false);
 		matm = new JDBCMaterialManager(manager);
@@ -128,22 +131,21 @@ public class DesignProsthetic extends JFrame {
 				m = mm.getMeasurement(length, width, weight);
 				patm.designProsthetic(functionalities.getText(), type.getSelectedItem().toString(), m); //Doesn't matter if anyone else design exactly the same bc the company could offer the 2 (each for each patient)
 				Integer prosCode = patm.getDesignCode(functionalities.getText(), type.getSelectedItem().toString(), m);
-				Prosthetic p = pm.getProstheticByCode(prosCode);
 				ArrayList<Material> materials = new ArrayList<Material>();
 				if (plastic.isSelected()) {
 					Material plastic = matm.getMaterialByName("Plastic");
 					materials.add(plastic);
-					matm.uploadMaterialOfProsthetic(plastic, p);
+					matm.uploadMaterialOfProsthetic(plastic, prosCode);
 				}
 				if (carbonFiber.isSelected()) {
 					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
 					materials.add(carbonFiber);
-					matm.uploadMaterialOfProsthetic(carbonFiber, p);
+					matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
 				}
 				if (aluminium.isSelected()) {
 					Material aluminium = matm.getMaterialByName("Aluminium");
 					materials.add(aluminium);
-					matm.uploadMaterialOfProsthetic(aluminium, p);
+					matm.uploadMaterialOfProsthetic(aluminium, prosCode);
 				}
 				JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !",
 						"Message", JOptionPane.INFORMATION_MESSAGE);

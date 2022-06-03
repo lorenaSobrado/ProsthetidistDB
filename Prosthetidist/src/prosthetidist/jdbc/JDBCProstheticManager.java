@@ -55,16 +55,17 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		}
 		return allProsthetics;
 	}
-	
-	public ArrayList<Prosthetic> getProstheticsWithoutCompanyId() { 
+
+	public ArrayList<Prosthetic> getProstheticsWithoutCompanyId() {
 
 		ArrayList<Prosthetic> prostheticsWithoutCompany = new ArrayList<Prosthetic>();
 
 		try {
 			Statement stat = manager.getConnection().createStatement();
-			String sql = "SELECT * FROM Prosthetic WHERE company_id = NULL";
-			ResultSet rs = stat.executeQuery(sql); //a result set puts a cursor before the first row
-			// rs.next() moves the cursor to the next row of the table, so the first time puts it to the first row
+			String sql = "SELECT * FROM Prosthetic WHERE company_id IS NULL";
+			ResultSet rs = stat.executeQuery(sql); // a result set puts a cursor before the first row
+			// rs.next() moves the cursor to the next row of the table, so the first time
+			// puts it to the first row
 			while (rs.next()) {
 				Integer code = rs.getInt("code");
 				String functionalities = rs.getString("functionalities");
@@ -97,22 +98,24 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			String functionalities = rs.getString("functionalities");
 			String type = rs.getString("type");
 			String model = rs.getString("model");
-			int company_id = rs.getInt("company_id");  
-			int measurement_id = rs.getInt("measurement_id");
-			Company company = cm.getCompanyById(company_id);
+			Integer company_id = rs.getInt("company_id");
+			Integer measurement_id = rs.getInt("measurement_id");
 			Measurement meas = mm.getMeasurementById(measurement_id);
 			ArrayList<Material> materials = matm.getMaterialsFromProstheticCode(code);
-
-			pros = new Prosthetic(code, price, functionalities, type, model, company, meas, materials);
+			if (company_id == 0) {
+				pros = new Prosthetic(code, price, functionalities, type, model, meas, materials);
+			} else {
+				Company company = cm.getCompanyById(company_id);
+				pros = new Prosthetic(code, price, functionalities, type, model, company, meas, materials);
+			}
 			rs.close();
 			prep.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 		return pros;
-
 	}
-	
+
 	public void uploadProsthetic(Prosthetic p) {
 
 		int company_id = p.getCompany().getId();
@@ -135,11 +138,11 @@ public class JDBCProstheticManager implements ProstheticsManager {
 	@Override
 	public void deleteProsthetic(Prosthetic pros) {
 		try {
-			String sql = "DELETE FROM Prosthetic WHERE id = ?";
+			String sql = "DELETE FROM Prosthetic WHERE code = ?";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 			p.setInt(1, pros.getCode());
 			p.executeUpdate();
-		} catch(SQLException ex) {
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 	}
@@ -157,7 +160,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			prep.setString(4, p.getModel());
 			prep.setInt(5, p.getCompany().getId());
 			prep.setInt(6, p.getMeasurement().getId());
-			
+
 			ResultSet rs = prep.executeQuery();
 			prosCode = rs.getInt("code");
 
@@ -166,5 +169,5 @@ public class JDBCProstheticManager implements ProstheticsManager {
 		}
 		return prosCode;
 	}
-	
+
 }

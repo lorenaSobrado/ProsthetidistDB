@@ -46,16 +46,17 @@ public class JDBCMaterialManager implements MaterialManager {
 		ArrayList<Material> materials = new ArrayList<Material>();
 
 		try {
-			Statement stat = manager.getConnection().createStatement();
-			String sql2 = "SELECT material_name FROM ProstheticHasMaterials WHERE prosthetic_code = " + code;
-			ResultSet rs = stat.executeQuery(sql2);
+			String sql = "SELECT material_name FROM ProstheticHasMaterials WHERE prosthetic_code = ?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setInt(1, code);
+			ResultSet rs = prep.executeQuery();
 			while (rs.next()) {
 				String name = rs.getString("material_name");
 				Material mat = this.getMaterialByName(name);
 				materials.add(mat);
 			}
 			rs.close();
-			stat.close();
+			prep.close();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -63,11 +64,11 @@ public class JDBCMaterialManager implements MaterialManager {
 		return materials;
 	}
 
-	public void uploadMaterialOfProsthetic(Material material, Prosthetic prosthetic) {
+	public void uploadMaterialOfProsthetic(Material material, Integer prosCode) {
 		try {
 			String sql = "INSERT INTO ProstheticHasMaterials (prosthetic_code, material_name) VALUES (?,?)";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
-			prep.setInt(1, prosthetic.getCode());
+			prep.setInt(1, prosCode);
 			prep.setString(2, material.getName());
 
 			prep.executeUpdate();

@@ -32,13 +32,14 @@ public class DeleteProsthetic extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private JScrollPane scrollPane;
 
 	private JDBCCompanyManager cm;
 	private JDBCProstheticManager pm;
-	private JScrollPane scrollPane;
 
 	public DeleteProsthetic(JFrame companyMenuDisplay, Company company, JDBCManager manager) {
 		cm = new JDBCCompanyManager(manager);
+		pm = new JDBCProstheticManager(manager);
 		companyMenuDisplay.setEnabled(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -116,7 +117,7 @@ public class DeleteProsthetic extends JFrame {
 				if (table.getSelectedRowCount() > 0) {
 					int[] selection = table.getSelectedRows();
 					for (int i : selection) {
-						Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 1).toString()));
+						Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 0).toString()));
 						pm.deleteProsthetic(p);
 					}
 					JOptionPane.showMessageDialog(DeleteProsthetic.this, "Prosthetic deleted", "Message",

@@ -36,9 +36,9 @@ public class UploadProsthetic extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField lengthTxt;
+	private JTextField widthTxt;
+	private JTextField weightTxt;
 	private JComboBox<String> typeOptions;
 
 	private JDBCProstheticManager pm;
@@ -113,25 +113,24 @@ public class UploadProsthetic extends JFrame {
 		carbonFiber.setBounds(224, 168, 107, 23);
 		contentPane.add(carbonFiber);
 
-		textField_4 = new JTextField();
-		textField_4.setBounds(136, 197, 96, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		lengthTxt = new JTextField();
+		lengthTxt.setBounds(136, 197, 96, 20);
+		contentPane.add(lengthTxt);
+		lengthTxt.setColumns(10);
 
-		textField_5 = new JTextField();
-		textField_5.setBounds(290, 197, 96, 20);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		widthTxt = new JTextField();
+		widthTxt.setBounds(290, 197, 96, 20);
+		contentPane.add(widthTxt);
+		widthTxt.setColumns(10);
 
-		textField_6 = new JTextField();
-		textField_6.setBounds(455, 197, 96, 20);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
+		weightTxt = new JTextField();
+		weightTxt.setBounds(455, 197, 96, 20);
+		contentPane.add(weightTxt);
+		weightTxt.setColumns(10);
 
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				Measurement m = new Measurement();
 				Prosthetic p = new Prosthetic();
 
@@ -140,27 +139,31 @@ public class UploadProsthetic extends JFrame {
 				p.setFunctionalities(textField_1.getText());
 				p.setModel(textField_3.getText());
 				p.setType(typeOptions.getSelectedItem().toString());
-				m.setLengthiness(Float.parseFloat(textField_4.getText()));
-				m.setWidth(Float.parseFloat(textField_5.getText()));
-				m.setWeight(Float.parseFloat(textField_6.getText()));
-				mm.addMeasurement(m);
-				p.setMeasurement(mm.getMeasurement(Float.parseFloat(textField_4.getText()),
-						Float.parseFloat(textField_5.getText()), Float.parseFloat(textField_6.getText())));
+				Float length = Float.parseFloat(lengthTxt.getText());
+				Float width = Float.parseFloat(widthTxt.getText());
+				Float weight = Float.parseFloat(weightTxt.getText());
+				m.setLengthiness(length);
+				m.setWidth(width);
+				m.setWeight(weight);
+				if(mm.getMeasurement(length, width, weight) == null) {
+					mm.addMeasurement(m);
+				}
+				m = mm.getMeasurement(length, width, weight);
+				p.setMeasurement(m);
 				pm.uploadProsthetic(p);
 				Integer prosCode = pm.getProstheticCode(p);
-				p = pm.getProstheticByCode(prosCode);
 
 				if (plastic.isSelected()) {
 					Material plastic = matm.getMaterialByName("Plastic");
-					matm.uploadMaterialOfProsthetic(plastic, p);
+					matm.uploadMaterialOfProsthetic(plastic, prosCode);
 				}
 				if (carbonFiber.isSelected()) {
 					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
-					matm.uploadMaterialOfProsthetic(carbonFiber, p);
+					matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
 				}
 				if (aluminium.isSelected()) {
 					Material aluminium = matm.getMaterialByName("Aluminium");
-					matm.uploadMaterialOfProsthetic(aluminium, p);
+					matm.uploadMaterialOfProsthetic(aluminium, prosCode);
 				}
 				JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message",
 						JOptionPane.PLAIN_MESSAGE);
@@ -191,7 +194,7 @@ public class UploadProsthetic extends JFrame {
 				"Right foot", "Left arm", "Left hand", "Left leg", "Left foot" }));
 		typeOptions.setBounds(160, 112, 130, 22);
 		contentPane.add(typeOptions);
-		
+
 		JButton back = new JButton("");
 		Image img = new ImageIcon(this.getClass().getResource("/back.png")).getImage();
 		back.setIcon(new ImageIcon(img));

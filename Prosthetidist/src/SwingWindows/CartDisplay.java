@@ -46,6 +46,7 @@ public class CartDisplay extends JFrame {
 	private JButton back;
 	private JTable table;
 	private DefaultTableModel model;
+	private JLabel total;
 
 	private JDBCInvoiceManager im;
 	private JDBCProstheticManager pm;
@@ -80,6 +81,8 @@ public class CartDisplay extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				if (standard.isSelected()) {
 					premium.setSelected(false);
+					Float totalPrice = getTotalPrice(im.getPatientSelection(patient));
+					total.setText(String.valueOf(totalPrice));
 				}
 				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() >= 15)) {
 					buy.setEnabled(true);
@@ -97,6 +100,8 @@ public class CartDisplay extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				if (premium.isSelected()) {
 					standard.setSelected(false);
+					Float totalPrice = getTotalPrice(im.getPatientSelection(patient)) + 5f;
+					total.setText(String.valueOf(totalPrice));
 				}
 				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() >= 15)) {
 					buy.setEnabled(true);
@@ -138,14 +143,15 @@ public class CartDisplay extends JFrame {
 		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				patientMenuDisplay.setEnabled(true);
+				table.selectAll();
 				int[] selection = table.getSelectedRows();
 				for (int i : selection) {
-					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 1).toString()));
+					Integer prosCode = Integer.valueOf(table.getValueAt(i, 0).toString());
 					if (premium.isSelected()) {
-						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), premium.toString());
+						im.updateInvoice(patient, prosCode, Long.valueOf(creditCard.getText()), premium.toString());
 					}
 					if (standard.isSelected()) {
-						im.updateInvoice(patient, p, Integer.valueOf(creditCard.getText()), standard.toString());
+						im.updateInvoice(patient, prosCode, Long.valueOf(creditCard.getText()), standard.toString());
 					}
 				}
 				JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message",
@@ -209,13 +215,13 @@ public class CartDisplay extends JFrame {
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(10, 46, 450, 89);
 		contentPane.add(scrollPane);
-		scrollPane.add(table);
+		scrollPane.setViewportView(table);
 
 		JLabel lblNewLabel_1 = new JLabel("Choose delivery");
 		lblNewLabel_1.setBounds(24, 157, 83, 14);
 		contentPane.add(lblNewLabel_1);
 
-		JButton delete = new JButton("DELETE");
+		JButton delete = new JButton("REMOVE");
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (table.getSelectedRowCount() > 0) {
@@ -223,6 +229,7 @@ public class CartDisplay extends JFrame {
 					Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
 					im.deleteProstheticFromCart(patient, prosCode);
 					model.removeRow(i);
+					total.setText(String.valueOf(getTotalPrice(im.getPatientSelection(patient))));
 				} else {
 					JOptionPane.showMessageDialog(CartDisplay.this, "Select a prosthetic", "Message",
 							JOptionPane.WARNING_MESSAGE);
@@ -232,7 +239,7 @@ public class CartDisplay extends JFrame {
 		delete.setBounds(370, 7, 77, 23);
 		contentPane.add(delete);
 
-		JLabel total = new JLabel(getTotalPrice(im.getPatientSelection(patient)));
+		total = new JLabel(String.valueOf(getTotalPrice(im.getPatientSelection(patient))));
 		total.setBounds(377, 257, 53, 14);
 		contentPane.add(total);
 
@@ -255,17 +262,11 @@ public class CartDisplay extends JFrame {
 
 	}
 
-	private String getTotalPrice(ArrayList<Prosthetic> cart) {
+	private Float getTotalPrice(ArrayList<Prosthetic> cart) {
 		Float totalPrice = 0f;
 		for (Prosthetic p : cart) {
 			totalPrice += p.getPrice();
-//			for(Material m : p.getMaterials()) { el precio de la protesis ya no incluye los materials?
-//				totalPrice += m.getPrice();
-//			}
 		}
-		if (premium.isSelected()) {
-			totalPrice += dm.getPremiumDelivery().getPrice();
-		}
-		return String.valueOf(totalPrice);
+		return totalPrice;
 	}
 }

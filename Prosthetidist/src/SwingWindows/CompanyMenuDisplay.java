@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
+import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.Company;
 
 import javax.swing.ImageIcon;
@@ -27,7 +28,7 @@ public class CompanyMenuDisplay extends JFrame {
 	private JDBCCompanyManager cm;
 	private JDBCProstheticManager pm;
 
-	public CompanyMenuDisplay(JFrame cLogInDisplay, Company company, JDBCManager manager) {
+	public CompanyMenuDisplay(JFrame cLogInDisplay, Company company, JDBCManager manager, JPAUserManager um) {
 		cLogInDisplay.setEnabled(false);
 		cm = new JDBCCompanyManager(manager);
 		pm = new JDBCProstheticManager(manager);
@@ -46,7 +47,7 @@ public class CompanyMenuDisplay extends JFrame {
 				uploadProsthetic.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(125, 74, 178, 29);
+		btnNewButton.setBounds(125, 60, 178, 29);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("DELETE PROSTHETIC");
@@ -61,7 +62,7 @@ public class CompanyMenuDisplay extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(125, 114, 178, 29);
+		btnNewButton_1.setBounds(125, 100, 178, 29);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_2 = new JButton("OFFER DESIGN");
@@ -76,7 +77,7 @@ public class CompanyMenuDisplay extends JFrame {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(125, 154, 178, 29);
+		btnNewButton_2.setBounds(125, 140, 178, 29);
 		contentPane.add(btnNewButton_2);
 
 		JButton logOut = new JButton("LOG OUT");
@@ -84,7 +85,8 @@ public class CompanyMenuDisplay extends JFrame {
 		logOut.setIcon(new ImageIcon(logOutImg));
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				manager.disconnect();
+				//um.disconnect();
+				//System.out.println("TEST");
 				cLogInDisplay.setEnabled(true);
 				CompanyMenuDisplay.this.setVisible(false);
 			}
@@ -101,6 +103,14 @@ public class CompanyMenuDisplay extends JFrame {
 		JLabel username = new JLabel(company.getName());
 		username.setBounds(71, 35, 89, 14);
 		contentPane.add(username);
+		
+		JButton btnNewButton_2_1 = new JButton("");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_2_1.setBounds(125, 179, 178, 29);
+		contentPane.add(btnNewButton_2_1);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {
