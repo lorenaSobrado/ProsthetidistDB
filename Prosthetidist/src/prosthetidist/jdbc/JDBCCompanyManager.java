@@ -86,6 +86,28 @@ public class JDBCCompanyManager implements CompanyManager {
 
 	}
 
+	public ArrayList<Company> getAllCompanies() {
+		ArrayList<Company> companies = new ArrayList<Company>();
+		try {
+			Statement stat = manager.getConnection().createStatement();
+			String sql = "SELECT * FROM Company";
+			ResultSet rs = stat.executeQuery(sql);
+			while (rs.next()) {
+				Integer id = rs.getInt("id");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				Integer phone = rs.getInt("phone");
+				Company c = new Company(id, name, email, phone);
+				companies.add(c);
+			}
+			rs.close();
+			stat.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return companies;
+	}
+
 	public List<Prosthetic> listProstheticsOfCompany(Company c) {
 
 		List<Prosthetic> prostheticsOfCompany = new ArrayList<Prosthetic>();
