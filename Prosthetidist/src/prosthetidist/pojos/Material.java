@@ -12,24 +12,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "Material")
-@XmlType(propOrder = { "name", "price", "strength", "flexibility", "temperatureResistance"})
 
 public class Material implements Serializable{
 
 	private static final long serialVersionUID = -5001802543288251520L;
-	@XmlAttribute
 	private String name;
-	@XmlAttribute
 	private float price;
-	@XmlAttribute
 	private String strength;
-	@XmlAttribute
 	private String flexibility;
-	@XmlAttribute
 	private String temperatureResistance;
-	@XmlTransient
 	private List <Prosthetic> prosthetics;
 	
 	

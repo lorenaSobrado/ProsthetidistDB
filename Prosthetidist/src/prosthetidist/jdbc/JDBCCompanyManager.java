@@ -42,14 +42,13 @@ public class JDBCCompanyManager implements CompanyManager {
 //	}
 
 	public void addCompany(Company c) throws SQLException {
-
 		String sql = "INSERT INTO Company (name, email, phone) VALUES (?,?,?)";
 		PreparedStatement p = manager.getConnection().prepareStatement(sql);
 		p.setString(1, c.getName());
 		p.setString(2, c.getEmail());
 		p.setInt(3, c.getPhone());
 		p.executeUpdate();
-
+		
 	}
 
 	public void deleteCompany(Company c) {
