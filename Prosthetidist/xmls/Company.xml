@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Company>
+    <name>rob.arms</name>
+    <email>robotics@gmail.com</email>
+    <phone>123456789</phone>
+    <Prosthetics>
+        <prosthetics code="23">
+            <price>34.3</price>
+            <functionalities>walk</functionalities>
+            <type>left arm</type>
+            <model>3453x</model>
+        </prosthetics>
+    </Prosthetics>
+</Company>

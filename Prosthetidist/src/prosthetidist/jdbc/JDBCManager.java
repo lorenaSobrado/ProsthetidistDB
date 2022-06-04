@@ -95,7 +95,7 @@ public class JDBCManager {
 			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperatureResistance) VALUES (?,?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Carbon Fiber");
-			prep.setFloat(2, 19.99f);
+			prep.setFloat(2, 19.99f); //BORRAR PRECIO MATERIALES 
 			prep.setString(3, "high");
 			prep.setString(4, "medium");
 			prep.setString(5, "high");

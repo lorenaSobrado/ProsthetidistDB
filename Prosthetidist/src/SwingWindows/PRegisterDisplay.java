@@ -284,6 +284,7 @@ public class PRegisterDisplay extends JFrame {
 						patientDisplay.setEnabled(true);
 						PRegisterDisplay.this.setVisible(false);
 
+<<<<<<< HEAD
 					} catch (NoSuchAlgorithmException | SQLException ex) {
 						ex.printStackTrace();
 					} catch (NumberFormatException ex) {
@@ -291,6 +292,25 @@ public class PRegisterDisplay extends JFrame {
 								JOptionPane.WARNING_MESSAGE);
 					}
 				}
+=======
+					pm.addPatient(patient);
+					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Register successfull", "Message",
+							JOptionPane.PLAIN_MESSAGE);
+					patientDisplay.setEnabled(true);
+					PRegisterDisplay.this.setVisible(false);
+					um.disconnect();
+
+				} catch (NoSuchAlgorithmException e1) {
+					e1.printStackTrace();
+				} catch (SQLException | NumberFormatException ex) {
+					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Non valid data, try again", "Message",
+							JOptionPane.ERROR_MESSAGE);
+					ex.printStackTrace();
+				} // catch (DateTimeParseException e) {
+//					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Non valid date, try again", "Message", JOptionPane.ERROR_MESSAGE);
+//					e.printStackTrace();
+//				}
+>>>>>>> branch 'master' of https://github.com/lorenaSobrado/ProsthetidistDB
 			}
 		});
 		register.setBounds(398, 278, 85, 21);

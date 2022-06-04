@@ -85,7 +85,8 @@ public class CompanyMenuDisplay extends JFrame {
 		logOut.setIcon(new ImageIcon(logOutImg));
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				um.disconnect();
+				//um.disconnect();
+				//System.out.println("TEST");
 				cLogInDisplay.setEnabled(true);
 				CompanyMenuDisplay.this.setVisible(false);
 			}
