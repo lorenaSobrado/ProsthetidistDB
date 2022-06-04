@@ -190,8 +190,8 @@ public class CRegisterDisplay extends JFrame {
 						cLogInDisplay.setEnabled(true);
 						CRegisterDisplay.this.setVisible(false);
 					} catch (NoSuchAlgorithmException | SQLException ex) {
-						ex.printStackTrace();
-
+						JOptionPane.showMessageDialog(CRegisterDisplay.this, "This account already exists. Try to log in or use a different email", "Message",
+								JOptionPane.WARNING_MESSAGE);
 					} catch (NumberFormatException ex) {
 						JOptionPane.showMessageDialog(CRegisterDisplay.this, "Invalid phone number", "Message",
 								JOptionPane.WARNING_MESSAGE);

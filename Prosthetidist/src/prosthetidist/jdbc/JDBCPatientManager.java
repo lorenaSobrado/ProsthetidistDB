@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import exceptions.PatientIdException;
 import prosthetidist.ifaces.PatientManager;
 import prosthetidist.pojos.Company;
 import prosthetidist.pojos.Material;
@@ -25,7 +26,11 @@ public class JDBCPatientManager implements PatientManager {
 
 	@Override
 
-	public void addPatient(Patient p) throws SQLException {
+	public void addPatient(Patient p) throws SQLException, PatientIdException {
+		Patient patientExists = this.getPatientById(p.getId());
+		if(patientExists != null) {
+			throw new PatientIdException();
+		}
 
 		String sql = "INSERT INTO Patient (id, name, email, phone, address, notes, dob) VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement prep = manager.getConnection().prepareStatement(sql);
@@ -77,6 +82,32 @@ public class JDBCPatientManager implements PatientManager {
 			prep.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		}
+		return p;
+	}
+	
+	public Patient getPatientById(Integer id) {
+
+		Patient p = null;
+		try {
+			String sql = "SELECT * FROM Patient WHERE id = ?";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setInt(1, id);
+			ResultSet rs = prep.executeQuery();
+			// get the values
+			String email = rs.getString("email");
+			String name = rs.getString("name");
+			Date dob = rs.getDate("dob");
+			String address = rs.getString("address");
+			Integer phone = rs.getInt("phone");
+			String notes = rs.getString("notes");
+
+			p = new Patient(id, name, email, phone, address, notes, dob.toLocalDate());
+
+			rs.close();
+			prep.close();
+		} catch (SQLException ex) {
+			return null;
 		}
 		return p;
 	}

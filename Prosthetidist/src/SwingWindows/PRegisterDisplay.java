@@ -34,6 +34,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
 import java.awt.Color;
 import com.toedter.calendar.JCalendar;
+
+import exceptions.PatientIdException;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 import javax.swing.JSeparator;
@@ -251,7 +254,7 @@ public class PRegisterDisplay extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (!validateEmail(email.getText())) {
 					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Invalid email", "Message",
-							JOptionPane.WARNING_MESSAGE);
+							JOptionPane.ERROR_MESSAGE);
 				} else if(dob == null){
 					JOptionPane.showMessageDialog(PRegisterDisplay.this, "Select your date of birth", "Message",
 							JOptionPane.WARNING_MESSAGE);
@@ -285,10 +288,14 @@ public class PRegisterDisplay extends JFrame {
 						PRegisterDisplay.this.setVisible(false);
 
 					} catch (NoSuchAlgorithmException | SQLException ex) {
-						ex.printStackTrace();
-					} catch (NumberFormatException ex) {
-						JOptionPane.showMessageDialog(PRegisterDisplay.this, "Invalid pone number", "Message",
+						JOptionPane.showMessageDialog(PRegisterDisplay.this, "This account already exists. Try to log in or use a different email", "Message",
 								JOptionPane.WARNING_MESSAGE);
+					} catch (NumberFormatException ex) {
+						JOptionPane.showMessageDialog(PRegisterDisplay.this, "Invalid id or pone number", "Message",
+								JOptionPane.ERROR_MESSAGE);
+					} catch (PatientIdException px) {
+						JOptionPane.showMessageDialog(PRegisterDisplay.this, "Id already used", "Message",
+								JOptionPane.ERROR_MESSAGE);
 					}
 				}
 			}

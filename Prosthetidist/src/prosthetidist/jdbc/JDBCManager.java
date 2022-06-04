@@ -48,7 +48,7 @@ public class JDBCManager {
 		// Create Tables
 		try {
 			Statement stmt = c.createStatement();
-			String sql = "CREATE TABLE Company " + "(id	INTEGER, " + "name	TEXT, " + "email    TEXT UNIQUE, " + "phone INTEGER, "
+			String sql = "CREATE TABLE Company " + "(id	INTEGER, " + "name	TEXT, " + "email    TEXT UNIQUE NOT NULL, " + "phone INTEGER, "
 					+ "PRIMARY KEY (id AUTOINCREMENT)" + ");";
 
 			stmt.executeUpdate(sql);
@@ -78,33 +78,30 @@ public class JDBCManager {
 			
 			stmt.executeUpdate(sql);
 			
-			sql = "CREATE TABLE Material " + "(name TEXT PRIMARY KEY, " + "price	REAL NOT NULL, " + "strength	TEXT, " + "flexibility TEXT, "
+			sql = "CREATE TABLE Material " + "(name TEXT PRIMARY KEY, " + "strength	TEXT, " + "flexibility TEXT, "
 					+ "temperatureResistance TEXT " + ");";
 
 			stmt.executeUpdate(sql);
 			
-			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperatureResistance) VALUES (?,?,?,?,?)";
+			sql = "INSERT INTO Material " + "(name, strength, flexibility, temperatureResistance) VALUES (?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Plastic");
-			prep.setFloat(2, 3.49f);
 			prep.setString(3, "low");
 			prep.setString(4, "high");
 			prep.setString(5, "low");
 			prep.executeUpdate();
 			
-			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperatureResistance) VALUES (?,?,?,?,?)";
+			sql = "INSERT INTO Material " + "(name, strength, flexibility, temperatureResistance) VALUES (?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Carbon Fiber");
-			prep.setFloat(2, 19.99f); //BORRAR PRECIO MATERIALES 
 			prep.setString(3, "high");
 			prep.setString(4, "medium");
 			prep.setString(5, "high");
 			prep.executeUpdate();
 			
-			sql = "INSERT INTO Material " + "(name, price, strength, flexibility, temperatureResistance) VALUES (?,?,?,?,?)";
+			sql = "INSERT INTO Material " + "(name, strength, flexibility, temperatureResistance) VALUES (?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Aluminium");
-			prep.setFloat(2, 5.49f);
 			prep.setString(3, "medium");
 			prep.setString(4, "medium");
 			prep.setString(5, "low");
@@ -116,7 +113,7 @@ public class JDBCManager {
 			stmt.executeUpdate(sql);
 
 			sql = "CREATE TABLE Patient " + "(id INTEGER PRIMARY KEY, " + "name	TEXT, "
-			+ "email	TEXT UNIQUE NOT NULL, " + "dob     DATE, " + "address  TEXT, " + "phone	INTEGER UNIQUE, "
+			+ "email	TEXT UNIQUE NOT NULL, " + "dob     DATE, " + "address  TEXT, " + "phone	INTEGER, "
 			+ "notes	TEXT " + ");"; 
 
 			stmt.executeUpdate(sql);

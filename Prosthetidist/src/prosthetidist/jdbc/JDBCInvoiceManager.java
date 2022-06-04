@@ -8,6 +8,9 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import exceptions.CartException;
 import prosthetidist.ifaces.InvoiceManager;
 import prosthetidist.pojos.*;
@@ -21,12 +24,12 @@ public class JDBCInvoiceManager implements InvoiceManager {
 		this.pm = new JDBCProstheticManager(m);
 	}
 
-	public void addProstheticToCart(Patient pa, Integer prosCode) {
+	public void addProstheticToCart(Patient pa, Integer prosCode) throws CartException {
 		
 		try {
 			Integer id = this.getInvoiceId(pa, prosCode);
 			if(id != null) {
-				JOp
+				throw new CartException();
 			}
 			String sql = "INSERT INTO Invoice (purchase, patient_id, prosthetic_code) VALUES (?,?,?)";
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
@@ -37,8 +40,6 @@ public class JDBCInvoiceManager implements InvoiceManager {
 			p.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		}catch (CartException ce) {
-			
 		}
 	}
 	
@@ -98,7 +99,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 		}
 	}
 	
-	public Integer getInvoiceId(Patient patient, Integer prosCode) throws CartException{
+	public Integer getInvoiceId(Patient patient, Integer prosCode) {
 		Integer id = null;
 		try {
 			String sql = "SELECT id FROM Invoice WHERE patient_id = ? AND prosthetic_code = ? AND purchase = ?"; 
@@ -109,7 +110,7 @@ public class JDBCInvoiceManager implements InvoiceManager {
 			ResultSet rs = prep.executeQuery();
 			id = rs.getInt("id");
 		} catch (SQLException ex) {
-			
+			return id; //if prep.executeQuery() returns null
 		}
 		return id;
 	}

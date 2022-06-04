@@ -17,7 +17,6 @@ public class Material implements Serializable{
 
 	private static final long serialVersionUID = -5001802543288251520L;
 	private String name;
-	private float price;
 	private String strength;
 	private String flexibility;
 	private String temperatureResistance;
@@ -29,10 +28,9 @@ public class Material implements Serializable{
 	}
 	
 
-	public Material(String name, float price, String strength, String flexibility, String temperatureResistence) {
+	public Material(String name, String strength, String flexibility, String temperatureResistence) {
 		super();
 		this.name = name;
-		this.price = price;
 		this.strength = strength;
 		this.flexibility = flexibility;
 		this.temperatureResistance = temperatureResistence;
@@ -53,14 +51,6 @@ public class Material implements Serializable{
 
 	public void setStrength(String strength) {
 		this.strength = strength;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
 	}
 
 	public String getTemperatureResistence() {
@@ -90,7 +80,7 @@ public class Material implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Materials [Name=" + name + ", Strength=" + strength + ", Price=" + price + ", TemperatureResistence="
+		return "Materials [Name=" + name + ", Strength=" + strength + ", TemperatureResistence="
 				+ temperatureResistance + ", Flexibility=" + flexibility + "]";
 	}
 
