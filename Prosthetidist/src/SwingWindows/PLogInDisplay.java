@@ -30,6 +30,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
+import javax.swing.JSeparator;
 
 public class PLogInDisplay extends JFrame {
 
@@ -42,30 +43,37 @@ public class PLogInDisplay extends JFrame {
 	private JCheckBox showPassword;
 	private JPAUserManager um;
 	private JDBCPatientManager pm;
+	private JSeparator separator;
+	private JSeparator separator_1;
 
 	public PLogInDisplay(JFrame appDisplay, JDBCManager manager) {
 		appDisplay.setEnabled(false);
-		um = new JPAUserManager();
 		pm = new JDBCPatientManager(manager);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(247, 247, 247));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		userName = new JTextField();
+		userName.setBackground(new Color(247, 247, 247));
+		userName.setBorder(null);
 		userName.setBounds(140, 59, 149, 20);
 		contentPane.add(userName);
 		userName.setColumns(10);
 
 		passwordHide = new JPasswordField();
-		passwordHide.setBackground(Color.WHITE);
+		passwordHide.setBackground(new Color(247, 247, 247));
+		passwordHide.setBorder(null);
 		passwordHide.setBounds(140, 101, 149, 20);
 		contentPane.add(passwordHide);
 
 		passwordReadable = new JTextField();
+		passwordReadable.setBackground(new Color(247, 247, 247));
+		passwordReadable.setBorder(null);
 		passwordReadable.setBounds(140, 101, 149, 20);
 		contentPane.add(passwordReadable);
 		passwordReadable.setColumns(10);
@@ -100,6 +108,7 @@ public class PLogInDisplay extends JFrame {
 		logIn.setForeground(Color.WHITE);
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				um = new JPAUserManager();
 				User user = um.checkPassword(userName.getText(), passwordHide.getText());
 				if (user != null) {
 					Patient patient = pm.getPatientByEmail(user.getEmail());
@@ -151,6 +160,16 @@ public class PLogInDisplay extends JFrame {
 		register.setForeground(Color.WHITE);
 		register.setBounds(107, 191, 213, 23);
 		contentPane.add(register);
+		
+		separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(140, 79, 149, 5);
+		contentPane.add(separator);
+		
+		separator_1 = new JSeparator();
+		separator_1.setForeground(Color.BLACK);
+		separator_1.setBounds(140, 121, 149, 5);
+		contentPane.add(separator_1);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {
