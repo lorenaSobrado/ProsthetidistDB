@@ -79,7 +79,6 @@ public class JDBCInvoiceManager implements InvoiceManager {
 	}
 
 	public void updateInvoice(Patient patient, Integer prosCode, Long creditCard, String deliveryType) {
-		//DA ERROR (FOREIGN KEY constraint failed) NOSE SI EN DELIVERY. NO ENTIENDO PQ 
 		try {
 			String sql = "UPDATE Invoice SET purchase = ?, datePurchase = ?, creditCard = ?, "
 					+ "delivery_type = ? WHERE patient_id = ? AND prosthetic_code = ? AND purchase = ?";

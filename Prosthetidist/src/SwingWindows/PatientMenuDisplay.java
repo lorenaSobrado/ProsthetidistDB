@@ -61,8 +61,7 @@ public class PatientMenuDisplay extends JFrame {
 		JButton logOut = new JButton("LOG OUT");
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//um.disconnect();
-				//System.out.println("TEST PATIENT");
+				um.disconnect();
 				pLogInDisplay.setEnabled(true);
 				PatientMenuDisplay.this.setVisible(false);
 			}
