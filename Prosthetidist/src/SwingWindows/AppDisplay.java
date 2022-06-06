@@ -89,4 +89,5 @@ public class AppDisplay extends JFrame {
 		};
 		this.addWindowListener(exitListener);
 	}
+	
 }

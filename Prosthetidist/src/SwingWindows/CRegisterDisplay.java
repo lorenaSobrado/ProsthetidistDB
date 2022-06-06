@@ -27,12 +27,15 @@ import java.awt.event.WindowListener;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import javax.swing.JSeparator;
 
 public class CRegisterDisplay extends JFrame {
 
@@ -47,6 +50,10 @@ public class CRegisterDisplay extends JFrame {
 	private JPAUserManager um;
 	private CompanyManager cm;
 	private JPasswordField passwordHide;
+	private JSeparator separator;
+	private JSeparator separator_1;
+	private JSeparator separator_2;
+	private JSeparator separator_3;
 
 	public CRegisterDisplay(JFrame cLogInDisplay, JDBCManager manager) {
 		cLogInDisplay.setEnabled(false);
@@ -57,6 +64,7 @@ public class CRegisterDisplay extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(247, 247, 247));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
@@ -77,6 +85,8 @@ public class CRegisterDisplay extends JFrame {
 		contentPane.add(lblNewLabel_3);
 
 		name = new JTextField();
+		name.setBackground(new Color(247, 247, 247));
+		name.setBorder(null);
 		name.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -92,6 +102,8 @@ public class CRegisterDisplay extends JFrame {
 		name.setColumns(10);
 
 		phone = new JTextField();
+		phone.setBackground(new Color(247, 247, 247));
+		phone.setBorder(null);
 		phone.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -107,13 +119,15 @@ public class CRegisterDisplay extends JFrame {
 		phone.setColumns(10);
 
 		email = new JTextField();
+		email.setBackground(new Color(247, 247, 247));
+		email.setBorder(null);
 		email.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()
 						&& !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
-				} else
+				} else 
 					register.setEnabled(false);
 			}
 		});
@@ -122,6 +136,8 @@ public class CRegisterDisplay extends JFrame {
 		email.setColumns(10);
 
 		passwordReadable = new JTextField();
+		passwordReadable.setBackground(new Color(247, 247, 247));
+		passwordReadable.setBorder(null);
 		passwordReadable.setVisible(false);
 		passwordReadable.setBounds(183, 168, 110, 20);
 		contentPane.add(passwordReadable);
@@ -133,6 +149,7 @@ public class CRegisterDisplay extends JFrame {
 		back.setIcon(new ImageIcon(img));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				um.disconnect();
 				cLogInDisplay.setEnabled(true);
 				CRegisterDisplay.this.setVisible(false);
 			}
@@ -144,38 +161,41 @@ public class CRegisterDisplay extends JFrame {
 		register.setEnabled(false);
 		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (!validateEmail(email.getText())) {
+					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Invalid email", "Message",
+							JOptionPane.WARNING_MESSAGE);
+				} else {
+					try {
 
-				try {
+						Company company = new Company();
+						company.setName(name.getText());
+						company.setPhone(Integer.parseInt(phone.getText()));
+						company.setEmail(email.getText());
+						String password = passwordHide.getText();
 
-					Company company = new Company();
-					company.setName(name.getText());
-					company.setPhone(Integer.parseInt(phone.getText()));
-					company.setEmail(email.getText());
-					String password = passwordHide.getText();
+						MessageDigest md = MessageDigest.getInstance("MD5");
+						md.update(password.getBytes());
+						byte[] digest = md.digest();
+						User u = new User(email.getText(), digest);
+						Role role = um.getRole("Company");
+						u.setRole(role);
+						role.addUser(u);
+						um.newUser(u);
 
-					MessageDigest md = MessageDigest.getInstance("MD5");
-					md.update(password.getBytes());
-					byte[] digest = md.digest();
-					User u = new User(email.getText(), digest);
-					Role role = um.getRole("Company");
-					u.setRole(role);
-					role.addUser(u);
-					um.newUser(u);
+						cm.addCompany(company);
 
-					cm.addCompany(company);
-
-					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Register successfull", "Message",
-							JOptionPane.PLAIN_MESSAGE);
-					cLogInDisplay.setEnabled(true);
-					CRegisterDisplay.this.setVisible(false);
-
-				} catch (NoSuchAlgorithmException e1) {
-					e1.printStackTrace();
-
-				} catch (SQLException | NumberFormatException ex) {
-					JOptionPane.showMessageDialog(CRegisterDisplay.this, "Non valid data, try again", "Message",
-							JOptionPane.ERROR_MESSAGE);
-					ex.printStackTrace();
+						JOptionPane.showMessageDialog(CRegisterDisplay.this, "Register successfull", "Message",
+								JOptionPane.PLAIN_MESSAGE);
+						um.disconnect();
+						cLogInDisplay.setEnabled(true);
+						CRegisterDisplay.this.setVisible(false);
+					} catch (NoSuchAlgorithmException | SQLException ex) {
+						JOptionPane.showMessageDialog(CRegisterDisplay.this, "This account already exists. Try to log in or use a different email", "Message",
+								JOptionPane.WARNING_MESSAGE);
+					} catch (NumberFormatException ex) {
+						JOptionPane.showMessageDialog(CRegisterDisplay.this, "Invalid phone number", "Message",
+								JOptionPane.WARNING_MESSAGE);
+					}
 				}
 			}
 		});
@@ -183,6 +203,8 @@ public class CRegisterDisplay extends JFrame {
 		contentPane.add(register);
 
 		passwordHide = new JPasswordField();
+		passwordHide.setBackground(new Color(247, 247, 247));
+		passwordHide.setBorder(null);
 		passwordHide.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -216,16 +238,40 @@ public class CRegisterDisplay extends JFrame {
 		});
 		showPassword.setBounds(302, 167, 30, 23);
 		contentPane.add(showPassword);
+		
+		separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(183, 60, 110, 5);
+		contentPane.add(separator);
+		
+		separator_1 = new JSeparator();
+		separator_1.setForeground(Color.BLACK);
+		separator_1.setBounds(182, 103, 110, 5);
+		contentPane.add(separator_1);
+		
+		separator_2 = new JSeparator();
+		separator_2.setForeground(Color.BLACK);
+		separator_2.setBounds(183, 144, 110, 5);
+		contentPane.add(separator_2);
+		
+		separator_3 = new JSeparator();
+		separator_3.setForeground(Color.BLACK);
+		separator_3.setBounds(183, 188, 110, 5);
+		contentPane.add(separator_3);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {
-
 			@Override
 			public void windowClosing(WindowEvent e) {
 				manager.disconnect();
-
 			}
 		};
 		this.addWindowListener(exitListener);
+	}
+
+	private boolean validateEmail(String email) {
+		Pattern pattern = Pattern.compile("([a-z0-9]+(\\.?[a-z0-9])*)+@(([a-z]+)\\.([a-z]+))+"); //String of available characters and pattern 
+		Matcher matcher = pattern.matcher(email);
+		return matcher.find();
 	}
 }

@@ -134,7 +134,21 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			ex.printStackTrace();
 		}
 	}
+	public void addProstheticFromXML(Prosthetic p) {
 
+		try {
+			String sql = "INSERT INTO Prosthetic (price, functionalities, type, model) VALUES (?,?,?,?)";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			prep.setFloat(1, p.getPrice());
+			prep.setString(2, p.getFunctionalities());
+			prep.setString(3, p.getType());
+			prep.setString(4, p.getModel());
+			prep.executeUpdate();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 	@Override
 	public void deleteProsthetic(Prosthetic pros) {
 		try {

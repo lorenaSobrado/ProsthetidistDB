@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import exceptions.CartException;
 import prosthetidist.jdbc.JDBCInvoiceManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
@@ -109,9 +110,13 @@ public class PatientMenuDisplay extends JFrame {
 				if (table.getSelectedRowCount() > 0) {
 					int i = table.getSelectedRow();
 					Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
-					im.addProstheticToCart(patient, prosCode);
-					JOptionPane.showMessageDialog(PatientMenuDisplay.this, "Your selection was added to your cart",
-							"Message", JOptionPane.PLAIN_MESSAGE);
+					try {
+						im.addProstheticToCart(patient, prosCode);
+						JOptionPane.showMessageDialog(PatientMenuDisplay.this, "Your selection was added to your cart",
+								"Message", JOptionPane.PLAIN_MESSAGE);
+					} catch (CartException ce) {
+						JOptionPane.showMessageDialog(PatientMenuDisplay.this, "Already in your cart", "Message", JOptionPane.INFORMATION_MESSAGE);
+					}
 				} else {
 					JOptionPane.showMessageDialog(PatientMenuDisplay.this, "Select a prosthetic first", "Message",
 							JOptionPane.PLAIN_MESSAGE);

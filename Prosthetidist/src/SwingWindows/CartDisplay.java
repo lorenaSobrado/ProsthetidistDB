@@ -1,5 +1,6 @@
 package SwingWindows;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
@@ -35,6 +36,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ListSelectionModel;
+import javax.swing.JSeparator;
 
 public class CartDisplay extends JFrame {
 
@@ -68,6 +70,7 @@ public class CartDisplay extends JFrame {
 			}
 		});
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(247, 247, 247));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
@@ -118,16 +121,24 @@ public class CartDisplay extends JFrame {
 		contentPane.add(lblNewLabel_2);
 
 		creditCard = new JTextField();
+		creditCard.setBackground(new Color(247, 247, 247));
+		creditCard.setBorder(null);
 		creditCard.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				if (creditCard.getText().length() >= 16) {
+				if (creditCard.getText().length() > 15) {
 					e.consume(); // deja de procesar este evento
 					Toolkit.getDefaultToolkit().beep();
 				}
-				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() >= 15)) { // pq 15
-																												// y no
-																												// 16?
+//				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() > 15)) { 
+//					buy.setEnabled(true);
+//				} else {
+//					buy.setEnabled(false);
+//				}
+			}
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() == 16)) { 
 					buy.setEnabled(true);
 				} else {
 					buy.setEnabled(false);
@@ -142,21 +153,28 @@ public class CartDisplay extends JFrame {
 		buy.setEnabled(false);
 		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				patientMenuDisplay.setEnabled(true);
-				table.selectAll();
-				int[] selection = table.getSelectedRows();
-				for (int i : selection) {
-					Integer prosCode = Integer.valueOf(table.getValueAt(i, 0).toString());
-					if (premium.isSelected()) {
-						im.updateInvoice(patient, prosCode, Long.valueOf(creditCard.getText()), premium.toString());
+				try {
+					Long cardNumber = Long.valueOf(creditCard.getText());
+					table.selectAll();
+					int[] selection = table.getSelectedRows();
+					for (int i : selection) {
+						Integer prosCode = Integer.valueOf(table.getValueAt(i, 0).toString());
+						if (premium.isSelected()) {
+							im.updateInvoice(patient, prosCode, cardNumber, "Premium");
+						}
+						if (standard.isSelected()) {
+							im.updateInvoice(patient, prosCode, cardNumber, "Standard");
+						}
 					}
-					if (standard.isSelected()) {
-						im.updateInvoice(patient, prosCode, Long.valueOf(creditCard.getText()), standard.toString());
-					}
+					JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message",
+							JOptionPane.INFORMATION_MESSAGE);
+					patientMenuDisplay.setEnabled(true);
+					CartDisplay.this.setVisible(false);
+					
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(CartDisplay.this, "Invalid credit card number", "Message",
+							JOptionPane.INFORMATION_MESSAGE);
 				}
-				JOptionPane.showMessageDialog(CartDisplay.this, "Thank you for buying with us !", "Message",
-						JOptionPane.INFORMATION_MESSAGE);
-				CartDisplay.this.setVisible(false);
 			}
 		});
 		buy.setBounds(377, 282, 89, 23);
@@ -214,6 +232,7 @@ public class CartDisplay extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(10, 46, 450, 89);
+		scrollPane.setBackground(new Color(247, 247, 247));
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(table);
 
@@ -248,18 +267,20 @@ public class CartDisplay extends JFrame {
 		dollar.setIcon(new ImageIcon(dollarImg));
 		dollar.setBounds(440, 255, 16, 16);
 		contentPane.add(dollar);
+		
+		JSeparator separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(173, 241, 133, 5);
+		contentPane.add(separator);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {
-
 			@Override
 			public void windowClosing(WindowEvent e) {
 				manager.disconnect();
-
 			}
 		};
 		this.addWindowListener(exitListener);
-
 	}
 
 	private Float getTotalPrice(ArrayList<Prosthetic> cart) {

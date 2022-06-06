@@ -61,7 +61,7 @@ public class OfferProstheticByCompany extends JFrame {
 				prosthetic.setModel(model.getText());
 				cm.offerDesign(prosthetic, company.getId());
 				JOptionPane.showConfirmDialog(OfferProstheticByCompany.this, "Prosthetic has been made!", "Message",
-						JOptionPane.PLAIN_MESSAGE);
+						JOptionPane.OK_OPTION);
 				offerProsthetic.setEnabled(true);
 				OfferProstheticByCompany.this.setVisible(false);
 			}
