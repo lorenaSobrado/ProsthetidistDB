@@ -137,12 +137,13 @@ public class JDBCProstheticManager implements ProstheticsManager {
 	public void addProstheticFromXML(Prosthetic p) {
 
 		try {
-			String sql = "INSERT INTO Prosthetic (price, functionalities, type, model) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO Prosthetic (price, functionalities, type, model, company_id) VALUES (?,?,?,?,?)";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
 			prep.setFloat(1, p.getPrice());
 			prep.setString(2, p.getFunctionalities());
 			prep.setString(3, p.getType());
 			prep.setString(4, p.getModel());
+			prep.setInt(5, p.getCompany().getId());
 			prep.executeUpdate();
 
 		} catch (Exception ex) {

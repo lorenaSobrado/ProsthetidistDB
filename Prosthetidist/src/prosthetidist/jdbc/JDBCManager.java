@@ -126,7 +126,7 @@ public class JDBCManager {
 
 			sql = "CREATE TABLE ProstheticHasMaterials " + "(prosthetic_code INTEGER REFERENCES Prosthetic(code) ON DELETE CASCADE, " 
 			+ "	material_name TEXT REFERENCES Material(name) ON DELETE CASCADE, " + "PRIMARY KEY (prosthetic_code, material_name)" + ");";
-			
+
 			stmt.executeUpdate(sql);
 
 		} catch (SQLException e) {
