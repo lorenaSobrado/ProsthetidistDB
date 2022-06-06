@@ -155,8 +155,6 @@ public class CartDisplay extends JFrame {
 					int [] selection = table.getSelectedRows();
 					for (int i : selection) {
 						Integer prosCode = Integer.valueOf(table.getValueAt(i, 0).toString());
-						System.out.println(i + "selection");
-						System.out.println(prosCode + "code");
 						if (premium.isSelected()) {
 							im.updateInvoice(patient, prosCode, cardNumber, "Premium");
 						}
