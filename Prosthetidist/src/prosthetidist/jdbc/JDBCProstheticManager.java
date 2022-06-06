@@ -180,7 +180,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			prosCode = rs.getInt("code");
 
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			return null;
 		}
 		return prosCode;
 	}
