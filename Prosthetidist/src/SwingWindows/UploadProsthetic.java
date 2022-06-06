@@ -40,6 +40,9 @@ public class UploadProsthetic extends JFrame {
 	private JTextField widthTxt;
 	private JTextField weightTxt;
 	private JComboBox<String> typeOptions;
+	private JCheckBox plastic;
+	private JCheckBox carbonFiber;
+	private JCheckBox aluminium;
 
 	private JDBCProstheticManager pm;
 	private JDBCMaterialManager matm;
@@ -101,15 +104,15 @@ public class UploadProsthetic extends JFrame {
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 
-		JCheckBox plastic = new JCheckBox("Plastic");
+		plastic = new JCheckBox("Plastic");
 		plastic.setBounds(104, 167, 113, 23);
 		contentPane.add(plastic);
 
-		JCheckBox aluminium = new JCheckBox("Aluminium");
+		aluminium = new JCheckBox("Aluminium");
 		aluminium.setBounds(333, 168, 99, 23);
 		contentPane.add(aluminium);
 
-		JCheckBox carbonFiber = new JCheckBox("Carbon Fiber");
+		carbonFiber = new JCheckBox("Carbon Fiber");
 		carbonFiber.setBounds(224, 168, 107, 23);
 		contentPane.add(carbonFiber);
 
@@ -145,30 +148,36 @@ public class UploadProsthetic extends JFrame {
 				m.setLengthiness(length);
 				m.setWidth(width);
 				m.setWeight(weight);
-				if(mm.getMeasurement(length, width, weight) == null) {
+				if (mm.getMeasurement(length, width, weight) == null) {
 					mm.addMeasurement(m);
 				}
 				m = mm.getMeasurement(length, width, weight);
 				p.setMeasurement(m);
-				pm.uploadProsthetic(p);
 				Integer prosCode = pm.getProstheticCode(p);
+				if (prosCode == null) {
+					pm.uploadProsthetic(p);
+					prosCode = pm.getProstheticCode(p);
 
-				if (plastic.isSelected()) {
-					Material plastic = matm.getMaterialByName("Plastic");
-					matm.uploadMaterialOfProsthetic(plastic, prosCode);
+					if (plastic.isSelected()) {
+						Material plastic = matm.getMaterialByName("Plastic");
+						matm.uploadMaterialOfProsthetic(plastic, prosCode);
+					}
+					if (carbonFiber.isSelected()) {
+						Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
+						matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
+					}
+					if (aluminium.isSelected()) {
+						Material aluminium = matm.getMaterialByName("Aluminium");
+						matm.uploadMaterialOfProsthetic(aluminium, prosCode);
+					}
+					JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message",
+							JOptionPane.PLAIN_MESSAGE);
+					companyMenuDisplay.setEnabled(true);
+					UploadProsthetic.this.setVisible(false);
+				} else {
+					JOptionPane.showMessageDialog(UploadProsthetic.this, "This prosthetic already exists", "Message",
+							JOptionPane.INFORMATION_MESSAGE);
 				}
-				if (carbonFiber.isSelected()) {
-					Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
-					matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
-				}
-				if (aluminium.isSelected()) {
-					Material aluminium = matm.getMaterialByName("Aluminium");
-					matm.uploadMaterialOfProsthetic(aluminium, prosCode);
-				}
-				JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message",
-						JOptionPane.PLAIN_MESSAGE);
-				companyMenuDisplay.setEnabled(true);
-				UploadProsthetic.this.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(455, 309, 89, 23);
@@ -219,5 +228,42 @@ public class UploadProsthetic extends JFrame {
 		};
 		this.addWindowListener(exitListener);
 
+	}
+
+	private boolean checkMaterials(Integer prosCode) {
+		ArrayList<Material> materials = matm.getMaterialsFromProstheticCode(prosCode);
+
+		if ((plastic.isSelected() && carbonFiber.isSelected() && aluminium.isSelected()) && materials.size() != 3) {
+			return true;
+		}
+		if (materials.size() == 2) {
+			if ((plastic.isSelected() && carbonFiber.isSelected())
+					&& !materials.get(0).getName().equalsIgnoreCase("plastic")
+					&& !materials.get(1).getName().equalsIgnoreCase("plastic")) {
+				return true;
+			}
+			if ((plastic.isSelected() && aluminium.isSelected())
+					&& !materials.get(0).getName().equalsIgnoreCase("plastic")
+					&& !materials.get(1).getName().equalsIgnoreCase("plastic")) {
+				return true;
+			}
+			if ((aluminium.isSelected() && carbonFiber.isSelected())
+					&& !materials.get(0).getName().equalsIgnoreCase("aluminium")
+					&& !materials.get(1).getName().equalsIgnoreCase("aluminium")) {
+				return true;
+			}
+		}
+		if (materials.size() == 1) {
+			if (plastic.isSelected() && !materials.get(0).getName().equalsIgnoreCase("plastic")) {
+				return true;
+			}
+			if (aluminium.isSelected() && !materials.get(0).getName().equalsIgnoreCase("aluminium")) {
+				return true;
+			}
+			if (carbonFiber.isSelected() && !materials.get(0).getName().equalsIgnoreCase("carbon fiber")) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
