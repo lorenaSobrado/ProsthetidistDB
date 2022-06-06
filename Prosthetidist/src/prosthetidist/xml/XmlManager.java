@@ -49,12 +49,25 @@ public class XmlManager {
 		Company comp = (Company)unmarshaller.unmarshal(file);
 		
 		ArrayList<Company> comps=cm.getAllCompanies();
-		if(!comps.contains(comp)) {
+		int exist =0;
+		for (Company c: comps) {
+			if((c.getEmail().compareTo(comp.getEmail()))==0) {
+				exist=1;
+				break;
+			}
+			else {
+				exist=0;
+			}
+		}
+		if(exist==0) {
 			cm.addCompany(comp);
-	    for(Prosthetic pro : comp.getProsthetics()) {
-		pm.addProstheticFromXML(pro);
-}
-		} 
+			for(Prosthetic pro : comp.getProsthetics()) {
+				pro.setCompany(comp);
+				pm.addProstheticFromXML(pro);
+			}
+		}
+		
+		
 	}
 	//sourcePath--> Absolute path to source XML file
 	//xsltPath --> Absolute path to xslt file
@@ -69,6 +82,7 @@ public class XmlManager {
 			e.printStackTrace();
 		}
 	}
+
 
 }
 

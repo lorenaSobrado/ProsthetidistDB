@@ -59,14 +59,6 @@ public class Company implements Serializable{
 		this.phone=phone;
 		this.prosthetics = new ArrayList<>();
 	}
-	public Company(Integer id, String name, String email, Integer phone, ArrayList <Prosthetic> pros) {
-		
-		this.id=id;
-		this.name=name;
-		this.email=email;
-		this.phone=phone;
-		this.prosthetics = pros;
-	}
 	
 	//EQUALS
 	

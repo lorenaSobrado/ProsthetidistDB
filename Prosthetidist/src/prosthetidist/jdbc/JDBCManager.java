@@ -86,25 +86,25 @@ public class JDBCManager {
 			sql = "INSERT INTO Material " + "(name, strength, flexibility, temperatureResistance) VALUES (?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Plastic");
-			prep.setString(3, "low");
-			prep.setString(4, "high");
-			prep.setString(5, "low");
+			prep.setString(2, "low");
+			prep.setString(3, "high");
+			prep.setString(4, "low");
 			prep.executeUpdate();
 			
 			sql = "INSERT INTO Material " + "(name, strength, flexibility, temperatureResistance) VALUES (?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Carbon Fiber");
-			prep.setString(3, "high");
-			prep.setString(4, "medium");
-			prep.setString(5, "high");
+			prep.setString(2, "high");
+			prep.setString(3, "medium");
+			prep.setString(4, "high");
 			prep.executeUpdate();
 			
 			sql = "INSERT INTO Material " + "(name, strength, flexibility, temperatureResistance) VALUES (?,?,?,?)";
 			prep = c.prepareStatement(sql);
 			prep.setString(1, "Aluminium");
+			prep.setString(2, "medium");
 			prep.setString(3, "medium");
-			prep.setString(4, "medium");
-			prep.setString(5, "low");
+			prep.setString(4, "low");
 			prep.executeUpdate();
 
 			sql = "CREATE TABLE Measurement " + "(id INTEGER PRIMARY KEY AUTOINCREMENT, " + "lengthiness REAL NOT NULL, " 
@@ -126,7 +126,7 @@ public class JDBCManager {
 
 			sql = "CREATE TABLE ProstheticHasMaterials " + "(prosthetic_code INTEGER REFERENCES Prosthetic(code) ON DELETE CASCADE, " 
 			+ "	material_name TEXT REFERENCES Material(name) ON DELETE CASCADE, " + "PRIMARY KEY (prosthetic_code, material_name)" + ");";
-			
+
 			stmt.executeUpdate(sql);
 
 		} catch (SQLException e) {

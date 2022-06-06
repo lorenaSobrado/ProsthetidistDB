@@ -21,11 +21,10 @@
     <phone>910234567</phone>
     <Prosthetics>
     	<prosthetics code="213">
-    		<price> 89 </price>
-    		<functionalities> Walk </functionalities>
-    		<type> right leg </type>
-    		<model> 098 </model>
+    		<price> 89.99 </price>
+    		<functionalities> Walk and jump </functionalities>
+    		<type> Right leg </type>
+    		<model> C980 </model>
          </prosthetics>
-    	 </Prosthetics>
-    	 
+    	 </Prosthetics> 
 </Company>

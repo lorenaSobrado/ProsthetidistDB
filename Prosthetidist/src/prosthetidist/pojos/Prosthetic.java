@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "Prosthetic")
-@XmlType(propOrder = { "price", "functionalities", "type", "model"})
+@XmlType(propOrder = { "price", "functionalities", "type", "model", "measurement", "materials"})
 public class Prosthetic implements Serializable {
 
 	private static final long serialVersionUID = -6066466581324943260L;
@@ -42,9 +42,10 @@ public class Prosthetic implements Serializable {
 	private String model;
 	@XmlTransient
 	private Company company;
-	@XmlTransient
+	@XmlElement
 	private Measurement measurement;
-	@XmlTransient
+	@XmlElement
+	@XmlElementWrapper(name = "Materials")
 	private ArrayList<Material> materials;
 	@XmlTransient
 	private ArrayList<Invoice> invoices;
