@@ -152,9 +152,11 @@ public class CartDisplay extends JFrame {
 				try {
 					Long cardNumber = Long.valueOf(creditCard.getText());
 					table.selectAll();
-					int[] selection = table.getSelectedRows();
+					int [] selection = table.getSelectedRows();
 					for (int i : selection) {
 						Integer prosCode = Integer.valueOf(table.getValueAt(i, 0).toString());
+						System.out.println(i + "selection");
+						System.out.println(prosCode + "code");
 						if (premium.isSelected()) {
 							im.updateInvoice(patient, prosCode, cardNumber, "Premium");
 						}
@@ -189,7 +191,7 @@ public class CartDisplay extends JFrame {
 		contentPane.add(back);
 
 		table = new JTable();
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		model = new DefaultTableModel() {
 			public boolean isCellEditable(int fil, int col) {
 				return false;
@@ -240,10 +242,12 @@ public class CartDisplay extends JFrame {
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (table.getSelectedRowCount() > 0) {
-					int i = table.getSelectedRow();
-					Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
-					im.deleteProstheticFromCart(patient, prosCode);
-					model.removeRow(i);
+					int [] selection = table.getSelectedRows();
+					for (int i : selection) {
+						Integer prosCode = Integer.parseInt(table.getValueAt(i, 0).toString());
+						im.deleteProstheticFromCart(patient, prosCode);
+						model.removeRow(i);
+					}
 					total.setText(String.valueOf(getTotalPrice(im.getPatientSelection(patient))));
 				} else {
 					JOptionPane.showMessageDialog(CartDisplay.this, "Select a prosthetic", "Message",
