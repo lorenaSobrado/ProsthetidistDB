@@ -131,11 +131,6 @@ public class CartDisplay extends JFrame {
 					e.consume(); // deja de procesar este evento
 					Toolkit.getDefaultToolkit().beep();
 				}
-//				if ((standard.isSelected() || premium.isSelected()) && (creditCard.getText().length() > 15)) { 
-//					buy.setEnabled(true);
-//				} else {
-//					buy.setEnabled(false);
-//				}
 			}
 			@Override
 			public void keyReleased(KeyEvent e) {
