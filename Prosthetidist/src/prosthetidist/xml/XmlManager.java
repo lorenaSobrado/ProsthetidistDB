@@ -82,39 +82,6 @@ public class XmlManager {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void main(String args[]) {
-		XmlManager xm= new XmlManager();
-		ArrayList <Prosthetic> pros= new ArrayList <Prosthetic>();
-		//measurements y materials
-		Measurement meas = new Measurement (3,24.7F,12.3F,9.7F);
-		Material mat = new Material("aluminium", "HIGH", "LOW", "MEDIUM");
-		Material mat2= new Material("Carbon Fiber", "LOW", "LOW", "MEDIUM");
-		ArrayList <Material> mats= new ArrayList <Material>();
-		mats.add(mat);
-		mats.add(mat2);
-		Prosthetic p = new Prosthetic (23,34.3F,"walk","left arm", "3453x", meas, mats);
-		pros.add(p);
-		Company c = new Company (16,"rob.arms","robotics@gmail.com",123456789,pros);
-		JDBCManager m = new JDBCManager();
-		JDBCCompanyManager cm= new JDBCCompanyManager(m);
-		JDBCProstheticManager pm= new JDBCProstheticManager(m);
-
-		ArrayList<Company> comps=cm.getAllCompanies();
-		for(int i=0; i<comps.size(); i++) {
-			
-		System.out.println(comps.get(i));
-		}
-		try {
-			//
-			xm.unmarshall(cm,pm);
-			//xm.marshall(c);
-		} catch (Exception e) {
- 			e.printStackTrace();
-		}
-		
-		
-	}
 
 
 }
