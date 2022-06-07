@@ -85,7 +85,6 @@ public class JPAUserManager implements UserManager {
 	public User checkPassword(String email, String passwd) {
 		
 		//PASSWORDS ARE NERVER STORED INTO THE DATA BASE
-		//TODO investigar
 		// null user if match not found
 		
 		User u = null;

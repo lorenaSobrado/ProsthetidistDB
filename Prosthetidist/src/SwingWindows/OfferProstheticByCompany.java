@@ -32,7 +32,7 @@ public class OfferProstheticByCompany extends JFrame {
 	private JButton back;
 	private JDBCCompanyManager cm;
 
-	public OfferProstheticByCompany(JFrame offerProsthetic, Company company, Prosthetic prosthetic,
+	public OfferProstheticByCompany(JFrame offerProsthetic, JFrame companyMenuDisplay, Company company, Prosthetic prosthetic,
 			JDBCManager manager) {
 		cm = new JDBCCompanyManager(manager);
 		offerProsthetic.setEnabled(false);
@@ -57,13 +57,21 @@ public class OfferProstheticByCompany extends JFrame {
 		ok = new JButton("OK");
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				prosthetic.setPrice(Float.valueOf(price.getText()));
-				prosthetic.setModel(model.getText());
-				cm.offerDesign(prosthetic, company.getId());
-				JOptionPane.showConfirmDialog(OfferProstheticByCompany.this, "Prosthetic has been made!", "Message",
-						JOptionPane.OK_OPTION);
-				offerProsthetic.setEnabled(true);
-				OfferProstheticByCompany.this.setVisible(false);
+				try {
+					prosthetic.setPrice(Float.valueOf(price.getText()));
+					prosthetic.setModel(model.getText());
+					cm.offerDesign(prosthetic, company.getId());
+					JOptionPane.showConfirmDialog(OfferProstheticByCompany.this, "Prosthetic has been made!", "Message",
+							JOptionPane.PLAIN_MESSAGE);
+					offerProsthetic.setEnabled(true);
+					OfferProstheticByCompany.this.setVisible(false);
+					offerProsthetic.setVisible(false);
+					companyMenuDisplay.setEnabled(true);
+					companyMenuDisplay.setVisible(true);
+				} catch(NumberFormatException nfe) {
+					JOptionPane.showConfirmDialog(OfferProstheticByCompany.this, "Invalid price", "Message",
+							JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		ok.setBounds(254, 206, 89, 23);

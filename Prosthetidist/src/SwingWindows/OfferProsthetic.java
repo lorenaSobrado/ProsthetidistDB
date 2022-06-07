@@ -105,7 +105,7 @@ public class OfferProsthetic extends JFrame {
 				if(table.getSelectedRowCount() > 0) {
 					int i = table.getSelectedRow();
 					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 0).toString()));
-					JFrame offerProstheticByCompany = new OfferProstheticByCompany(OfferProsthetic.this, company, p, manager);
+					JFrame offerProstheticByCompany = new OfferProstheticByCompany(OfferProsthetic.this, companyMenuDisplay, company, p, manager);
 					offerProstheticByCompany.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(OfferProsthetic.this, "Select a prosthetic first", "Message",
