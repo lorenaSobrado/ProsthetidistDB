@@ -156,6 +156,7 @@ public class JDBCProstheticManager implements ProstheticsManager {
 			PreparedStatement p = manager.getConnection().prepareStatement(sql);
 			p.setInt(1, pros.getCode());
 			p.executeUpdate();
+			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -180,6 +181,22 @@ public class JDBCProstheticManager implements ProstheticsManager {
 
 		} catch (Exception ex) {
 			return null;
+		}
+		return prosCode;
+	}
+	
+	public Integer getLastProstheticCode(Prosthetic p) {
+		Integer prosCode = null;
+		try {
+			String sql = "SELECT last_insert_rowid() AS lastId";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			ResultSet rs = prep.executeQuery();
+			prosCode = rs.getInt("lastId");
+			
+			rs.close();
+			prep.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
 		}
 		return prosCode;
 	}

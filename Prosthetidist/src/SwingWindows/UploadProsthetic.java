@@ -136,53 +136,73 @@ public class UploadProsthetic extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Measurement m = new Measurement();
 				Prosthetic p = new Prosthetic();
-				
-				try {
-					p.setCompany(company);
-					p.setPrice(Float.parseFloat(textField.getText()));
-					p.setFunctionalities(textField_1.getText());
-					p.setModel(textField_3.getText());
-					p.setType(typeOptions.getSelectedItem().toString());
-					Float length = Float.parseFloat(lengthTxt.getText());
-					Float width = Float.parseFloat(widthTxt.getText());
-					Float weight = Float.parseFloat(weightTxt.getText());
-					m.setLengthiness(length);
-					m.setWidth(width);
-					m.setWeight(weight);
-					if (mm.getMeasurement(length, width, weight) == null) {
-						mm.addMeasurement(m);
+				if(plastic.isSelected() || carbonFiber.isSelected() || aluminium.isSelected()) {
+					try {
+						p.setCompany(company);
+						p.setPrice(Float.parseFloat(textField.getText()));
+						p.setFunctionalities(textField_1.getText());
+						p.setModel(textField_3.getText());
+						p.setType(typeOptions.getSelectedItem().toString());
+						Float length = Float.parseFloat(lengthTxt.getText());
+						Float width = Float.parseFloat(widthTxt.getText());
+						Float weight = Float.parseFloat(weightTxt.getText());
+						m.setLengthiness(length);
+						m.setWidth(width);
+						m.setWeight(weight);
+						if (mm.getMeasurement(length, width, weight) == null) {
+							mm.addMeasurement(m);
+						}
+						m = mm.getMeasurement(length, width, weight);
+						p.setMeasurement(m);
+						Integer prosCode = pm.getProstheticCode(p);
+						if (prosCode == null) {
+							pm.uploadProsthetic(p);
+							prosCode = pm.getLastProstheticCode(p);
+							if (plastic.isSelected()) {
+								Material plastic = matm.getMaterialByName("Plastic");
+								matm.uploadMaterialOfProsthetic(plastic, prosCode);
+							}
+							if (carbonFiber.isSelected()) {
+								Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
+								matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
+							}
+							if (aluminium.isSelected()) {
+								Material aluminium = matm.getMaterialByName("Aluminium");
+								matm.uploadMaterialOfProsthetic(aluminium, prosCode);
+							}
+							JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message",
+									JOptionPane.PLAIN_MESSAGE);
+							companyMenuDisplay.setEnabled(true);
+							UploadProsthetic.this.setVisible(false);
+						} else {
+							if(checkMaterials(prosCode)) {
+								pm.uploadProsthetic(p);
+								prosCode = pm.getLastProstheticCode(p);
+								if (plastic.isSelected()) {
+									Material plastic = matm.getMaterialByName("Plastic");
+									matm.uploadMaterialOfProsthetic(plastic, prosCode);
+								}
+								if (carbonFiber.isSelected()) {
+									Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
+									matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
+								}
+								if (aluminium.isSelected()) {
+									Material aluminium = matm.getMaterialByName("Aluminium");
+									matm.uploadMaterialOfProsthetic(aluminium, prosCode);
+								}
+								JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message",
+										JOptionPane.PLAIN_MESSAGE);
+								companyMenuDisplay.setEnabled(true);
+								UploadProsthetic.this.setVisible(false);
+							} else JOptionPane.showMessageDialog(UploadProsthetic.this, "This prosthetic already exists", "Message",
+									JOptionPane.INFORMATION_MESSAGE);
+						}
+					} catch(NumberFormatException nfe) {
+						JOptionPane.showMessageDialog(UploadProsthetic.this, "Invalid price or measurement", "Message",
+								JOptionPane.ERROR_MESSAGE);
 					}
-					m = mm.getMeasurement(length, width, weight);
-					p.setMeasurement(m);
-					Integer prosCode = pm.getProstheticCode(p);
-					if (prosCode == null) {
-						pm.uploadProsthetic(p);
-						prosCode = pm.getProstheticCode(p);
-
-						if (plastic.isSelected()) {
-							Material plastic = matm.getMaterialByName("Plastic");
-							matm.uploadMaterialOfProsthetic(plastic, prosCode);
-						}
-						if (carbonFiber.isSelected()) {
-							Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
-							matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
-						}
-						if (aluminium.isSelected()) {
-							Material aluminium = matm.getMaterialByName("Aluminium");
-							matm.uploadMaterialOfProsthetic(aluminium, prosCode);
-						}
-						JOptionPane.showMessageDialog(UploadProsthetic.this, "New prosthetic added", "Message",
-								JOptionPane.PLAIN_MESSAGE);
-						companyMenuDisplay.setEnabled(true);
-						UploadProsthetic.this.setVisible(false);
-					} else {
-						JOptionPane.showMessageDialog(UploadProsthetic.this, "This prosthetic already exists", "Message",
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-				} catch(NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(UploadProsthetic.this, "Invalid price or measurement", "Message",
-							JOptionPane.ERROR_MESSAGE);
-				}
+				} else JOptionPane.showMessageDialog(UploadProsthetic.this, "Select a material", "Message",
+						JOptionPane.WARNING_MESSAGE);	
 			}
 		});
 		btnNewButton.setBounds(455, 309, 89, 23);
@@ -271,6 +291,4 @@ public class UploadProsthetic extends JFrame {
 		}
 		return false;
 	}
-	
-	//comment
 }

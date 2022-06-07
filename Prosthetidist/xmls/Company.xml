@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Company>
-    <name>rob.arms</name>
-    <email>robotics@gmail.com</email>
-    <phone>123456789</phone>
+    <name>company1</name>
+    <email>company1@gmail.com</email>
+    <phone>123456123</phone>
     <Prosthetics>
-        <prosthetics code="23">
-            <price>34.3</price>
+        <prosthetics code="9">
+            <price>900.0</price>
             <functionalities>walk</functionalities>
-            <type>left arm</type>
-            <model>3453x</model>
+            <type>Right foot</type>
+            <model>first offer</model>
+            <measurement>
+                <id>3</id>
+                <lengthiness>8.0</lengthiness>
+                <weight>8.0</weight>
+                <width>8.0</width>
+            </measurement>
+            <Materials>
+                <materials>
+                    <flexibility>medium</flexibility>
+                    <name>Aluminium</name>
+                    <strength>medium</strength>
+                    <temperatureResistence>low</temperatureResistence>
+                </materials>
+                <materials>
+                    <flexibility>medium</flexibility>
+                    <name>Carbon Fiber</name>
+                    <strength>high</strength>
+                    <temperatureResistence>high</temperatureResistence>
+                </materials>
+                <materials>
+                    <flexibility>high</flexibility>
+                    <name>Plastic</name>
+                    <strength>low</strength>
+                    <temperatureResistence>low</temperatureResistence>
+                </materials>
+            </Materials>
+        </prosthetics>
+        <prosthetics code="14">
+            <price>300.0</price>
+            <functionalities>walk</functionalities>
+            <type>Left leg</type>
+            <model>first model</model>
+            <measurement>
+                <id>7</id>
+                <lengthiness>10.0</lengthiness>
+                <weight>10.0</weight>
+                <width>10.0</width>
+            </measurement>
+            <Materials>
+                <materials>
+                    <flexibility>medium</flexibility>
+                    <name>Aluminium</name>
+                    <strength>medium</strength>
+                    <temperatureResistence>low</temperatureResistence>
+                </materials>
+            </Materials>
         </prosthetics>
     </Prosthetics>
 </Company>

@@ -3,8 +3,6 @@ package prosthetidist.xml;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -15,14 +13,10 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import prosthetidist.jdbc.JDBCCompanyManager;
-import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.*;
 
-public class XmlManager {
-
-
-	
+public class XmlManager {	
 
 	public void marshall(Company comp) throws Exception { //JAVA TO XML
 		
@@ -55,7 +49,6 @@ public class XmlManager {
 				exist=1;
 				break;
 			}
-			
 		}
 		
 		if(exist==0) {

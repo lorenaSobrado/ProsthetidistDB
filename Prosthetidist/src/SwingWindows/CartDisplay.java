@@ -118,7 +118,7 @@ public class CartDisplay extends JFrame {
 		contentPane.add(premium);
 
 		JLabel lblNewLabel_2 = new JLabel("CREDIT CARD NUMBER :");
-		lblNewLabel_2.setBounds(24, 224, 128, 14);
+		lblNewLabel_2.setBounds(24, 224, 159, 14);
 		contentPane.add(lblNewLabel_2);
 
 		creditCard = new JTextField();
@@ -141,7 +141,7 @@ public class CartDisplay extends JFrame {
 				}
 			}
 		});
-		creditCard.setBounds(173, 221, 133, 20);
+		creditCard.setBounds(209, 221, 133, 20);
 		contentPane.add(creditCard);
 		creditCard.setColumns(10);
 
@@ -233,7 +233,7 @@ public class CartDisplay extends JFrame {
 		scrollPane.setViewportView(table);
 
 		JLabel lblNewLabel_1 = new JLabel("Choose delivery");
-		lblNewLabel_1.setBounds(24, 157, 83, 14);
+		lblNewLabel_1.setBounds(24, 157, 121, 14);
 		contentPane.add(lblNewLabel_1);
 
 		JButton delete = new JButton("REMOVE");
@@ -253,7 +253,7 @@ public class CartDisplay extends JFrame {
 				}
 			}
 		});
-		delete.setBounds(370, 7, 77, 23);
+		delete.setBounds(351, 7, 96, 23);
 		contentPane.add(delete);
 
 		total = new JLabel(String.valueOf(getTotalPrice(im.getPatientSelection(patient))));
@@ -268,7 +268,7 @@ public class CartDisplay extends JFrame {
 		
 		JSeparator separator = new JSeparator();
 		separator.setForeground(Color.BLACK);
-		separator.setBounds(173, 241, 133, 5);
+		separator.setBounds(209, 241, 133, 5);
 		contentPane.add(separator);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
