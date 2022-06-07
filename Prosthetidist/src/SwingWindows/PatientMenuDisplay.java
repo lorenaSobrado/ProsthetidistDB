@@ -68,7 +68,7 @@ public class PatientMenuDisplay extends JFrame {
 		});
 		Image logOutImg = new ImageIcon(this.getClass().getResource("/logOut.png")).getImage();
 		logOut.setIcon(new ImageIcon(logOutImg));
-		logOut.setBounds(27, 288, 103, 23);
+		logOut.setBounds(27, 288, 144, 23);
 		contentPane.add(logOut);
 
 		JLabel userLabel = new JLabel("");
@@ -84,7 +84,7 @@ public class PatientMenuDisplay extends JFrame {
 				designProsthetic.setVisible(true);
 			}
 		});
-		design.setBounds(368, 29, 119, 23);
+		design.setBounds(310, 29, 177, 23);
 		contentPane.add(design);
 
 		JButton cart = new JButton("");
@@ -122,7 +122,7 @@ public class PatientMenuDisplay extends JFrame {
 				}
 			}
 		});
-		addToCart.setBounds(476, 288, 111, 23);
+		addToCart.setBounds(451, 288, 136, 23);
 		contentPane.add(addToCart);
 
 		JScrollPane scrollPane = new JScrollPane();

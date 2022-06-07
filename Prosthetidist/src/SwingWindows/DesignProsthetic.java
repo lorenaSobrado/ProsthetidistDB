@@ -66,7 +66,7 @@ public class DesignProsthetic extends JFrame {
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Measurements");
-		lblNewLabel_1.setBounds(10, 80, 76, 13);
+		lblNewLabel_1.setBounds(10, 80, 96, 13);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Functionalities");
@@ -74,7 +74,7 @@ public class DesignProsthetic extends JFrame {
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Materials");
-		lblNewLabel_3.setBounds(10, 158, 45, 13);
+		lblNewLabel_3.setBounds(10, 158, 76, 13);
 		contentPane.add(lblNewLabel_3);
 
 		type = new JComboBox<String>();
@@ -120,46 +120,49 @@ public class DesignProsthetic extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Measurement m = new Measurement();
 				
-				try {
-					Float length = Float.parseFloat(lengthTxt.getText());
-					Float width = Float.parseFloat(widthTxt.getText());
-					Float weight = Float.parseFloat(weightTxt.getText());
-					m.setLengthiness(length);
-					m.setWidth(width);
-					m.setWeight(weight);
-					if(mm.getMeasurement(length, width, weight) == null) {
-						mm.addMeasurement(m);
+				if(plastic.isSelected() || carbonFiber.isSelected() || aluminium.isSelected()) {
+					try {
+						Float length = Float.parseFloat(lengthTxt.getText());
+						Float width = Float.parseFloat(widthTxt.getText());
+						Float weight = Float.parseFloat(weightTxt.getText());
+						m.setLengthiness(length);
+						m.setWidth(width);
+						m.setWeight(weight);
+						if(mm.getMeasurement(length, width, weight) == null) {
+							mm.addMeasurement(m);
+						}
+						m = mm.getMeasurement(length, width, weight);
+						patm.designProsthetic(functionalities.getText(), type.getSelectedItem().toString(), m); //Doesn't matter if anyone else design exactly the same bc the company could offer the 2 (each for each patient)
+						Integer prosCode = patm.getDesignCode(functionalities.getText(), type.getSelectedItem().toString(), m);
+						ArrayList<Material> materials = new ArrayList<Material>();
+						if (plastic.isSelected()) {
+							Material plastic = matm.getMaterialByName("Plastic");
+							materials.add(plastic);
+							matm.uploadMaterialOfProsthetic(plastic, prosCode);
+						}
+						if (carbonFiber.isSelected()) {
+							Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
+							materials.add(carbonFiber);
+							matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
+						}
+						if (aluminium.isSelected()) {
+							Material aluminium = matm.getMaterialByName("Aluminium");
+							materials.add(aluminium);
+							matm.uploadMaterialOfProsthetic(aluminium, prosCode);
+						}
+						JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !",
+								"Message", JOptionPane.INFORMATION_MESSAGE);
+						patientMenuDisplay.setEnabled(true);
+						DesignProsthetic.this.setVisible(false);
+					} catch(NumberFormatException nfe) {
+						JOptionPane.showMessageDialog(DesignProsthetic.this, "Invalid measurements",
+								"Message", JOptionPane.ERROR_MESSAGE);
 					}
-					m = mm.getMeasurement(length, width, weight);
-					patm.designProsthetic(functionalities.getText(), type.getSelectedItem().toString(), m); //Doesn't matter if anyone else design exactly the same bc the company could offer the 2 (each for each patient)
-					Integer prosCode = patm.getDesignCode(functionalities.getText(), type.getSelectedItem().toString(), m);
-					ArrayList<Material> materials = new ArrayList<Material>();
-					if (plastic.isSelected()) {
-						Material plastic = matm.getMaterialByName("Plastic");
-						materials.add(plastic);
-						matm.uploadMaterialOfProsthetic(plastic, prosCode);
-					}
-					if (carbonFiber.isSelected()) {
-						Material carbonFiber = matm.getMaterialByName("Carbon Fiber");
-						materials.add(carbonFiber);
-						matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);
-					}
-					if (aluminium.isSelected()) {
-						Material aluminium = matm.getMaterialByName("Aluminium");
-						materials.add(aluminium);
-						matm.uploadMaterialOfProsthetic(aluminium, prosCode);
-					}
-					JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !",
-							"Message", JOptionPane.INFORMATION_MESSAGE);
-					patientMenuDisplay.setEnabled(true);
-					DesignProsthetic.this.setVisible(false);
-				} catch(NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(DesignProsthetic.this, "Your design has been sent to the companies !",
-							"Message", JOptionPane.ERROR_MESSAGE);
-				}
+				} else JOptionPane.showMessageDialog(DesignProsthetic.this, "Select a material", "Message",
+						JOptionPane.WARNING_MESSAGE);	
 			}
 		});
-		btnNewButton.setBounds(393, 272, 85, 21);
+		btnNewButton.setBounds(382, 272, 96, 21);
 		contentPane.add(btnNewButton);
 
 		JButton back = new JButton("");

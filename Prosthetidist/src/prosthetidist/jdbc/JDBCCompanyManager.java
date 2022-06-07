@@ -107,9 +107,9 @@ public class JDBCCompanyManager implements CompanyManager {
 		return companies;
 	}
 
-	public List<Prosthetic> listProstheticsOfCompany(Company c) {
+	public ArrayList<Prosthetic> listProstheticsOfCompany(Company c) {
 
-		List<Prosthetic> prostheticsOfCompany = new ArrayList<Prosthetic>();
+		ArrayList<Prosthetic> prostheticsOfCompany = new ArrayList<Prosthetic>();
 		ArrayList<Material> materials = new ArrayList<Material>();
 		Measurement m = null;
 

@@ -11,6 +11,7 @@ import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.jpa.JPAUserManager;
 import prosthetidist.pojos.Company;
+import prosthetidist.xml.XmlManager;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,11 +28,13 @@ public class CompanyMenuDisplay extends JFrame {
 	private JPanel contentPane;
 	private JDBCCompanyManager cm;
 	private JDBCProstheticManager pm;
+	private XmlManager xm;
 
 	public CompanyMenuDisplay(JFrame cLogInDisplay, Company company, JDBCManager manager, JPAUserManager um) {
 		cLogInDisplay.setEnabled(false);
 		cm = new JDBCCompanyManager(manager);
 		pm = new JDBCProstheticManager(manager);
+		xm = new XmlManager();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -85,8 +88,7 @@ public class CompanyMenuDisplay extends JFrame {
 		logOut.setIcon(new ImageIcon(logOutImg));
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//um.disconnect();
-				//System.out.println("TEST");
+				um.disconnect();
 				cLogInDisplay.setEnabled(true);
 				CompanyMenuDisplay.this.setVisible(false);
 			}
@@ -104,13 +106,21 @@ public class CompanyMenuDisplay extends JFrame {
 		username.setBounds(71, 35, 89, 14);
 		contentPane.add(username);
 		
-		JButton btnNewButton_2_1 = new JButton("");
-		btnNewButton_2_1.addActionListener(new ActionListener() {
+		JButton export = new JButton("EXPORT INFO");
+		export.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					company.getProsthetics().clear();
+					company.setProsthetics(cm.listProstheticsOfCompany(company));
+					xm.marshall(company);
+					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, "Your information has been exported into a xml file : Company", "Message", JOptionPane.INFORMATION_MESSAGE);
+				} catch(Exception ex) {
+					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, "Error exporting the information", "Message", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
-		btnNewButton_2_1.setBounds(125, 179, 178, 29);
-		contentPane.add(btnNewButton_2_1);
+		export.setBounds(125, 179, 178, 29);
+		contentPane.add(export);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {
