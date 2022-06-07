@@ -12,24 +12,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "Material")
-@XmlType(propOrder = { "name", "price", "strength", "flexibility", "temperatureResistance"})
 
 public class Material implements Serializable{
 
 	private static final long serialVersionUID = -5001802543288251520L;
-	@XmlAttribute
 	private String name;
-	@XmlAttribute
-	private float price;
-	@XmlAttribute
 	private String strength;
-	@XmlAttribute
 	private String flexibility;
-	@XmlAttribute
 	private String temperatureResistance;
-	@XmlTransient
 	private List <Prosthetic> prosthetics;
 	
 	
@@ -38,10 +28,9 @@ public class Material implements Serializable{
 	}
 	
 
-	public Material(String name, float price, String strength, String flexibility, String temperatureResistence) {
+	public Material(String name, String strength, String flexibility, String temperatureResistence) {
 		super();
 		this.name = name;
-		this.price = price;
 		this.strength = strength;
 		this.flexibility = flexibility;
 		this.temperatureResistance = temperatureResistence;
@@ -64,13 +53,7 @@ public class Material implements Serializable{
 		this.strength = strength;
 	}
 
-	public float getPrice() {
-		return price;
-	}
 
-	public void setPrice(float price) {
-		this.price = price;
-	}
 
 	public String getTemperatureResistence() {
 		return temperatureResistance;
@@ -99,7 +82,7 @@ public class Material implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Materials [Name=" + name + ", Strength=" + strength + ", Price=" + price + ", TemperatureResistence="
+		return "Materials [Name=" + name + ", Strength=" + strength + ", TemperatureResistence="
 				+ temperatureResistance + ", Flexibility=" + flexibility + "]";
 	}
 
