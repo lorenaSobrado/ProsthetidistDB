@@ -22,7 +22,6 @@ import prosthetidist.ifaces.UserManager;
 public class JPAUserManager implements UserManager {
 
 	private EntityManager em;
-	private Connection c = null;
 	
 	
 	public JPAUserManager() {
@@ -98,9 +97,9 @@ public class JPAUserManager implements UserManager {
 			
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
-		}
-		
+		}	
 		try {
+			
 			u = (User) q.getSingleResult();
 			
 		} catch (NoResultException e) {}

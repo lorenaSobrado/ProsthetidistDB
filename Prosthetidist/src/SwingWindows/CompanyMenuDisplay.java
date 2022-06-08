@@ -37,7 +37,7 @@ public class CompanyMenuDisplay extends JFrame {
 		xm = new XmlManager();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 150, 500, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -50,7 +50,7 @@ public class CompanyMenuDisplay extends JFrame {
 				uploadProsthetic.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(125, 60, 178, 29);
+		btnNewButton.setBounds(149, 62, 178, 29);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("DELETE PROSTHETIC");
@@ -65,7 +65,7 @@ public class CompanyMenuDisplay extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(125, 100, 178, 29);
+		btnNewButton_1.setBounds(149, 110, 178, 29);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_2 = new JButton("OFFER DESIGN");
@@ -80,7 +80,7 @@ public class CompanyMenuDisplay extends JFrame {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(125, 140, 178, 29);
+		btnNewButton_2.setBounds(149, 155, 178, 29);
 		contentPane.add(btnNewButton_2);
 
 		JButton logOut = new JButton("LOG OUT");
@@ -88,12 +88,18 @@ public class CompanyMenuDisplay extends JFrame {
 		logOut.setIcon(new ImageIcon(logOutImg));
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (company.getEmail() == "trial@gmail.com") {
+					cm.deleteCompany(company);
+					JOptionPane.showMessageDialog(CompanyMenuDisplay.this,
+							"Thanks for trying our app. Hope you liked it !!", "Message",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
 				um.disconnect();
 				cLogInDisplay.setEnabled(true);
 				CompanyMenuDisplay.this.setVisible(false);
 			}
 		});
-		logOut.setBounds(322, 237, 117, 29);
+		logOut.setBounds(345, 271, 117, 29);
 		contentPane.add(logOut);
 
 		JLabel user = new JLabel("");
@@ -105,21 +111,29 @@ public class CompanyMenuDisplay extends JFrame {
 		JLabel username = new JLabel(company.getName());
 		username.setBounds(71, 35, 89, 14);
 		contentPane.add(username);
-		
+
 		JButton export = new JButton("EXPORT INFO");
 		export.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					company.getProsthetics().clear();
-					company.setProsthetics(cm.listProstheticsOfCompany(company));
-					xm.marshall(company);
-					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, "Your information has been exported into a xml file : Company", "Message", JOptionPane.INFORMATION_MESSAGE);
-				} catch(Exception ex) {
-					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, "Error exporting the information", "Message", JOptionPane.ERROR_MESSAGE);
+				if (company.getEmail() == "trial@gmail.com") {
+					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, "Option not allowed", "Message",
+							JOptionPane.WARNING_MESSAGE);
+				} else {
+					try {
+						company.getProsthetics().clear();
+						company.setProsthetics(cm.listProstheticsOfCompany(company));
+						xm.marshall(company);
+						JOptionPane.showMessageDialog(CompanyMenuDisplay.this,
+								"Your information has been exported into a xml file : Company", "Message",
+								JOptionPane.INFORMATION_MESSAGE);
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(CompanyMenuDisplay.this, "Error exporting the information",
+								"Message", JOptionPane.ERROR_MESSAGE);
+					}
 				}
 			}
 		});
-		export.setBounds(125, 179, 178, 29);
+		export.setBounds(149, 201, 178, 29);
 		contentPane.add(export);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
@@ -127,8 +141,10 @@ public class CompanyMenuDisplay extends JFrame {
 
 			@Override
 			public void windowClosing(WindowEvent e) {
+				if (company.getEmail() == "trial@gmail.com") {
+					cm.deleteCompany(company);
+				}
 				manager.disconnect();
-
 			}
 		};
 		this.addWindowListener(exitListener);

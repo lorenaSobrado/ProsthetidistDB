@@ -41,6 +41,8 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 import javax.swing.JSeparator;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
+
 import javax.swing.UIManager;
 
 public class PRegisterDisplay extends JFrame {
@@ -121,7 +123,7 @@ public class PRegisterDisplay extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty()
-						&& !phone.getText().isEmpty() && !address.getText().isEmpty()
+						&& (phone.getText().length() == 9) && !address.getText().isEmpty()
 						&& !medicalCond.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
 				} else
@@ -158,7 +160,7 @@ public class PRegisterDisplay extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty()
-						&& !phone.getText().isEmpty() && !address.getText().isEmpty()
+						&& (phone.getText().length() == 9) && !address.getText().isEmpty()
 						&& !medicalCond.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
 				} else
@@ -174,9 +176,16 @@ public class PRegisterDisplay extends JFrame {
 		phone.setBorder(null);
 		phone.addKeyListener(new KeyAdapter() {
 			@Override
+			public void keyTyped(KeyEvent e) {
+				if (phone.getText().length() > 8) {
+					e.consume(); // deja de procesar este evento
+					Toolkit.getDefaultToolkit().beep();
+				}
+			}
+			@Override
 			public void keyReleased(KeyEvent e) {
 				if (!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty()
-						&& !phone.getText().isEmpty() && !address.getText().isEmpty()
+						&& (phone.getText().length() == 9) && !address.getText().isEmpty()
 						&& !medicalCond.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
 				} else
@@ -194,7 +203,7 @@ public class PRegisterDisplay extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty()
-						&& !phone.getText().isEmpty() && !address.getText().isEmpty()
+						&& (phone.getText().length() == 9) && !address.getText().isEmpty()
 						&& !medicalCond.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
 				} else
@@ -230,7 +239,7 @@ public class PRegisterDisplay extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (!name.getText().isEmpty() && !id.getText().isEmpty() && !email.getText().isEmpty()
-						&& !phone.getText().isEmpty() && !address.getText().isEmpty()
+						&& (phone.getText().length() == 9) && !address.getText().isEmpty()
 						&& !medicalCond.getText().isEmpty() && !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
 				} else

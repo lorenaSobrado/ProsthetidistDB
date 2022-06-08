@@ -1,6 +1,7 @@
 package SwingWindows;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -22,6 +23,7 @@ import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JSeparator;
 
 public class OfferProstheticByCompany extends JFrame {
 
@@ -31,6 +33,8 @@ public class OfferProstheticByCompany extends JFrame {
 	private JButton ok;
 	private JButton back;
 	private JDBCCompanyManager cm;
+	private JSeparator separator;
+	private JSeparator separator_1;
 
 	public OfferProstheticByCompany(JFrame offerProsthetic, JFrame companyMenuDisplay, Company company, Prosthetic prosthetic,
 			JDBCManager manager) {
@@ -38,19 +42,24 @@ public class OfferProstheticByCompany extends JFrame {
 		offerProsthetic.setEnabled(false);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 150, 500, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(247, 247, 247));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		price = new JTextField();
-		price.setBounds(146, 67, 112, 20);
+		price.setBounds(178, 102, 112, 20);
+		price.setBackground(new Color(247, 247, 247));
+		price.setBorder(null);
 		contentPane.add(price);
 		price.setColumns(10);
 
 		model = new JTextField();
-		model.setBounds(146, 133, 112, 20);
+		model.setBounds(178, 160, 112, 20);
+		model.setBackground(new Color(247, 247, 247));
+		model.setBorder(null);
 		contentPane.add(model);
 		model.setColumns(10);
 
@@ -74,7 +83,7 @@ public class OfferProstheticByCompany extends JFrame {
 				}
 			}
 		});
-		ok.setBounds(254, 206, 89, 23);
+		ok.setBounds(357, 258, 89, 23);
 		contentPane.add(ok);
 
 		back = new JButton("");
@@ -86,16 +95,26 @@ public class OfferProstheticByCompany extends JFrame {
 				OfferProstheticByCompany.this.setVisible(false);
 			}
 		});
-		back.setBounds(10, 218, 32, 32);
+		back.setBounds(10, 268, 32, 32);
 		contentPane.add(back);
 
-		JLabel lblNewLabel = new JLabel("price");
-		lblNewLabel.setBounds(45, 70, 46, 14);
+		JLabel lblNewLabel = new JLabel("Price");
+		lblNewLabel.setBounds(82, 105, 46, 14);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblModel = new JLabel("model");
-		lblModel.setBounds(45, 136, 46, 14);
+		JLabel lblModel = new JLabel("Model");
+		lblModel.setBounds(82, 163, 46, 14);
 		contentPane.add(lblModel);
+		
+		separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(178, 122, 112, 5);
+		contentPane.add(separator);
+		
+		separator_1 = new JSeparator();
+		separator_1.setForeground(Color.BLACK);
+		separator_1.setBounds(178, 180, 112, 5);
+		contentPane.add(separator_1);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {

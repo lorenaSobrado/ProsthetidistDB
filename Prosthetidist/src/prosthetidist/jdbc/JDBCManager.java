@@ -120,7 +120,7 @@ public class JDBCManager {
 
 			sql = "CREATE TABLE Prosthetic " + "(code INTEGER PRIMARY KEY AUTOINCREMENT, " + "price REAL, " + "functionalities	TEXT, " 
 					+ "type TEXT NOT NULL, " + "model TEXT, " + "company_id INTEGER REFERENCES Company (id) ON DELETE CASCADE," 
-					+ "measurement_id INTEGER REFERENCES Measurement (id) " + ");";
+					+ "measurement_id INTEGER REFERENCES Measurement (id)" + ");";
 
 			stmt.executeUpdate(sql);
 

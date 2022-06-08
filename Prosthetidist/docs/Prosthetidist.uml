@@ -4,7 +4,14 @@
     <eAnnotations xmi:id="_cgdQcOavEeyp-IGhQD6lwQ" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_cgd3gOavEeyp-IGhQD6lwQ" source="codegen">
         <details xmi:id="_cgd3geavEeyp-IGhQD6lwQ" key="codegenDirectory" value="/Prosthetidist/src"/>
-        <details xmi:id="_fkS04OavEeyp-IGhQD6lwQ" key="AssociatedSourceCode" value="/Prosthetidist/src/SwingWindows/AppDisplay.java;559523940/1;/Prosthetidist/src/SwingWindows/CLogInDisplay.java;170500418/1;/Prosthetidist/src/SwingWindows/CRegisterDisplay.java;1141003224/1;/Prosthetidist/src/SwingWindows/CartDisplay.java;3864605219/1;/Prosthetidist/src/SwingWindows/CompanyMenuDisplay.java;188127364/1;/Prosthetidist/src/SwingWindows/DeleteProsthetic.java;1303667414/1;/Prosthetidist/src/SwingWindows/DesignProsthetic.java;1722343798/1;/Prosthetidist/src/SwingWindows/LabelRenderer.java;96285193/1;/Prosthetidist/src/SwingWindows/OfferProsthetic.java;2260349989/1;/Prosthetidist/src/SwingWindows/OfferProstheticByCompany.java;3706591498/1;/Prosthetidist/src/SwingWindows/OrderDisplay.java;2992419074/1;/Prosthetidist/src/SwingWindows/PLogInDisplay.java;1877491880/1;/Prosthetidist/src/SwingWindows/PRegisterDisplay.java;3636926522/1;/Prosthetidist/src/SwingWindows/PatientMenuDisplay.java;660692545/1;/Prosthetidist/src/SwingWindows/UploadProsthetic.java;2216686183/1;/Prosthetidist/src/exceptions/CartException.java;815998945/1;/Prosthetidist/src/exceptions/PatientIdException.java;4157651687/1;/Prosthetidist/src/prosthetidist/ifaces/CompanyManager.java;393662764/1;/Prosthetidist/src/prosthetidist/ifaces/DeliveryManager.java;2121375421/1;/Prosthetidist/src/prosthetidist/ifaces/InvoiceManager.java;1814854826/1;/Prosthetidist/src/prosthetidist/ifaces/MaterialManager.java;3678628095/1;/Prosthetidist/src/prosthetidist/ifaces/MeasurementManager.java;1878693286/1;/Prosthetidist/src/prosthetidist/ifaces/PatientManager.java;1663605422/1;/Prosthetidist/src/prosthetidist/ifaces/ProstheticsManager.java;2566170213/1;/Prosthetidist/src/prosthetidist/ifaces/UserManager.java;2529647570/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCCompanyManager.java;121301419/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCDeliveryManager.java;1777946156/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCInvoiceManager.java;658110851/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCManager.java;4122278501/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCMaterialManager.java;3721089328/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCMeasurementManager.java;424353661/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCPatientManager.java;3856847104/1;/Prosthetidist/src/prosthetidist/xml/XmlManager.java;3247023195/1;/Prosthetidist/src/prosthetidist/jpa/JPAUserManager.java;2381315367/1;/Prosthetidist/src/prosthetidist/pojos/Company.java;1252385676/1;/Prosthetidist/src/prosthetidist/pojos/Delivery.java;1514740512/1;/Prosthetidist/src/prosthetidist/ui/Main.java;1651051464/1;/Prosthetidist/src/prosthetidist/pojos/Material.java;1010280342/1;/Prosthetidist/src/prosthetidist/pojos/Measurement.java;3510716473/1;/Prosthetidist/src/prosthetidist/pojos/Patient.java;1745632609/1;/Prosthetidist/src/prosthetidist/pojos/Prosthetic.java;3954543661/1;/Prosthetidist/src/prosthetidist/pojos/Role.java;252399714/1;/Prosthetidist/src/prosthetidist/pojos/User.java;3052520749/1;/Prosthetidist/src/prosthetidist/pojos/Invoice.java;2779712963/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCProstheticManager.java;290973616/1;"/>
+        <details xmi:id="_fkS04OavEeyp-IGhQD6lwQ" key="AssociatedSourceCode" value="/Prosthetidist/src/SwingWindows/AppDisplay.java;1855987665/1;/Prosthetidist/src/SwingWindows/CLogInDisplay.java;978933315/1;/Prosthetidist/src/SwingWindows/CRegisterDisplay.java;98096162/1;/Prosthetidist/src/SwingWindows/CartDisplay.java;3438668799/1;/Prosthetidist/src/SwingWindows/CompanyMenuDisplay.java;1141881513/1;/Prosthetidist/src/SwingWindows/DeleteProsthetic.java;3595757710/1;/Prosthetidist/src/SwingWindows/DesignProsthetic.java;2780426025/1;/Prosthetidist/src/SwingWindows/LabelRenderer.java;96285193/1;/Prosthetidist/src/SwingWindows/OfferProsthetic.java;3606720539/1;/Prosthetidist/src/SwingWindows/OfferProstheticByCompany.java;3345533212/1;/Prosthetidist/src/SwingWindows/PLogInDisplay.java;3755774298/1;/Prosthetidist/src/SwingWindows/PRegisterDisplay.java;713263437/1;/Prosthetidist/src/SwingWindows/PatientMenuDisplay.java;2231375409/1;/Prosthetidist/src/SwingWindows/UploadProsthetic.java;2203773798/1;/Prosthetidist/src/exceptions/CartException.java;815998945/1;/Prosthetidist/src/exceptions/PatientIdException.java;4157651687/1;/Prosthetidist/src/prosthetidist/ifaces/CompanyManager.java;393662764/1;/Prosthetidist/src/prosthetidist/ifaces/DeliveryManager.java;2121375421/1;/Prosthetidist/src/prosthetidist/ifaces/InvoiceManager.java;1814854826/1;/Prosthetidist/src/prosthetidist/ifaces/MaterialManager.java;3678628095/1;/Prosthetidist/src/prosthetidist/ifaces/MeasurementManager.java;1878693286/1;/Prosthetidist/src/prosthetidist/ifaces/PatientManager.java;1663605422/1;/Prosthetidist/src/prosthetidist/ifaces/ProstheticsManager.java;2566170213/1;/Prosthetidist/src/prosthetidist/ifaces/UserManager.java;2529647570/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCCompanyManager.java;3206756488/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCDeliveryManager.java;1777946156/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCInvoiceManager.java;658110851/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCManager.java;938176796/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCMaterialManager.java;3721089328/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCMeasurementManager.java;1439068038/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCPatientManager.java;3856847104/1;/Prosthetidist/src/prosthetidist/xml/XmlManager.java;1263533314/1;/Prosthetidist/src/prosthetidist/jpa/JPAUserManager.java;522858520/1;/Prosthetidist/src/prosthetidist/pojos/Company.java;1252385676/1;/Prosthetidist/src/prosthetidist/pojos/Delivery.java;1514740512/1;/Prosthetidist/src/prosthetidist/ui/Main.java;1651051464/1;/Prosthetidist/src/prosthetidist/pojos/Material.java;3678322634/1;/Prosthetidist/src/prosthetidist/pojos/Measurement.java;1023040302/1;/Prosthetidist/src/prosthetidist/pojos/Patient.java;1745632609/1;/Prosthetidist/src/prosthetidist/pojos/Prosthetic.java;3954543661/1;/Prosthetidist/src/prosthetidist/pojos/Role.java;252399714/1;/Prosthetidist/src/prosthetidist/pojos/User.java;3052520749/1;/Prosthetidist/src/prosthetidist/pojos/Invoice.java;2779712963/1;/Prosthetidist/src/prosthetidist/jdbc/JDBCProstheticManager.java;3720772525/1;"/>
+      </contents>
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_6Cb90OdCEey4lZlXB2N28A" source="preferences">
+        <contents xmi:type="ecore:EAnnotation" xmi:id="_6Cck4OdCEey4lZlXB2N28A" source="com.yattasolutions.codegen.reverse">
+          <details xmi:id="_6Cck4edCEey4lZlXB2N28A" key="com.yattasolutions.codegen.reverse.roundtrip.ReverseEngineerNewFiles" value="true"/>
+          <details xmi:id="_6Cck4udCEey4lZlXB2N28A" key="com.yattasolutions.codegen.reverse.roundtrip.RemoveDeletedFiles" value="true"/>
+          <details xmi:id="_6Cck4-dCEey4lZlXB2N28A" key="com.yattasolutions.codegen.reverse.roundtrip.ReverseEngineerChangedFiles" value="true"/>
+        </contents>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_deov8OavEeyp-IGhQD6lwQ">
@@ -183,7 +190,9 @@
           <interfaceRealization xmi:id="_eXmYQOavEeyp-IGhQD6lwQ" client="_dpU9AOavEeyp-IGhQD6lwQ" supplier="_doq1sOavEeyp-IGhQD6lwQ" contract="_doq1sOavEeyp-IGhQD6lwQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etfIsOavEeyp-IGhQD6lwQ" name="JDBCCompanyManager" specification="_eXo0gOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_etfIseavEeyp-IGhQD6lwQ" name="m" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_etfIsuavEeyp-IGhQD6lwQ" type="_dpU9AOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etfIsuavEeyp-IGhQD6lwQ" type="_dpU9AOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>this.manager = m;&#xD;
 		this.mm = new JDBCMeasurementManager(manager);&#xD;
@@ -219,7 +228,9 @@
             <ownedParameter xmi:id="_etfvweavEeyp-IGhQD6lwQ" name="company_id">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_etfvwuavEeyp-IGhQD6lwQ" type="_dqid8OavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etfvwuavEeyp-IGhQD6lwQ" type="_dqid8OavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>Company c = null;&#xD;
 		try {&#xD;
@@ -244,7 +255,9 @@
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etfvw-avEeyp-IGhQD6lwQ" name="getAllCompanies" specification="_dpYnYOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_etfvxOavEeyp-IGhQD6lwQ" type="_eQwJYeavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etfvxOavEeyp-IGhQD6lwQ" type="_eQwJYeavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>ArrayList&lt;Company> companies = new ArrayList&lt;Company>();&#xD;
 		try {&#xD;
@@ -269,7 +282,9 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etg94OavEeyp-IGhQD6lwQ" name="listProstheticsOfCompany" specification="_eXttAOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_etg94eavEeyp-IGhQD6lwQ" name="c" type="_dqid8OavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_etg94uavEeyp-IGhQD6lwQ" type="_eQwJYeavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etg94uavEeyp-IGhQD6lwQ" type="_eQwJYeavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>ArrayList&lt;Prosthetic> prostheticsOfCompany = new ArrayList&lt;Prosthetic>();&#xD;
 		ArrayList&lt;Material> materials = new ArrayList&lt;Material>();&#xD;
@@ -331,7 +346,9 @@
             <ownedParameter xmi:id="_ethk8eavEeyp-IGhQD6lwQ" name="email">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_ethk8uavEeyp-IGhQD6lwQ" type="_dqid8OavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_ethk8uavEeyp-IGhQD6lwQ" type="_dqid8OavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>Company c = null;&#xD;
 		try {&#xD;
@@ -353,6 +370,26 @@
 			ex.printStackTrace();&#xD;
 		}&#xD;
 		return c;&#xD;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_8F_xAOdCEey4lZlXB2N28A" name="getLastCompanyId" specification="_8D-XwOdCEey4lZlXB2N28A">
+            <ownedParameter xmi:id="_8F_xAedCEey4lZlXB2N28A" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>Integer id = null;&#xD;
+		try {&#xD;
+			String sql = &quot;SELECT last_insert_rowid() AS lastId&quot;;&#xD;
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);&#xD;
+			ResultSet rs = prep.executeQuery();&#xD;
+			id = rs.getInt(&quot;lastId&quot;);&#xD;
+			&#xD;
+			rs.close();&#xD;
+			prep.close();&#xD;
+		} catch (SQLException ex) {&#xD;
+			ex.printStackTrace();&#xD;
+		}&#xD;
+		return id;&#xD;
 	</body>
           </ownedBehavior>
           <ownedOperation xmi:id="_dpXZQOavEeyp-IGhQD6lwQ" name="getCompanyById" method="_etfvwOavEeyp-IGhQD6lwQ">
@@ -390,6 +427,11 @@
           <ownedOperation xmi:id="_eX-ywOavEeyp-IGhQD6lwQ" name="offerDesign" method="_etg94-avEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_eX_Z0OavEeyp-IGhQD6lwQ" name="prosthetic" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
             <ownedParameter xmi:id="_eX_Z0eavEeyp-IGhQD6lwQ" name="companyId">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_8D-XwOdCEey4lZlXB2N28A" name="getLastCompanyId" method="_8F_xAOdCEey4lZlXB2N28A">
+            <ownedParameter xmi:id="_8FieAOdCEey4lZlXB2N28A" direction="return">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
           </ownedOperation>
@@ -613,7 +655,9 @@
             <defaultValue xmi:type="uml:LiteralString" xmi:id="_epYr0OavEeyp-IGhQD6lwQ" value="null"/>
           </ownedAttribute>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etmdcOavEeyp-IGhQD6lwQ" name="JDBCManager" specification="_dpy3EOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_etmdceavEeyp-IGhQD6lwQ" type="_dpxo8OavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etmdceavEeyp-IGhQD6lwQ" type="_dpxo8OavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>try {&#xD;
 			// Open database connection&#xD;
@@ -642,7 +686,9 @@
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etnEgeavEeyp-IGhQD6lwQ" name="getConnection" specification="_dp0FMOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_etnEguavEeyp-IGhQD6lwQ" type="_eYa3oOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etnEguavEeyp-IGhQD6lwQ" type="_eYa3oOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>return c;&#xD;
 	</body>
@@ -724,7 +770,7 @@
 &#xD;
 			sql = &quot;CREATE TABLE Prosthetic &quot; + &quot;(code INTEGER PRIMARY KEY AUTOINCREMENT, &quot; + &quot;price REAL, &quot; + &quot;functionalities	TEXT, &quot; &#xD;
 					+ &quot;type TEXT NOT NULL, &quot; + &quot;model TEXT, &quot; + &quot;company_id INTEGER REFERENCES Company (id) ON DELETE CASCADE,&quot; &#xD;
-					+ &quot;measurement_id INTEGER REFERENCES Measurement (id) &quot; + &quot;);&quot;;&#xD;
+					+ &quot;measurement_id INTEGER REFERENCES Measurement (id)&quot; + &quot;);&quot;;&#xD;
 &#xD;
 			stmt.executeUpdate(sql);&#xD;
 &#xD;
@@ -868,7 +914,9 @@
           <interfaceRealization xmi:id="_eY2VcOavEeyp-IGhQD6lwQ" client="_dp92MOavEeyp-IGhQD6lwQ" supplier="_do7UYOavEeyp-IGhQD6lwQ" contract="_do7UYOavEeyp-IGhQD6lwQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etpgwOavEeyp-IGhQD6lwQ" name="JDBCMeasurementManager" specification="_eY28gOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_etpgweavEeyp-IGhQD6lwQ" name="m" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_etpgwuavEeyp-IGhQD6lwQ" type="_dp92MOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etpgwuavEeyp-IGhQD6lwQ" type="_dp92MOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>this.manager = m;&#xD;
 	</body>
@@ -892,7 +940,9 @@
             <ownedParameter xmi:id="_etqH0-avEeyp-IGhQD6lwQ" name="measurement_id">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_etqH1OavEeyp-IGhQD6lwQ" type="_drtioOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etqH1OavEeyp-IGhQD6lwQ" type="_drtioOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>Measurement m = null;&#xD;
 		try {&#xD;
@@ -908,7 +958,7 @@
 			rs.close();&#xD;
 			prep.close();&#xD;
 		} catch (SQLException ex) {&#xD;
-			ex.printStackTrace();&#xD;
+			return null;&#xD;
 		}&#xD;
 		return m;&#xD;
 	</body>
@@ -917,7 +967,9 @@
             <ownedParameter xmi:id="_etqu4eavEeyp-IGhQD6lwQ" name="length" type="_eijEAeavEeyp-IGhQD6lwQ"/>
             <ownedParameter xmi:id="_etqu4uavEeyp-IGhQD6lwQ" name="width" type="_eijEAeavEeyp-IGhQD6lwQ"/>
             <ownedParameter xmi:id="_etqu4-avEeyp-IGhQD6lwQ" name="weight" type="_eijEAeavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_etqu5OavEeyp-IGhQD6lwQ" type="_drtioOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etqu5OavEeyp-IGhQD6lwQ" type="_drtioOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>Measurement m = null;&#xD;
 		try {&#xD;
@@ -933,7 +985,6 @@
 			rs.close();&#xD;
 			prep.close();&#xD;
 		} catch (SQLException ex) {&#xD;
-//			System.out.println(&quot;No measurement, well create it&quot;);&#xD;
 			return m; // returns null if the no rs exception is thrown&#xD;
 		}&#xD;
 		return m;&#xD;
@@ -1157,7 +1208,9 @@
           <interfaceRealization xmi:id="_ehbCoOavEeyp-IGhQD6lwQ" client="_duZqQOavEeyp-IGhQD6lwQ" supplier="_dpFFYOavEeyp-IGhQD6lwQ" contract="_dpFFYOavEeyp-IGhQD6lwQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_euSZ8OavEeyp-IGhQD6lwQ" name="JDBCProstheticManager" specification="_ehcQwOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_euSZ8eavEeyp-IGhQD6lwQ" name="m" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_euSZ8uavEeyp-IGhQD6lwQ" type="_duZqQOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_euSZ8uavEeyp-IGhQD6lwQ" type="_duZqQOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>this.manager = m;&#xD;
 		this.cm = new JDBCCompanyManager(m);&#xD;
@@ -1166,7 +1219,9 @@
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_euTBAOavEeyp-IGhQD6lwQ" name="getProstheticsWithCompanyId" specification="_dubfcOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_euTBAeavEeyp-IGhQD6lwQ" type="_eQwJYeavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_euTBAeavEeyp-IGhQD6lwQ" type="_eQwJYeavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>ArrayList&lt;Prosthetic> allProsthetics = new ArrayList&lt;Prosthetic>();&#xD;
 &#xD;
@@ -1199,7 +1254,9 @@
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_euTBAuavEeyp-IGhQD6lwQ" name="getProstheticsWithoutCompanyId" specification="_duo60OavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_euTBA-avEeyp-IGhQD6lwQ" type="_eQwJYeavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_euTBA-avEeyp-IGhQD6lwQ" type="_eQwJYeavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>ArrayList&lt;Prosthetic> prostheticsWithoutCompany = new ArrayList&lt;Prosthetic>();&#xD;
 &#xD;
@@ -1232,7 +1289,9 @@
             <ownedParameter xmi:id="_euToEeavEeyp-IGhQD6lwQ" name="code">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_euToEuavEeyp-IGhQD6lwQ" type="_dsRjUOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_euToEuavEeyp-IGhQD6lwQ" type="_dsRjUOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>Prosthetic pros = null;&#xD;
 &#xD;
@@ -1284,23 +1343,6 @@
 		}&#xD;
 	</body>
           </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_euUPIOavEeyp-IGhQD6lwQ" name="addProstheticFromXML" specification="_eheF8OavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_euUPIeavEeyp-IGhQD6lwQ" name="p" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
-            <language>java</language>
-            <body>try {&#xD;
-			String sql = &quot;INSERT INTO Prosthetic (price, functionalities, type, model) VALUES (?,?,?,?)&quot;;&#xD;
-			PreparedStatement prep = manager.getConnection().prepareStatement(sql);&#xD;
-			prep.setFloat(1, p.getPrice());&#xD;
-			prep.setString(2, p.getFunctionalities());&#xD;
-			prep.setString(3, p.getType());&#xD;
-			prep.setString(4, p.getModel());&#xD;
-			prep.executeUpdate();&#xD;
-&#xD;
-		} catch (Exception ex) {&#xD;
-			ex.printStackTrace();&#xD;
-		}&#xD;
-	</body>
-          </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_euUPIuavEeyp-IGhQD6lwQ" name="deleteProsthetic" specification="_ehetAeavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_euUPI-avEeyp-IGhQD6lwQ" name="pros" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
             <language>java</language>
@@ -1318,6 +1360,7 @@
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_euUPJOavEeyp-IGhQD6lwQ" name="getProstheticCode" specification="_ehgiMuavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_euUPJeavEeyp-IGhQD6lwQ" name="p" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
             <ownedParameter xmi:id="_euUPJuavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
             <language>java</language>
@@ -1342,9 +1385,28 @@
 		return prosCode;&#xD;
 	</body>
           </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_euU2MOavEeyp-IGhQD6lwQ" name="getLastProstheticCode" specification="_ehiXYuavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_euU2MeavEeyp-IGhQD6lwQ" name="p" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_euU2MuavEeyp-IGhQD6lwQ" direction="return">
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_8GBmMOdCEey4lZlXB2N28A" name="addProstheticFromXML" specification="_8Ef8MOdCEey4lZlXB2N28A">
+            <ownedParameter xmi:id="_8GBmMedCEey4lZlXB2N28A" name="p" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
+            <ownedParameter xmi:id="_8GBmMudCEey4lZlXB2N28A" name="c" type="_dqid8OavEeyp-IGhQD6lwQ"/>
+            <language>java</language>
+            <body>try {&#xD;
+			String sql = &quot;INSERT INTO Prosthetic (price, functionalities, type, model, company_id, measurement_id) VALUES (?,?,?,?,?,?)&quot;;&#xD;
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);&#xD;
+			prep.setFloat(1, p.getPrice());&#xD;
+			prep.setString(2, p.getFunctionalities());&#xD;
+			prep.setString(3, p.getType());&#xD;
+			prep.setString(4, p.getModel());&#xD;
+			prep.setInt(5, c.getId());&#xD;
+			prep.setInt(6, p.getMeasurement().getId());&#xD;
+			prep.executeUpdate();&#xD;
+&#xD;
+		} catch (Exception ex) {&#xD;
+			ex.printStackTrace();&#xD;
+		}&#xD;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_8GCNQOdCEey4lZlXB2N28A" name="getLastProstheticCode" specification="_8EhKUOdCEey4lZlXB2N28A">
+            <ownedParameter xmi:id="_8GCNQedCEey4lZlXB2N28A" direction="return">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
             <language>java</language>
@@ -1385,9 +1447,6 @@
           <ownedOperation xmi:id="_ehde4eavEeyp-IGhQD6lwQ" name="uploadProsthetic" method="_euToE-avEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_ehde4uavEeyp-IGhQD6lwQ" name="p" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
           </ownedOperation>
-          <ownedOperation xmi:id="_eheF8OavEeyp-IGhQD6lwQ" name="addProstheticFromXML" method="_euUPIOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_ehetAOavEeyp-IGhQD6lwQ" name="p" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
-          </ownedOperation>
           <ownedOperation xmi:id="_ehetAeavEeyp-IGhQD6lwQ" name="deleteProsthetic" method="_euUPIuavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_ehfUEOavEeyp-IGhQD6lwQ" name="pros" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
           </ownedOperation>
@@ -1397,9 +1456,12 @@
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:id="_ehiXYuavEeyp-IGhQD6lwQ" name="getLastProstheticCode" method="_euU2MOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_ehiXY-avEeyp-IGhQD6lwQ" name="p" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_ehi-cOavEeyp-IGhQD6lwQ" direction="return">
+          <ownedOperation xmi:id="_8Ef8MOdCEey4lZlXB2N28A" name="addProstheticFromXML" method="_8GBmMOdCEey4lZlXB2N28A">
+            <ownedParameter xmi:id="_8EgjQOdCEey4lZlXB2N28A" name="p" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
+            <ownedParameter xmi:id="_8EgjQedCEey4lZlXB2N28A" name="c" type="_dqid8OavEeyp-IGhQD6lwQ"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_8EhKUOdCEey4lZlXB2N28A" name="getLastProstheticCode" method="_8GCNQOdCEey4lZlXB2N28A">
+            <ownedParameter xmi:id="_8FkTMOdCEey4lZlXB2N28A" direction="return">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
           </ownedOperation>
@@ -1450,12 +1512,11 @@
       <packagedElement xmi:type="uml:Package" xmi:id="_dewEsOavEeyp-IGhQD6lwQ" name="jpa">
         <packagedElement xmi:type="uml:Class" xmi:id="_dqUbgOavEeyp-IGhQD6lwQ" name="JPAUserManager">
           <ownedAttribute xmi:id="_epeLYOavEeyp-IGhQD6lwQ" name="em" visibility="private" type="_ea3HoOavEeyp-IGhQD6lwQ" association="_fGoogeavEeyp-IGhQD6lwQ"/>
-          <ownedAttribute xmi:id="_epeyceavEeyp-IGhQD6lwQ" name="c" visibility="private" type="_eYa3oOavEeyp-IGhQD6lwQ" association="_fGxLYOavEeyp-IGhQD6lwQ">
-            <defaultValue xmi:type="uml:LiteralString" xmi:id="_epeycuavEeyp-IGhQD6lwQ" value="null"/>
-          </ownedAttribute>
           <interfaceRealization xmi:id="_ebidEeavEeyp-IGhQD6lwQ" client="_dqUbgOavEeyp-IGhQD6lwQ" supplier="_dpNBMOavEeyp-IGhQD6lwQ" contract="_dpNBMOavEeyp-IGhQD6lwQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etvnYOavEeyp-IGhQD6lwQ" name="JPAUserManager" specification="_dqVpoOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_etvnYeavEeyp-IGhQD6lwQ" type="_dqUbgOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etvnYeavEeyp-IGhQD6lwQ" type="_dqUbgOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>this.connect();&#xD;
 	</body>
@@ -1503,7 +1564,9 @@
             <ownedParameter xmi:id="_etw1geavEeyp-IGhQD6lwQ" name="name">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_etw1guavEeyp-IGhQD6lwQ" type="_dtPzsOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etw1guavEeyp-IGhQD6lwQ" type="_dtPzsOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>Query q = em.createNativeQuery(&quot;SELECT * FROM Role WHERE name = ?&quot;, Role.class);&#xD;
 		q.setParameter(1, name);&#xD;
@@ -1512,6 +1575,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etw1g-avEeyp-IGhQD6lwQ" name="getRoles" specification="_dqbwQOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_etw1hOavEeyp-IGhQD6lwQ" type="_dtPzsOavEeyp-IGhQD6lwQ" isOrdered="true" direction="return">
+              <name xsi:nil="true"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_etw1heavEeyp-IGhQD6lwQ" value="*"/>
             </ownedParameter>
             <language>java</language>
@@ -1527,7 +1591,9 @@
             <ownedParameter xmi:id="_etxckuavEeyp-IGhQD6lwQ" name="passwd">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_etxck-avEeyp-IGhQD6lwQ" type="_dtnnIOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_etxck-avEeyp-IGhQD6lwQ" type="_dtnnIOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>User u = null;&#xD;
 		Query q = em.createNativeQuery(&quot;SELECT * FROM User WHERE email = ? AND password = ?&quot;, User.class); //user no debe ser con mayuscula?&#xD;
@@ -1540,9 +1606,9 @@
 			&#xD;
 		} catch (NoSuchAlgorithmException e) {&#xD;
 			e.printStackTrace();&#xD;
-		}&#xD;
-		&#xD;
+		}	&#xD;
 		try {&#xD;
+			&#xD;
 			u = (User) q.getSingleResult();&#xD;
 			&#xD;
 		} catch (NoResultException e) {}&#xD;
@@ -1587,9 +1653,6 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_fGoogeavEeyp-IGhQD6lwQ" name="" memberEnd="_fGooguavEeyp-IGhQD6lwQ _epeLYOavEeyp-IGhQD6lwQ">
           <ownedEnd xmi:id="_fGooguavEeyp-IGhQD6lwQ" name="" type="_dqUbgOavEeyp-IGhQD6lwQ" association="_fGoogeavEeyp-IGhQD6lwQ"/>
-        </packagedElement>
-        <packagedElement xmi:type="uml:Association" xmi:id="_fGxLYOavEeyp-IGhQD6lwQ" name="" memberEnd="_fGxLYeavEeyp-IGhQD6lwQ _epeyceavEeyp-IGhQD6lwQ">
-          <ownedEnd xmi:id="_fGxLYeavEeyp-IGhQD6lwQ" name="" type="_dqUbgOavEeyp-IGhQD6lwQ" association="_fGxLYOavEeyp-IGhQD6lwQ"/>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_dewEseavEeyp-IGhQD6lwQ" name="pojos">
@@ -1838,7 +1901,9 @@
           </ownedAttribute>
           <interfaceRealization xmi:id="_elDlcOavEeyp-IGhQD6lwQ" client="_drVvMOavEeyp-IGhQD6lwQ" supplier="_ebpKwOavEeyp-IGhQD6lwQ" contract="_ebpKwOavEeyp-IGhQD6lwQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et5YYOavEeyp-IGhQD6lwQ" name="Material" specification="_drZZkOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_et5YYeavEeyp-IGhQD6lwQ" type="_drVvMOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_et5YYeavEeyp-IGhQD6lwQ" type="_drVvMOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super();&#xD;
 	</body>
@@ -1856,7 +1921,9 @@
             <ownedParameter xmi:id="_et5YZuavEeyp-IGhQD6lwQ" name="temperatureResistence">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_et5YZ-avEeyp-IGhQD6lwQ" type="_drVvMOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_et5YZ-avEeyp-IGhQD6lwQ" type="_drVvMOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super();&#xD;
 		this.name = name;&#xD;
@@ -1867,6 +1934,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et5_cOavEeyp-IGhQD6lwQ" name="getTemperatureResistence" specification="_drfgMOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_et5_ceavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
             <language>java</language>
@@ -1883,6 +1951,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et6mguavEeyp-IGhQD6lwQ" name="toString" specification="_drh8cOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_et6mg-avEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
             <language>java</language>
@@ -1892,6 +1961,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et7NkOavEeyp-IGhQD6lwQ" name="hashCode" specification="_drkYsOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_et7NkeavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
             </ownedParameter>
             <language>java</language>
@@ -1901,6 +1971,7 @@
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et7NkuavEeyp-IGhQD6lwQ" name="equals" specification="_elEzkOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_et7Nk-avEeyp-IGhQD6lwQ" name="obj" type="_ejTR8OavEeyp-IGhQD6lwQ"/>
             <ownedParameter xmi:id="_et7NlOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
             </ownedParameter>
             <language>java</language>
@@ -1984,7 +2055,9 @@
           </ownedAttribute>
           <interfaceRealization xmi:id="_elH24OavEeyp-IGhQD6lwQ" client="_drtioOavEeyp-IGhQD6lwQ" supplier="_ebpKwOavEeyp-IGhQD6lwQ" contract="_ebpKwOavEeyp-IGhQD6lwQ"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et8bsOavEeyp-IGhQD6lwQ" name="Measurement" specification="_drwl8OavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_et8bseavEeyp-IGhQD6lwQ" type="_drtioOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_et8bseavEeyp-IGhQD6lwQ" type="_drtioOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>super();&#xD;
 	</body>
@@ -2002,7 +2075,9 @@
             <ownedParameter xmi:id="_et9Cw-avEeyp-IGhQD6lwQ" name="weight">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_et9CxOavEeyp-IGhQD6lwQ" type="_drtioOavEeyp-IGhQD6lwQ" direction="return"/>
+            <ownedParameter xmi:id="_et9CxOavEeyp-IGhQD6lwQ" type="_drtioOavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>this.id=id;&#xD;
  	this.lengthiness=lengthiness;&#xD;
@@ -2013,6 +2088,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et9CxeavEeyp-IGhQD6lwQ" name="toString" specification="_dr0QUOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_et9CxuavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
             <language>java</language>
@@ -2021,6 +2097,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et9p0OavEeyp-IGhQD6lwQ" name="hashCode" specification="_dr2FguavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_et9p0eavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
             </ownedParameter>
             <language>java</language>
@@ -2030,6 +2107,7 @@
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_et-Q4OavEeyp-IGhQD6lwQ" name="equals" specification="_elJFAOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_et-Q4eavEeyp-IGhQD6lwQ" name="obj" type="_ejTR8OavEeyp-IGhQD6lwQ"/>
             <ownedParameter xmi:id="_et-Q4uavEeyp-IGhQD6lwQ" direction="return">
+              <name xsi:nil="true"/>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
             </ownedParameter>
             <language>java</language>
@@ -3300,48 +3378,18 @@
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etuZQOavEeyp-IGhQD6lwQ" name="marshall" specification="_ea0EUOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_etuZQeavEeyp-IGhQD6lwQ" name="comp" type="_dqid8OavEeyp-IGhQD6lwQ"/>
             <language>java</language>
-            <body>//JAVA TO XML&#xD;
-		&#xD;
+            <body>// JAVA TO XML&#xD;
+&#xD;
 		// Create the JAXBContext&#xD;
 		JAXBContext jaxbContext = JAXBContext.newInstance(Company.class);&#xD;
 		Marshaller marshaller = jaxbContext.createMarshaller();&#xD;
-		&#xD;
+&#xD;
 		// Pretty formatting&#xD;
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);&#xD;
-		&#xD;
+&#xD;
 		File file = new File(&quot;./xmls/Company.xml&quot;);&#xD;
 		marshaller.marshal(comp, file);&#xD;
 &#xD;
-	</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etvAUOavEeyp-IGhQD6lwQ" name="unmarshall" specification="_ea1ScOavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_etvAUeavEeyp-IGhQD6lwQ" name="cm" type="_dpU9AOavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_etvAUuavEeyp-IGhQD6lwQ" name="pm" type="_duZqQOavEeyp-IGhQD6lwQ"/>
-            <language>java</language>
-            <body>//XML TO JAVA&#xD;
-		&#xD;
-		// Create the JAXBContext&#xD;
-		JAXBContext jaxbContext = JAXBContext.newInstance(Company.class);&#xD;
-		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();&#xD;
-		&#xD;
-		File file = new File(&quot;./xmls/External-Company.xml&quot;);&#xD;
-		Company comp = (Company)unmarshaller.unmarshal(file);&#xD;
-		&#xD;
-		ArrayList&lt;Company> comps=cm.getAllCompanies();&#xD;
-		int exist=0;&#xD;
-		for(Company c:comps) {&#xD;
-			if(c.getEmail().compareTo(comp.getEmail())==0) {&#xD;
-				exist=1;&#xD;
-				break;&#xD;
-			}&#xD;
-		}&#xD;
-		&#xD;
-		if(exist==0) {&#xD;
-			cm.addCompany(comp);&#xD;
-	    for(Prosthetic pro : comp.getProsthetics()) {&#xD;
-		pm.addProstheticFromXML(pro);&#xD;
-}&#xD;
-		} &#xD;
 	</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etvAU-avEeyp-IGhQD6lwQ" name="simpleTransform" specification="_dqR_QOavEeyp-IGhQD6lwQ">
@@ -3358,9 +3406,45 @@
             <body>TransformerFactory tFactory = TransformerFactory.newInstance();&#xD;
 		try {&#xD;
 			Transformer transformer = tFactory.newTransformer(new StreamSource(new File(xsltPath)));&#xD;
-			transformer.transform(new StreamSource(new File(sourcePath)),new StreamResult(new File(resultDir)));&#xD;
+			transformer.transform(new StreamSource(new File(sourcePath)), new StreamResult(new File(resultDir)));&#xD;
 		} catch (Exception e) {&#xD;
 			e.printStackTrace();&#xD;
+		}&#xD;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_8GF3oOdCEey4lZlXB2N28A" name="unmarshall" specification="_8FA5kOdCEey4lZlXB2N28A">
+            <ownedParameter xmi:id="_8GF3oedCEey4lZlXB2N28A" name="cm" type="_dpU9AOavEeyp-IGhQD6lwQ"/>
+            <ownedParameter xmi:id="_8GF3oudCEey4lZlXB2N28A" name="pm" type="_duZqQOavEeyp-IGhQD6lwQ"/>
+            <ownedParameter xmi:id="_8GF3o-dCEey4lZlXB2N28A" name="mm" type="_dp92MOavEeyp-IGhQD6lwQ"/>
+            <language>java</language>
+            <body>// XML TO JAVA&#xD;
+&#xD;
+		// Create the JAXBContext&#xD;
+		JAXBContext jaxbContext = JAXBContext.newInstance(Company.class);&#xD;
+		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();&#xD;
+&#xD;
+		File file = new File(&quot;./xmls/External-Company.xml&quot;);&#xD;
+		Company comp = (Company) unmarshaller.unmarshal(file);&#xD;
+		ArrayList&lt;Company> comps = cm.getAllCompanies();&#xD;
+		int exist = 0;&#xD;
+		for (Company c : comps) {&#xD;
+			if (c.getEmail().compareTo(comp.getEmail()) == 0) {&#xD;
+				exist = 1;&#xD;
+				break;&#xD;
+			}&#xD;
+		}&#xD;
+		if (exist == 0) {&#xD;
+			cm.addCompany(comp);&#xD;
+// 			WE HAD PROBLEMS CATCHING THE PROSTHETICS AND MEASUREMENTS (THEY RETURNED AS NULL) SO AREN'T ADDED TO THE DB 			&#xD;
+//			Integer companyId = cm.getLastCompanyId();&#xD;
+//			comp = cm.getCompanyById(companyId);&#xD;
+//			for (Prosthetic pro : comp.getProsthetics()) {&#xD;
+//				if (mm.getMeasurementById(pro.getMeasurement().getId()) == null) {&#xD;
+//					mm.addMeasurement(pro.getMeasurement());&#xD;
+//					System.out.println(pro.getMeasurement());&#xD;
+//				}&#xD;
+//				pm.addProstheticFromXML(pro, comp);&#xD;
+//			}&#xD;
 		}&#xD;
 	</body>
           </ownedBehavior>
@@ -3378,9 +3462,10 @@
           <ownedOperation xmi:id="_ea0EUOavEeyp-IGhQD6lwQ" name="marshall" method="_etuZQOavEeyp-IGhQD6lwQ" raisedException="_ekTXgOavEeyp-IGhQD6lwQ">
             <ownedParameter xmi:id="_ea0EUeavEeyp-IGhQD6lwQ" name="comp" type="_dqid8OavEeyp-IGhQD6lwQ"/>
           </ownedOperation>
-          <ownedOperation xmi:id="_ea1ScOavEeyp-IGhQD6lwQ" name="unmarshall" method="_etvAUOavEeyp-IGhQD6lwQ" raisedException="_eZX54OavEeyp-IGhQD6lwQ _ePwD0OavEeyp-IGhQD6lwQ">
-            <ownedParameter xmi:id="_ea1SceavEeyp-IGhQD6lwQ" name="cm" type="_dpU9AOavEeyp-IGhQD6lwQ"/>
-            <ownedParameter xmi:id="_ea1ScuavEeyp-IGhQD6lwQ" name="pm" type="_duZqQOavEeyp-IGhQD6lwQ"/>
+          <ownedOperation xmi:id="_8FA5kOdCEey4lZlXB2N28A" name="unmarshall" method="_8GF3oOdCEey4lZlXB2N28A" raisedException="_eZX54OavEeyp-IGhQD6lwQ _ePwD0OavEeyp-IGhQD6lwQ">
+            <ownedParameter xmi:id="_8FA5kedCEey4lZlXB2N28A" name="cm" type="_dpU9AOavEeyp-IGhQD6lwQ"/>
+            <ownedParameter xmi:id="_8FBgoOdCEey4lZlXB2N28A" name="pm" type="_duZqQOavEeyp-IGhQD6lwQ"/>
+            <ownedParameter xmi:id="_8FBgoedCEey4lZlXB2N28A" name="mm" type="_dp92MOavEeyp-IGhQD6lwQ"/>
           </ownedOperation>
         </packagedElement>
       </packagedElement>
@@ -3415,10 +3500,12 @@
         <ownedAttribute xmi:id="_em_fIeavEeyp-IGhQD6lwQ" name="txtProsthetidist" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_ev2gMeavEeyp-IGhQD6lwQ"/>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etQfMOavEeyp-IGhQD6lwQ" name="AppDisplay" specification="_eN3NcOavEeyp-IGhQD6lwQ">
           <ownedParameter xmi:id="_etQfMeavEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etQfMuavEeyp-IGhQD6lwQ" type="_dmcoIOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etQfMuavEeyp-IGhQD6lwQ" type="_dmcoIOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 450, 300);&#xD;
+		setBounds(450, 150, 500, 350);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);&#xD;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
@@ -3427,8 +3514,8 @@
 		JButton btnNewButton_1 = new JButton(&quot;PATIENT&quot;);&#xD;
 		btnNewButton_1.setBackground(SystemColor.inactiveCaption);&#xD;
 		btnNewButton_1.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));&#xD;
-		btnNewButton_1.setBounds(247, 196, 158, 36);&#xD;
-&#xD;
+		btnNewButton_1.setBounds(277, 243, 172, 43);&#xD;
+		btnNewButton_1.setBorder(null);&#xD;
 		btnNewButton_1.addActionListener(new ActionListener() {&#xD;
 			public void actionPerformed(ActionEvent e) {&#xD;
 				JFrame pLogInDisplay = new PLogInDisplay(AppDisplay.this, manager);&#xD;
@@ -3440,7 +3527,8 @@
 &#xD;
 		JButton btnNewButton = new JButton(&quot;COMPANY&quot;);&#xD;
 		btnNewButton.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));&#xD;
-		btnNewButton.setBounds(28, 196, 158, 36);&#xD;
+		btnNewButton.setBounds(33, 243, 166, 43);&#xD;
+		btnNewButton.setBorder(null);&#xD;
 		btnNewButton.setBackground(SystemColor.inactiveCaption);&#xD;
 &#xD;
 		btnNewButton.addActionListener(new ActionListener() {&#xD;
@@ -3453,19 +3541,20 @@
 &#xD;
 		txtProsthetidist = new JTextField();&#xD;
 		txtProsthetidist.setForeground(new Color(0, 0, 0));&#xD;
-		txtProsthetidist.setBounds(28, 140, 377, 36);&#xD;
+		txtProsthetidist.setBounds(57, 156, 377, 36);&#xD;
 		txtProsthetidist.setCaretColor(SystemColor.inactiveCaptionBorder);&#xD;
 		txtProsthetidist.setBackground(SystemColor.inactiveCaptionBorder);&#xD;
 		txtProsthetidist.setHorizontalAlignment(SwingConstants.CENTER);&#xD;
 		txtProsthetidist.setFont(new Font(&quot;Perpetua&quot;, Font.BOLD | Font.ITALIC, 40));&#xD;
 		txtProsthetidist.setText(&quot;PROSTHETIDIST\r\n&quot;);&#xD;
+		txtProsthetidist.setBorder(null);&#xD;
 		contentPane.add(txtProsthetidist);&#xD;
 		txtProsthetidist.setColumns(30);&#xD;
 &#xD;
 		JLabel imgLabel = new JLabel(&quot;&quot;);&#xD;
 		Image img = new ImageIcon(this.getClass().getResource(&quot;/prosthetic.png&quot;)).getImage();&#xD;
 		imgLabel.setIcon(new ImageIcon(img));&#xD;
-		imgLabel.setBounds(107, 0, 205, 129);&#xD;
+		imgLabel.setBounds(117, 16, 205, 129);&#xD;
 		contentPane.add(imgLabel);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
@@ -3501,16 +3590,20 @@
         <ownedAttribute xmi:id="_enGz4OavEeyp-IGhQD6lwQ" name="separator_1" visibility="private" type="_eO02weavEeyp-IGhQD6lwQ" association="_exW8EeavEeyp-IGhQD6lwQ"/>
         <ownedAttribute xmi:id="_enHa8eavEeyp-IGhQD6lwQ" name="um" visibility="private" type="_dqUbgOavEeyp-IGhQD6lwQ" association="_exllkOavEeyp-IGhQD6lwQ"/>
         <ownedAttribute xmi:id="_enICAeavEeyp-IGhQD6lwQ" name="cm" visibility="private" type="_dpU9AOavEeyp-IGhQD6lwQ" association="_exuIceavEeyp-IGhQD6lwQ"/>
+        <ownedAttribute xmi:id="_8F2AAOdCEey4lZlXB2N28A" name="xm" visibility="private" type="_dqQKEOavEeyp-IGhQD6lwQ" association="_8GkYwOdCEey4lZlXB2N28A"/>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etRGQOavEeyp-IGhQD6lwQ" name="CLogInDisplay" specification="_eiO68OavEeyp-IGhQD6lwQ">
           <ownedParameter xmi:id="_etRGQeavEeyp-IGhQD6lwQ" name="appDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etRGQuavEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etRGQ-avEeyp-IGhQD6lwQ" type="_dmg5kOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etRGQ-avEeyp-IGhQD6lwQ" type="_dmg5kOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>appDisplay.setEnabled(false);&#xD;
 		cm = new JDBCCompanyManager(manager);&#xD;
+		xm = new XmlManager();&#xD;
 &#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 450, 300);&#xD;
+		setBounds(450, 150, 500, 350);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
 		contentPane.setBackground(new Color(247, 247, 247));&#xD;
@@ -3520,14 +3613,14 @@
 		userName = new JTextField();&#xD;
 		userName.setBackground(new Color(247, 247, 247));&#xD;
 		userName.setBorder(null);&#xD;
-		userName.setBounds(140, 59, 149, 20);&#xD;
+		userName.setBounds(160, 59, 149, 20);&#xD;
 		contentPane.add(userName);&#xD;
 		userName.setColumns(10);&#xD;
 &#xD;
 		passwordHide = new JPasswordField();&#xD;
 		passwordHide.setBackground(new Color(247, 247, 247));&#xD;
 		passwordHide.setBorder(null);&#xD;
-		passwordHide.setBounds(140, 101, 149, 20);&#xD;
+		passwordHide.setBounds(160, 101, 149, 20);&#xD;
 		contentPane.add(passwordHide);&#xD;
 &#xD;
 		passwordReadable = new JTextField();&#xD;
@@ -3539,12 +3632,12 @@
 &#xD;
 		JLabel lblNewLabel = new JLabel(&quot;EMAIL:&quot;);&#xD;
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);&#xD;
-		lblNewLabel.setBounds(42, 61, 88, 17);&#xD;
+		lblNewLabel.setBounds(52, 61, 88, 17);&#xD;
 		contentPane.add(lblNewLabel);&#xD;
 &#xD;
 		JLabel lblNewLabel_1 = new JLabel(&quot;PASSWORD :&quot;);&#xD;
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);&#xD;
-		lblNewLabel_1.setBounds(42, 103, 88, 17);&#xD;
+		lblNewLabel_1.setBounds(52, 103, 88, 17);&#xD;
 		contentPane.add(lblNewLabel_1);&#xD;
 &#xD;
 		back = new JButton(&quot;&quot;);&#xD;
@@ -3557,14 +3650,10 @@
 				CLogInDisplay.this.setVisible(false);&#xD;
 			}&#xD;
 		});&#xD;
-		back.setBounds(10, 218, 32, 32);&#xD;
+		back.setBounds(10, 268, 32, 32);&#xD;
 		contentPane.add(back);&#xD;
 &#xD;
 		logIn = new JButton(&quot;LOG IN&quot;);&#xD;
-		logIn.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 12));&#xD;
-		logIn.setBackground(new Color(0, 191, 255));&#xD;
-		logIn.setVerticalAlignment(SwingConstants.CENTER);&#xD;
-		logIn.setForeground(Color.WHITE);&#xD;
 		logIn.addActionListener(new ActionListener() {&#xD;
 			public void actionPerformed(ActionEvent e) {&#xD;
 				um = new JPAUserManager();&#xD;
@@ -3580,7 +3669,13 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		logIn.setBounds(107, 142, 213, 23);&#xD;
+&#xD;
+		logIn.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 12));&#xD;
+		logIn.setBackground(new Color(0, 191, 255));&#xD;
+		logIn.setVerticalAlignment(SwingConstants.CENTER);&#xD;
+		logIn.setForeground(Color.WHITE);&#xD;
+		logIn.setBounds(130, 142, 213, 23);&#xD;
+		logIn.setBorder(null);&#xD;
 		contentPane.add(logIn);&#xD;
 &#xD;
 		showPassword = new JCheckBox(&quot;&quot;);&#xD;
@@ -3601,11 +3696,12 @@
 				passwordHide.setText(passwordReadable.getText());&#xD;
 			}&#xD;
 		});&#xD;
-		showPassword.setBounds(295, 101, 25, 23);&#xD;
+		showPassword.setBounds(334, 100, 25, 23);&#xD;
+		showPassword.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(showPassword);&#xD;
 &#xD;
 		JLabel separation = new JLabel(&quot;-----------------------------------------------------\r\n&quot;);&#xD;
-		separation.setBounds(107, 170, 213, 14);&#xD;
+		separation.setBounds(130, 170, 213, 14);&#xD;
 		contentPane.add(separation);&#xD;
 &#xD;
 		JButton register = new JButton(&quot;Create New Account&quot;);&#xD;
@@ -3617,18 +3713,44 @@
 		});&#xD;
 		register.setBackground(Color.BLACK);&#xD;
 		register.setForeground(Color.WHITE);&#xD;
-		register.setBounds(107, 191, 213, 23);&#xD;
+		register.setBounds(130, 191, 213, 23);&#xD;
+		register.setBorder(null);&#xD;
 		contentPane.add(register);&#xD;
-		&#xD;
+&#xD;
 		separator = new JSeparator();&#xD;
 		separator.setForeground(Color.BLACK);&#xD;
-		separator.setBounds(140, 79, 149, 5);&#xD;
+		separator.setBounds(160, 79, 149, 5);&#xD;
 		contentPane.add(separator);&#xD;
-		&#xD;
+&#xD;
 		separator_1 = new JSeparator();&#xD;
 		separator_1.setForeground(Color.BLACK);&#xD;
-		separator_1.setBounds(140, 121, 149, 5);&#xD;
+		separator_1.setBounds(160, 121, 149, 5);&#xD;
 		contentPane.add(separator_1);&#xD;
+&#xD;
+		JButton importAccount = new JButton(&quot;Free Default Company Trial&quot;);&#xD;
+		importAccount.addActionListener(new ActionListener() {&#xD;
+			public void actionPerformed(ActionEvent e) {&#xD;
+				JDBCProstheticManager pm = new JDBCProstheticManager(manager);&#xD;
+				JDBCMeasurementManager mm = new JDBCMeasurementManager(manager);&#xD;
+				try {&#xD;
+					xm.unmarshall(cm, pm, mm);&#xD;
+					Company companyTrial = cm.getCompanyByEmail(&quot;trial@gmail.com&quot;);&#xD;
+					um = new JPAUserManager();&#xD;
+					JFrame companyMenuDisplay = new CompanyMenuDisplay(CLogInDisplay.this, companyTrial, manager, um);&#xD;
+					companyMenuDisplay.setVisible(true);&#xD;
+				} catch (Exception ex) {&#xD;
+					JOptionPane.showMessageDialog(CLogInDisplay.this, &quot;Option not available for the moment&quot;, &quot;Message&quot;,&#xD;
+							JOptionPane.WARNING_MESSAGE);&#xD;
+				}&#xD;
+&#xD;
+			}&#xD;
+		});&#xD;
+&#xD;
+		importAccount.setBackground(Color.BLACK);&#xD;
+		importAccount.setForeground(Color.WHITE);&#xD;
+		importAccount.setBounds(130, 227, 213, 23);&#xD;
+		importAccount.setBorder(null);&#xD;
+		contentPane.add(importAccount);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {&#xD;
@@ -3670,14 +3792,16 @@
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etSUYOavEeyp-IGhQD6lwQ" name="CRegisterDisplay" specification="_eiYE4OavEeyp-IGhQD6lwQ">
           <ownedParameter xmi:id="_etSUYeavEeyp-IGhQD6lwQ" name="cLogInDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etSUYuavEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etSUY-avEeyp-IGhQD6lwQ" type="_dmr4sOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etSUY-avEeyp-IGhQD6lwQ" type="_dmr4sOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>cLogInDisplay.setEnabled(false);&#xD;
 		cm = new JDBCCompanyManager(manager);&#xD;
 		um = new JPAUserManager();&#xD;
 &#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 450, 300);&#xD;
+		setBounds(450, 150, 500, 350);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
 		contentPane.setBackground(new Color(247, 247, 247));&#xD;
@@ -3706,7 +3830,7 @@
 		name.addKeyListener(new KeyAdapter() {&#xD;
 			@Override&#xD;
 			public void keyReleased(KeyEvent e) {&#xD;
-				if (!name.getText().isEmpty() &amp;&amp; !phone.getText().isEmpty() &amp;&amp; !email.getText().isEmpty()&#xD;
+				if (!name.getText().isEmpty() &amp;&amp; (phone.getText().length() == 9) &amp;&amp; !email.getText().isEmpty()&#xD;
 						&amp;&amp; !passwordHide.getText().isEmpty()) {&#xD;
 					register.setEnabled(true);&#xD;
 				} else&#xD;
@@ -3722,8 +3846,15 @@
 		phone.setBorder(null);&#xD;
 		phone.addKeyListener(new KeyAdapter() {&#xD;
 			@Override&#xD;
+			public void keyTyped(KeyEvent e) {&#xD;
+				if (phone.getText().length() > 8) {&#xD;
+					e.consume(); // deja de procesar este evento&#xD;
+					Toolkit.getDefaultToolkit().beep();&#xD;
+				}&#xD;
+			}&#xD;
+			@Override&#xD;
 			public void keyReleased(KeyEvent e) {&#xD;
-				if (!name.getText().isEmpty() &amp;&amp; !phone.getText().isEmpty() &amp;&amp; !email.getText().isEmpty()&#xD;
+				if (!name.getText().isEmpty() &amp;&amp; (phone.getText().length() == 9) &amp;&amp; !email.getText().isEmpty()&#xD;
 						&amp;&amp; !passwordHide.getText().isEmpty()) {&#xD;
 					register.setEnabled(true);&#xD;
 				} else&#xD;
@@ -3740,7 +3871,7 @@
 		email.addKeyListener(new KeyAdapter() {&#xD;
 			@Override&#xD;
 			public void keyReleased(KeyEvent e) {&#xD;
-				if (!name.getText().isEmpty() &amp;&amp; !phone.getText().isEmpty() &amp;&amp; !email.getText().isEmpty()&#xD;
+				if (!name.getText().isEmpty() &amp;&amp; (phone.getText().length() == 9) &amp;&amp; !email.getText().isEmpty()&#xD;
 						&amp;&amp; !passwordHide.getText().isEmpty()) {&#xD;
 					register.setEnabled(true);&#xD;
 				} else &#xD;
@@ -3770,7 +3901,7 @@
 				CRegisterDisplay.this.setVisible(false);&#xD;
 			}&#xD;
 		});&#xD;
-		back.setBounds(10, 218, 32, 32);&#xD;
+		back.setBounds(10, 268, 32, 32);&#xD;
 		contentPane.add(back);&#xD;
 &#xD;
 		register = new JButton(&quot;Register&quot;);&#xD;
@@ -3815,7 +3946,7 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		register.setBounds(302, 227, 110, 23);&#xD;
+		register.setBounds(352, 268, 110, 23);&#xD;
 		contentPane.add(register);&#xD;
 &#xD;
 		passwordHide = new JPasswordField();&#xD;
@@ -3852,7 +3983,7 @@
 				passwordHide.setText(passwordReadable.getText());&#xD;
 			}&#xD;
 		});&#xD;
-		showPassword.setBounds(302, 167, 30, 23);&#xD;
+		showPassword.setBounds(311, 168, 30, 23);&#xD;
 		contentPane.add(showPassword);&#xD;
 		&#xD;
 		separator = new JSeparator();&#xD;
@@ -3890,6 +4021,7 @@
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
           <ownedParameter xmi:id="_etSUZuavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
           <language>java</language>
@@ -3933,7 +4065,9 @@
           <ownedParameter xmi:id="_etTigeavEeyp-IGhQD6lwQ" name="patientMenuDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etTiguavEeyp-IGhQD6lwQ" name="patient" type="_dr_2gOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etTig-avEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etTihOavEeyp-IGhQD6lwQ" type="_dm6iMOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etTihOavEeyp-IGhQD6lwQ" type="_dm6iMOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>im = new JDBCInvoiceManager(manager);&#xD;
 		pm = new JDBCProstheticManager(manager);&#xD;
@@ -3941,7 +4075,7 @@
 &#xD;
 		patientMenuDisplay.setEnabled(false);&#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 488, 351);&#xD;
+		setBounds(450, 150, 636, 360);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.addMouseListener(new MouseAdapter() {&#xD;
 			@Override&#xD;
@@ -3955,7 +4089,7 @@
 		contentPane.setLayout(null);&#xD;
 &#xD;
 		JLabel lblNewLabel = new JLabel(&quot;YOUR SELECTION :&quot;);&#xD;
-		lblNewLabel.setBounds(24, 11, 113, 14);&#xD;
+		lblNewLabel.setBounds(25, 25, 113, 14);&#xD;
 		contentPane.add(lblNewLabel);&#xD;
 &#xD;
 		standard = new JRadioButton(&quot;STANDARD&quot;);&#xD;
@@ -3974,7 +4108,8 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		standard.setBounds(41, 177, 111, 23);&#xD;
+		standard.setBounds(142, 177, 111, 23);&#xD;
+		standard.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(standard);&#xD;
 &#xD;
 		premium = new JRadioButton(&quot;PREMIUM&quot;);&#xD;
@@ -3993,11 +4128,12 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		premium.setBounds(195, 177, 111, 23);&#xD;
+		premium.setBounds(306, 177, 111, 23);&#xD;
+		premium.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(premium);&#xD;
 &#xD;
 		JLabel lblNewLabel_2 = new JLabel(&quot;CREDIT CARD NUMBER :&quot;);&#xD;
-		lblNewLabel_2.setBounds(24, 224, 159, 14);&#xD;
+		lblNewLabel_2.setBounds(54, 224, 159, 14);&#xD;
 		contentPane.add(lblNewLabel_2);&#xD;
 &#xD;
 		creditCard = new JTextField();&#xD;
@@ -4020,7 +4156,7 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		creditCard.setBounds(209, 221, 133, 20);&#xD;
+		creditCard.setBounds(230, 221, 133, 20);&#xD;
 		contentPane.add(creditCard);&#xD;
 		creditCard.setColumns(10);&#xD;
 &#xD;
@@ -4052,7 +4188,7 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		buy.setBounds(377, 282, 89, 23);&#xD;
+		buy.setBounds(488, 278, 89, 23);&#xD;
 		contentPane.add(buy);&#xD;
 &#xD;
 		back = new JButton(&quot;&quot;);&#xD;
@@ -4106,13 +4242,13 @@
 		&#xD;
 		JScrollPane scrollPane = new JScrollPane();&#xD;
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);&#xD;
-		scrollPane.setBounds(10, 46, 450, 89);&#xD;
+		scrollPane.setBounds(54, 55, 463, 91);&#xD;
 		scrollPane.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(scrollPane);&#xD;
 		scrollPane.setViewportView(table);&#xD;
 &#xD;
 		JLabel lblNewLabel_1 = new JLabel(&quot;Choose delivery&quot;);&#xD;
-		lblNewLabel_1.setBounds(24, 157, 121, 14);&#xD;
+		lblNewLabel_1.setBounds(50, 157, 121, 14);&#xD;
 		contentPane.add(lblNewLabel_1);&#xD;
 &#xD;
 		JButton delete = new JButton(&quot;REMOVE&quot;);&#xD;
@@ -4132,22 +4268,22 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		delete.setBounds(351, 7, 96, 23);&#xD;
+		delete.setBounds(514, 15, 96, 23);&#xD;
 		contentPane.add(delete);&#xD;
 &#xD;
 		total = new JLabel(String.valueOf(getTotalPrice(im.getPatientSelection(patient))));&#xD;
-		total.setBounds(377, 257, 53, 14);&#xD;
+		total.setBounds(500, 259, 53, 14);&#xD;
 		contentPane.add(total);&#xD;
 &#xD;
 		JLabel dollar = new JLabel(&quot;&quot;);&#xD;
 		Image dollarImg = new ImageIcon(this.getClass().getResource(&quot;/dollar.png&quot;)).getImage();&#xD;
 		dollar.setIcon(new ImageIcon(dollarImg));&#xD;
-		dollar.setBounds(440, 255, 16, 16);&#xD;
+		dollar.setBounds(561, 257, 16, 16);&#xD;
 		contentPane.add(dollar);&#xD;
 		&#xD;
 		JSeparator separator = new JSeparator();&#xD;
 		separator.setForeground(Color.BLACK);&#xD;
-		separator.setBounds(209, 241, 133, 5);&#xD;
+		separator.setBounds(230, 241, 133, 5);&#xD;
 		contentPane.add(separator);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
@@ -4162,7 +4298,9 @@
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etTiheavEeyp-IGhQD6lwQ" name="getTotalPrice" specification="_eiy7oOavEeyp-IGhQD6lwQ">
           <ownedParameter xmi:id="_etTihuavEeyp-IGhQD6lwQ" name="cart" type="_eQwJYeavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etTih-avEeyp-IGhQD6lwQ" type="_eijEAeavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etTih-avEeyp-IGhQD6lwQ" type="_eijEAeavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>Float totalPrice = 0f;&#xD;
 		for (Prosthetic p : cart) {&#xD;
@@ -4196,7 +4334,9 @@
           <ownedParameter xmi:id="_etUwouavEeyp-IGhQD6lwQ" name="company" type="_dqid8OavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etUwo-avEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etUwpOavEeyp-IGhQD6lwQ" name="um" type="_dqUbgOavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etUwpeavEeyp-IGhQD6lwQ" type="_dnHWgOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etUwpeavEeyp-IGhQD6lwQ" type="_dnHWgOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>cLogInDisplay.setEnabled(false);&#xD;
 		cm = new JDBCCompanyManager(manager);&#xD;
@@ -4204,7 +4344,7 @@
 		xm = new XmlManager();&#xD;
 &#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 450, 300);&#xD;
+		setBounds(450, 150, 500, 350);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
 		contentPane.setLayout(null);&#xD;
@@ -4217,7 +4357,7 @@
 				uploadProsthetic.setVisible(true);&#xD;
 			}&#xD;
 		});&#xD;
-		btnNewButton.setBounds(125, 60, 178, 29);&#xD;
+		btnNewButton.setBounds(149, 62, 178, 29);&#xD;
 		contentPane.add(btnNewButton);&#xD;
 &#xD;
 		JButton btnNewButton_1 = new JButton(&quot;DELETE PROSTHETIC&quot;);&#xD;
@@ -4232,7 +4372,7 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		btnNewButton_1.setBounds(125, 100, 178, 29);&#xD;
+		btnNewButton_1.setBounds(149, 110, 178, 29);&#xD;
 		contentPane.add(btnNewButton_1);&#xD;
 &#xD;
 		JButton btnNewButton_2 = new JButton(&quot;OFFER DESIGN&quot;);&#xD;
@@ -4247,7 +4387,7 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		btnNewButton_2.setBounds(125, 140, 178, 29);&#xD;
+		btnNewButton_2.setBounds(149, 155, 178, 29);&#xD;
 		contentPane.add(btnNewButton_2);&#xD;
 &#xD;
 		JButton logOut = new JButton(&quot;LOG OUT&quot;);&#xD;
@@ -4255,12 +4395,18 @@
 		logOut.setIcon(new ImageIcon(logOutImg));&#xD;
 		logOut.addActionListener(new ActionListener() {&#xD;
 			public void actionPerformed(ActionEvent e) {&#xD;
+				if (company.getEmail() == &quot;trial@gmail.com&quot;) {&#xD;
+					cm.deleteCompany(company);&#xD;
+					JOptionPane.showMessageDialog(CompanyMenuDisplay.this,&#xD;
+							&quot;Thanks for trying our app. Hope you liked it !!&quot;, &quot;Message&quot;,&#xD;
+							JOptionPane.INFORMATION_MESSAGE);&#xD;
+				}&#xD;
 				um.disconnect();&#xD;
 				cLogInDisplay.setEnabled(true);&#xD;
 				CompanyMenuDisplay.this.setVisible(false);&#xD;
 			}&#xD;
 		});&#xD;
-		logOut.setBounds(322, 237, 117, 29);&#xD;
+		logOut.setBounds(345, 271, 117, 29);&#xD;
 		contentPane.add(logOut);&#xD;
 &#xD;
 		JLabel user = new JLabel(&quot;&quot;);&#xD;
@@ -4272,21 +4418,29 @@
 		JLabel username = new JLabel(company.getName());&#xD;
 		username.setBounds(71, 35, 89, 14);&#xD;
 		contentPane.add(username);&#xD;
-		&#xD;
+&#xD;
 		JButton export = new JButton(&quot;EXPORT INFO&quot;);&#xD;
 		export.addActionListener(new ActionListener() {&#xD;
 			public void actionPerformed(ActionEvent e) {&#xD;
-				try {&#xD;
-					company.getProsthetics().clear();&#xD;
-					company.setProsthetics(cm.listProstheticsOfCompany(company));&#xD;
-					xm.marshall(company);&#xD;
-					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, &quot;Your information has been exported into a xml file : Company&quot;, &quot;Message&quot;, JOptionPane.INFORMATION_MESSAGE);&#xD;
-				} catch(Exception ex) {&#xD;
-					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, &quot;Error exporting the information&quot;, &quot;Message&quot;, JOptionPane.ERROR_MESSAGE);&#xD;
+				if (company.getEmail() == &quot;trial@gmail.com&quot;) {&#xD;
+					JOptionPane.showMessageDialog(CompanyMenuDisplay.this, &quot;Option not allowed&quot;, &quot;Message&quot;,&#xD;
+							JOptionPane.WARNING_MESSAGE);&#xD;
+				} else {&#xD;
+					try {&#xD;
+						company.getProsthetics().clear();&#xD;
+						company.setProsthetics(cm.listProstheticsOfCompany(company));&#xD;
+						xm.marshall(company);&#xD;
+						JOptionPane.showMessageDialog(CompanyMenuDisplay.this,&#xD;
+								&quot;Your information has been exported into a xml file : Company&quot;, &quot;Message&quot;,&#xD;
+								JOptionPane.INFORMATION_MESSAGE);&#xD;
+					} catch (Exception ex) {&#xD;
+						JOptionPane.showMessageDialog(CompanyMenuDisplay.this, &quot;Error exporting the information&quot;,&#xD;
+								&quot;Message&quot;, JOptionPane.ERROR_MESSAGE);&#xD;
+					}&#xD;
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		export.setBounds(125, 179, 178, 29);&#xD;
+		export.setBounds(149, 201, 178, 29);&#xD;
 		contentPane.add(export);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
@@ -4294,8 +4448,10 @@
 &#xD;
 			@Override&#xD;
 			public void windowClosing(WindowEvent e) {&#xD;
+				if (company.getEmail() == &quot;trial@gmail.com&quot;) {&#xD;
+					cm.deleteCompany(company);&#xD;
+				}&#xD;
 				manager.disconnect();&#xD;
-&#xD;
 			}&#xD;
 		};&#xD;
 		this.addWindowListener(exitListener);&#xD;
@@ -4323,14 +4479,16 @@
           <ownedParameter xmi:id="_etVXseavEeyp-IGhQD6lwQ" name="companyMenuDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etVXsuavEeyp-IGhQD6lwQ" name="company" type="_dqid8OavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etVXs-avEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etVXtOavEeyp-IGhQD6lwQ" type="_dnM2EOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etVXtOavEeyp-IGhQD6lwQ" type="_dnM2EOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>cm = new JDBCCompanyManager(manager);&#xD;
 		pm = new JDBCProstheticManager(manager);&#xD;
 		companyMenuDisplay.setEnabled(false);&#xD;
 		&#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 450, 300);&#xD;
+		setBounds(450, 150, 636, 360);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.addMouseListener(new MouseAdapter() {&#xD;
 			@Override&#xD;
@@ -4382,7 +4540,7 @@
 &#xD;
 		scrollPane = new JScrollPane();&#xD;
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);&#xD;
-		scrollPane.setBounds(21, 23, 403, 144);&#xD;
+		scrollPane.setBounds(43, 42, 521, 146);&#xD;
 		contentPane.add(scrollPane);&#xD;
 		scrollPane.setViewportView(table);&#xD;
 &#xD;
@@ -4395,7 +4553,7 @@
 				DeleteProsthetic.this.setVisible(false);&#xD;
 			}&#xD;
 		});&#xD;
-		back.setBounds(10, 218, 32, 32);&#xD;
+		back.setBounds(10, 278, 32, 32);&#xD;
 		contentPane.add(back);&#xD;
 &#xD;
 		JButton delete = new JButton(&quot;DELETE&quot;);&#xD;
@@ -4417,7 +4575,7 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		delete.setBounds(306, 218, 89, 23);&#xD;
+		delete.setBounds(468, 268, 110, 32);&#xD;
 		contentPane.add(delete);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
@@ -4425,6 +4583,9 @@
 &#xD;
 			@Override&#xD;
 			public void windowClosing(WindowEvent e) {&#xD;
+				if(company.getEmail() == &quot;trial@gmail.com&quot;) {&#xD;
+					cm.deleteCompany(company);&#xD;
+				}&#xD;
 				manager.disconnect();&#xD;
 &#xD;
 			}&#xD;
@@ -4457,7 +4618,9 @@
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etV-wOavEeyp-IGhQD6lwQ" name="DesignProsthetic" specification="_ejNyYOavEeyp-IGhQD6lwQ">
           <ownedParameter xmi:id="_etV-weavEeyp-IGhQD6lwQ" name="patientMenuDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etV-wuavEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etV-w-avEeyp-IGhQD6lwQ" type="_dnS8sOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etV-w-avEeyp-IGhQD6lwQ" type="_dnS8sOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>patientMenuDisplay.setEnabled(false);&#xD;
 		matm = new JDBCMaterialManager(manager);&#xD;
@@ -4466,9 +4629,10 @@
 		pm = new JDBCProstheticManager(manager);&#xD;
 		&#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 550, 343);&#xD;
+		setBounds(450, 150, 500, 350);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
+		contentPane.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.setLayout(null);&#xD;
 		setContentPane(contentPane);&#xD;
 &#xD;
@@ -4476,16 +4640,16 @@
 		lblNewLabel.setBounds(10, 41, 45, 13);&#xD;
 		contentPane.add(lblNewLabel);&#xD;
 &#xD;
-		JLabel lblNewLabel_1 = new JLabel(&quot;Measurements&quot;);&#xD;
+		JLabel lblNewLabel_1 = new JLabel(&quot;Measurements &quot;);&#xD;
 		lblNewLabel_1.setBounds(10, 80, 96, 13);&#xD;
 		contentPane.add(lblNewLabel_1);&#xD;
 &#xD;
 		JLabel lblNewLabel_2 = new JLabel(&quot;Functionalities&quot;);&#xD;
-		lblNewLabel_2.setBounds(10, 117, 96, 13);&#xD;
+		lblNewLabel_2.setBounds(10, 140, 96, 13);&#xD;
 		contentPane.add(lblNewLabel_2);&#xD;
 &#xD;
 		JLabel lblNewLabel_3 = new JLabel(&quot;Materials&quot;);&#xD;
-		lblNewLabel_3.setBounds(10, 158, 76, 13);&#xD;
+		lblNewLabel_3.setBounds(10, 184, 76, 13);&#xD;
 		contentPane.add(lblNewLabel_3);&#xD;
 &#xD;
 		type = new JComboBox&lt;String>();&#xD;
@@ -4495,35 +4659,46 @@
 		contentPane.add(type);&#xD;
 &#xD;
 		lengthTxt = new JTextField();&#xD;
-		lengthTxt.setBounds(128, 77, 96, 19);&#xD;
+		lengthTxt.setBounds(128, 76, 96, 19);&#xD;
+		lengthTxt.setBackground(new Color(247, 247, 247));&#xD;
+		lengthTxt.setBorder(null);&#xD;
 		contentPane.add(lengthTxt);&#xD;
 		lengthTxt.setColumns(10);&#xD;
 &#xD;
 		widthTxt = new JTextField();&#xD;
-		widthTxt.setBounds(234, 77, 96, 19);&#xD;
+		widthTxt.setBounds(236, 76, 96, 19);&#xD;
+		widthTxt.setBackground(new Color(247, 247, 247));&#xD;
+		widthTxt.setBorder(null);&#xD;
 		contentPane.add(widthTxt);&#xD;
 		widthTxt.setColumns(10);&#xD;
 &#xD;
 		weightTxt = new JTextField();&#xD;
-		weightTxt.setBounds(353, 77, 96, 19);&#xD;
+		weightTxt.setBounds(350, 76, 96, 19);&#xD;
+		weightTxt.setBackground(new Color(247, 247, 247));&#xD;
+		weightTxt.setBorder(null);&#xD;
 		contentPane.add(weightTxt);&#xD;
 		weightTxt.setColumns(10);&#xD;
 &#xD;
 		functionalities = new JTextField();&#xD;
-		functionalities.setBounds(128, 114, 96, 19);&#xD;
+		functionalities.setBounds(128, 135, 128, 19);&#xD;
+		functionalities.setBackground(new Color(247, 247, 247));&#xD;
+		functionalities.setBorder(null);&#xD;
 		contentPane.add(functionalities);&#xD;
 		functionalities.setColumns(10);&#xD;
 &#xD;
 		JCheckBox plastic = new JCheckBox(&quot;Plastic&quot;);&#xD;
-		plastic.setBounds(131, 154, 93, 21);&#xD;
+		plastic.setBounds(128, 180, 93, 21);&#xD;
+		plastic.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(plastic);&#xD;
 &#xD;
 		JCheckBox carbonFiber = new JCheckBox(&quot;Carbon Fiber&quot;);&#xD;
-		carbonFiber.setBounds(237, 154, 93, 21);&#xD;
+		carbonFiber.setBounds(237, 180, 93, 21);&#xD;
+		carbonFiber.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(carbonFiber);&#xD;
 &#xD;
 		JCheckBox aluminium = new JCheckBox(&quot;Aluminum&quot;);&#xD;
-		aluminium.setBounds(356, 154, 93, 21);&#xD;
+		aluminium.setBounds(353, 180, 93, 21);&#xD;
+		aluminium.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(aluminium);&#xD;
 &#xD;
 		JButton btnNewButton = new JButton(&quot;DESIGN&quot;);&#xD;
@@ -4587,6 +4762,42 @@
 		});&#xD;
 		back.setBounds(10, 261, 32, 32);&#xD;
 		contentPane.add(back);&#xD;
+		&#xD;
+		JLabel lblNewLabel_4 = new JLabel(&quot;Length&quot;);&#xD;
+		lblNewLabel_4.setBounds(151, 100, 57, 14);&#xD;
+		contentPane.add(lblNewLabel_4);&#xD;
+		&#xD;
+		JLabel lblNewLabel_4_1 = new JLabel(&quot;Width&quot;);&#xD;
+		lblNewLabel_4_1.setBounds(263, 100, 57, 14);&#xD;
+		contentPane.add(lblNewLabel_4_1);&#xD;
+		&#xD;
+		JLabel lblNewLabel_4_2 = new JLabel(&quot;Weight&quot;);&#xD;
+		lblNewLabel_4_2.setBounds(373, 100, 57, 14);&#xD;
+		contentPane.add(lblNewLabel_4_2);&#xD;
+		&#xD;
+		JSeparator separator = new JSeparator();&#xD;
+		separator.setForeground(Color.BLACK);&#xD;
+		separator.setBounds(128, 95, 96, 5);&#xD;
+		contentPane.add(separator);&#xD;
+		&#xD;
+		JSeparator separator_1 = new JSeparator();&#xD;
+		separator_1.setForeground(Color.BLACK);&#xD;
+		separator_1.setBounds(236, 95, 96, 5);&#xD;
+		contentPane.add(separator_1);&#xD;
+		&#xD;
+		JSeparator separator_2 = new JSeparator();&#xD;
+		separator_2.setForeground(Color.BLACK);&#xD;
+		separator_2.setBounds(350, 95, 96, 5);&#xD;
+		contentPane.add(separator_2);&#xD;
+		&#xD;
+		JSeparator separator_3 = new JSeparator();&#xD;
+		separator_3.setForeground(Color.BLACK);&#xD;
+		separator_3.setBounds(128, 154, 128, 5);&#xD;
+		contentPane.add(separator_3);&#xD;
+		&#xD;
+		JLabel lblNewLabel_5 = new JLabel(&quot;(cm, kg)&quot;);&#xD;
+		lblNewLabel_5.setBounds(25, 95, 46, 14);&#xD;
+		contentPane.add(lblNewLabel_5);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {&#xD;
@@ -4659,13 +4870,15 @@
           <ownedParameter xmi:id="_etXM4eavEeyp-IGhQD6lwQ" name="companyMenuDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etXM4uavEeyp-IGhQD6lwQ" name="company" type="_dqid8OavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etXM4-avEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etXM5OavEeyp-IGhQD6lwQ" type="_dnfxAOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etXM5OavEeyp-IGhQD6lwQ" type="_dnfxAOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>pm = new JDBCProstheticManager(manager);&#xD;
 		companyMenuDisplay.setEnabled(false);&#xD;
 		&#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 450, 300);&#xD;
+		setBounds(450, 150, 636, 360);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.addMouseListener(new MouseAdapter() {&#xD;
 			@Override&#xD;
@@ -4678,12 +4891,12 @@
 		setContentPane(contentPane);&#xD;
 &#xD;
 		JLabel lblNewLabel = new JLabel(&quot;Prosthetic to design: &quot;);&#xD;
-		lblNewLabel.setBounds(55, 11, 218, 14);&#xD;
+		lblNewLabel.setBounds(55, 15, 218, 26);&#xD;
 		contentPane.add(lblNewLabel);&#xD;
 &#xD;
 		JScrollPane scrollPane = new JScrollPane();&#xD;
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);&#xD;
-		scrollPane.setBounds(26, 48, 370, 119);&#xD;
+		scrollPane.setBounds(55, 69, 496, 145);&#xD;
 		contentPane.add(scrollPane);&#xD;
 &#xD;
 		table = new JTable();&#xD;
@@ -4726,18 +4939,23 @@
 		JButton btnNewButton = new JButton(&quot;OFFER&quot;);&#xD;
 		btnNewButton.addActionListener(new ActionListener() {&#xD;
 			public void actionPerformed(ActionEvent e) {&#xD;
-				if(table.getSelectedRowCount() > 0) {&#xD;
-					int i = table.getSelectedRow();&#xD;
-					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 0).toString()));&#xD;
-					JFrame offerProstheticByCompany = new OfferProstheticByCompany(OfferProsthetic.this, companyMenuDisplay, company, p, manager);&#xD;
-					offerProstheticByCompany.setVisible(true);&#xD;
+				if(company.getEmail() == &quot;trial@gmail.com&quot;) {&#xD;
+					JOptionPane.showMessageDialog(OfferProsthetic.this, &quot;Option not allowed&quot;, &quot;Message&quot;,&#xD;
+							JOptionPane.WARNING_MESSAGE);&#xD;
 				} else {&#xD;
-					JOptionPane.showMessageDialog(OfferProsthetic.this, &quot;Select a prosthetic first&quot;, &quot;Message&quot;,&#xD;
-							JOptionPane.PLAIN_MESSAGE);&#xD;
+					if(table.getSelectedRowCount() > 0) {&#xD;
+						int i = table.getSelectedRow();&#xD;
+						Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 0).toString()));&#xD;
+						JFrame offerProstheticByCompany = new OfferProstheticByCompany(OfferProsthetic.this, companyMenuDisplay, company, p, manager);&#xD;
+						offerProstheticByCompany.setVisible(true);&#xD;
+					} else {&#xD;
+						JOptionPane.showMessageDialog(OfferProsthetic.this, &quot;Select a prosthetic first&quot;, &quot;Message&quot;,&#xD;
+								JOptionPane.PLAIN_MESSAGE);&#xD;
+					}&#xD;
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		btnNewButton.setBounds(327, 231, 89, 23);&#xD;
+		btnNewButton.setBounds(491, 274, 89, 23);&#xD;
 		contentPane.add(btnNewButton);&#xD;
 &#xD;
 		JButton back = new JButton(&quot;&quot;);&#xD;
@@ -4749,7 +4967,7 @@
 				OfferProsthetic.this.setVisible(false);&#xD;
 			}&#xD;
 		});&#xD;
-		back.setBounds(10, 218, 32, 32);&#xD;
+		back.setBounds(10, 278, 32, 32);&#xD;
 		contentPane.add(back);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
@@ -4757,8 +4975,11 @@
 &#xD;
 			@Override&#xD;
 			public void windowClosing(WindowEvent e) {&#xD;
+				if(company.getEmail() == &quot;trial@gmail.com&quot;) {&#xD;
+					JDBCCompanyManager cm = new JDBCCompanyManager(manager);&#xD;
+					cm.deleteCompany(company);&#xD;
+				} &#xD;
 				manager.disconnect();&#xD;
-&#xD;
 			}&#xD;
 		};&#xD;
 		this.addWindowListener(exitListener);&#xD;
@@ -4782,31 +5003,40 @@
         <ownedAttribute xmi:id="_eoG5ceavEeyp-IGhQD6lwQ" name="ok" visibility="private" type="_eMoeYeavEeyp-IGhQD6lwQ" association="_e7E4weavEeyp-IGhQD6lwQ"/>
         <ownedAttribute xmi:id="_eoIHkeavEeyp-IGhQD6lwQ" name="back" visibility="private" type="_eMoeYeavEeyp-IGhQD6lwQ" association="_e7M0keavEeyp-IGhQD6lwQ"/>
         <ownedAttribute xmi:id="_eoJVsOavEeyp-IGhQD6lwQ" name="cm" visibility="private" type="_dpU9AOavEeyp-IGhQD6lwQ" association="_e7VXceavEeyp-IGhQD6lwQ"/>
+        <ownedAttribute xmi:id="_8F31MOdCEey4lZlXB2N28A" name="separator" visibility="private" type="_eO02weavEeyp-IGhQD6lwQ" association="_8G-ocOdCEey4lZlXB2N28A"/>
+        <ownedAttribute xmi:id="_8F4cQedCEey4lZlXB2N28A" name="separator_1" visibility="private" type="_eO02weavEeyp-IGhQD6lwQ" association="_8HSKcedCEey4lZlXB2N28A"/>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etXz8OavEeyp-IGhQD6lwQ" name="OfferProstheticByCompany" specification="_ejsTgOavEeyp-IGhQD6lwQ">
           <ownedParameter xmi:id="_etXz8eavEeyp-IGhQD6lwQ" name="offerProsthetic" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etXz8uavEeyp-IGhQD6lwQ" name="companyMenuDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etXz8-avEeyp-IGhQD6lwQ" name="company" type="_dqid8OavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etXz9OavEeyp-IGhQD6lwQ" name="prosthetic" type="_dsRjUOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etXz9eavEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etXz9uavEeyp-IGhQD6lwQ" type="_dnnFwOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etXz9uavEeyp-IGhQD6lwQ" type="_dnnFwOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>cm = new JDBCCompanyManager(manager);&#xD;
 		offerProsthetic.setEnabled(false);&#xD;
 &#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 450, 300);&#xD;
+		setBounds(450, 150, 500, 350);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
+		contentPane.setBackground(new Color(247, 247, 247));&#xD;
 		setContentPane(contentPane);&#xD;
 		contentPane.setLayout(null);&#xD;
 &#xD;
 		price = new JTextField();&#xD;
-		price.setBounds(146, 67, 112, 20);&#xD;
+		price.setBounds(178, 102, 112, 20);&#xD;
+		price.setBackground(new Color(247, 247, 247));&#xD;
+		price.setBorder(null);&#xD;
 		contentPane.add(price);&#xD;
 		price.setColumns(10);&#xD;
 &#xD;
 		model = new JTextField();&#xD;
-		model.setBounds(146, 133, 112, 20);&#xD;
+		model.setBounds(178, 160, 112, 20);&#xD;
+		model.setBackground(new Color(247, 247, 247));&#xD;
+		model.setBorder(null);&#xD;
 		contentPane.add(model);&#xD;
 		model.setColumns(10);&#xD;
 &#xD;
@@ -4830,7 +5060,7 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		ok.setBounds(254, 206, 89, 23);&#xD;
+		ok.setBounds(357, 258, 89, 23);&#xD;
 		contentPane.add(ok);&#xD;
 &#xD;
 		back = new JButton(&quot;&quot;);&#xD;
@@ -4842,16 +5072,26 @@
 				OfferProstheticByCompany.this.setVisible(false);&#xD;
 			}&#xD;
 		});&#xD;
-		back.setBounds(10, 218, 32, 32);&#xD;
+		back.setBounds(10, 268, 32, 32);&#xD;
 		contentPane.add(back);&#xD;
 &#xD;
-		JLabel lblNewLabel = new JLabel(&quot;price&quot;);&#xD;
-		lblNewLabel.setBounds(45, 70, 46, 14);&#xD;
+		JLabel lblNewLabel = new JLabel(&quot;Price&quot;);&#xD;
+		lblNewLabel.setBounds(82, 105, 46, 14);&#xD;
 		contentPane.add(lblNewLabel);&#xD;
 &#xD;
-		JLabel lblModel = new JLabel(&quot;model&quot;);&#xD;
-		lblModel.setBounds(45, 136, 46, 14);&#xD;
+		JLabel lblModel = new JLabel(&quot;Model&quot;);&#xD;
+		lblModel.setBounds(82, 163, 46, 14);&#xD;
 		contentPane.add(lblModel);&#xD;
+		&#xD;
+		separator = new JSeparator();&#xD;
+		separator.setForeground(Color.BLACK);&#xD;
+		separator.setBounds(178, 122, 112, 5);&#xD;
+		contentPane.add(separator);&#xD;
+		&#xD;
+		separator_1 = new JSeparator();&#xD;
+		separator_1.setForeground(Color.BLACK);&#xD;
+		separator_1.setBounds(178, 180, 112, 5);&#xD;
+		contentPane.add(separator_1);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {&#xD;
@@ -4877,188 +5117,6 @@
           <ownedParameter xmi:id="_ejuIseavEeyp-IGhQD6lwQ" type="_dnnFwOavEeyp-IGhQD6lwQ" direction="return"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_dnw2wOavEeyp-IGhQD6lwQ" name="OrderDisplay">
-        <generalization xmi:id="_ejzoQOavEeyp-IGhQD6lwQ" general="_eMAMQOavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoKj0OavEeyp-IGhQD6lwQ" name="contentPane" visibility="private" type="_eMLyceavEeyp-IGhQD6lwQ" association="_e7dTQeavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoLx8OavEeyp-IGhQD6lwQ" name="textField" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e7l2IOavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoNAEOavEeyp-IGhQD6lwQ" name="textField_1" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e7tx8OavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoNnIeavEeyp-IGhQD6lwQ" name="textField_2" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e71tweavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoO1QOavEeyp-IGhQD6lwQ" name="textField_3" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e7-QoeavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoPcUeavEeyp-IGhQD6lwQ" name="textField_4" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e8GzgOavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoQDYeavEeyp-IGhQD6lwQ" name="textField_5" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e8OvUOavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoRRgeavEeyp-IGhQD6lwQ" name="textField_7" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e8WrIeavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoSfoOavEeyp-IGhQD6lwQ" name="textField_8" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e8fOAeavEeyp-IGhQD6lwQ"/>
-        <ownedAttribute xmi:id="_eoTGseavEeyp-IGhQD6lwQ" name="textField_9" visibility="private" type="_eMxBQeavEeyp-IGhQD6lwQ" association="_e8o_AeavEeyp-IGhQD6lwQ"/>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etZCEOavEeyp-IGhQD6lwQ" name="main" specification="_dnz6EOavEeyp-IGhQD6lwQ">
-          <ownedParameter xmi:id="_etZCEeavEeyp-IGhQD6lwQ" name="args">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_etZCEuavEeyp-IGhQD6lwQ" value="*"/>
-          </ownedParameter>
-          <language>java</language>
-          <body>EventQueue.invokeLater(new Runnable() {&#xD;
-			public void run() {&#xD;
-				try {&#xD;
-					OrderDisplay frame = new OrderDisplay();&#xD;
-					frame.setVisible(true);&#xD;
-				} catch (Exception e) {&#xD;
-					e.printStackTrace();&#xD;
-				}&#xD;
-			}&#xD;
-		});&#xD;
-	</body>
-        </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etZpIOavEeyp-IGhQD6lwQ" name="OrderDisplay" specification="_dn0hIeavEeyp-IGhQD6lwQ">
-          <ownedParameter xmi:id="_etZpIeavEeyp-IGhQD6lwQ" type="_dnw2wOavEeyp-IGhQD6lwQ" direction="return"/>
-          <language>java</language>
-          <body>setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 550, 537);&#xD;
-		contentPane = new JPanel();&#xD;
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
-		contentPane.setLayout(null);&#xD;
-		setContentPane(contentPane);&#xD;
-		&#xD;
-		JButton btnNewButton = new JButton(&quot;Ok&quot;);&#xD;
-		btnNewButton.setBounds(419, 469, 85, 21);&#xD;
-		contentPane.add(btnNewButton);&#xD;
-		&#xD;
-		JButton btnNewButton_1 = new JButton(&quot;Cancel&quot;);&#xD;
-		btnNewButton_1.addMouseListener(new MouseAdapter() {&#xD;
-			@Override&#xD;
-			public void mouseReleased(MouseEvent e) {&#xD;
-				OrderDisplay.this.setVisible(false);&#xD;
-			}&#xD;
-		});&#xD;
-		btnNewButton_1.setBounds(295, 469, 85, 21);&#xD;
-		contentPane.add(btnNewButton_1);&#xD;
-		&#xD;
-		JLabel lblNewLabel = new JLabel(&quot;Your Order&quot;);&#xD;
-		lblNewLabel.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 48));&#xD;
-		lblNewLabel.setBounds(10, 11, 494, 52);&#xD;
-		contentPane.add(lblNewLabel);&#xD;
-		&#xD;
-		JLabel lblNewLabel_1 = new JLabel(&quot;Products&quot;);&#xD;
-		lblNewLabel_1.setBounds(29, 88, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_1);&#xD;
-		&#xD;
-		JList list = new JList();&#xD;
-		list.setBounds(164, 87, 1, 1);&#xD;
-		contentPane.add(list);&#xD;
-		&#xD;
-		JLabel lblNewLabel_2 = new JLabel(&quot;Type&quot;);&#xD;
-		lblNewLabel_2.setBounds(29, 168, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_2);&#xD;
-		&#xD;
-		JLabel lblNewLabel_3 = new JLabel(&quot;Model&quot;);&#xD;
-		lblNewLabel_3.setBounds(29, 200, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_3);&#xD;
-		&#xD;
-		JLabel lblNewLabel_4 = new JLabel(&quot;Company&quot;);&#xD;
-		lblNewLabel_4.setBounds(29, 234, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_4);&#xD;
-		&#xD;
-		JLabel lblNewLabel_5 = new JLabel(&quot;Functionalities&quot;);&#xD;
-		lblNewLabel_5.setBounds(29, 272, 73, 13);&#xD;
-		contentPane.add(lblNewLabel_5);&#xD;
-		&#xD;
-		JLabel lblNewLabel_6 = new JLabel(&quot;Price&quot;);&#xD;
-		lblNewLabel_6.setBounds(29, 307, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_6);&#xD;
-		&#xD;
-		JLabel lblNewLabel_7 = new JLabel(&quot;Delivery&quot;);&#xD;
-		lblNewLabel_7.setBounds(29, 340, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_7);&#xD;
-		&#xD;
-		textField = new JTextField();&#xD;
-		textField.setEditable(false);&#xD;
-		textField.setBounds(107, 304, 96, 19);&#xD;
-		contentPane.add(textField);&#xD;
-		textField.setColumns(10);&#xD;
-		&#xD;
-		&#xD;
-		textField_1 = new JTextField();&#xD;
-		textField_1.setEditable(false);&#xD;
-		textField_1.setBounds(107, 269, 96, 19);&#xD;
-		contentPane.add(textField_1);&#xD;
-		textField_1.setColumns(10);&#xD;
-		&#xD;
-		textField_2 = new JTextField();&#xD;
-		textField_2.setEditable(false);&#xD;
-		textField_2.setBounds(107, 231, 96, 19);&#xD;
-		contentPane.add(textField_2);&#xD;
-		textField_2.setColumns(10);&#xD;
-		&#xD;
-		textField_3 = new JTextField();&#xD;
-		textField_3.setEditable(false);&#xD;
-		textField_3.setBounds(107, 197, 96, 19);&#xD;
-		contentPane.add(textField_3);&#xD;
-		textField_3.setColumns(10);&#xD;
-		&#xD;
-		textField_4 = new JTextField();&#xD;
-		textField_4.setEditable(false);&#xD;
-		textField_4.setBounds(107, 165, 96, 19);&#xD;
-		contentPane.add(textField_4);&#xD;
-		textField_4.setColumns(10);&#xD;
-		&#xD;
-		textField_5 = new JTextField();&#xD;
-		textField_5.setEditable(false);&#xD;
-		textField_5.setBounds(107, 450, 96, 19);&#xD;
-		contentPane.add(textField_5);&#xD;
-		textField_5.setColumns(10);&#xD;
-		&#xD;
-		JLabel lblNewLabel_8 = new JLabel(&quot;Total Price&quot;);&#xD;
-		lblNewLabel_8.setBounds(29, 453, 73, 13);&#xD;
-		contentPane.add(lblNewLabel_8);&#xD;
-		&#xD;
-		textField_7 = new JTextField();&#xD;
-		textField_7.setEditable(false);&#xD;
-		textField_7.setBounds(386, 197, 96, 19);&#xD;
-		contentPane.add(textField_7);&#xD;
-		textField_7.setColumns(10);&#xD;
-		&#xD;
-		JLabel lblNewLabel_10 = new JLabel(&quot;Name&quot;);&#xD;
-		lblNewLabel_10.setBounds(280, 200, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_10);&#xD;
-		&#xD;
-		textField_8 = new JTextField();&#xD;
-		textField_8.setEditable(false);&#xD;
-		textField_8.setBounds(386, 231, 96, 19);&#xD;
-		contentPane.add(textField_8);&#xD;
-		textField_8.setColumns(10);&#xD;
-		&#xD;
-		JLabel lblNewLabel_11 = new JLabel(&quot;Phone&quot;);&#xD;
-		lblNewLabel_11.setBounds(280, 234, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_11);&#xD;
-		&#xD;
-		textField_9 = new JTextField();&#xD;
-		textField_9.setEditable(false);&#xD;
-		textField_9.setBounds(386, 269, 96, 19);&#xD;
-		contentPane.add(textField_9);&#xD;
-		textField_9.setColumns(10);&#xD;
-		&#xD;
-		JLabel lblNewLabel_12 = new JLabel(&quot;Adress&quot;);&#xD;
-		lblNewLabel_12.setBounds(280, 272, 45, 13);&#xD;
-		contentPane.add(lblNewLabel_12);&#xD;
-	</body>
-        </ownedBehavior>
-        <ownedOperation xmi:id="_dnz6EOavEeyp-IGhQD6lwQ" name="main" isStatic="true" method="_etZCEOavEeyp-IGhQD6lwQ">
-          <ownedComment xmi:id="_eubj4OavEeyp-IGhQD6lwQ">
-            <body>Launch the application.</body>
-          </ownedComment>
-          <ownedParameter xmi:id="_dnz6EeavEeyp-IGhQD6lwQ" name="args">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dn0hIOavEeyp-IGhQD6lwQ" value="*"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xmi:id="_dn0hIeavEeyp-IGhQD6lwQ" name="OrderDisplay" method="_etZpIOavEeyp-IGhQD6lwQ">
-          <eAnnotations xmi:id="_dn1IMOavEeyp-IGhQD6lwQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-            <details xmi:id="_dn1IMeavEeyp-IGhQD6lwQ" key="create"/>
-          </eAnnotations>
-          <ownedComment xmi:id="_eubj4eavEeyp-IGhQD6lwQ">
-            <body>Create the frame.</body>
-          </ownedComment>
-          <ownedParameter xmi:id="_dn1IMuavEeyp-IGhQD6lwQ" type="_dnw2wOavEeyp-IGhQD6lwQ" direction="return"/>
-        </ownedOperation>
-      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_dn714OavEeyp-IGhQD6lwQ" name="PLogInDisplay">
         <generalization xmi:id="_ej5u4OavEeyp-IGhQD6lwQ" general="_eMAMQOavEeyp-IGhQD6lwQ"/>
         <ownedAttribute xmi:id="_eoUU0OavEeyp-IGhQD6lwQ" name="contentPane" visibility="private" type="_eMLyceavEeyp-IGhQD6lwQ" association="_e8yI8eavEeyp-IGhQD6lwQ"/>
@@ -5075,13 +5133,15 @@
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etaQMOavEeyp-IGhQD6lwQ" name="PLogInDisplay" specification="_ej35sOavEeyp-IGhQD6lwQ">
           <ownedParameter xmi:id="_etaQMeavEeyp-IGhQD6lwQ" name="appDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etaQMuavEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etaQM-avEeyp-IGhQD6lwQ" type="_dn714OavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etaQM-avEeyp-IGhQD6lwQ" type="_dn714OavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>appDisplay.setEnabled(false);&#xD;
 		pm = new JDBCPatientManager(manager);&#xD;
 &#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 450, 300);&#xD;
+		setBounds(450, 150, 500, 350);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
 		contentPane.setBackground(new Color(247, 247, 247));&#xD;
@@ -5091,14 +5151,14 @@
 		userName = new JTextField();&#xD;
 		userName.setBackground(new Color(247, 247, 247));&#xD;
 		userName.setBorder(null);&#xD;
-		userName.setBounds(140, 59, 149, 20);&#xD;
+		userName.setBounds(160, 59, 149, 20);&#xD;
 		contentPane.add(userName);&#xD;
 		userName.setColumns(10);&#xD;
 &#xD;
 		passwordHide = new JPasswordField();&#xD;
 		passwordHide.setBackground(new Color(247, 247, 247));&#xD;
 		passwordHide.setBorder(null);&#xD;
-		passwordHide.setBounds(140, 101, 149, 20);&#xD;
+		passwordHide.setBounds(160, 101, 149, 20);&#xD;
 		contentPane.add(passwordHide);&#xD;
 &#xD;
 		passwordReadable = new JTextField();&#xD;
@@ -5110,12 +5170,12 @@
 &#xD;
 		JLabel lblNewLabel = new JLabel(&quot;EMAIL:&quot;);&#xD;
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);&#xD;
-		lblNewLabel.setBounds(42, 61, 88, 17);&#xD;
+		lblNewLabel.setBounds(52, 61, 88, 17);&#xD;
 		contentPane.add(lblNewLabel);&#xD;
 &#xD;
 		JLabel lblNewLabel_1 = new JLabel(&quot;PASSWORD :&quot;);&#xD;
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);&#xD;
-		lblNewLabel_1.setBounds(42, 103, 88, 17);&#xD;
+		lblNewLabel_1.setBounds(52, 103, 88, 17);&#xD;
 		contentPane.add(lblNewLabel_1);&#xD;
 &#xD;
 		back = new JButton(&quot;&quot;);&#xD;
@@ -5128,7 +5188,7 @@
 				PLogInDisplay.this.setVisible(false);&#xD;
 			}&#xD;
 		});&#xD;
-		back.setBounds(10, 218, 32, 32);&#xD;
+		back.setBounds(10, 268, 32, 32);&#xD;
 		contentPane.add(back);&#xD;
 &#xD;
 		logIn = new JButton(&quot;LOG IN&quot;);&#xD;
@@ -5136,6 +5196,7 @@
 		logIn.setBackground(new Color(0, 191, 255));&#xD;
 		logIn.setVerticalAlignment(SwingConstants.CENTER);&#xD;
 		logIn.setForeground(Color.WHITE);&#xD;
+		logIn.setBorder(null);&#xD;
 		logIn.addActionListener(new ActionListener() {&#xD;
 			public void actionPerformed(ActionEvent e) {&#xD;
 				um = new JPAUserManager();&#xD;
@@ -5151,7 +5212,7 @@
 				}&#xD;
 			}&#xD;
 		});&#xD;
-		logIn.setBounds(107, 142, 213, 23);&#xD;
+		logIn.setBounds(130, 142, 213, 23);&#xD;
 		contentPane.add(logIn);&#xD;
 &#xD;
 		showPassword = new JCheckBox(&quot;&quot;);&#xD;
@@ -5172,11 +5233,12 @@
 				passwordHide.setText(passwordReadable.getText());&#xD;
 			}&#xD;
 		});&#xD;
-		showPassword.setBounds(295, 101, 25, 23);&#xD;
+		showPassword.setBounds(334, 100, 25, 23);&#xD;
+		showPassword.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(showPassword);&#xD;
 &#xD;
 		JLabel separation = new JLabel(&quot;-----------------------------------------------------\r\n&quot;);&#xD;
-		separation.setBounds(107, 170, 213, 14);&#xD;
+		separation.setBounds(130, 170, 213, 14);&#xD;
 		contentPane.add(separation);&#xD;
 &#xD;
 		JButton register = new JButton(&quot;Create New Account&quot;);&#xD;
@@ -5188,17 +5250,18 @@
 		});&#xD;
 		register.setBackground(Color.BLACK);&#xD;
 		register.setForeground(Color.WHITE);&#xD;
-		register.setBounds(107, 191, 213, 23);&#xD;
+		register.setBounds(130, 191, 213, 23);&#xD;
+		register.setBorder(null);&#xD;
 		contentPane.add(register);&#xD;
 		&#xD;
 		separator = new JSeparator();&#xD;
 		separator.setForeground(Color.BLACK);&#xD;
-		separator.setBounds(140, 79, 149, 5);&#xD;
+		separator.setBounds(160, 79, 149, 5);&#xD;
 		contentPane.add(separator);&#xD;
 		&#xD;
 		separator_1 = new JSeparator();&#xD;
 		separator_1.setForeground(Color.BLACK);&#xD;
-		separator_1.setBounds(140, 121, 149, 5);&#xD;
+		separator_1.setBounds(160, 121, 149, 5);&#xD;
 		contentPane.add(separator_1);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
@@ -5250,7 +5313,9 @@
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_eta3QOavEeyp-IGhQD6lwQ" name="PRegisterDisplay" specification="_ej_1gOavEeyp-IGhQD6lwQ">
           <ownedParameter xmi:id="_eta3QeavEeyp-IGhQD6lwQ" name="patientDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_eta3QuavEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_eta3Q-avEeyp-IGhQD6lwQ" type="_doHcEOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_eta3Q-avEeyp-IGhQD6lwQ" type="_doHcEOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>patientDisplay.setEnabled(false);&#xD;
 		pm = new JDBCPatientManager(manager);&#xD;
@@ -5303,7 +5368,7 @@
 			@Override&#xD;
 			public void keyReleased(KeyEvent e) {&#xD;
 				if (!name.getText().isEmpty() &amp;&amp; !id.getText().isEmpty() &amp;&amp; !email.getText().isEmpty()&#xD;
-						&amp;&amp; !phone.getText().isEmpty() &amp;&amp; !address.getText().isEmpty()&#xD;
+						&amp;&amp; (phone.getText().length() == 9) &amp;&amp; !address.getText().isEmpty()&#xD;
 						&amp;&amp; !medicalCond.getText().isEmpty() &amp;&amp; !passwordHide.getText().isEmpty()) {&#xD;
 					register.setEnabled(true);&#xD;
 				} else&#xD;
@@ -5340,7 +5405,7 @@
 			@Override&#xD;
 			public void keyReleased(KeyEvent e) {&#xD;
 				if (!name.getText().isEmpty() &amp;&amp; !id.getText().isEmpty() &amp;&amp; !email.getText().isEmpty()&#xD;
-						&amp;&amp; !phone.getText().isEmpty() &amp;&amp; !address.getText().isEmpty()&#xD;
+						&amp;&amp; (phone.getText().length() == 9) &amp;&amp; !address.getText().isEmpty()&#xD;
 						&amp;&amp; !medicalCond.getText().isEmpty() &amp;&amp; !passwordHide.getText().isEmpty()) {&#xD;
 					register.setEnabled(true);&#xD;
 				} else&#xD;
@@ -5356,9 +5421,16 @@
 		phone.setBorder(null);&#xD;
 		phone.addKeyListener(new KeyAdapter() {&#xD;
 			@Override&#xD;
+			public void keyTyped(KeyEvent e) {&#xD;
+				if (phone.getText().length() > 8) {&#xD;
+					e.consume(); // deja de procesar este evento&#xD;
+					Toolkit.getDefaultToolkit().beep();&#xD;
+				}&#xD;
+			}&#xD;
+			@Override&#xD;
 			public void keyReleased(KeyEvent e) {&#xD;
 				if (!name.getText().isEmpty() &amp;&amp; !id.getText().isEmpty() &amp;&amp; !email.getText().isEmpty()&#xD;
-						&amp;&amp; !phone.getText().isEmpty() &amp;&amp; !address.getText().isEmpty()&#xD;
+						&amp;&amp; (phone.getText().length() == 9) &amp;&amp; !address.getText().isEmpty()&#xD;
 						&amp;&amp; !medicalCond.getText().isEmpty() &amp;&amp; !passwordHide.getText().isEmpty()) {&#xD;
 					register.setEnabled(true);&#xD;
 				} else&#xD;
@@ -5376,7 +5448,7 @@
 			@Override&#xD;
 			public void keyReleased(KeyEvent e) {&#xD;
 				if (!name.getText().isEmpty() &amp;&amp; !id.getText().isEmpty() &amp;&amp; !email.getText().isEmpty()&#xD;
-						&amp;&amp; !phone.getText().isEmpty() &amp;&amp; !address.getText().isEmpty()&#xD;
+						&amp;&amp; (phone.getText().length() == 9) &amp;&amp; !address.getText().isEmpty()&#xD;
 						&amp;&amp; !medicalCond.getText().isEmpty() &amp;&amp; !passwordHide.getText().isEmpty()) {&#xD;
 					register.setEnabled(true);&#xD;
 				} else&#xD;
@@ -5412,7 +5484,7 @@
 			@Override&#xD;
 			public void keyReleased(KeyEvent e) {&#xD;
 				if (!name.getText().isEmpty() &amp;&amp; !id.getText().isEmpty() &amp;&amp; !email.getText().isEmpty()&#xD;
-						&amp;&amp; !phone.getText().isEmpty() &amp;&amp; !address.getText().isEmpty()&#xD;
+						&amp;&amp; (phone.getText().length() == 9) &amp;&amp; !address.getText().isEmpty()&#xD;
 						&amp;&amp; !medicalCond.getText().isEmpty() &amp;&amp; !passwordHide.getText().isEmpty()) {&#xD;
 					register.setEnabled(true);&#xD;
 				} else&#xD;
@@ -5593,6 +5665,7 @@
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
           <ownedParameter xmi:id="_etbeUuavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
           <language>java</language>
@@ -5629,14 +5702,16 @@
           <ownedParameter xmi:id="_etcscuavEeyp-IGhQD6lwQ" name="patient" type="_dr_2gOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etcsc-avEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etcsdOavEeyp-IGhQD6lwQ" name="um" type="_dqUbgOavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etcsdeavEeyp-IGhQD6lwQ" type="_doX6wOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etcsdeavEeyp-IGhQD6lwQ" type="_doX6wOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>pLogInDisplay.setEnabled(false);&#xD;
 		im = new JDBCInvoiceManager(manager);&#xD;
 		pm = new JDBCProstheticManager(manager);&#xD;
 &#xD;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
-		setBounds(100, 100, 636, 360);&#xD;
+		setBounds(450, 150, 636, 360);&#xD;
 		contentPane = new JPanel();&#xD;
 		contentPane.addMouseListener(new MouseAdapter() {&#xD;
 			@Override&#xD;
@@ -5803,7 +5878,9 @@
           <ownedParameter xmi:id="_etdTgeavEeyp-IGhQD6lwQ" name="companyMenuDisplay" type="_eMAMQOavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etdTguavEeyp-IGhQD6lwQ" name="company" type="_dqid8OavEeyp-IGhQD6lwQ"/>
           <ownedParameter xmi:id="_etdTg-avEeyp-IGhQD6lwQ" name="manager" type="_dpxo8OavEeyp-IGhQD6lwQ"/>
-          <ownedParameter xmi:id="_etdThOavEeyp-IGhQD6lwQ" type="_doczQOavEeyp-IGhQD6lwQ" direction="return"/>
+          <ownedParameter xmi:id="_etdThOavEeyp-IGhQD6lwQ" type="_doczQOavEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>pm = new JDBCProstheticManager(manager);&#xD;
 		matm = new JDBCMaterialManager(manager);&#xD;
@@ -5813,24 +5890,21 @@
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
 		setBounds(100, 100, 598, 382);&#xD;
 		contentPane = new JPanel();&#xD;
+		contentPane.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
 		contentPane.setLayout(null);&#xD;
 		setContentPane(contentPane);&#xD;
 &#xD;
-		JLabel lblNewLabel = new JLabel(&quot;Enter the following characteristics:&quot;);&#xD;
-		lblNewLabel.setBounds(58, 16, 328, 16);&#xD;
-		contentPane.add(lblNewLabel);&#xD;
-&#xD;
 		JLabel lblNewLabel_1 = new JLabel(&quot;Price&quot;);&#xD;
-		lblNewLabel_1.setBounds(20, 59, 61, 16);&#xD;
+		lblNewLabel_1.setBounds(20, 36, 61, 16);&#xD;
 		contentPane.add(lblNewLabel_1);&#xD;
 &#xD;
 		JLabel lblNewLabel_2 = new JLabel(&quot;Functionalities&quot;);&#xD;
-		lblNewLabel_2.setBounds(20, 87, 96, 16);&#xD;
+		lblNewLabel_2.setBounds(20, 73, 96, 16);&#xD;
 		contentPane.add(lblNewLabel_2);&#xD;
 &#xD;
 		JLabel lblNewLabel_3 = new JLabel(&quot;Type&quot;);&#xD;
-		lblNewLabel_3.setBounds(20, 115, 61, 16);&#xD;
+		lblNewLabel_3.setBounds(20, 108, 61, 16);&#xD;
 		contentPane.add(lblNewLabel_3);&#xD;
 &#xD;
 		JLabel lblNewLabel_4 = new JLabel(&quot;Model&quot;);&#xD;
@@ -5841,99 +5915,98 @@
 		lblNewLabel_5.setBounds(20, 171, 61, 16);&#xD;
 		contentPane.add(lblNewLabel_5);&#xD;
 &#xD;
-		JLabel lblNewLabel_6 = new JLabel(&quot;Measurements&quot;);&#xD;
-		lblNewLabel_6.setBounds(20, 199, 96, 16);&#xD;
+		JLabel lblNewLabel_6 = new JLabel(&quot;Measurements\r\n&quot;);&#xD;
+		lblNewLabel_6.setBounds(20, 220, 96, 16);&#xD;
 		contentPane.add(lblNewLabel_6);&#xD;
 &#xD;
 		textField = new JTextField();&#xD;
-		textField.setBounds(160, 54, 130, 26);&#xD;
+		textField.setBounds(160, 31, 130, 26);&#xD;
+		textField.setBackground(new Color(247, 247, 247));&#xD;
+		textField.setBorder(null);&#xD;
 		contentPane.add(textField);&#xD;
 		textField.setColumns(10);&#xD;
 &#xD;
 		textField_1 = new JTextField();&#xD;
-		textField_1.setBounds(160, 82, 130, 26);&#xD;
+		textField_1.setBounds(160, 68, 130, 26);&#xD;
+		textField_1.setBackground(new Color(247, 247, 247));&#xD;
+		textField_1.setBorder(null);&#xD;
 		contentPane.add(textField_1);&#xD;
 		textField_1.setColumns(10);&#xD;
 &#xD;
 		textField_3 = new JTextField();&#xD;
 		textField_3.setBounds(160, 138, 130, 26);&#xD;
+		textField_3.setBackground(new Color(247, 247, 247));&#xD;
+		textField_3.setBorder(null);&#xD;
 		contentPane.add(textField_3);&#xD;
 		textField_3.setColumns(10);&#xD;
 &#xD;
 		plastic = new JCheckBox(&quot;Plastic&quot;);&#xD;
-		plastic.setBounds(104, 167, 113, 23);&#xD;
+		plastic.setBounds(126, 180, 96, 23);&#xD;
+		plastic.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(plastic);&#xD;
 &#xD;
 		aluminium = new JCheckBox(&quot;Aluminium&quot;);&#xD;
-		aluminium.setBounds(333, 168, 99, 23);&#xD;
+		aluminium.setBounds(364, 180, 99, 23);&#xD;
+		aluminium.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(aluminium);&#xD;
 &#xD;
 		carbonFiber = new JCheckBox(&quot;Carbon Fiber&quot;);&#xD;
-		carbonFiber.setBounds(224, 168, 107, 23);&#xD;
+		carbonFiber.setBounds(237, 180, 96, 23);&#xD;
+		carbonFiber.setBackground(new Color(247, 247, 247));&#xD;
 		contentPane.add(carbonFiber);&#xD;
 &#xD;
 		lengthTxt = new JTextField();&#xD;
-		lengthTxt.setBounds(136, 197, 96, 20);&#xD;
+		lengthTxt.setBounds(136, 218, 96, 20);&#xD;
+		lengthTxt.setBackground(new Color(247, 247, 247));&#xD;
+		lengthTxt.setBorder(null);&#xD;
 		contentPane.add(lengthTxt);&#xD;
 		lengthTxt.setColumns(10);&#xD;
 &#xD;
 		widthTxt = new JTextField();&#xD;
-		widthTxt.setBounds(290, 197, 96, 20);&#xD;
+		widthTxt.setBounds(290, 218, 96, 20);&#xD;
+		widthTxt.setBackground(new Color(247, 247, 247));&#xD;
+		widthTxt.setBorder(null);&#xD;
 		contentPane.add(widthTxt);&#xD;
 		widthTxt.setColumns(10);&#xD;
 &#xD;
 		weightTxt = new JTextField();&#xD;
-		weightTxt.setBounds(455, 197, 96, 20);&#xD;
+		weightTxt.setBounds(448, 218, 96, 20);&#xD;
+		weightTxt.setBackground(new Color(247, 247, 247));&#xD;
+		weightTxt.setBorder(null);&#xD;
 		contentPane.add(weightTxt);&#xD;
 		weightTxt.setColumns(10);&#xD;
 &#xD;
 		JButton btnNewButton = new JButton(&quot;OK&quot;);&#xD;
 		btnNewButton.addActionListener(new ActionListener() {&#xD;
 			public void actionPerformed(ActionEvent e) {&#xD;
-				Measurement m = new Measurement();&#xD;
-				Prosthetic p = new Prosthetic();&#xD;
-				if(plastic.isSelected() || carbonFiber.isSelected() || aluminium.isSelected()) {&#xD;
-					try {&#xD;
-						p.setCompany(company);&#xD;
-						p.setPrice(Float.parseFloat(textField.getText()));&#xD;
-						p.setFunctionalities(textField_1.getText());&#xD;
-						p.setModel(textField_3.getText());&#xD;
-						p.setType(typeOptions.getSelectedItem().toString());&#xD;
-						Float length = Float.parseFloat(lengthTxt.getText());&#xD;
-						Float width = Float.parseFloat(widthTxt.getText());&#xD;
-						Float weight = Float.parseFloat(weightTxt.getText());&#xD;
-						m.setLengthiness(length);&#xD;
-						m.setWidth(width);&#xD;
-						m.setWeight(weight);&#xD;
-						if (mm.getMeasurement(length, width, weight) == null) {&#xD;
-							mm.addMeasurement(m);&#xD;
-						}&#xD;
-						m = mm.getMeasurement(length, width, weight);&#xD;
-						p.setMeasurement(m);&#xD;
-						Integer prosCode = pm.getProstheticCode(p);&#xD;
-						if (prosCode == null) {&#xD;
-							pm.uploadProsthetic(p);&#xD;
-							prosCode = pm.getLastProstheticCode(p);&#xD;
-							if (plastic.isSelected()) {&#xD;
-								Material plastic = matm.getMaterialByName(&quot;Plastic&quot;);&#xD;
-								matm.uploadMaterialOfProsthetic(plastic, prosCode);&#xD;
+				if(company.getEmail() == &quot;trial@gmail.com&quot;) {&#xD;
+					JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;Can't upload prosthetics to the data base&quot;, &quot;Message&quot;,&#xD;
+							JOptionPane.WARNING_MESSAGE);&#xD;
+				} else {&#xD;
+					Measurement m = new Measurement();&#xD;
+					Prosthetic p = new Prosthetic();&#xD;
+					if(plastic.isSelected() || carbonFiber.isSelected() || aluminium.isSelected()) {&#xD;
+						try {&#xD;
+							p.setCompany(company);&#xD;
+							p.setPrice(Float.parseFloat(textField.getText()));&#xD;
+							p.setFunctionalities(textField_1.getText());&#xD;
+							p.setModel(textField_3.getText());&#xD;
+							p.setType(typeOptions.getSelectedItem().toString());&#xD;
+							Float length = Float.parseFloat(lengthTxt.getText());&#xD;
+							Float width = Float.parseFloat(widthTxt.getText());&#xD;
+							Float weight = Float.parseFloat(weightTxt.getText());&#xD;
+							m.setLengthiness(length);&#xD;
+							m.setWidth(width);&#xD;
+							m.setWeight(weight);&#xD;
+							if (mm.getMeasurement(length, width, weight) == null) {&#xD;
+								mm.addMeasurement(m);&#xD;
 							}&#xD;
-							if (carbonFiber.isSelected()) {&#xD;
-								Material carbonFiber = matm.getMaterialByName(&quot;Carbon Fiber&quot;);&#xD;
-								matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);&#xD;
-							}&#xD;
-							if (aluminium.isSelected()) {&#xD;
-								Material aluminium = matm.getMaterialByName(&quot;Aluminium&quot;);&#xD;
-								matm.uploadMaterialOfProsthetic(aluminium, prosCode);&#xD;
-							}&#xD;
-							JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;New prosthetic added&quot;, &quot;Message&quot;,&#xD;
-									JOptionPane.PLAIN_MESSAGE);&#xD;
-							companyMenuDisplay.setEnabled(true);&#xD;
-							UploadProsthetic.this.setVisible(false);&#xD;
-						} else {&#xD;
-							if(checkMaterials(prosCode)) {&#xD;
+							m = mm.getMeasurement(length, width, weight);&#xD;
+							p.setMeasurement(m);&#xD;
+							Integer prosCode = pm.getProstheticCode(p);&#xD;
+							if (prosCode == null) {&#xD;
 								pm.uploadProsthetic(p);&#xD;
-								prosCode = pm.getLastProstheticCode(p);&#xD;
+								prosCode = pm.getLastProstheticCode();&#xD;
 								if (plastic.isSelected()) {&#xD;
 									Material plastic = matm.getMaterialByName(&quot;Plastic&quot;);&#xD;
 									matm.uploadMaterialOfProsthetic(plastic, prosCode);&#xD;
@@ -5950,15 +6023,37 @@
 										JOptionPane.PLAIN_MESSAGE);&#xD;
 								companyMenuDisplay.setEnabled(true);&#xD;
 								UploadProsthetic.this.setVisible(false);&#xD;
-							} else JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;This prosthetic already exists&quot;, &quot;Message&quot;,&#xD;
-									JOptionPane.INFORMATION_MESSAGE);&#xD;
+							} else {&#xD;
+								if(checkMaterials(prosCode)) {&#xD;
+									pm.uploadProsthetic(p);&#xD;
+									prosCode = pm.getLastProstheticCode();&#xD;
+									if (plastic.isSelected()) {&#xD;
+										Material plastic = matm.getMaterialByName(&quot;Plastic&quot;);&#xD;
+										matm.uploadMaterialOfProsthetic(plastic, prosCode);&#xD;
+									}&#xD;
+									if (carbonFiber.isSelected()) {&#xD;
+										Material carbonFiber = matm.getMaterialByName(&quot;Carbon Fiber&quot;);&#xD;
+										matm.uploadMaterialOfProsthetic(carbonFiber, prosCode);&#xD;
+									}&#xD;
+									if (aluminium.isSelected()) {&#xD;
+										Material aluminium = matm.getMaterialByName(&quot;Aluminium&quot;);&#xD;
+										matm.uploadMaterialOfProsthetic(aluminium, prosCode);&#xD;
+									}&#xD;
+									JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;New prosthetic added&quot;, &quot;Message&quot;,&#xD;
+											JOptionPane.PLAIN_MESSAGE);&#xD;
+									companyMenuDisplay.setEnabled(true);&#xD;
+									UploadProsthetic.this.setVisible(false);&#xD;
+								} else JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;This prosthetic already exists&quot;, &quot;Message&quot;,&#xD;
+										JOptionPane.INFORMATION_MESSAGE);&#xD;
+							}&#xD;
+						} catch(NumberFormatException nfe) {&#xD;
+							JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;Invalid price or measurement&quot;, &quot;Message&quot;,&#xD;
+									JOptionPane.ERROR_MESSAGE);&#xD;
 						}&#xD;
-					} catch(NumberFormatException nfe) {&#xD;
-						JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;Invalid price or measurement&quot;, &quot;Message&quot;,&#xD;
-								JOptionPane.ERROR_MESSAGE);&#xD;
-					}&#xD;
-				} else JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;Select a material&quot;, &quot;Message&quot;,&#xD;
-						JOptionPane.WARNING_MESSAGE);	&#xD;
+					} else JOptionPane.showMessageDialog(UploadProsthetic.this, &quot;Select a material&quot;, &quot;Message&quot;,&#xD;
+							JOptionPane.WARNING_MESSAGE);&#xD;
+				}&#xD;
+					&#xD;
 			}&#xD;
 		});&#xD;
 		btnNewButton.setBounds(455, 309, 89, 23);&#xD;
@@ -5966,23 +6061,23 @@
 &#xD;
 		JLabel lblNewLabel_7 = new JLabel(&quot;Length&quot;);&#xD;
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);&#xD;
-		lblNewLabel_7.setBounds(136, 235, 96, 14);&#xD;
+		lblNewLabel_7.setBounds(136, 249, 96, 14);&#xD;
 		contentPane.add(lblNewLabel_7);&#xD;
 &#xD;
 		JLabel lblNewLabel_7_1 = new JLabel(&quot;Width&quot;);&#xD;
 		lblNewLabel_7_1.setHorizontalAlignment(SwingConstants.CENTER);&#xD;
-		lblNewLabel_7_1.setBounds(290, 235, 96, 14);&#xD;
+		lblNewLabel_7_1.setBounds(290, 249, 96, 14);&#xD;
 		contentPane.add(lblNewLabel_7_1);&#xD;
 &#xD;
 		JLabel lblNewLabel_7_2 = new JLabel(&quot;Weight&quot;);&#xD;
 		lblNewLabel_7_2.setHorizontalAlignment(SwingConstants.CENTER);&#xD;
-		lblNewLabel_7_2.setBounds(455, 235, 96, 14);&#xD;
+		lblNewLabel_7_2.setBounds(448, 249, 96, 14);&#xD;
 		contentPane.add(lblNewLabel_7_2);&#xD;
 &#xD;
 		typeOptions = new JComboBox&lt;String>();&#xD;
 		typeOptions.setModel(new DefaultComboBoxModel&lt;String>(new String[] { &quot;Right arm&quot;, &quot;Right hand&quot;, &quot;Right leg&quot;,&#xD;
 				&quot;Right foot&quot;, &quot;Left arm&quot;, &quot;Left hand&quot;, &quot;Left leg&quot;, &quot;Left foot&quot; }));&#xD;
-		typeOptions.setBounds(160, 112, 130, 22);&#xD;
+		typeOptions.setBounds(160, 105, 130, 22);&#xD;
 		contentPane.add(typeOptions);&#xD;
 &#xD;
 		JButton back = new JButton(&quot;&quot;);&#xD;
@@ -5997,14 +6092,51 @@
 		back.setForeground(SystemColor.menu);&#xD;
 		back.setBounds(10, 300, 32, 32);&#xD;
 		contentPane.add(back);&#xD;
+		&#xD;
+		JSeparator separator = new JSeparator();&#xD;
+		separator.setForeground(Color.BLACK);&#xD;
+		separator.setBounds(160, 57, 130, 5);&#xD;
+		contentPane.add(separator);&#xD;
+		&#xD;
+		JSeparator separator_1 = new JSeparator();&#xD;
+		separator_1.setForeground(Color.BLACK);&#xD;
+		separator_1.setBounds(160, 94, 130, 5);&#xD;
+		contentPane.add(separator_1);&#xD;
+		&#xD;
+		JSeparator separator_2 = new JSeparator();&#xD;
+		separator_2.setForeground(Color.BLACK);&#xD;
+		separator_2.setBounds(160, 164, 130, 5);&#xD;
+		contentPane.add(separator_2);&#xD;
+		&#xD;
+		JSeparator separator_3 = new JSeparator();&#xD;
+		separator_3.setForeground(Color.BLACK);&#xD;
+		separator_3.setBounds(136, 238, 96, 5);&#xD;
+		contentPane.add(separator_3);&#xD;
+		&#xD;
+		JSeparator separator_4 = new JSeparator();&#xD;
+		separator_4.setForeground(Color.BLACK);&#xD;
+		separator_4.setBounds(290, 238, 96, 5);&#xD;
+		contentPane.add(separator_4);&#xD;
+		&#xD;
+		JSeparator separator_5 = new JSeparator();&#xD;
+		separator_5.setForeground(Color.BLACK);&#xD;
+		separator_5.setBounds(448, 238, 96, 5);&#xD;
+		contentPane.add(separator_5);&#xD;
+		&#xD;
+		JLabel lblNewLabel = new JLabel(&quot;(cm, kg)&quot;);&#xD;
+		lblNewLabel.setBounds(35, 235, 46, 14);&#xD;
+		contentPane.add(lblNewLabel);&#xD;
 &#xD;
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME&#xD;
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {&#xD;
 &#xD;
 			@Override&#xD;
 			public void windowClosing(WindowEvent e) {&#xD;
+				if(company.getEmail() == &quot;trial@gmail.com&quot;) {&#xD;
+					JDBCCompanyManager cm = new JDBCCompanyManager(manager);&#xD;
+					cm.deleteCompany(company);&#xD;
+				}&#xD;
 				manager.disconnect();&#xD;
-&#xD;
 			}&#xD;
 		};&#xD;
 		this.addWindowListener(exitListener);&#xD;
@@ -6016,6 +6148,7 @@
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
           <ownedParameter xmi:id="_etdTh-avEeyp-IGhQD6lwQ" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
           <language>java</language>
@@ -6274,36 +6407,6 @@
       <packagedElement xmi:type="uml:Association" xmi:id="_e7VXceavEeyp-IGhQD6lwQ" name="" memberEnd="_e7VXcuavEeyp-IGhQD6lwQ _eoJVsOavEeyp-IGhQD6lwQ">
         <ownedEnd xmi:id="_e7VXcuavEeyp-IGhQD6lwQ" name="" type="_dnnFwOavEeyp-IGhQD6lwQ" association="_e7VXceavEeyp-IGhQD6lwQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e7dTQeavEeyp-IGhQD6lwQ" name="" memberEnd="_e7dTQuavEeyp-IGhQD6lwQ _eoKj0OavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e7dTQuavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e7dTQeavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e7l2IOavEeyp-IGhQD6lwQ" name="" memberEnd="_e7l2IeavEeyp-IGhQD6lwQ _eoLx8OavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e7l2IeavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e7l2IOavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e7tx8OavEeyp-IGhQD6lwQ" name="" memberEnd="_e7tx8eavEeyp-IGhQD6lwQ _eoNAEOavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e7tx8eavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e7tx8OavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e71tweavEeyp-IGhQD6lwQ" name="" memberEnd="_e71twuavEeyp-IGhQD6lwQ _eoNnIeavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e71twuavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e71tweavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e7-QoeavEeyp-IGhQD6lwQ" name="" memberEnd="_e7-QouavEeyp-IGhQD6lwQ _eoO1QOavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e7-QouavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e7-QoeavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e8GzgOavEeyp-IGhQD6lwQ" name="" memberEnd="_e8GzgeavEeyp-IGhQD6lwQ _eoPcUeavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e8GzgeavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e8GzgOavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e8OvUOavEeyp-IGhQD6lwQ" name="" memberEnd="_e8OvUeavEeyp-IGhQD6lwQ _eoQDYeavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e8OvUeavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e8OvUOavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e8WrIeavEeyp-IGhQD6lwQ" name="" memberEnd="_e8WrIuavEeyp-IGhQD6lwQ _eoRRgeavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e8WrIuavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e8WrIeavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e8fOAeavEeyp-IGhQD6lwQ" name="" memberEnd="_e8fOAuavEeyp-IGhQD6lwQ _eoSfoOavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e8fOAuavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e8fOAeavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_e8o_AeavEeyp-IGhQD6lwQ" name="" memberEnd="_e8o_AuavEeyp-IGhQD6lwQ _eoTGseavEeyp-IGhQD6lwQ">
-        <ownedEnd xmi:id="_e8o_AuavEeyp-IGhQD6lwQ" name="" type="_dnw2wOavEeyp-IGhQD6lwQ" association="_e8o_AeavEeyp-IGhQD6lwQ"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_e8yI8eavEeyp-IGhQD6lwQ" name="" memberEnd="_e8yI8uavEeyp-IGhQD6lwQ _eoUU0OavEeyp-IGhQD6lwQ">
         <ownedEnd xmi:id="_e8yI8uavEeyp-IGhQD6lwQ" name="" type="_dn714OavEeyp-IGhQD6lwQ" association="_e8yI8eavEeyp-IGhQD6lwQ"/>
       </packagedElement>
@@ -6456,6 +6559,15 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_fEZM0eavEeyp-IGhQD6lwQ" name="" memberEnd="_fEZM0uavEeyp-IGhQD6lwQ _epNFoeavEeyp-IGhQD6lwQ">
         <ownedEnd xmi:id="_fEZM0uavEeyp-IGhQD6lwQ" name="" type="_doczQOavEeyp-IGhQD6lwQ" association="_fEZM0eavEeyp-IGhQD6lwQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8GkYwOdCEey4lZlXB2N28A" name="" memberEnd="_8GkYwedCEey4lZlXB2N28A _8F2AAOdCEey4lZlXB2N28A">
+        <ownedEnd xmi:id="_8GkYwedCEey4lZlXB2N28A" name="" type="_dmg5kOavEeyp-IGhQD6lwQ" association="_8GkYwOdCEey4lZlXB2N28A"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8G-ocOdCEey4lZlXB2N28A" name="" memberEnd="_8G-ocedCEey4lZlXB2N28A _8F31MOdCEey4lZlXB2N28A">
+        <ownedEnd xmi:id="_8G-ocedCEey4lZlXB2N28A" name="" type="_dnnFwOavEeyp-IGhQD6lwQ" association="_8G-ocOdCEey4lZlXB2N28A"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8HSKcedCEey4lZlXB2N28A" name="" memberEnd="_8HSKcudCEey4lZlXB2N28A _8F4cQedCEey4lZlXB2N28A">
+        <ownedEnd xmi:id="_8HSKcudCEey4lZlXB2N28A" name="" type="_dnnFwOavEeyp-IGhQD6lwQ" association="_8HSKcedCEey4lZlXB2N28A"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_df-zwOavEeyp-IGhQD6lwQ" name="com">
@@ -6903,16 +7015,6 @@
   <UMLLabProfile:LegacyStyledElement xmi:id="_eoIHkOavEeyp-IGhQD6lwQ" base_Element="_eoG5ceavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_eoIuoOavEeyp-IGhQD6lwQ" base_Element="_eoIHkeavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_eoJ8wOavEeyp-IGhQD6lwQ" base_Element="_eoJVsOavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoLK4OavEeyp-IGhQD6lwQ" base_Element="_eoKj0OavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoMZAOavEeyp-IGhQD6lwQ" base_Element="_eoLx8OavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoNnIOavEeyp-IGhQD6lwQ" base_Element="_eoNAEOavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoOOMOavEeyp-IGhQD6lwQ" base_Element="_eoNnIeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoPcUOavEeyp-IGhQD6lwQ" base_Element="_eoO1QOavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoQDYOavEeyp-IGhQD6lwQ" base_Element="_eoPcUeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoRRgOavEeyp-IGhQD6lwQ" base_Element="_eoQDYeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoR4kOavEeyp-IGhQD6lwQ" base_Element="_eoRRgeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoTGsOavEeyp-IGhQD6lwQ" base_Element="_eoSfoOavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_eoTtwOavEeyp-IGhQD6lwQ" base_Element="_eoTGseavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_eoVi8OavEeyp-IGhQD6lwQ" base_Element="_eoUU0OavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_eoWKAOavEeyp-IGhQD6lwQ" base_Element="_eoVi8eavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_eoWxEeavEeyp-IGhQD6lwQ" base_Element="_eoWxEOavEeyp-IGhQD6lwQ"/>
@@ -6976,7 +7078,6 @@
   <UMLLabProfile:LegacyStyledElement xmi:id="_epbIEOavEeyp-IGhQD6lwQ" base_Element="_epahAeavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_epc9QOavEeyp-IGhQD6lwQ" base_Element="_epcWMOavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_epeycOavEeyp-IGhQD6lwQ" base_Element="_epeLYOavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_epfZgOavEeyp-IGhQD6lwQ" base_Element="_epeyceavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:StyledElement xmi:id="_ephOsOavEeyp-IGhQD6lwQ" base_Element="_epgnoOavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_epic0OavEeyp-IGhQD6lwQ" base_Element="_ephOseavEeyp-IGhQD6lwQ">
     <associatedElement xmi:type="uml:Operation" xmi:id="_epic0eavEeyp-IGhQD6lwQ" name="getId" method="_etyDoOavEeyp-IGhQD6lwQ">
@@ -7519,16 +7620,6 @@
   <UMLLabProfile:Reference xmi:id="_e7M0kOavEeyp-IGhQD6lwQ" base_Element="_e7E4weavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_e7VXcOavEeyp-IGhQD6lwQ" base_Element="_e7M0keavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_e7dTQOavEeyp-IGhQD6lwQ" base_Element="_e7VXceavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e7lPEOavEeyp-IGhQD6lwQ" base_Element="_e7dTQeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e7tK4OavEeyp-IGhQD6lwQ" base_Element="_e7l2IOavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e71twOavEeyp-IGhQD6lwQ" base_Element="_e7tx8OavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e7-QoOavEeyp-IGhQD6lwQ" base_Element="_e71tweavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e8GMcOavEeyp-IGhQD6lwQ" base_Element="_e7-QoeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e8OIQOavEeyp-IGhQD6lwQ" base_Element="_e8GzgOavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e8WrIOavEeyp-IGhQD6lwQ" base_Element="_e8OvUOavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e8fOAOavEeyp-IGhQD6lwQ" base_Element="_e8WrIeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e8o_AOavEeyp-IGhQD6lwQ" base_Element="_e8fOAeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_e8yI8OavEeyp-IGhQD6lwQ" base_Element="_e8o_AeavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_e86r0OavEeyp-IGhQD6lwQ" base_Element="_e8yI8eavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_e9Ec0OavEeyp-IGhQD6lwQ" base_Element="_e86r0eavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_e9LxkOavEeyp-IGhQD6lwQ" base_Element="_e9Ec0eavEeyp-IGhQD6lwQ"/>
@@ -7591,7 +7682,6 @@
   <UMLLabProfile:Reference xmi:id="_fGhTwOavEeyp-IGhQD6lwQ" base_Element="_fGZ_AeavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_fGoogOavEeyp-IGhQD6lwQ" base_Element="_fGhTweavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_fGwkUOavEeyp-IGhQD6lwQ" base_Element="_fGoogeavEeyp-IGhQD6lwQ"/>
-  <UMLLabProfile:Reference xmi:id="_fG5HMOavEeyp-IGhQD6lwQ" base_Element="_fGxLYOavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_fHBqEOavEeyp-IGhQD6lwQ" base_Element="_fG5HMeavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_fHIXwOavEeyp-IGhQD6lwQ" base_Element="_fHBqEeavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_fHQTkOavEeyp-IGhQD6lwQ" base_Element="_fHI-0OavEeyp-IGhQD6lwQ"/>
@@ -7604,4 +7694,157 @@
   <UMLLabProfile:Reference xmi:id="_fIXG0OavEeyp-IGhQD6lwQ" base_Element="_fIMuwOavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_fIitAOavEeyp-IGhQD6lwQ" base_Element="_fIXt4OavEeyp-IGhQD6lwQ"/>
   <UMLLabProfile:Reference xmi:id="_fIr28OavEeyp-IGhQD6lwQ" base_Element="_fIitAeavEeyp-IGhQD6lwQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_8EvMwOdCEey4lZlXB2N28A" base_Element="_drtioOavEeyp-IGhQD6lwQ"/>
+  <UMLLabProfile:Annotations xmi:id="_8EyQEOdCEey4lZlXB2N28A" base_Element="_eqxL4OavEeyp-IGhQD6lwQ">
+    <annotations xmi:id="_8Ey3IOdCEey4lZlXB2N28A" name="XmlTransient"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_8E0FQOdCEey4lZlXB2N28A" base_Element="_eqxy8OavEeyp-IGhQD6lwQ">
+    <annotations xmi:id="_8E0FQedCEey4lZlXB2N28A" name="XmlElement"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_8E16cOdCEey4lZlXB2N28A" base_Element="_eqyaAOavEeyp-IGhQD6lwQ">
+    <annotations xmi:id="_8E16cedCEey4lZlXB2N28A" name="XmlElement"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_8E3voOdCEey4lZlXB2N28A" base_Element="_eqzBEOavEeyp-IGhQD6lwQ">
+    <annotations xmi:id="_8E3voedCEey4lZlXB2N28A" name="XmlElement"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_8E6y8OdCEey4lZlXB2N28A" base_Element="_drtioOavEeyp-IGhQD6lwQ">
+    <annotations xmi:id="_8E6y8edCEey4lZlXB2N28A" name="XmlAccessorType">
+      <annotationParameters xmi:id="_8FVCoOdCEey4lZlXB2N28A" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_8GKJEOdCEey4lZlXB2N28A" value="XmlAccessType.FIELD"/>
+      </annotationParameters>
+    </annotations>
+    <annotations xmi:id="_8E7aAOdCEey4lZlXB2N28A" name="XmlRootElement">
+      <annotationParameters xmi:id="_8E7aAedCEey4lZlXB2N28A" name="name" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_8GKJEedCEey4lZlXB2N28A" value="&quot;Measurement&quot;"/>
+      </annotationParameters>
+    </annotations>
+    <annotations xmi:id="_8E7aAudCEey4lZlXB2N28A" name="XmlType">
+      <annotationParameters xmi:id="_8E7aA-dCEey4lZlXB2N28A" name="propOrder">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_8GKJEudCEey4lZlXB2N28A" value="&quot;lengthiness&quot;"/>
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_8GKJE-dCEey4lZlXB2N28A" value="&quot;width&quot;"/>
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_8GKJFOdCEey4lZlXB2N28A" value="&quot;weight&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:StyledElement xmi:id="_8FVCoedCEey4lZlXB2N28A" base_Element="_eqv9wOavEeyp-IGhQD6lwQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_8FWQwOdCEey4lZlXB2N28A" base_Element="_eqxL4OavEeyp-IGhQD6lwQ">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_8FWQwedCEey4lZlXB2N28A" name="getId" method="_8GDbYOdCEey4lZlXB2N28A">
+      <ownedParameter xmi:id="_8FmvcOdCEey4lZlXB2N28A" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </associatedElement>
+    <associatedElement xmi:type="uml:Operation" xmi:id="_8FnWgOdCEey4lZlXB2N28A" name="setId" method="_8GECcedCEey4lZlXB2N28A">
+      <ownedParameter xmi:id="_8FnWgedCEey4lZlXB2N28A" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_8FXe4OdCEey4lZlXB2N28A" base_Element="_eqxy8OavEeyp-IGhQD6lwQ">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_8FXe4edCEey4lZlXB2N28A" name="getLengthiness" method="_8GECc-dCEey4lZlXB2N28A">
+      <ownedParameter xmi:id="_8Fn9kOdCEey4lZlXB2N28A" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </ownedParameter>
+    </associatedElement>
+    <associatedElement xmi:type="uml:Operation" xmi:id="_8Fn9kedCEey4lZlXB2N28A" name="setLengthiness" method="_8GECdedCEey4lZlXB2N28A">
+      <ownedParameter xmi:id="_8FokoOdCEey4lZlXB2N28A" name="length">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_8FYF8OdCEey4lZlXB2N28A" base_Element="_eqyaAOavEeyp-IGhQD6lwQ">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_8FYtAOdCEey4lZlXB2N28A" name="getWidth" method="_8GEpgedCEey4lZlXB2N28A">
+      <ownedParameter xmi:id="_8FpLsOdCEey4lZlXB2N28A" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </ownedParameter>
+    </associatedElement>
+    <associatedElement xmi:type="uml:Operation" xmi:id="_8FpLsedCEey4lZlXB2N28A" name="setWidth" method="_8GEpg-dCEey4lZlXB2N28A">
+      <ownedParameter xmi:id="_8FpLsudCEey4lZlXB2N28A" name="width">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_8FZUEOdCEey4lZlXB2N28A" base_Element="_eqzBEOavEeyp-IGhQD6lwQ">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_8FZUEedCEey4lZlXB2N28A" name="getWeight" method="_8GEphedCEey4lZlXB2N28A">
+      <ownedParameter xmi:id="_8FqZ0OdCEey4lZlXB2N28A" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </ownedParameter>
+    </associatedElement>
+    <associatedElement xmi:type="uml:Operation" xmi:id="_8FrA4OdCEey4lZlXB2N28A" name="setWeight" method="_8GEph-dCEey4lZlXB2N28A">
+      <ownedParameter xmi:id="_8FrA4edCEey4lZlXB2N28A" name="weight">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:StyledElement xmi:id="_8FaiMOdCEey4lZlXB2N28A" base_Element="_drwl8OavEeyp-IGhQD6lwQ"/>
+  <UMLLabProfile:StyledElement xmi:id="_8FaiMedCEey4lZlXB2N28A" base_Element="_drybIOavEeyp-IGhQD6lwQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_8F3OIOdCEey4lZlXB2N28A" base_Element="_8F2AAOdCEey4lZlXB2N28A"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_8F4cQOdCEey4lZlXB2N28A" base_Element="_8F31MOdCEey4lZlXB2N28A"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_8F5DUOdCEey4lZlXB2N28A" base_Element="_8F4cQedCEey4lZlXB2N28A"/>
+  <uml:OpaqueBehavior xmi:id="_8GDbYOdCEey4lZlXB2N28A" name="getId" specification="_8FWQwedCEey4lZlXB2N28A">
+    <ownedParameter xmi:id="_8GECcOdCEey4lZlXB2N28A" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return id;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_8GECcedCEey4lZlXB2N28A" name="setId" specification="_8FnWgOdCEey4lZlXB2N28A">
+    <ownedParameter xmi:id="_8GECcudCEey4lZlXB2N28A" name="id">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>this.id = id;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_8GECc-dCEey4lZlXB2N28A" name="getLengthiness" specification="_8FXe4edCEey4lZlXB2N28A">
+    <ownedParameter xmi:id="_8GECdOdCEey4lZlXB2N28A" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return lengthiness;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_8GECdedCEey4lZlXB2N28A" name="setLengthiness" specification="_8Fn9kedCEey4lZlXB2N28A">
+    <ownedParameter xmi:id="_8GEpgOdCEey4lZlXB2N28A" name="length">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>this.lengthiness = length;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_8GEpgedCEey4lZlXB2N28A" name="getWidth" specification="_8FYtAOdCEey4lZlXB2N28A">
+    <ownedParameter xmi:id="_8GEpgudCEey4lZlXB2N28A" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return width;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_8GEpg-dCEey4lZlXB2N28A" name="setWidth" specification="_8FpLsedCEey4lZlXB2N28A">
+    <ownedParameter xmi:id="_8GEphOdCEey4lZlXB2N28A" name="width">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>this.width = width;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_8GEphedCEey4lZlXB2N28A" name="getWeight" specification="_8FZUEedCEey4lZlXB2N28A">
+    <ownedParameter xmi:id="_8GEphudCEey4lZlXB2N28A" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return weight;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_8GEph-dCEey4lZlXB2N28A" name="setWeight" specification="_8FrA4OdCEey4lZlXB2N28A">
+    <ownedParameter xmi:id="_8GFQkOdCEey4lZlXB2N28A" name="weight">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>this.weight = weight;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <UMLLabProfile:Reference xmi:id="_8G-BYOdCEey4lZlXB2N28A" base_Element="_8GkYwOdCEey4lZlXB2N28A"/>
+  <UMLLabProfile:Reference xmi:id="_8HSKcOdCEey4lZlXB2N28A" base_Element="_8G-ocOdCEey4lZlXB2N28A"/>
+  <UMLLabProfile:Reference xmi:id="_8HlFYOdCEey4lZlXB2N28A" base_Element="_8HSKcedCEey4lZlXB2N28A"/>
 </xmi:XMI>

@@ -1,5 +1,6 @@
 package SwingWindows;
 
+import java.awt.Color;
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
 
 public class DesignProsthetic extends JFrame {
 
@@ -55,9 +57,10 @@ public class DesignProsthetic extends JFrame {
 		pm = new JDBCProstheticManager(manager);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 343);
+		setBounds(450, 150, 500, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(247, 247, 247));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
@@ -65,16 +68,16 @@ public class DesignProsthetic extends JFrame {
 		lblNewLabel.setBounds(10, 41, 45, 13);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Measurements");
+		JLabel lblNewLabel_1 = new JLabel("Measurements ");
 		lblNewLabel_1.setBounds(10, 80, 96, 13);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Functionalities");
-		lblNewLabel_2.setBounds(10, 117, 96, 13);
+		lblNewLabel_2.setBounds(10, 140, 96, 13);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Materials");
-		lblNewLabel_3.setBounds(10, 158, 76, 13);
+		lblNewLabel_3.setBounds(10, 184, 76, 13);
 		contentPane.add(lblNewLabel_3);
 
 		type = new JComboBox<String>();
@@ -84,35 +87,46 @@ public class DesignProsthetic extends JFrame {
 		contentPane.add(type);
 
 		lengthTxt = new JTextField();
-		lengthTxt.setBounds(128, 77, 96, 19);
+		lengthTxt.setBounds(128, 76, 96, 19);
+		lengthTxt.setBackground(new Color(247, 247, 247));
+		lengthTxt.setBorder(null);
 		contentPane.add(lengthTxt);
 		lengthTxt.setColumns(10);
 
 		widthTxt = new JTextField();
-		widthTxt.setBounds(234, 77, 96, 19);
+		widthTxt.setBounds(236, 76, 96, 19);
+		widthTxt.setBackground(new Color(247, 247, 247));
+		widthTxt.setBorder(null);
 		contentPane.add(widthTxt);
 		widthTxt.setColumns(10);
 
 		weightTxt = new JTextField();
-		weightTxt.setBounds(353, 77, 96, 19);
+		weightTxt.setBounds(350, 76, 96, 19);
+		weightTxt.setBackground(new Color(247, 247, 247));
+		weightTxt.setBorder(null);
 		contentPane.add(weightTxt);
 		weightTxt.setColumns(10);
 
 		functionalities = new JTextField();
-		functionalities.setBounds(128, 114, 96, 19);
+		functionalities.setBounds(128, 135, 128, 19);
+		functionalities.setBackground(new Color(247, 247, 247));
+		functionalities.setBorder(null);
 		contentPane.add(functionalities);
 		functionalities.setColumns(10);
 
 		JCheckBox plastic = new JCheckBox("Plastic");
-		plastic.setBounds(131, 154, 93, 21);
+		plastic.setBounds(128, 180, 93, 21);
+		plastic.setBackground(new Color(247, 247, 247));
 		contentPane.add(plastic);
 
 		JCheckBox carbonFiber = new JCheckBox("Carbon Fiber");
-		carbonFiber.setBounds(237, 154, 93, 21);
+		carbonFiber.setBounds(237, 180, 93, 21);
+		carbonFiber.setBackground(new Color(247, 247, 247));
 		contentPane.add(carbonFiber);
 
 		JCheckBox aluminium = new JCheckBox("Aluminum");
-		aluminium.setBounds(356, 154, 93, 21);
+		aluminium.setBounds(353, 180, 93, 21);
+		aluminium.setBackground(new Color(247, 247, 247));
 		contentPane.add(aluminium);
 
 		JButton btnNewButton = new JButton("DESIGN");
@@ -176,6 +190,42 @@ public class DesignProsthetic extends JFrame {
 		});
 		back.setBounds(10, 261, 32, 32);
 		contentPane.add(back);
+		
+		JLabel lblNewLabel_4 = new JLabel("Length");
+		lblNewLabel_4.setBounds(151, 100, 57, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_4_1 = new JLabel("Width");
+		lblNewLabel_4_1.setBounds(263, 100, 57, 14);
+		contentPane.add(lblNewLabel_4_1);
+		
+		JLabel lblNewLabel_4_2 = new JLabel("Weight");
+		lblNewLabel_4_2.setBounds(373, 100, 57, 14);
+		contentPane.add(lblNewLabel_4_2);
+		
+		JSeparator separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(128, 95, 96, 5);
+		contentPane.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setForeground(Color.BLACK);
+		separator_1.setBounds(236, 95, 96, 5);
+		contentPane.add(separator_1);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setForeground(Color.BLACK);
+		separator_2.setBounds(350, 95, 96, 5);
+		contentPane.add(separator_2);
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setForeground(Color.BLACK);
+		separator_3.setBounds(128, 154, 128, 5);
+		contentPane.add(separator_3);
+		
+		JLabel lblNewLabel_5 = new JLabel("(cm, kg)");
+		lblNewLabel_5.setBounds(25, 95, 46, 14);
+		contentPane.add(lblNewLabel_5);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
 		WindowListener exitListener = (WindowListener) new WindowAdapter() {

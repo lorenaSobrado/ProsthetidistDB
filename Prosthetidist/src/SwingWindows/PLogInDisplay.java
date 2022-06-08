@@ -51,7 +51,7 @@ public class PLogInDisplay extends JFrame {
 		pm = new JDBCPatientManager(manager);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 150, 500, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(247, 247, 247));
@@ -61,14 +61,14 @@ public class PLogInDisplay extends JFrame {
 		userName = new JTextField();
 		userName.setBackground(new Color(247, 247, 247));
 		userName.setBorder(null);
-		userName.setBounds(140, 59, 149, 20);
+		userName.setBounds(160, 59, 149, 20);
 		contentPane.add(userName);
 		userName.setColumns(10);
 
 		passwordHide = new JPasswordField();
 		passwordHide.setBackground(new Color(247, 247, 247));
 		passwordHide.setBorder(null);
-		passwordHide.setBounds(140, 101, 149, 20);
+		passwordHide.setBounds(160, 101, 149, 20);
 		contentPane.add(passwordHide);
 
 		passwordReadable = new JTextField();
@@ -80,12 +80,12 @@ public class PLogInDisplay extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("EMAIL:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel.setBounds(42, 61, 88, 17);
+		lblNewLabel.setBounds(52, 61, 88, 17);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("PASSWORD :");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1.setBounds(42, 103, 88, 17);
+		lblNewLabel_1.setBounds(52, 103, 88, 17);
 		contentPane.add(lblNewLabel_1);
 
 		back = new JButton("");
@@ -98,7 +98,7 @@ public class PLogInDisplay extends JFrame {
 				PLogInDisplay.this.setVisible(false);
 			}
 		});
-		back.setBounds(10, 218, 32, 32);
+		back.setBounds(10, 268, 32, 32);
 		contentPane.add(back);
 
 		logIn = new JButton("LOG IN");
@@ -106,6 +106,7 @@ public class PLogInDisplay extends JFrame {
 		logIn.setBackground(new Color(0, 191, 255));
 		logIn.setVerticalAlignment(SwingConstants.CENTER);
 		logIn.setForeground(Color.WHITE);
+		logIn.setBorder(null);
 		logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				um = new JPAUserManager();
@@ -121,7 +122,7 @@ public class PLogInDisplay extends JFrame {
 				}
 			}
 		});
-		logIn.setBounds(107, 142, 213, 23);
+		logIn.setBounds(130, 142, 213, 23);
 		contentPane.add(logIn);
 
 		showPassword = new JCheckBox("");
@@ -142,11 +143,12 @@ public class PLogInDisplay extends JFrame {
 				passwordHide.setText(passwordReadable.getText());
 			}
 		});
-		showPassword.setBounds(295, 101, 25, 23);
+		showPassword.setBounds(334, 100, 25, 23);
+		showPassword.setBackground(new Color(247, 247, 247));
 		contentPane.add(showPassword);
 
 		JLabel separation = new JLabel("-----------------------------------------------------\r\n");
-		separation.setBounds(107, 170, 213, 14);
+		separation.setBounds(130, 170, 213, 14);
 		contentPane.add(separation);
 
 		JButton register = new JButton("Create New Account");
@@ -158,17 +160,18 @@ public class PLogInDisplay extends JFrame {
 		});
 		register.setBackground(Color.BLACK);
 		register.setForeground(Color.WHITE);
-		register.setBounds(107, 191, 213, 23);
+		register.setBounds(130, 191, 213, 23);
+		register.setBorder(null);
 		contentPane.add(register);
 		
 		separator = new JSeparator();
 		separator.setForeground(Color.BLACK);
-		separator.setBounds(140, 79, 149, 5);
+		separator.setBounds(160, 79, 149, 5);
 		contentPane.add(separator);
 		
 		separator_1 = new JSeparator();
 		separator_1.setForeground(Color.BLACK);
-		separator_1.setBounds(140, 121, 149, 5);
+		separator_1.setBounds(160, 121, 149, 5);
 		contentPane.add(separator_1);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME

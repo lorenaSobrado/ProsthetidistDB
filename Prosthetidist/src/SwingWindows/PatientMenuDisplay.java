@@ -46,7 +46,7 @@ public class PatientMenuDisplay extends JFrame {
 		pm = new JDBCProstheticManager(manager);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 636, 360);
+		setBounds(450, 150, 636, 360);
 		contentPane = new JPanel();
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override

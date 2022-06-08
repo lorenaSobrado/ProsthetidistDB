@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import prosthetidist.jdbc.JDBCCompanyManager;
 import prosthetidist.jdbc.JDBCManager;
 import prosthetidist.jdbc.JDBCProstheticManager;
 import prosthetidist.pojos.Company;
@@ -41,7 +42,7 @@ public class OfferProsthetic extends JFrame {
 		companyMenuDisplay.setEnabled(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 150, 636, 360);
 		contentPane = new JPanel();
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
@@ -54,12 +55,12 @@ public class OfferProsthetic extends JFrame {
 		setContentPane(contentPane);
 
 		JLabel lblNewLabel = new JLabel("Prosthetic to design: ");
-		lblNewLabel.setBounds(55, 11, 218, 14);
+		lblNewLabel.setBounds(55, 15, 218, 26);
 		contentPane.add(lblNewLabel);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(26, 48, 370, 119);
+		scrollPane.setBounds(55, 69, 496, 145);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -102,18 +103,23 @@ public class OfferProsthetic extends JFrame {
 		JButton btnNewButton = new JButton("OFFER");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(table.getSelectedRowCount() > 0) {
-					int i = table.getSelectedRow();
-					Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 0).toString()));
-					JFrame offerProstheticByCompany = new OfferProstheticByCompany(OfferProsthetic.this, companyMenuDisplay, company, p, manager);
-					offerProstheticByCompany.setVisible(true);
+				if(company.getEmail() == "trial@gmail.com") {
+					JOptionPane.showMessageDialog(OfferProsthetic.this, "Option not allowed", "Message",
+							JOptionPane.WARNING_MESSAGE);
 				} else {
-					JOptionPane.showMessageDialog(OfferProsthetic.this, "Select a prosthetic first", "Message",
-							JOptionPane.PLAIN_MESSAGE);
+					if(table.getSelectedRowCount() > 0) {
+						int i = table.getSelectedRow();
+						Prosthetic p = pm.getProstheticByCode(Integer.valueOf(model.getValueAt(i, 0).toString()));
+						JFrame offerProstheticByCompany = new OfferProstheticByCompany(OfferProsthetic.this, companyMenuDisplay, company, p, manager);
+						offerProstheticByCompany.setVisible(true);
+					} else {
+						JOptionPane.showMessageDialog(OfferProsthetic.this, "Select a prosthetic first", "Message",
+								JOptionPane.PLAIN_MESSAGE);
+					}
 				}
 			}
 		});
-		btnNewButton.setBounds(327, 231, 89, 23);
+		btnNewButton.setBounds(491, 274, 89, 23);
 		contentPane.add(btnNewButton);
 
 		JButton back = new JButton("");
@@ -125,7 +131,7 @@ public class OfferProsthetic extends JFrame {
 				OfferProsthetic.this.setVisible(false);
 			}
 		});
-		back.setBounds(10, 218, 32, 32);
+		back.setBounds(10, 278, 32, 32);
 		contentPane.add(back);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
@@ -133,8 +139,11 @@ public class OfferProsthetic extends JFrame {
 
 			@Override
 			public void windowClosing(WindowEvent e) {
+				if(company.getEmail() == "trial@gmail.com") {
+					JDBCCompanyManager cm = new JDBCCompanyManager(manager);
+					cm.deleteCompany(company);
+				} 
 				manager.disconnect();
-
 			}
 		};
 		this.addWindowListener(exitListener);

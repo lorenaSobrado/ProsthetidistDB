@@ -29,7 +29,7 @@ public class AppDisplay extends JFrame {
 	public AppDisplay(JDBCManager manager) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 150, 500, 350);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -38,8 +38,8 @@ public class AppDisplay extends JFrame {
 		JButton btnNewButton_1 = new JButton("PATIENT");
 		btnNewButton_1.setBackground(SystemColor.inactiveCaption);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setBounds(247, 196, 158, 36);
-
+		btnNewButton_1.setBounds(277, 243, 172, 43);
+		btnNewButton_1.setBorder(null);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame pLogInDisplay = new PLogInDisplay(AppDisplay.this, manager);
@@ -51,7 +51,8 @@ public class AppDisplay extends JFrame {
 
 		JButton btnNewButton = new JButton("COMPANY");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(28, 196, 158, 36);
+		btnNewButton.setBounds(33, 243, 166, 43);
+		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(SystemColor.inactiveCaption);
 
 		btnNewButton.addActionListener(new ActionListener() {
@@ -64,19 +65,20 @@ public class AppDisplay extends JFrame {
 
 		txtProsthetidist = new JTextField();
 		txtProsthetidist.setForeground(new Color(0, 0, 0));
-		txtProsthetidist.setBounds(28, 140, 377, 36);
+		txtProsthetidist.setBounds(57, 156, 377, 36);
 		txtProsthetidist.setCaretColor(SystemColor.inactiveCaptionBorder);
 		txtProsthetidist.setBackground(SystemColor.inactiveCaptionBorder);
 		txtProsthetidist.setHorizontalAlignment(SwingConstants.CENTER);
 		txtProsthetidist.setFont(new Font("Perpetua", Font.BOLD | Font.ITALIC, 40));
 		txtProsthetidist.setText("PROSTHETIDIST\r\n");
+		txtProsthetidist.setBorder(null);
 		contentPane.add(txtProsthetidist);
 		txtProsthetidist.setColumns(30);
 
 		JLabel imgLabel = new JLabel("");
 		Image img = new ImageIcon(this.getClass().getResource("/prosthetic.png")).getImage();
 		imgLabel.setIcon(new ImageIcon(img));
-		imgLabel.setBounds(107, 0, 205, 129);
+		imgLabel.setBounds(117, 16, 205, 129);
 		contentPane.add(imgLabel);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME

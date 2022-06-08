@@ -3,17 +3,30 @@ package prosthetidist.pojos;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "Measurement")
+@XmlType(propOrder = { "lengthiness", "width", "weight" })
 public class Measurement implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4715526459276722419L;
+	@XmlTransient
 	private Integer id;
+	@XmlElement
 	private float lengthiness;
+	@XmlElement
 	private float width;
+	@XmlElement
 	private float weight;
-//CONSTRUCTOR
+	
+	
 	public Measurement() {
 		super();
 	}

@@ -1,7 +1,7 @@
 package SwingWindows;
 
 import java.awt.Image;
-
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -62,7 +62,7 @@ public class CRegisterDisplay extends JFrame {
 		um = new JPAUserManager();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 150, 500, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(247, 247, 247));
@@ -91,7 +91,7 @@ public class CRegisterDisplay extends JFrame {
 		name.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()
+				if (!name.getText().isEmpty() && (phone.getText().length() == 9) && !email.getText().isEmpty()
 						&& !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
 				} else
@@ -107,8 +107,15 @@ public class CRegisterDisplay extends JFrame {
 		phone.setBorder(null);
 		phone.addKeyListener(new KeyAdapter() {
 			@Override
+			public void keyTyped(KeyEvent e) {
+				if (phone.getText().length() > 8) {
+					e.consume(); // deja de procesar este evento
+					Toolkit.getDefaultToolkit().beep();
+				}
+			}
+			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()
+				if (!name.getText().isEmpty() && (phone.getText().length() == 9) && !email.getText().isEmpty()
 						&& !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
 				} else
@@ -125,7 +132,7 @@ public class CRegisterDisplay extends JFrame {
 		email.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!name.getText().isEmpty() && !phone.getText().isEmpty() && !email.getText().isEmpty()
+				if (!name.getText().isEmpty() && (phone.getText().length() == 9) && !email.getText().isEmpty()
 						&& !passwordHide.getText().isEmpty()) {
 					register.setEnabled(true);
 				} else 
@@ -155,7 +162,7 @@ public class CRegisterDisplay extends JFrame {
 				CRegisterDisplay.this.setVisible(false);
 			}
 		});
-		back.setBounds(10, 218, 32, 32);
+		back.setBounds(10, 268, 32, 32);
 		contentPane.add(back);
 
 		register = new JButton("Register");
@@ -200,7 +207,7 @@ public class CRegisterDisplay extends JFrame {
 				}
 			}
 		});
-		register.setBounds(302, 227, 110, 23);
+		register.setBounds(352, 268, 110, 23);
 		contentPane.add(register);
 
 		passwordHide = new JPasswordField();
@@ -237,7 +244,7 @@ public class CRegisterDisplay extends JFrame {
 				passwordHide.setText(passwordReadable.getText());
 			}
 		});
-		showPassword.setBounds(302, 167, 30, 23);
+		showPassword.setBounds(311, 168, 30, 23);
 		contentPane.add(showPassword);
 		
 		separator = new JSeparator();

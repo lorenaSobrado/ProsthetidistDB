@@ -43,7 +43,7 @@ public class JDBCMeasurementManager implements MeasurementManager {
 			rs.close();
 			prep.close();
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			return null;
 		}
 		return m;
 	}
@@ -63,7 +63,6 @@ public class JDBCMeasurementManager implements MeasurementManager {
 			rs.close();
 			prep.close();
 		} catch (SQLException ex) {
-//			System.out.println("No measurement, well create it");
 			return m; // returns null if the no rs exception is thrown
 		}
 		return m;

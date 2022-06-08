@@ -5,25 +5,45 @@
 	<!ELEMENT name (#PCDATA)>
 	<!ELEMENT email (#PCDATA)>
 	<!ELEMENT phone (#PCDATA)>
-	<!ELEMENT Prosthetics (prosthetics)>
+	<!ELEMENT Prosthetics (prosthetics+)>
 	<!ATTLIST prosthetics code CDATA #REQUIRED>
-	<!ELEMENT prosthetics (price, functionalities, type, model)>
+	<!ELEMENT prosthetics (price, functionalities, type, model, measurement)>
 	<!ELEMENT price (#PCDATA)>
 	<!ELEMENT functionalities (#PCDATA)>
 	<!ELEMENT type (#PCDATA)>
 	<!ELEMENT model (#PCDATA)>
+	<!ELEMENT measurement (lengthiness, width, weight)>
+	<!ELEMENT lengthiness (#PCDATA)>
+	<!ELEMENT width (#PCDATA)>
+	<!ELEMENT weight (#PCDATA)>
 ]>
 
 <Company>
-	<name>ExoHealth</name>
-	<email>exohealth@health.com</email>
+	<name>My Company</name>
+	<email>trial@gmail.com</email>
 	<phone>910234567</phone>
 	<Prosthetics>
-		<prosthetics code="213">
+		<prosthetics code="999999999">
 			<price> 89.99 </price>
 			<functionalities> Walk and jump </functionalities>
 			<type> Right leg </type>
 			<model> C980 </model>
+			<measurement>
+                <lengthiness>100.0</lengthiness>
+                <width>10.0</width>
+                <weight>2.5</weight>
+            </measurement>
+		</prosthetics>
+		<prosthetics code="999999998">
+			<price> 149.99 </price>
+			<functionalities> Grab things </functionalities>
+			<type> Right hand </type>
+			<model> H150 </model>
+			<measurement>
+                <lengthiness>15.0</lengthiness>
+                <width>8.0</width>
+                <weight>1.5</weight>
+            </measurement>
 		</prosthetics>
 	</Prosthetics>
 </Company>

@@ -184,5 +184,21 @@ public class JDBCCompanyManager implements CompanyManager {
 		}
 		return c;
 	}
+	
+	public Integer getLastCompanyId() {
+		Integer id = null;
+		try {
+			String sql = "SELECT last_insert_rowid() AS lastId";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			ResultSet rs = prep.executeQuery();
+			id = rs.getInt("lastId");
+			
+			rs.close();
+			prep.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return id;
+	}
 
 }

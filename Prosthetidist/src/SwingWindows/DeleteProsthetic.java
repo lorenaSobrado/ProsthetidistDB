@@ -43,7 +43,7 @@ public class DeleteProsthetic extends JFrame {
 		companyMenuDisplay.setEnabled(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 150, 636, 360);
 		contentPane = new JPanel();
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
@@ -95,7 +95,7 @@ public class DeleteProsthetic extends JFrame {
 
 		scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(21, 23, 403, 144);
+		scrollPane.setBounds(43, 42, 521, 146);
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(table);
 
@@ -108,7 +108,7 @@ public class DeleteProsthetic extends JFrame {
 				DeleteProsthetic.this.setVisible(false);
 			}
 		});
-		back.setBounds(10, 218, 32, 32);
+		back.setBounds(10, 278, 32, 32);
 		contentPane.add(back);
 
 		JButton delete = new JButton("DELETE");
@@ -130,7 +130,7 @@ public class DeleteProsthetic extends JFrame {
 				}
 			}
 		});
-		delete.setBounds(306, 218, 89, 23);
+		delete.setBounds(468, 268, 110, 32);
 		contentPane.add(delete);
 
 		// CLOSING CONNECTION WHEN PRESSING THE X OF THE JFRAME
@@ -138,6 +138,9 @@ public class DeleteProsthetic extends JFrame {
 
 			@Override
 			public void windowClosing(WindowEvent e) {
+				if(company.getEmail() == "trial@gmail.com") {
+					cm.deleteCompany(company);
+				}
 				manager.disconnect();
 
 			}
